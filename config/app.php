@@ -145,6 +145,11 @@ return [
 		'Vain\Providers\EventServiceProvider',
 		'Vain\Providers\RouteServiceProvider',
 
+        /*
+         * Package service provider
+         */
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+
 	],
 
 	/*
