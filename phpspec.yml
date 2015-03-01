@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Vain
+        psr4_prefix: Vain
+        src_path: app
