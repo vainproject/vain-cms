@@ -151,7 +151,7 @@ return [
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
         'Pingpong\Modules\ModulesServiceProvider',
-        'Zizaco\Entrust\EntrustServiceProvider',
+
 	],
 
 	/*
@@ -204,7 +204,6 @@ return [
          * Custom package facades
          */
         'Debugbar'  => 'Barryvdh\Debugbar\Facade',
-        'Entrust' => 'Zizaco\Entrust\EntrustFacade',
 
 	],
 

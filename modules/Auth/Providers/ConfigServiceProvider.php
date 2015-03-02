@@ -16,6 +16,10 @@ class ConfigServiceProvider extends ServiceProvider {
 	public function register()
 	{
         $this->mergeConfigFrom(
+            __DIR__.'/../Config/app.php', 'app'
+        );
+
+        $this->mergeConfigFrom(
             __DIR__.'/../Config/auth.php', 'auth'
         );
 
