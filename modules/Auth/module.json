@@ -6,7 +6,8 @@
     "active": 1,
     "priority": 0,
     "providers": [
-        "Modules\\Auth\\Providers\\AuthServiceProvider",
+      "Modules\\Auth\\Providers\\AuthServiceProvider",
+        "Modules\\Auth\\Providers\\ConfigServiceProvider",
         "Modules\\Auth\\Providers\\RouteServiceProvider"
     ],
     "aliases":{},

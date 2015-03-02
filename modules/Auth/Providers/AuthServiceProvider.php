@@ -11,6 +11,16 @@ class AuthServiceProvider extends ServiceProvider {
 	 */
 	protected $defer = false;
 
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+
+    }
+
 	/**
 	 * Register the service provider.
 	 *
@@ -22,16 +32,6 @@ class AuthServiceProvider extends ServiceProvider {
             'Illuminate\Contracts\Auth\Registrar',
             'Modules\Auth\Services\Registrar'
         );
-	}
-
-	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return array();
 	}
 
 }
