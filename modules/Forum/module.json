@@ -1,0 +1,15 @@
+{
+    "name": "Forum",
+    "alias": "forum",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "priority": 0,
+    "providers": [
+        "Modules\\Forum\\Providers\\ForumServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}
