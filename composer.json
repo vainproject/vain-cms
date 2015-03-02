@@ -6,6 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "5.0.*",
+        "pingpong/modules": "2.0.x-dev",
+        "zizaco/entrust": "dev-laravel-5",
 		"barryvdh/laravel-ide-helper": "~2.0",
 		"barryvdh/laravel-debugbar": "~2.0"
 	},
@@ -18,7 +20,8 @@
 			"database"
 		],
 		"psr-4": {
-			"Vain\\": "app/"
+			"Vain\\": "app/",
+            "Modules\\": "modules/"
 		}
 	},
 	"autoload-dev": {

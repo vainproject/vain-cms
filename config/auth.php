@@ -28,7 +28,7 @@ return [
 	|
 	*/
 
-	'model' => 'Vain\User',
+	'model' => 'Modules\User\Entities\User',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -59,7 +59,7 @@ return [
 	*/
 
 	'password' => [
-		'email' => 'emails.password',
+		'email' => 'auth::emails.password',
 		'table' => 'password_resets',
 		'expire' => 60,
 	],
