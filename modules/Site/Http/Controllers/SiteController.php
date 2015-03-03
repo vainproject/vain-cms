@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\View;
 
 class SiteController extends Controller {
 
-	public function index()
-	{
-		return View::make('site::index');
-	}
-	
+    public function index()
+    {
+        return View::make('site::index');
+    }
+    
 }

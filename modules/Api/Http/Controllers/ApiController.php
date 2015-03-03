@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\View;
 
 class ApiController extends Controller {
 
-	public function index()
-	{
-		return View::make('api::index');
-	}
-	
+    public function index()
+    {
+        return View::make('api::index');
+    }
+    
 }

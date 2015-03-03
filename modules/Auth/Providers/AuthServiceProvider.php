@@ -4,12 +4,12 @@ use Illuminate\Support\ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider {
 
-	/**
-	 * Indicates if loading of the provider is deferred.
-	 *
-	 * @var bool
-	 */
-	protected $defer = false;
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
 
     /**
      * Bootstrap any application services.
@@ -21,17 +21,17 @@ class AuthServiceProvider extends ServiceProvider {
 
     }
 
-	/**
-	 * Register the service provider.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
         $this->app->bind(
             'Illuminate\Contracts\Auth\Registrar',
             'Modules\Auth\Services\Registrar'
         );
-	}
+    }
 
 }

@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\View;
 
 class ForumController extends Controller {
 
-	public function index()
-	{
-		return View::make('forum::index');
-	}
-	
+    public function index()
+    {
+        return View::make('forum::index');
+    }
+    
 }
