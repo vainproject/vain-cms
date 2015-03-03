@@ -2,5 +2,5 @@
 
 Route::group(['prefix' => 'site', 'namespace' => 'Modules\Site\Http\Controllers'], function()
 {
-	Route::get('/', 'SiteController@index');
+    Route::get('/', 'SiteController@index');
 });
