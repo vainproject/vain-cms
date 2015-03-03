@@ -1,5 +1,11 @@
 suites:
-    main:
+
+    app:
         namespace: Vain
         psr4_prefix: Vain
         src_path: app
+
+    modules:
+        namespace: Modules
+        src_path: modules
+

@@ -48,7 +48,7 @@ return [
         |
         */
 
-        'assets' => public_path('modules'),
+        'assets' => public_path('static'),
 
         /*
         |--------------------------------------------------------------------------
@@ -72,7 +72,7 @@ return [
         */
 
         'generator' => [
-            'assets' => 'Assets',
+            'assets' => 'Resources/assets',
             'config' => 'Config',
             'command' => 'Console',
             'migration' => 'Database/Migrations',
