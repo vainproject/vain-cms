@@ -1,4 +1,4 @@
-<?php namespace Modules\Auth\Http\Controllers;
+<?php namespace Modules\User\Http\Controllers;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Vain\Http\Controllers\Controller;
@@ -38,7 +38,7 @@ class PasswordController extends Controller {
 
     public function getEmail()
     {
-        return view('auth::password');
+        return view('user::password');
     }
 
     public function getReset( $token = null )
@@ -48,6 +48,6 @@ class PasswordController extends Controller {
             throw new NotFoundHttpException;
         }
 
-        return view('auth::reset')->with('token', $token);
+        return view('user::reset')->with('token', $token);
     }
 }

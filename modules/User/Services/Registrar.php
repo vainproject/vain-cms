@@ -1,4 +1,4 @@
-<?php namespace Modules\Auth\Services;
+<?php namespace Modules\User\Services;
 
 use Modules\User\Entities\User;
 use Validator;

@@ -1,4 +1,4 @@
-<?php namespace Modules\Auth\Http\Controllers;
+<?php namespace Modules\User\Http\Controllers;
 
 use Vain\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
@@ -37,11 +37,11 @@ class AuthController extends Controller {
 
     public function getRegister()
     {
-        return view('auth::register');
+        return view('user::register');
     }
 
     public function getLogin()
     {
-        return view('auth::login');
+        return view('user::login');
     }
 }

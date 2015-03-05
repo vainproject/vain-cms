@@ -1,4 +1,4 @@
-<?php namespace Modules\Auth\Providers;
+<?php namespace Modules\User\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider {
      *
      * @var string
      */
-    protected $namespace = 'Modules\Auth\Http\Controllers';
+    protected $namespace = 'Modules\User\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -37,7 +37,7 @@ class RouteServiceProvider extends ServiceProvider {
     {
         $router->group(['namespace' => $this->namespace], function($router)
         {
-            require base_path('modules/Auth/Http/routes.php');
+            require base_path('modules/User/Http/routes.php');
         });
     }
 

@@ -20,7 +20,7 @@ return array(
     |
     */
 
-    'role' => 'Modules\Auth\Entities\Role',
+    'role' => 'Modules\User\Entities\Role',
 
     /*
     |--------------------------------------------------------------------------
@@ -43,7 +43,7 @@ return array(
     |
     */
 
-    'permission' => 'Modules\Auth\Entities\Permission',
+    'permission' => 'Modules\User\Entities\Permission',
 
     /*
     |--------------------------------------------------------------------------

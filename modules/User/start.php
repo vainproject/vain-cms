@@ -15,5 +15,3 @@
 Lang::addNamespace('user', __DIR__.'/Resources/lang');
 
 View::addNamespace('user', __DIR__.'/Resources/views');
-
-require __DIR__ . '/Http/routes.php';

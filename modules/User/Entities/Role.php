@@ -1,4 +1,4 @@
-<?php namespace Modules\Auth\Entities;
+<?php namespace Modules\User\Entities;
 
 use Zizaco\Entrust\EntrustRole;
 
