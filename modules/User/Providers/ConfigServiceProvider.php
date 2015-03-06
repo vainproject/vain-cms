@@ -1,5 +1,7 @@
 <?php namespace Modules\User\Providers;
 
+use Illuminate\Foundation\AliasLoader;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 
 class ConfigServiceProvider extends ServiceProvider {
@@ -16,16 +18,15 @@ class ConfigServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/app.php', 'app'
+            __DIR__.'/../Config/auth.php', 'auth'
         );
 
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/auth.php', 'auth'
+            __DIR__.'/../Config/services.php', 'services'
         );
 
         $this->mergeConfigFrom(
             __DIR__.'/../Config/entrust.php', 'entrust'
         );
     }
-
 }

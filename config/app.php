@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://vain.app',
+    'url' => env('APP_URL'),
 
     /*
     |--------------------------------------------------------------------------
@@ -151,7 +151,8 @@ return [
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
         'Pingpong\Modules\ModulesServiceProvider',
-
+        'Laravel\Socialite\SocialiteServiceProvider',
+        'Zizaco\Entrust\EntrustServiceProvider',
     ],
 
     /*
@@ -204,7 +205,8 @@ return [
          * Custom package facades
          */
         'Debugbar'  => 'Barryvdh\Debugbar\Facade',
-
+        'Socialize' => 'Laravel\Socialite\Facades\Socialite',
+        'Entrust' => 'Zizaco\Entrust\EntrustFacade',
     ],
 
 ];
