@@ -14,7 +14,6 @@ var styles_include = [
      | Module Stylesheets
      |--------------------------------------------------------------------------
      */
-    './modules/Auth/Resources/assets/less',
     './modules/Forum/Resources/assets/less',
     './modules/Site/Resources/assets/less',
     './modules/User/Resources/assets/less',
@@ -36,7 +35,6 @@ var scripts_include = [
      | Module Javascript
      |--------------------------------------------------------------------------
      */
-    './modules/Auth/Resources/assets/js/*.js',
     './modules/Forum/Resources/assets/js/*.js',
     './modules/Site/Resources/assets/js/*.js',
     './modules/User/Resources/assets/js/*.js',
