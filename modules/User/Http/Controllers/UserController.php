@@ -4,8 +4,18 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\User\Entities\User;
+use Modules\User\Services\Updater;
 
 class UserController extends Controller {
+
+    protected $updater;
+
+    function __construct(Updater $updater)
+    {
+        $this->updater = $updater;
+
+        #$this->middleware('ajax', ['only' => 'postEdit']);
+    }
 
     public function getProfile($id)
     {
@@ -27,13 +37,16 @@ class UserController extends Controller {
 
     public function postEdit(Request $request)
     {
-        /** @var User $user */
-        $user = $request->user();
+        $validator = $this->updater->validator($request->user(), $request->all());
 
-        $user->update(
-            $request->only($user->fillable)
-        );
+        if ($validator->fails())
+        {
+            return redirect(route('user.profile.edit'))
+                ->withErrors($validator);
+        }
 
-        return new JsonResponse([ 'error' => false ]);
+        $success = $this->updater->update($request->user(), $request->all());
+
+        return new JsonResponse([ 'error' => !$success ]);
     }
 }

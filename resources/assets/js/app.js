@@ -1,4 +1,4 @@
-$(document).ready(function() {
-    // necessary material bootstrap init
-    $.material.init();
-});
+//$(document).ready(function() {
+//    // necessary material bootstrap init
+//    $.material.init();
+//});

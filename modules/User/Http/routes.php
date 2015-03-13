@@ -17,5 +17,5 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function($router)
         ->where('id', '[0-9]+');
 
     Route::get('edit', ['as' => 'user.profile.edit', 'uses' => 'UserController@getEdit']);
-    Route::post('edit', ['as' => 'user.profile.save', 'middleware' => 'ajax', 'uses' => 'UserController@postEdit']);
+    Route::post('edit', ['as' => 'user.profile.save', 'uses' => 'UserController@postEdit']);
 });
