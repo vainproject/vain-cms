@@ -3,6 +3,7 @@
   "dependencies": {
     "jquery": "2.*",
     "bootstrap": "*",
-    "bootstrap-material-design": "*"
+    "bootstrap-material-design": "*",
+    "admin-lte": "*"
   }
 }

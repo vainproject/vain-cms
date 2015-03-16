@@ -8,6 +8,7 @@ var styles_include = [
      */
     './bower_components/bootstrap/less',
     './bower_components/bootstrap-material-design/less',
+    './bower_components/admin-lte/build/less',
 
     /*
      |--------------------------------------------------------------------------
@@ -59,6 +60,10 @@ elixir(function(mix) {
         paths: styles_include
     });
 
+    mix.less('admin.less', 'public/static/css', {
+        paths: styles_include
+    });
+
     // concat scripts
     mix.scripts(scripts_include, 'public/static/js/app.js', './');
 
@@ -69,5 +74,6 @@ elixir(function(mix) {
     // versioning files
     mix.version([
         'public/static/css/app.css',
+        'public/static/css/admin.css',
         'public/static/js/app.js']);
 });
