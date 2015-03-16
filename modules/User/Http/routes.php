@@ -18,4 +18,6 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function($router)
 
     Route::get('edit', ['as' => 'user.profile.edit', 'uses' => 'UserController@getEdit']);
     Route::post('edit', ['as' => 'user.profile.save', 'uses' => 'UserController@postEdit']);
+
+    Route::get('test', ['as' => 'user.admin', 'uses' => 'UserController@getAdmin']);
 });

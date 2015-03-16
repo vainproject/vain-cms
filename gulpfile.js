@@ -42,6 +42,10 @@ var scripts_include = [
     './resources/assets/js/*.js',
 ];
 
+var scripts_admin_include = [
+    './bower_components/admin-lte/dist/js/app.js'
+];
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -67,13 +71,19 @@ elixir(function(mix) {
     // concat scripts
     mix.scripts(scripts_include, 'public/static/js/app.js', './');
 
+    mix.scripts(scripts_admin_include, 'public/static/js/admin.js', './');
+
     // copy fonts
     mix.copy('./bower_components/bootstrap/dist/fonts', 'public/static/fonts');
     //mix.copy('./bower_components/bootstrap-material-design/dist/fonts', 'public/static/fonts');
+
+    // copy admin statics
+    mix.copy('./bower_components/admin-lte/plugins', 'public/static/plugins');
 
     // versioning files
     mix.version([
         'public/static/css/app.css',
         'public/static/css/admin.css',
-        'public/static/js/app.js']);
+        'public/static/js/app.js',
+        'public/static/js/admin.js']);
 });

@@ -49,4 +49,9 @@ class UserController extends Controller {
 
         return new JsonResponse([ 'error' => !$success ]);
     }
+
+    public function getAdmin(Request $request)
+    {
+        return view('user::admin.index');
+    }
 }
