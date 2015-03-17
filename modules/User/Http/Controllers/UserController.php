@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\User\Entities\User;
 use Modules\User\Services\Updater;
+use Vain\Packages\RealmAPI\RealmAPI;
+use Vain\Packages\RealmAPI\RealmAPIFactory;
 
 class UserController extends Controller {
 
@@ -53,5 +55,12 @@ class UserController extends Controller {
     public function getAdmin(Request $request)
     {
         return view('user::admin.index');
+    }
+
+    public function getRealm(RealmAPIFactory $APIFactory)
+    {
+        $status =  $APIFactory->create(RealmAPI::REALM_TRINITY)->getServerStatus();
+
+        return new JsonResponse($status);
     }
 }
