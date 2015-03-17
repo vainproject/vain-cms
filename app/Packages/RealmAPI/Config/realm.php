@@ -14,8 +14,8 @@ return [
 
     'emulators' => [
 
-        'trinity' => \Vain\Packages\RealmAPI\RealmAPI::REALM_TRINITY,
-        'mangos' => \Vain\Packages\RealmAPI\RealmAPI::REALM_MANGOS,
+        'trinity' => \Vain\Packages\RealmAPI\AbstractEmulator::REALM_TRINITY,
+        'mangos' => \Vain\Packages\RealmAPI\AbstractEmulator::REALM_MANGOS,
 
     ],
 

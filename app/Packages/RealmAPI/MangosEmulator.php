@@ -1,4 +1,4 @@
-<?php namespace Vain\Packages\RealmAPI\Realms;
+<?php namespace Vain\Packages\RealmAPI;
 
 /**
  * Created by PhpStorm.
@@ -7,10 +7,9 @@
  * Time: 21:00
  */
 
-use Vain\Packages\RealmAPI\RealmAPI;
 use Illuminate\Support\Facades\Cache;
 
-class RealmAPIMangos extends RealmAPI
+class MangosEmulator extends AbstractEmulator
 {
     /**
      * Get information about running realm (player online, uptime, ...)
@@ -18,7 +17,7 @@ class RealmAPIMangos extends RealmAPI
      */
     public function getServerStatus() // ToDo: rather use a db query?
     {
-        $key = 'getServerStatus-' . $this->realm;
+        $key = $this->cacheKey(__FUNCTION__);
 
         if ($this->useCache && Cache::has($key))
             return Cache::get($key);

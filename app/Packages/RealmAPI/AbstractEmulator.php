@@ -14,9 +14,9 @@ use Vain\Packages\RealmAPI\Models\Character;
 use Vain\Packages\RealmAPI\Services\SoapService;
 
 // TODO optimize general cache usage / less repeatative code?
-abstract class RealmAPI
+abstract class AbstractEmulator
 {
-    use Configurator;
+    use Configurator, Cacheable;
 
     const REALM_TRINITY = 1;
 
@@ -26,11 +26,6 @@ abstract class RealmAPI
      * @var $realm string
      */
     protected $realm;
-
-    /**
-     * @var $useCache Boolean
-     */
-    protected $useCache;
 
     /**
      * @var $type int
@@ -60,7 +55,7 @@ abstract class RealmAPI
         $this->connections = $this->getDatabaseConfig($realm);
 
         $this->soap = app('Vain\Packages\RealmAPI\Services\SoapService')
-            ->connect($this->getSoapConfig($realm));
+            ->configure($this->getSoapConfig($realm));
     }
 
 
@@ -105,7 +100,7 @@ abstract class RealmAPI
      */
     public function getCharacterNameByGuid($guid)
     {
-        $key = 'getCharacterNameByGuid-' . $this->realm . '-' . $guid;
+        $key = $this->cacheKey(__FUNCTION__, $guid);
 
         if ($this->useCache && Cache::has($key))
             return Cache::get($key);
@@ -115,7 +110,7 @@ abstract class RealmAPI
             ->where('guid', $guid)
             ->pluck('name');
 
-        Cache::put($key, $name, 24 * 60);
+        Cache::put($key, $name, $this->cacheDuration);
 
         return $name;
     }
@@ -127,7 +122,7 @@ abstract class RealmAPI
      */
     public function getCharacterGuidByName($name)
     {
-        $key = 'getCharacterGuidByName-' . $this->realm . '-' . $name;
+        $key = $this->cacheKey(__FUNCTION__, $name);
 
         if ($this->useCache && Cache::has($key))
             return Cache::get($key);
@@ -137,7 +132,7 @@ abstract class RealmAPI
             ->where('name', $name)
             ->pluck('guid');
 
-        Cache::put($key, $name, 24 * 60);
+        Cache::put($key, $guid, $this->cacheDuration);
 
         return $guid;
     }
@@ -148,7 +143,7 @@ abstract class RealmAPI
      */
     public function getPlayersOnline()
     {
-        $key = 'getCharacterGuidByName-' . $this->realm;
+        $key = $this->cacheKey(__FUNCTION__);
 
         if ($this->useCache && Cache::has($key))
             return Cache::get($key);
@@ -158,7 +153,7 @@ abstract class RealmAPI
             ->where('online', 1)
             ->lists('name', 'guid');
 
-        Cache::put($key, $list, 1);
+        Cache::put($key, $list, $this->cacheDuration);
 
         return $list;
     }
@@ -171,7 +166,7 @@ abstract class RealmAPI
      */
     public function getCharacter($guid)
     {
-        $key = 'getCharacter-' . $this->realm . '-' . $guid;
+        $key = $this->cacheKey(__FUNCTION__, $guid);
 
         if ($this->useCache && Cache::has($key))
             return Cache::get($key);
@@ -193,7 +188,7 @@ abstract class RealmAPI
         $char = Character::on($this->connections['characters'])
             ->find($guid, $attributes);
 
-        Cache::put($key, $char, 24 * 60);
+        Cache::put($key, $char, $this->cacheDuration);
 
         return $char;
     }

@@ -1,7 +1,6 @@
 <?php namespace Vain\Packages\RealmAPI\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Vain\Packages\RealmAPI\RealmAPI;
 use Illuminate\Support\Facades\Lang;
 
 class Character extends Model
@@ -27,21 +26,6 @@ class Character extends Model
     public function account()
     {
         return $this->belongsTo('Vain\Packages\RealmAPI\Models\Account');
-    }
-
-    /**
-     * @return int
-     */
-    public function getRealmidAttribute()
-    {
-        switch ($this->connection) {
-            case 'mangos_characters':
-                return RealmAPI::REALM_MANGOS;
-            case 'trinity_characters':
-                return RealmAPI::REALM_TRINITY;
-            default:
-                throw new \InvalidArgumentException; // ToDo: own exception
-        }
     }
 
     /**

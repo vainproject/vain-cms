@@ -1,4 +1,4 @@
-<?php namespace Vain\Packages\RealmAPI\Realms;
+<?php namespace Vain\Packages\RealmAPI;
 
 /**
  * Created by PhpStorm.
@@ -7,9 +7,7 @@
  * Time: 21:00
  */
 
-use Vain\Packages\RealmAPI\RealmAPI;
-
-class RealmAPITrinity extends RealmAPI
+class TrinityEmulator extends AbstractEmulator
 {
     /**
      * Get information about running realm (player online, uptime, ...)

@@ -5,8 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\User\Entities\User;
 use Modules\User\Services\Updater;
-use Vain\Packages\RealmAPI\RealmAPI;
-use Vain\Packages\RealmAPI\RealmAPIFactory;
+use Vain\Packages\RealmAPI\EmulatorFactory;
 
 class UserController extends Controller {
 
@@ -57,9 +56,9 @@ class UserController extends Controller {
         return view('user::admin.index');
     }
 
-    public function getRealm(RealmAPIFactory $APIFactory)
+    public function getRealm(EmulatorFactory $factory)
     {
-        $status =  $APIFactory->create('mangos')->getServerStatus();
+        $status =  $factory->connection('mangos')->getServerStatus();
 
         return new JsonResponse($status);
     }

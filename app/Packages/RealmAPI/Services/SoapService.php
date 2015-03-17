@@ -11,20 +11,17 @@ class SoapService
     /**
      * @var SoapClient
      */
-    protected $soapClient;
+    protected $client;
+
+    /**
+     * @var array
+     */
+    protected $config;
 
     /**
      * @var int
      */
     protected $timeout = self::DEFAULT_TIMEOUT;
-
-    /**
-     * dismiss soap connection
-     */
-    function __destruct()
-    {
-        $this->soapClient = null;
-    }
 
     /**
      * @return int
@@ -43,12 +40,20 @@ class SoapService
     }
 
     /**
-     * @param $config
+     * dismiss soap connection
+     */
+    function __destruct()
+    {
+        $this->client = null;
+    }
+
+    /**
+     * @param array $config
      * @return $this
      */
-    public function connect($config)
+    public function configure( $config )
     {
-        $opts = [
+        $this->config = [
             "location" => sprintf("http://%s:%s/", $config['host'], $config['port']),
             "uri" => "urn:MaNGOS",
             "style" => SOAP_RPC,
@@ -57,9 +62,22 @@ class SoapService
             "connection_timeout" => $this->timeout,
         ];
 
-        $this->soapClient = new SoapClient(null, $opts);
-
         return $this;
+    }
+
+    /**
+     * opens connection to soap if not allready done
+     *
+     * @return SoapClient
+     */
+    public function client()
+    {
+        if ($this->client === null)
+        {
+            $this->client = new SoapClient(null, $this->config);
+        }
+
+        return $this->client;
     }
 
     /**
@@ -72,7 +90,7 @@ class SoapService
         // ToDo: logging
         try
         {
-            return $this->soapClient->executeCommand(new SoapParam($command, "command"));
+            return $this->client()->executeCommand(new SoapParam($command, "command"));
         }
         catch (SoapFault $e)
         {
