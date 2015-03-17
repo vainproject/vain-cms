@@ -137,7 +137,7 @@ abstract class RealmAPI
             ->where('name', $name)
             ->pluck('guid');
 
-        Cache::put($key, $name, 24 * 60);
+        Cache::put($key, $guid, 24 * 60);
 
         return $guid;
     }
@@ -148,7 +148,7 @@ abstract class RealmAPI
      */
     public function getPlayersOnline()
     {
-        $key = 'getCharacterGuidByName-' . $this->realm;
+        $key = 'getPlayersOnline-' . $this->realm;
 
         if ($this->useCache && Cache::has($key))
             return Cache::get($key);
