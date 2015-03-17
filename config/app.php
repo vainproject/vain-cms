@@ -153,6 +153,9 @@ return [
         'Pingpong\Modules\ModulesServiceProvider',
         'Laravel\Socialite\SocialiteServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
+
+        // in-app packages, may be excluded sometimes later
+        'Vain\Packages\RealmAPI\Providers\RealmApiServiceProvider',
     ],
 
     /*

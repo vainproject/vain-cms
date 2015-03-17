@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\User\Entities\User;
 use Modules\User\Services\Updater;
+use Vain\Packages\RealmAPI\EmulatorFactory;
 
 class UserController extends Controller {
 
@@ -53,5 +54,12 @@ class UserController extends Controller {
     public function getAdmin(Request $request)
     {
         return view('user::admin.index');
+    }
+
+    public function getRealm(EmulatorFactory $factory)
+    {
+        $status =  $factory->connection('mangos')->getServerStatus();
+
+        return new JsonResponse($status);
     }
 }
