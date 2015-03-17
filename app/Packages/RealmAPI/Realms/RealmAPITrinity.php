@@ -11,12 +11,6 @@ use Vain\Packages\RealmAPI\RealmAPI;
 
 class RealmAPITrinity extends RealmAPI
 {
-
-    public function __construct($useCache = true)
-    {
-        parent::__construct(RealmAPI::REALM_TRINITY, $useCache);
-    }
-
     /**
      * Get information about running realm (player online, uptime, ...)
      * @return array

@@ -6,17 +6,32 @@ use Illuminate\Support\Facades\Lang;
 
 class Character extends Model
 {
-
+    /**
+     * @var string
+     */
     protected $table = 'characters';
+
+    /**
+     * @var array
+     */
     protected $guarded = ['*'];
-    protected $connection = '-'; // the connection will be defined when the character is loaded via realm api
+
+    /**
+     * @var string
+     */
     protected $primaryKey = 'guid';
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function account()
     {
         return $this->belongsTo('Vain\Packages\RealmAPI\Models\Account');
     }
 
+    /**
+     * @return int
+     */
     public function getRealmidAttribute()
     {
         switch ($this->connection) {
@@ -29,14 +44,20 @@ class Character extends Model
         }
     }
 
+    /**
+     * @return string
+     */
     public function getRacenameAttribute()
     {
-        return Lang::get('data/races.' . $this->race);
+        return Lang::get('realmapi::races.'. $this->race);
     }
 
+    /**
+     * @return string
+     */
     public function getClassnameAttribute()
     {
-        return Lang::get('data/classes.' . $this->class);
+        return Lang::get('realmapi::classes.'. $this->class);
     }
 
 }

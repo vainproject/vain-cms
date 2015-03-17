@@ -18,7 +18,7 @@ class RealmApiServiceProvider extends ServiceProvider {
         $this->loadViewsFrom($viewPath, 'realmapi');
 
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/realm.php', 'realms'
+            __DIR__.'/../Config/realm.php', 'realm'
         );
 
         $this->publishes([

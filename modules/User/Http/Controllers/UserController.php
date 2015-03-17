@@ -59,7 +59,7 @@ class UserController extends Controller {
 
     public function getRealm(RealmAPIFactory $APIFactory)
     {
-        $status =  $APIFactory->create(RealmAPI::REALM_TRINITY)->getServerStatus();
+        $status =  $APIFactory->create('mangos')->getServerStatus();
 
         return new JsonResponse($status);
     }

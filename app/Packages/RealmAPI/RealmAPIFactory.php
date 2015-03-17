@@ -1,5 +1,6 @@
 <?php namespace Vain\Packages\RealmAPI;
 
+use InvalidArgumentException;
 use Vain\Packages\RealmAPI\Realms\RealmAPIMangos as Mangos;
 use Vain\Packages\RealmAPI\Realms\RealmAPITrinity as Trinity;
 
@@ -13,21 +14,27 @@ use Vain\Packages\RealmAPI\Realms\RealmAPITrinity as Trinity;
 
 class RealmAPIFactory
 {
+    use Configurator;
 
     /**
-     * @param $id
+     * @param $realm
      * @param bool $useCache
      * @return RealmAPI
      */
-    public function create($id, $useCache = true)
+    public function create($realm, $useCache = true)
     {
-        switch ($id) {
+        $type = $this->getTypeConfig($realm);
+
+        switch ($type)
+        {
             case RealmAPI::REALM_TRINITY:
-                return new Trinity($useCache);
+                return new Trinity($realm, $useCache);
+
             case RealmAPI::REALM_MANGOS:
-                return new Mangos($useCache);
+                return new Mangos($realm, $useCache);
+
             default:
-                throw new \InvalidArgumentException("Unsupported realm [$id]");
+                throw new InvalidArgumentException('Unsupported realm type \''. $type .'\'');
         }
     }
 }
