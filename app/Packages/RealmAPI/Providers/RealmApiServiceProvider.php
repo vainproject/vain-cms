@@ -23,7 +23,7 @@ class RealmApiServiceProvider extends ServiceProvider {
 
         $this->publishes([
             // maybe also publish assets, langs, views?
-            __DIR__.'/../Config/realm.php'
+            __DIR__.'/../Config/realm.php' => config_path('realm.php'),
         ]);
     }
 
@@ -39,7 +39,7 @@ class RealmApiServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->app->bind(
-            'Vain\Packages\RealmAPI\RealmAPIFactory',
+            'Vain\Packages\RealmAPI\EmulatorFactory',
             'Vain\Packages\RealmAPI\Services\SoapService'
         );
     }
