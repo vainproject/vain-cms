@@ -1,17 +1,15 @@
-## Laravel PHP Framework
+# Vain
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+Vain is a community platform for World of Warcraft private servers. It is based upon the famous Larvel 5 framework and **will kick FusionCMS in its ass.**
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Documentation
 
-## Official Documentation
+Documentation for the project can be found on [Vain's Github Wiki](https://github.com/fgreinus/vain/wiki).
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Issue Reporting
 
-## Contributing
+Please use [Vain's Issue Tracker](https://github.com/fgreinus/vain/issues) to report issues.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+## Roadmap
 
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Please visit [Vain's Issue Tracker](https://github.com/fgreinus/vain/issues) to follow the projects development status.

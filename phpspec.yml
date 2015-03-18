@@ -12,3 +12,5 @@ suites:
         spec_path: spec/modules
         src_path: modules
 
+extensions:
+    - PhpSpec\Laravel\Extension\LaravelExtension

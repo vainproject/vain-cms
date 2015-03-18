@@ -35,22 +35,29 @@ class Gravatar
     const RATING_ADULT = 'x';
 
     /**
-     * Size in pixels, defaults to 80px [ 1 - 2048 ]
+     * Size in pixels
      * @var int
      */
-    protected $size = 80;
+    protected $size;
 
     /**
      * Default imageset to use [ 404 | mm | identicon | monsterid | wavatar ]
      * @var string
      */
-    protected $default = self::DEFAULT_MAN;
+    protected $default;
 
     /**
      * Maximum rating (inclusive) [ g | pg | r | x ]
      * @var string
      */
-    protected $rating = self::RATING_SAFE;
+    protected $rating;
+
+    function __construct()
+    {
+        $this->size = 80;
+        $this->default = self::DEFAULT_MAN;
+        $this->rating = self::RATING_SAFE;
+    }
 
     /**
      * @return int
@@ -119,6 +126,6 @@ class Gravatar
     function getGravatar($email)
     {
         $hash = md5(strtolower(trim($email)));
-        return "http://www.gravatar.com/avatar/$hash?s=$this->size&d=$this->default&r=$this->rating";
+        return sprintf("http://www.gravatar.com/avatar/%s?s=%d&d=%s&r=%s", $hash, $this->getSize(), $this->getDefault(), $this->getRating());
     }
 }

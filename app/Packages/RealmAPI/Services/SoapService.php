@@ -72,6 +72,11 @@ class SoapService
      */
     public function client()
     {
+        if ($this->config === null)
+        {
+            throw new \InvalidArgumentException('was not configured');
+        }
+
         if ($this->client === null)
         {
             $this->client = new SoapClient(null, $this->config);
