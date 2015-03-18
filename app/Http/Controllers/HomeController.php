@@ -15,12 +15,22 @@ class HomeController extends Controller {
 
     /**
      * Create a new controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', [ 'only' => 'home' ] );
+
+        $this->middleware('guest', [ 'only' => 'index' ]);
+    }
+
+    /**
+     * Show the application welcome screen to the user.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        return view('welcome');
     }
 
     /**
@@ -28,7 +38,7 @@ class HomeController extends Controller {
      *
      * @return Response
      */
-    public function index()
+    public function home()
     {
         return view('home');
     }

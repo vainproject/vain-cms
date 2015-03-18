@@ -31,6 +31,7 @@ class AuthServiceProvider extends ServiceProvider {
         $this->app->bind(
             'Illuminate\Contracts\Auth\Registrar',
             'Modules\User\Services\Registrar',
+            'Modules\User\Services\Updater',
             'Modules\User\Services\Gravatar'
         );
     }
