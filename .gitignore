@@ -1,11 +1,11 @@
+/.idea
 /vendor
 /node_modules
 /bower_components
-.env
-/.idea
-_ide_helper.php
-composer.lock
+
+/public/build
+/public/static
 
 npm-debug.log
-public/build
-public/static
+_ide_helper.php
+.env
