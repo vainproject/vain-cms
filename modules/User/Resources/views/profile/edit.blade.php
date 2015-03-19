@@ -95,6 +95,7 @@
                 </div>
             </div>
             <hr>
+            <h3>@lang('user::profile.section.game')</h3>
             <div class="form-group">
                 <label for="main_character" class="col-sm-2 control-label">@lang('user::profile.field.main_character')</label>
                 <div class="col-sm-10">
