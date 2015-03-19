@@ -18,7 +18,11 @@ class AuthServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
+        $langPath = __DIR__.'/../Resources/lang';
+        $this->loadTranslationsFrom($langPath, 'user');
 
+        $viewPath = __DIR__.'/../Resources/views';
+        $this->loadViewsFrom($viewPath, 'user');
     }
 
     /**

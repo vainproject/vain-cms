@@ -12,38 +12,26 @@ class SiteServiceProvider extends ServiceProvider {
     protected $defer = false;
 
     /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $langPath = __DIR__.'/../Resources/lang';
+        $this->loadTranslationsFrom( $langPath, 'site' );
+
+        $viewPath = __DIR__.'/../Resources/views';
+        $this->loadViewsFrom( $viewPath, 'site' );
+    }
+
+    /**
      * Register the service provider.
      *
      * @return void
      */
     public function register()
-    {        
-        $this->registerConfig();
-    }
-
-    /**
-     * Register config.
-     * 
-     * @return void
-     */
-    protected function registerConfig()
     {
-        $this->publishes([
-            __DIR__.'/../Config/config.php' => config_path('site.php'),
-        ]);
-        $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'site'
-        );
+        //
     }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return array();
-    }
-
 }

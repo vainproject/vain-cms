@@ -11,7 +11,5 @@
         "Modules\\User\\Providers\\RouteServiceProvider"
     ],
     "aliases":{},
-    "files": [
-        "start.php"
-    ]
+    "files": []
 }

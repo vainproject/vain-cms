@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'site', 'namespace' => 'Modules\Site\Http\Controllers'], function()
+Route::group(['prefix' => 'site'], function()
 {
     Route::get('/', 'SiteController@index');
 });

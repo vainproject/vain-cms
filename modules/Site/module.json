@@ -6,10 +6,10 @@
     "active": 1,
     "priority": 0,
     "providers": [
-        "Modules\\Site\\Providers\\SiteServiceProvider"
+        "Modules\\Site\\Providers\\SiteServiceProvider",
+        "Modules\\Site\\Providers\\ConfigServiceProvider",
+        "Modules\\Site\\Providers\\RouteServiceProvider"
     ],
     "aliases":{},
-    "files": [
-        "start.php"
-    ]
+    "files": []
 }
