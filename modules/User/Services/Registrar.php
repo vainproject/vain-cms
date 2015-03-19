@@ -18,6 +18,20 @@ class Registrar implements RegistrarContract {
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+            'alias' => 'required|max:50|unique:users',
+            'birthday_at' => 'date|before:now',
+            'gender' => 'in:male,female',
+            'homepage' => 'url|max:100',
+            'skype' => 'min:6|max:32',
+            'facebook' => 'url|max:50',
+            'twitter' => 'url|max:50',
+            'main_character' => 'min:2|max:20',
+            'main_guild' => 'max:50',
+            'favorite_race' => 'max:20',
+            'favorite_class' => 'max:20',
+            'favorite_spec' => 'max:20',
+            'favorite_instance' => 'max:50',
+            'favorite_battleground' => 'max:50',
         ]);
     }
 
@@ -33,6 +47,22 @@ class Registrar implements RegistrarContract {
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'alias' => $data['alias'],
+            'birthday_at' => $data['birthday_at'],
+            'gender' => $data['gender'],
+            'city' => $data['city'],
+            'profession' => $data['profession'],
+            'hobbies' => $data['hobbies'],
+            'homepage' => $data['homepage'],
+            'skype' => $data['skype'],
+            'facebook' => $data['facebook'],
+            'twitter' => $data['twitter'],
+            'main_character' => $data['main_character'],
+            'main_guild' => $data['main_guild'],
+            'favorite_race' => $data['favorite_race'],
+            'favorite_spec' => $data['favorite_spec'],
+            'favorite_instance' => $data['favorite_instance'],
+            'favorite_battleground' => $data['favorite_battleground'],
         ]);
     }
 

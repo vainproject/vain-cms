@@ -12,7 +12,27 @@
             </div>
             <div class="col-xs-9">
                 <strong>{{ $user->name }}</strong><br>
+                {{ $user->alias }}<br>
                 {{ $user->email }}<br>
+                {{ $user->birthday_at }}<br>
+                {{ $user->gender }}<br>
+                {{ $user->city }}<br>
+                {{ $user->profession }}<br>
+                {{ $user->hobbies }}<br>
+                {{ $user->homepage }}<br>
+
+                {{ $user->skype }}<br>
+                {{ $user->facebook }}<br>
+                {{ $user->twitter }}<br>
+
+                {{ $user->main_character }}<br>
+                {{ $user->main_guild }}<br>
+
+                {{ $user->favorite_race }}<br>
+                {{ $user->favorite_class }}<br>
+                {{ $user->favorite_spec }}<br>
+                {{ $user->favorite_instance }}<br>
+                {{ $user->favorite_battleground }}<br>
                 <a href="{{ route('user.profile.edit') }}">Edit profile...</a>
             </div>
         </div>
