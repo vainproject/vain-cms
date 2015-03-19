@@ -41,7 +41,13 @@
             <div class="form-group">
                 <label for="gender" class="col-sm-2 control-label">@lang('user::profile.field.gender')</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="gender" name="gender" value="{{ $user->gender }}">
+                    {!! Form::select('gender', $genders, $user->gender, [ 'class' => 'form-control' ]) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="locale" class="col-sm-2 control-label">@lang('user::profile.field.locale')</label>
+                <div class="col-sm-10">
+                    {!! Form::select('locale', $locales, $user->locale, [ 'class' => 'form-control' ]) !!}
                 </div>
             </div>
             <div class="form-group">

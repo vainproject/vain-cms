@@ -32,8 +32,16 @@ class UserController extends Controller {
         /** @var User $user */
         $user = $request->user();
 
+        $genders = [
+            null => trans('user::profile.gender.none'),
+            'male' => trans('user::profile.gender.male'),
+            'female' => trans('user::profile.gender.female')
+        ];
+
+        $locales = config('app.locales');
+
         return view('user::profile.edit')
-            ->with('user', $user);
+            ->with(['user' => $user, 'genders' => $genders, 'locales' => $locales]);
     }
 
     public function postEdit(Request $request)

@@ -9,12 +9,18 @@ return [
         'save' => 'Speichern',
         'abort' => 'Abbrechen'
     ],
+    'gender' => [
+        'none' => 'keine Angabe',
+        'male' => 'männlich',
+        'female' => 'weiblich',
+    ],
     'field' => [
         'name' => 'Name',
         'alias' => 'Nickname',
         'email' => 'Email',
         'password' => 'Passwort',
         'password_confirmation' => 'Passwort bestätigen',
+        'locale' => 'Sprache',
         'birthday_at' => 'Geburtstag',
         'gender' => 'Geschlecht',
         'city' => 'Stadt',

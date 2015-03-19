@@ -43,6 +43,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Locales
+    |--------------------------------------------------------------------------
+    |
+    | All available locales should be listed here. They are prompted
+    | to the user if he wants to change his current locale. The names
+    | should be hardcoded native in each language.
+    |
+    */
+
+    'locales' => [
+        'de' => 'Deutsch',
+        'en' => 'English'
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Locale Configuration
     |--------------------------------------------------------------------------
     |
@@ -135,6 +151,7 @@ return [
         'Illuminate\Translation\TranslationServiceProvider',
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
+        'Illuminate\Html\HtmlServiceProvider',
 
         /*
          * Application Service Providers...
@@ -203,6 +220,8 @@ return [
         'URL'       => 'Illuminate\Support\Facades\URL',
         'Validator' => 'Illuminate\Support\Facades\Validator',
         'View'      => 'Illuminate\Support\Facades\View',
+        'Html'      => 'Illuminate\Html\HtmlFacade',
+        'Form'      => 'Illuminate\Html\FormFacade',
 
         /*
          * Custom package facades

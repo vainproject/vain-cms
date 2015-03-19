@@ -61,6 +61,7 @@ class ContentsTableSeeder extends Seeder {
             'id' => 1,
             'locale' => 'en',
             'page_id' => 1,
+            'title' => 'Setup the Development Environment',
             'keywords' => 'setup, development, environment',
             'description' => 'A simple explanation of how to setup your dev environment.',
             'text' => <<<EOF
@@ -156,6 +157,7 @@ EOF
             'id' => 2,
             'locale' => 'en',
             'page_id' => 2,
+            'title' => 'Project Setup and Maintenance',
             'keywords' => 'project, setup, maintenance',
             'description' => 'Explanation how to configure the project.',
             'text' => <<<EOF

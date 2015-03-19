@@ -9,12 +9,18 @@ return [
         'save' => 'Save',
         'abort' => 'Abort'
     ],
+    'gender' => [
+        'none' => 'not specified',
+        'male' => 'male',
+        'female' => 'female',
+    ],
     'field' => [
         'name' => 'Name',
         'alias' => 'Nickname',
         'email' => 'Email',
         'password' => 'Password',
         'password_confirmation' => 'Password Confirmation',
+        'locale' => 'Language',
         'birthday_at' => 'Birthday',
         'gender' => 'Gender',
         'city' => 'City',
