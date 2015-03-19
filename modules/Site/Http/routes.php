@@ -2,5 +2,5 @@
 
 Route::group(['prefix' => 'site'], function()
 {
-    Route::get('/', 'SiteController@index');
+    Route::get('{slug}', 'SiteController@getPage');
 });

@@ -2,6 +2,7 @@
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Modules\Site\Entities\Page;
 
 class RouteServiceProvider extends ServiceProvider {
 
@@ -40,5 +41,4 @@ class RouteServiceProvider extends ServiceProvider {
             require base_path('modules/Site/Http/routes.php');
         });
     }
-
 }
