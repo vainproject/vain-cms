@@ -60,11 +60,7 @@ var scripts_admin_include = [
 elixir(function(mix) {
 
     // compile less
-    mix.less('app.less', 'public/static/css', {
-        paths: styles_include
-    });
-
-    mix.less('admin.less', 'public/static/css', {
+    mix.less(['app.less', 'admin.less'], 'public/static/css', {
         paths: styles_include
     });
 
