@@ -8,6 +8,8 @@ Documentation for the project can be found on [Vain's Github Wiki](https://githu
 
 ## Issue Reporting
 
+If you file a bug report, your issue should contain a title and a clear description of the issue. You should also include as much relevant information as possible and a code sample that demonstrates the issue. The goal of a bug report is to make it easy for yourself - and others - to replicate the bug and develop a fix.
+
 Please use [Vain's Issue Tracker](https://github.com/fgreinus/vain/issues) to report issues.
 
 ## Roadmap
