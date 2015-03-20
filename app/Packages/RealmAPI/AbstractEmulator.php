@@ -67,11 +67,11 @@ abstract class AbstractEmulator
 
     /**
      * Send an item to a player
-     * @param $guid Integer
-     * @param $item Integer
-     * @returns boolean
+     * @param string $name
+     * @param array|int $items
+     * @returns bool
      */
-    public abstract function sendItem($guid, $item);
+    public abstract function sendItems($name, $items);
 
     // ToDo: some stuff that might be useful
     //public abstract function getAccountCharacters();
@@ -95,7 +95,7 @@ abstract class AbstractEmulator
     /**
      * Get character name by GUID
      *
-     * @param $guid Integer
+     * @param int $guid
      * @return String|null
      */
     public function getCharacterNameByGuid($guid)
@@ -117,8 +117,8 @@ abstract class AbstractEmulator
 
     /**
      * Get GUID by character name
-     * @param $name String
-     * @return Integer|null
+     * @param string $name
+     * @return int|null
      */
     public function getCharacterGuidByName($name)
     {
@@ -160,7 +160,7 @@ abstract class AbstractEmulator
 
     /**
      * Get character by GUID
-     * @param $guid Integer
+     * @param int $guid
      * @return Character
      * @throws InvalidArgumentException
      */

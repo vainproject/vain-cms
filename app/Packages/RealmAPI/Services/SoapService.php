@@ -86,20 +86,29 @@ class SoapService
     }
 
     /**
-     * Will send a SOAP command to the realm
+     * Will send a SOAP command to the realm. Will return false if command fails
      * @param $command
-     * @return String|null
+     * @return String|null|boolean
      */
     public function send($command)
     {
-        // ToDo: logging
+        // ToDo: logging on success and fail
         try
         {
+            // this may return null although everything worked out fine (e.g. for send mail)
             return $this->client()->executeCommand(new SoapParam($command, "command"));
         }
         catch (SoapFault $e)
         {
-            return null;
+            // possible exceptions:
+            // Could not connect to host
+            // HTTP Error: 403 Forbidden
+            // Spieler nicht gefunden! (Trinity)
+            // ...
+            if (config('app.debug'))
+                throw $e;
+
+            return false;
         }
     }
 }

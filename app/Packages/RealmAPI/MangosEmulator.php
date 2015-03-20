@@ -34,14 +34,24 @@ class MangosEmulator extends AbstractEmulator
     }
 
     /**
-     * Send an item to a player
-     * @param $guid Integer
-     * @param $item Integer
+     * Send an item/s to a player
+     * @param string $name
+     * @param array|int $items
      * @returns boolean
      */
-    public function sendItem($guid, $item) // ToDo: might be the same syntax for trinity
+    public function sendItems($name, $items)
     {
-        return is_null($this->soap->send('send items "RG Premium System" "" ' . $item));
+        $itemString = '';
+        if (is_array($items)) {
+            $prefix = '';
+            foreach ($items as $item) {
+                $itemString .= $prefix . $item;
+                $prefix = ' ';
+            }
+        } else
+            $itemString = $items;
+
+        return $this->soap->send('send items '.$name.' "RG Premium System" "" ' . $itemString) !== false;
     }
 
 }
