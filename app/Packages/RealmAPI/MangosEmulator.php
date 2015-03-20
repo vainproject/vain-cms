@@ -53,5 +53,4 @@ class MangosEmulator extends AbstractEmulator
 
         return $this->soap->send('send items '.$name.' "RG Premium System" "" ' . $itemString) !== false;
     }
-
 }

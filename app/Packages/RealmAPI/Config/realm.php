@@ -27,7 +27,7 @@ return [
     | Please specify the database connection names from database.php to
     | use for specified database types of each realm.
     |
-    | NOTE: The logon database is automaticly resolved using the logon
+    | NOTE: The logon database is automatically resolved using the logon
     | connection from database.php
     |
     */

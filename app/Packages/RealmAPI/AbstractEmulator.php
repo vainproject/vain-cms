@@ -13,7 +13,7 @@ use InvalidArgumentException;
 use Vain\Packages\RealmAPI\Models\Character;
 use Vain\Packages\RealmAPI\Services\SoapService;
 
-// TODO optimize general cache usage / less repeatative code?
+// TODO optimize general cache usage / less repetitive code?
 abstract class AbstractEmulator
 {
     use Configurator, Cacheable;
@@ -54,6 +54,8 @@ abstract class AbstractEmulator
         $this->type = $this->getTypeConfig($realm);
         $this->connections = $this->getDatabaseConfig($realm);
 
+        $this->setCacheDuration(24 * 60);
+
         $this->soap = app('Vain\Packages\RealmAPI\Services\SoapService')
             ->configure($this->getSoapConfig($realm));
     }
@@ -74,7 +76,6 @@ abstract class AbstractEmulator
     public abstract function sendItems($name, $items);
 
     // ToDo: some stuff that might be useful
-    //public abstract function getAccountCharacters();
     //public abstract function createAccount();
     //public abstract function banAccount();
     //public abstract function characterCustomizeLook();
