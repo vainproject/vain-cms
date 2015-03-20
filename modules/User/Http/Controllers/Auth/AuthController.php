@@ -1,4 +1,4 @@
-<?php namespace Modules\User\Http\Controllers;
+<?php namespace Modules\User\Http\Controllers\Auth;
 
 use Vain\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;

@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'site'], function()
+Route::group(['prefix' => 'sites'], function()
 {
-    Route::get('{slug}', 'SiteController@getPage');
+    Route::get('{slug}', [ 'as' => 'site.detail', 'uses' => 'SiteController@getPage' ]);
 });
