@@ -67,14 +67,6 @@ abstract class AbstractEmulator
      */
     public abstract function getServerStatus();
 
-    /**
-     * Send an item to a player
-     * @param string $name
-     * @param array|int $items
-     * @returns bool
-     */
-    public abstract function sendItems($name, $items);
-
     // ToDo: some stuff that might be useful
     //public abstract function createAccount();
     //public abstract function banAccount();
@@ -219,5 +211,19 @@ abstract class AbstractEmulator
         Cache::put($key, $chars, $this->cacheDuration);
 
         return $chars;
+    }
+
+    /**
+     * Send items to a player
+     * @param string $name
+     * @param array|int $items
+     * @returns boolean
+     */
+    public function sendItems($name, $items)
+    {
+        if (is_array($items))
+            $items = implode($items, " ");
+
+        return $this->soap->send('send items '.$name.' "Premium System" "" ' . $items) !== false;
     }
 }

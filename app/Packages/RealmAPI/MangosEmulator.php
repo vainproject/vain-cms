@@ -32,18 +32,4 @@ class MangosEmulator extends AbstractEmulator
 
         return $data;
     }
-
-    /**
-     * Send an item/s to a player
-     * @param string $name
-     * @param array|int $items
-     * @returns boolean
-     */
-    public function sendItems($name, $items)
-    {
-        if (is_array($items))
-            $items = implode($items, " ");
-
-        return $this->soap->send('send items '.$name.' "RG Premium System" "" ' . $items) !== false;
-    }
 }
