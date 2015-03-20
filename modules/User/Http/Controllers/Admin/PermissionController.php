@@ -4,8 +4,18 @@ use Vain\Http\Controllers\Controller;
 
 class PermissionController extends Controller {
 
-    function getAdmin()
+    function getIndex()
     {
-        return view('user::admin.index');
+        return view('user::admin.permissions.index');
+    }
+
+    function getPermission()
+    {
+
+    }
+
+    function postPermission()
+    {
+
     }
 }

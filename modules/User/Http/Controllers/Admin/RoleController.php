@@ -4,8 +4,18 @@ use Vain\Http\Controllers\Controller;
 
 class RoleController extends Controller {
 
-    function getAdmin()
+    function getIndex()
     {
-        return view('user::admin.index');
+        return view('user::admin.roles.index');
+    }
+
+    function getRole()
+    {
+
+    }
+
+    function postRole()
+    {
+
     }
 }
