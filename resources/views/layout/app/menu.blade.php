@@ -22,8 +22,6 @@
                     <li class="dropdown dropdown-user">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <img src="{{ Auth::user()->getAvatar() }}" /> <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ route( 'user.admin.index') }}">Admin</a></li>
-                            <li class="divider"></li>
                             <li><a href="{{ route( 'user.profile', [ Auth::user()->id ] ) }}">@lang('user::profile.title.mine')</a></li>
                             <li><a href="/auth/logout">@lang('user::auth.action.logout')</a></li>
                         </ul>
