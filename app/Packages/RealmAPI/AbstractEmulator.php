@@ -7,7 +7,6 @@
  * Time: 20:36
  */
 
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use InvalidArgumentException;
