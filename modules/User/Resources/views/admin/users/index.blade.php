@@ -5,6 +5,7 @@
 @stop
 
 @section('content')
+    <section class="content-header">
         <h1>
             @lang('user::user.title')
         </h1>

@@ -26,7 +26,7 @@
     </li>
 
     <li class="treeview">
-        <a href="{{ route('index') }}">
+        <a href="{{ route('site.admin.pages.index') }}">
             <i class="fa fa-file-text-o"></i> <span>@lang('site::admin.title')</span>
         </a>
     </li>
