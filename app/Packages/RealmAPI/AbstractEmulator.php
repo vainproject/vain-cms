@@ -7,6 +7,7 @@
  * Time: 20:36
  */
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use InvalidArgumentException;
@@ -169,22 +170,8 @@ abstract class AbstractEmulator
         if ($this->useCache && Cache::has($key))
             return Cache::get($key);
 
-        switch ($this->type)
-        {
-            case Realm::REALM_MANGOS:
-                $attributes = ['guid', 'account', 'name', 'race', 'class', 'level', 'money'];
-                break;
-
-            case Realm::REALM_TRINITY:
-                $attributes = ['guid', 'account', 'name', 'race', 'class', 'level', 'money'];
-                break;
-
-            default:
-                throw new InvalidArgumentException; // ToDo: own exception
-        }
-
         $char = Character::on($this->connections['characters'])
-            ->find($guid, $attributes);
+            ->find($guid, ['guid', 'account', 'name', 'race', 'class', 'level', 'money']);
 
         Cache::put($key, $char, $this->cacheDuration);
 
@@ -211,5 +198,26 @@ abstract class AbstractEmulator
     public function announce($message)
     {
         return $this->soap->send('announce '.$message) !== false;
+    }
+
+    /**
+     * Get characters by account id
+     * @param int $accountId
+     * @returns \Illuminate\Database\Eloquent\Collection|null
+     */
+    public function getAccountCharacters($accountId)
+    {
+        $key = $this->cacheKey(__FUNCTION__, $accountId);
+
+        if ($this->useCache && Cache::has($key))
+            return Cache::get($key);
+
+        $chars = Character::on($this->connections['characters'])
+            ->where('account', $accountId)
+            ->get(['guid', 'account', 'name', 'race', 'class', 'level', 'money']);
+
+        Cache::put($key, $chars, $this->cacheDuration);
+
+        return $chars;
     }
 }
