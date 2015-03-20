@@ -76,7 +76,6 @@ abstract class AbstractEmulator
     // ToDo: some stuff that might be useful
     //public abstract function getAccountCharacters();
     //public abstract function createAccount();
-    //public abstract function announce($string);
     //public abstract function banAccount();
     //public abstract function characterCustomizeLook();
     //public abstract function muteAccount();
@@ -202,5 +201,15 @@ abstract class AbstractEmulator
     public function sendMail($name, $subject, $message)
     {
         return $this->soap->send('send mail '.$name.' "'.$subject.'" "'.$message.'"') !== false;
+    }
+
+    /**
+     * Send a global message to all players online in chat log
+     * @param string $message
+     * @returns bool
+     */
+    public function announce($message)
+    {
+        return $this->soap->send('announce '.$message) !== false;
     }
 }
