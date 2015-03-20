@@ -13,7 +13,7 @@ use InvalidArgumentException;
 use Vain\Packages\RealmAPI\Models\Character;
 use Vain\Packages\RealmAPI\Services\SoapService;
 
-// TODO optimize general cache usage / less repeatative code?
+// TODO optimize general cache usage / less repetitive code?
 abstract class AbstractEmulator
 {
     use Configurator, Cacheable;
@@ -54,6 +54,8 @@ abstract class AbstractEmulator
         $this->type = $this->getTypeConfig($realm);
         $this->connections = $this->getDatabaseConfig($realm);
 
+        $this->setCacheDuration(24 * 60);
+
         $this->soap = app('Vain\Packages\RealmAPI\Services\SoapService')
             ->configure($this->getSoapConfig($realm));
     }
@@ -65,19 +67,8 @@ abstract class AbstractEmulator
      */
     public abstract function getServerStatus();
 
-    /**
-     * Send an item to a player
-     * @param $guid Integer
-     * @param $item Integer
-     * @returns boolean
-     */
-    public abstract function sendItem($guid, $item);
-
     // ToDo: some stuff that might be useful
-    //public abstract function getAccountCharacters();
-    //public abstract function sendMail();
     //public abstract function createAccount();
-    //public abstract function announce($string);
     //public abstract function banAccount();
     //public abstract function characterCustomizeLook();
     //public abstract function muteAccount();
@@ -95,7 +86,7 @@ abstract class AbstractEmulator
     /**
      * Get character name by GUID
      *
-     * @param $guid Integer
+     * @param int $guid
      * @return String|null
      */
     public function getCharacterNameByGuid($guid)
@@ -117,8 +108,8 @@ abstract class AbstractEmulator
 
     /**
      * Get GUID by character name
-     * @param $name String
-     * @return Integer|null
+     * @param string $name
+     * @return int|null
      */
     public function getCharacterGuidByName($name)
     {
@@ -160,7 +151,7 @@ abstract class AbstractEmulator
 
     /**
      * Get character by GUID
-     * @param $guid Integer
+     * @param int $guid
      * @return Character
      * @throws InvalidArgumentException
      */
@@ -171,25 +162,68 @@ abstract class AbstractEmulator
         if ($this->useCache && Cache::has($key))
             return Cache::get($key);
 
-        switch ($this->type)
-        {
-            case Realm::REALM_MANGOS:
-                $attributes = ['guid', 'account', 'name', 'race', 'class', 'level', 'money'];
-                break;
-
-            case Realm::REALM_TRINITY:
-                $attributes = ['guid', 'account', 'name', 'race', 'class', 'level', 'money'];
-                break;
-
-            default:
-                throw new InvalidArgumentException; // ToDo: own exception
-        }
-
         $char = Character::on($this->connections['characters'])
-            ->find($guid, $attributes);
+            ->find($guid, ['guid', 'account', 'name', 'race', 'class', 'level', 'money']);
 
         Cache::put($key, $char, $this->cacheDuration);
 
         return $char;
+    }
+
+    /**
+     * Send a mail to a player (text only)
+     * @param string $name
+     * @param string $subject
+     * @param string $message
+     * @returns bool
+     */
+    public function sendMail($name, $subject, $message)
+    {
+        return $this->soap->send('send mail '.$name.' "'.$subject.'" "'.$message.'"') !== false;
+    }
+
+    /**
+     * Send a global message to all players online in chat log
+     * @param string $message
+     * @returns bool
+     */
+    public function announce($message)
+    {
+        return $this->soap->send('announce '.$message) !== false;
+    }
+
+    /**
+     * Get characters by account id
+     * @param int $accountId
+     * @returns \Illuminate\Database\Eloquent\Collection|null
+     */
+    public function getAccountCharacters($accountId)
+    {
+        $key = $this->cacheKey(__FUNCTION__, $accountId);
+
+        if ($this->useCache && Cache::has($key))
+            return Cache::get($key);
+
+        $chars = Character::on($this->connections['characters'])
+            ->where('account', $accountId)
+            ->get(['guid', 'account', 'name', 'race', 'class', 'level', 'money']);
+
+        Cache::put($key, $chars, $this->cacheDuration);
+
+        return $chars;
+    }
+
+    /**
+     * Send items to a player
+     * @param string $name
+     * @param array|int $items
+     * @returns boolean
+     */
+    public function sendItems($name, $items)
+    {
+        if (is_array($items))
+            $items = implode($items, " ");
+
+        return $this->soap->send('send items '.$name.' "Premium System" "" ' . $items) !== false;
     }
 }

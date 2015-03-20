@@ -17,15 +17,5 @@ class TrinityEmulator extends AbstractEmulator
     {
         throw new \BadFunctionCallException();
     }
-
-    /**
-     * Send an item to a player
-     * @param $guid Integer
-     * @param $item Integer
-     * @returns boolean
-     */
-    public function sendItem($guid, $item) // ToDo: might be the same syntax for trinity
-    {
-        throw new \BadFunctionCallException();
     }
 }

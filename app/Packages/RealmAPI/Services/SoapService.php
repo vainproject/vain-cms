@@ -49,13 +49,13 @@ class SoapService
 
     /**
      * @param array $config
-     * @return $this
+     * @return SoapService
      */
     public function configure( $config )
     {
         $this->config = [
             "location" => sprintf("http://%s:%s/", $config['host'], $config['port']),
-            "uri" => "urn:MaNGOS",
+            "uri" => "urn:".$config['urn'],
             "style" => SOAP_RPC,
             "login" => $config['username'],
             "password" => $config['password'],
@@ -86,20 +86,35 @@ class SoapService
     }
 
     /**
-     * Will send a SOAP command to the realm
+     * Will send a SOAP command to the realm. Will return false if command fails
      * @param $command
-     * @return String|null
+     * @return String|null|boolean
      */
     public function send($command)
     {
-        // ToDo: logging
+        // ToDo: logging on success and fail
         try
         {
-            return $this->client()->executeCommand(new SoapParam($command, "command"));
+            // this may return null although everything worked out fine (e.g. for send mail)
+            $response = $this->client()->executeCommand(new SoapParam($command, "command"));
+
+            // Trinity response for missing command - same for mangos?
+            if (strpos($response, "Es gibt keinen solchen Unterbefehl.") !== false)
+                throw new \InvalidArgumentException("SOAP Befehl existiert nicht");
+
+            return $response;
         }
         catch (SoapFault $e)
         {
-            return null;
+            // possible exceptions:
+            // Could not connect to host
+            // HTTP Error: 403 Forbidden
+            // Spieler nicht gefunden! (Trinity)
+            // ...
+            if (config('app.debug'))
+                throw $e;
+
+            return false;
         }
     }
 }

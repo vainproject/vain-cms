@@ -38,10 +38,8 @@ class RealmApiServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app->bind(
-            'Vain\Packages\RealmAPI\EmulatorFactory',
-            'Vain\Packages\RealmAPI\Services\SoapService'
-        );
+        $this->app->bind('Vain\Packages\RealmAPI\EmulatorFactory');
+        $this->app->bind('Vain\Packages\RealmAPI\Services\SoapService');
     }
 
 }

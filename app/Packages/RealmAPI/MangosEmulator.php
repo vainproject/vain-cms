@@ -32,16 +32,4 @@ class MangosEmulator extends AbstractEmulator
 
         return $data;
     }
-
-    /**
-     * Send an item to a player
-     * @param $guid Integer
-     * @param $item Integer
-     * @returns boolean
-     */
-    public function sendItem($guid, $item) // ToDo: might be the same syntax for trinity
-    {
-        return is_null($this->soap->send('send items "RG Premium System" "" ' . $item));
-    }
-
 }
