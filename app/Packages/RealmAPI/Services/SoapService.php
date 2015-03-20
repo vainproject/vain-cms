@@ -49,13 +49,13 @@ class SoapService
 
     /**
      * @param array $config
-     * @return $this
+     * @return SoapService
      */
     public function configure( $config )
     {
         $this->config = [
             "location" => sprintf("http://%s:%s/", $config['host'], $config['port']),
-            "uri" => "urn:MaNGOS",
+            "uri" => "urn:".$config['urn'],
             "style" => SOAP_RPC,
             "login" => $config['username'],
             "password" => $config['password'],

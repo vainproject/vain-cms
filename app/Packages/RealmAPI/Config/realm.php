@@ -63,6 +63,7 @@ return [
             'port' => env('TRINITY_SOAP_PORT'),
             'username' => env('TRINITY_SOAP_USERNAME'),
             'password' => env('TRINITY_SOAP_PASSWORD'),
+            'urn' => 'TC',
         ],
 
         'mangos' => [
@@ -70,6 +71,7 @@ return [
             'port' => env('MANGOS_SOAP_PORT'),
             'username' => env('MANGOS_SOAP_USERNAME'),
             'password' => env('MANGOS_SOAP_PASSWORD'),
+            'urn' => 'MaNGOS',
         ],
 
     ],
