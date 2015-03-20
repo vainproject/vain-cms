@@ -41,16 +41,9 @@ class MangosEmulator extends AbstractEmulator
      */
     public function sendItems($name, $items)
     {
-        $itemString = '';
-        if (is_array($items)) {
-            $prefix = '';
-            foreach ($items as $item) {
-                $itemString .= $prefix . $item;
-                $prefix = ' ';
-            }
-        } else
-            $itemString = $items;
+        if (is_array($items))
+            $items = implode($items, " ");
 
-        return $this->soap->send('send items '.$name.' "RG Premium System" "" ' . $itemString) !== false;
+        return $this->soap->send('send items '.$name.' "RG Premium System" "" ' . $items) !== false;
     }
 }
