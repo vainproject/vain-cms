@@ -96,7 +96,13 @@ class SoapService
         try
         {
             // this may return null although everything worked out fine (e.g. for send mail)
-            return $this->client()->executeCommand(new SoapParam($command, "command"));
+            $response = $this->client()->executeCommand(new SoapParam($command, "command"));
+
+            // Trinity response for missing command - same for mangos?
+            if (strpos($response, "Es gibt keinen solchen Unterbefehl.") !== false)
+                throw new \InvalidArgumentException("SOAP Befehl existiert nicht");
+
+            return $response;
         }
         catch (SoapFault $e)
         {

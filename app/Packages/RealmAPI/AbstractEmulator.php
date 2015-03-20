@@ -75,7 +75,6 @@ abstract class AbstractEmulator
 
     // ToDo: some stuff that might be useful
     //public abstract function getAccountCharacters();
-    //public abstract function sendMail();
     //public abstract function createAccount();
     //public abstract function announce($string);
     //public abstract function banAccount();
@@ -191,5 +190,17 @@ abstract class AbstractEmulator
         Cache::put($key, $char, $this->cacheDuration);
 
         return $char;
+    }
+
+    /**
+     * Send a mail to a player (text only)
+     * @param string $name
+     * @param string $subject
+     * @param string $message
+     * @returns bool
+     */
+    public function sendMail($name, $subject, $message)
+    {
+        return $this->soap->send('send mail '.$name.' "'.$subject.'" "'.$message.'"') !== false;
     }
 }
