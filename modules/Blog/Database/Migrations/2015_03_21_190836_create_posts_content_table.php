@@ -5,15 +5,15 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePostsContentTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('posts_content', function(Blueprint $table)
-		{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('posts_content', function(Blueprint $table)
+        {
             $table->increments('id');
 
             $table->integer('post_id')->unsigned();
@@ -27,17 +27,17 @@ class CreatePostsContentTable extends Migration {
 
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->unique(['post_id', 'locale']);
-		});
-	}
+        });
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::drop('posts_content');
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('posts_content');
+    }
 
 }
