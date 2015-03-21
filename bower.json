@@ -4,6 +4,7 @@
     "jquery": "2.*",
     "bootstrap": "*",
     "bootstrap-material-design": "*",
-    "admin-lte": "*"
+    "admin-lte": "*",
+    "toastr": "*"
   }
 }
