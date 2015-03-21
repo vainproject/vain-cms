@@ -1,5 +1,7 @@
 <?php namespace Modules\Blog\Entities;
    
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model {
@@ -44,5 +46,17 @@ class Post extends Model {
         }
 
         return $content;
+    }
+
+    /**
+     * @param Builder $query
+     * @return mixed
+     */
+    public function scopePublished($query)
+    {
+        return $query->where('published_at', '<=', Carbon::now())
+            ->orWhere('published_at', null)
+            ->where('concealed_at', '>=', Carbon::now())
+            ->orWhere('concealed_at', null);
     }
 }
