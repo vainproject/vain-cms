@@ -1,8 +1,10 @@
 <?php namespace Modules\User\Providers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
-class AuthServiceProvider extends ServiceProvider {
+class UserServiceProvider extends ServiceProvider {
 
     /**
      * Indicates if loading of the provider is deferred.
@@ -23,6 +25,8 @@ class AuthServiceProvider extends ServiceProvider {
 
         $viewPath = __DIR__.'/../Resources/views';
         $this->loadViewsFrom($viewPath, 'user');
+
+        $this->composeAdminViews();
     }
 
     /**
@@ -40,4 +44,14 @@ class AuthServiceProvider extends ServiceProvider {
         );
     }
 
+    /**
+     * composes admin views
+     */
+    protected function composeAdminViews()
+    {
+        View::composer('admin', function($view)
+        {
+            $view->getFactory()->inject('account', view('user::admin.account', ['user' => Auth::user()]));
+        });
+    }
 }

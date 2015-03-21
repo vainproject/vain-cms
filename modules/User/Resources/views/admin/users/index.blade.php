@@ -39,7 +39,7 @@
                             <td>{{ $user->created_at }}</td>
                             <td>
                                 <a class="btn-sm btn-default" href="{{ route('user.admin.users.edit', ['id' => $user->id]) }}"><i class="fa fa-edit"></i></a>
-                                <a class="btn-sm btn-danger" href="{{ route('user.admin.users.delete', ['id' => $user->id]) }}"><i class="fa fa-trash"></i></a>
+                                <a class="btn-sm btn-danger js-delete" href="{{ route('user.admin.users.delete', ['id' => $user->id]) }}"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -51,4 +51,16 @@
             </div>
         </div>
     </section>
+    @include('user::admin.modal')
 @endsection
+
+@section('scripts')
+    <script>
+        $('document').ready(function() {
+            $('.js-delete').on('click', function(e) {
+                e.preventDefault();
+                $.fn.showConfirm($('#modal'), $('.js-confirm'), $(this).attr('href'), 'DELETE');
+            });
+        });
+    </script>
+@stop

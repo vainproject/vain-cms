@@ -25,11 +25,16 @@ class UserController extends Controller {
 
     function getUser()
     {
-
+        dd('get');
     }
 
     function postUser()
     {
+        dd('pos');
+    }
 
+    function deleteUser()
+    {
+        app()->abort(500, 'test');
     }
 }

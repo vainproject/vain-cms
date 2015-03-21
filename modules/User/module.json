@@ -6,7 +6,7 @@
     "active": 1,
     "order": 0,
     "providers": [
-        "Modules\\User\\Providers\\AuthServiceProvider",
+        "Modules\\User\\Providers\\UserServiceProvider",
         "Modules\\User\\Providers\\ConfigServiceProvider",
         "Modules\\User\\Providers\\RouteServiceProvider"
     ],
