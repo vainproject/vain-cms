@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7f03d3ead034ff3ae227b2228c981b8c",
+    "hash": "869317c9c7b4c4a3db9eea1f75f7568b",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -399,16 +399,16 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "v3.9.2",
+            "version": "v3.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "54991459675c1a2924122afbb0e5609ade581155"
+                "reference": "0645b70d953bc1c067bbc8d5bc53194706b628d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/54991459675c1a2924122afbb0e5609ade581155",
-                "reference": "54991459675c1a2924122afbb0e5609ade581155",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/0645b70d953bc1c067bbc8d5bc53194706b628d9",
+                "reference": "0645b70d953bc1c067bbc8d5bc53194706b628d9",
                 "shasum": ""
             },
             "require": {
@@ -449,6 +449,9 @@
                 "zendframework/zend-cache": "2.*,<2.3",
                 "zendframework/zend-log": "2.*,<2.3"
             },
+            "suggest": {
+                "guzzlehttp/guzzle": "Guzzle 5 has moved to a new package name. The package you have installed, Guzzle 3, is deprecated."
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -476,7 +479,7 @@
                     "homepage": "https://github.com/guzzle/guzzle/contributors"
                 }
             ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "description": "PHP HTTP client. This library is deprecated in favor of https://packagist.org/packages/guzzlehttp/guzzle",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
                 "client",
@@ -487,7 +490,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-08-11 04:32:36"
+            "time": "2015-03-18 18:23:50"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -647,52 +650,6 @@
                 "stream"
             ],
             "time": "2014-10-12 19:18:40"
-        },
-        {
-            "name": "illuminate/html",
-            "version": "v5.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/html.git",
-                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/html/zipball/3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
-                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/http": "~5.0",
-                "illuminate/session": "~5.0",
-                "illuminate/support": "~5.0",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Html\\": ""
-                },
-                "files": [
-                    "helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
-                }
-            ],
-            "time": "2015-01-01 16:31:18"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -882,16 +839,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.0.17",
+            "version": "v5.0.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b4abcbc98885e1b339acc7e993d2758d47f01ecc"
+                "reference": "b21be29a1fb12c84ab4e0b723e9c11492d0b25fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b4abcbc98885e1b339acc7e993d2758d47f01ecc",
-                "reference": "b4abcbc98885e1b339acc7e993d2758d47f01ecc",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b21be29a1fb12c84ab4e0b723e9c11492d0b25fe",
+                "reference": "b21be29a1fb12c84ab4e0b723e9c11492d0b25fe",
                 "shasum": ""
             },
             "require": {
@@ -1004,7 +961,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-03-17 21:45:31"
+            "time": "2015-03-21 16:10:01"
         },
         {
             "name": "laravel/socialite",
@@ -1059,6 +1016,56 @@
                 "oauth"
             ],
             "time": "2015-03-13 02:40:10"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v5.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "9af203053815cb12c9b8307e8367153c84fdd4b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/9af203053815cb12c9b8307e8367153c84fdd4b7",
+                "reference": "9af203053815cb12c9b8307e8367153c84fdd4b7",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "~5.0",
+                "illuminate/routing": "~5.0",
+                "illuminate/session": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "time": "2015-03-10 15:59:48"
         },
         {
             "name": "league/flysystem",
@@ -1572,17 +1579,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pingpong-labs/modules.git",
-                "reference": "1535296dc97fb7b527f55285cd57354c5fa6a205"
+                "reference": "de03858a20076d503ba14a553951b0b64fc2fb95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pingpong-labs/modules/zipball/1535296dc97fb7b527f55285cd57354c5fa6a205",
-                "reference": "1535296dc97fb7b527f55285cd57354c5fa6a205",
+                "url": "https://api.github.com/repos/pingpong-labs/modules/zipball/de03858a20076d503ba14a553951b0b64fc2fb95",
+                "reference": "de03858a20076d503ba14a553951b0b64fc2fb95",
                 "shasum": ""
             },
             "require": {
-                "illuminate/html": "5.0.*@dev",
                 "laravel/framework": "5.0.x@dev",
+                "laravelcollective/html": "~5.0",
                 "php": ">=5.4.0",
                 "pingpong/generators": "1.*"
             },
@@ -1621,7 +1628,7 @@
                 "modules",
                 "pingpong"
             ],
-            "time": "2015-03-07 09:15:25"
+            "time": "2015-03-21 03:35:30"
         },
         {
             "name": "psr/log",
@@ -2699,12 +2706,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Zizaco/entrust.git",
-                "reference": "83657286c328f25faf811c5a08c1d4ae0b7cb11a"
+                "reference": "305916c40ed35dd6ebb81379db51ec582df19623"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/83657286c328f25faf811c5a08c1d4ae0b7cb11a",
-                "reference": "83657286c328f25faf811c5a08c1d4ae0b7cb11a",
+                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/305916c40ed35dd6ebb81379db51ec582df19623",
+                "reference": "305916c40ed35dd6ebb81379db51ec582df19623",
                 "shasum": ""
             },
             "require": {
@@ -2758,7 +2765,7 @@
                 "permission",
                 "roles"
             ],
-            "time": "2015-03-11 11:52:51"
+            "time": "2015-03-20 15:05:21"
         }
     ],
     "packages-dev": [
