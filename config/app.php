@@ -170,6 +170,7 @@ return [
         'Pingpong\Modules\ModulesServiceProvider',
         'Laravel\Socialite\SocialiteServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
+        'Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider',
 
         // in-app packages, may be excluded sometimes later
         'Vain\Packages\RealmAPI\Providers\RealmApiServiceProvider',
@@ -229,6 +230,8 @@ return [
         'Debugbar'  => 'Barryvdh\Debugbar\Facade',
         'Socialize' => 'Laravel\Socialite\Facades\Socialite',
         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
+        'LocalizedCarbon' => 'Laravelrus\LocalizedCarbon\LocalizedCarbon',
+        'DiffFormatter' => 'Laravelrus\LocalizedCarbon\DiffFactoryFacade',
     ],
 
 ];
