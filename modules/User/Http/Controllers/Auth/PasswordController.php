@@ -1,4 +1,4 @@
-<?php namespace Modules\User\Http\Controllers;
+<?php namespace Modules\User\Http\Controllers\Auth;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Vain\Http\Controllers\Controller;

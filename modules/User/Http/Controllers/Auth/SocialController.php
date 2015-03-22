@@ -1,4 +1,4 @@
-<?php namespace Modules\User\Http\Controllers;
+<?php namespace Modules\User\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

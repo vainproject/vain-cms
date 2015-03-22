@@ -3,7 +3,8 @@
 return [
     'title' => [
         'index' => 'Profil von :name',
-        'edit' => 'Mein Profil bearbeiten'
+        'mine' => 'Mein Profil',
+        'edit' => 'Mein Profil bearbeiten',
     ],
     'action' => [
         'save' => 'Speichern',

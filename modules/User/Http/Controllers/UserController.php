@@ -59,15 +59,4 @@ class UserController extends Controller {
         return new JsonResponse([ 'error' => !$success ]);
     }
 
-    public function getAdmin(Request $request)
-    {
-        return view('user::admin.index');
-    }
-
-    public function getRealm(EmulatorFactory $factory)
-    {
-        $status =  $factory->connection('mangos')->getServerStatus();
-
-        return new JsonResponse($status);
-    }
 }

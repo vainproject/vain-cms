@@ -3,7 +3,7 @@
 return [
     'title' => [
         'index' => 'Profile of :name',
-        'edit' => 'Edit my profile'
+        'edit' => 'Edit my profile',
     ],
     'action' => [
         'save' => 'Save',

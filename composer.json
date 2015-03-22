@@ -7,6 +7,7 @@
     "require": {
         "laravel/framework": "5.0.*",
         "laravel/socialite": "~2.0",
+        "laravelcollective/html": "~5.0",
         "pingpong/modules": "2.0.x-dev",
         "zizaco/entrust": "dev-laravel-5",
         "barryvdh/laravel-ide-helper": "~2.0",

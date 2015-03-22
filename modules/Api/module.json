@@ -4,7 +4,7 @@
     "description": "",
     "keywords": [],
     "active": 1,
-    "priority": 0,
+    "order": 3,
     "providers": [
         "Modules\\Api\\Providers\\ApiServiceProvider"
     ],

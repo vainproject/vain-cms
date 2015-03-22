@@ -1,24 +1,24 @@
 @extends('app')
 
 @section('title')
-    @lang('site::page.title', ['title' => $page->content()->title])
+    @lang('site::page.title', ['title' => $page->title])
 @stop
 
 @section('keywords')
-    {{ $page->content()->keywords }}
+    {{ $page->keywords }}
 @stop
 
 @section('description')
-    {{ $page->content()->description }}
+    {{ $page->description }}
 @stop
 
 @section('keywords')
-    {{ $page->content()->title }}
+    {{ $page->title }}
 @stop
 
 @section('content')
     <div class="container">
-        <h1>{{ $page->content()->title }}</h1>
-        {!! $page->content()->text !!}
+        <h1>{{ $page->title }}</h1>
+        {!! $page->text !!}
     </div>
 @stop
