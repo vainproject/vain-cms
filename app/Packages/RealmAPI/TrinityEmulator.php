@@ -17,5 +17,4 @@ class TrinityEmulator extends AbstractEmulator
     {
         throw new \BadFunctionCallException();
     }
-    }
 }
