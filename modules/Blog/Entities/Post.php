@@ -3,8 +3,12 @@
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Vain\Packages\Translator\Translatable;
+use Vain\Packages\Translator\TranslatableTrait;
 
-class Post extends Model {
+class Post extends Model implements Translatable {
+
+    use TranslatableTrait;
 
     /**
      * The database table used by the model.
@@ -43,22 +47,11 @@ class Post extends Model {
     }
 
     /**
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function getContentAttribute()
+    public function comments()
     {
-        $locale = app()->getLocale();
-
-        $content = $this->contents()
-            ->where('locale', $locale)
-            ->first();
-
-        if ($content === null) {
-            $content = $this->contents()
-                ->first();
-        }
-
-        return $content;
+        return $this->hasMany('Modules\Blog\Entities\Comment');
     }
 
     /**

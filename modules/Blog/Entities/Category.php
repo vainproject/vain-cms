@@ -1,8 +1,12 @@
 <?php namespace Modules\Blog\Entities;
    
 use Illuminate\Database\Eloquent\Model;
+use Vain\Packages\Translator\Translatable;
+use Vain\Packages\Translator\TranslatableTrait;
 
-class Category extends Model {
+class Category extends Model implements Translatable {
+
+    use TranslatableTrait;
 
     /**
      * The database table used by the model.
@@ -30,26 +34,5 @@ class Category extends Model {
     public function posts()
     {
         return $this->hasMany('Modules\Blog\Entities\Post');
-    }
-
-    /**
-     * Tries to get the translated content for the current locale
-     * Otherwise we'll take the first translated content for this category
-     * @return mixed
-     */
-    public function getContentAttribute()
-    {
-        $locale = app()->getLocale();
-
-        $content = $this->contents()
-            ->where('locale', $locale)
-            ->first();
-
-        if ($content === null) {
-            $content = $this->contents()
-                ->first();
-        }
-
-        return $content;
     }
 }

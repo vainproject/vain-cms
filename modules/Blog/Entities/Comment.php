@@ -2,10 +2,11 @@
    
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
 
 class Comment extends Model {
 
-    use SoftDeletes;
+    use SoftDeletes, LocalizedEloquentTrait;
 
     /**
      * The database table used by the model.
@@ -18,6 +19,8 @@ class Comment extends Model {
      * @var array
      */
     protected $fillable = ['text', 'bluepost'];
+
+    protected $dates = ['created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
