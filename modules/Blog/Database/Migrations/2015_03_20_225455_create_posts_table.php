@@ -28,7 +28,7 @@ class CreatePostsTable extends Migration {
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+            $table->foreign('category_id')->references('id')->on('post_categories')->onDelete('set null');
             $table->unique(['slug', 'category_id']);    // eloquent boss power :o
         });
     }

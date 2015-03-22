@@ -9,25 +9,37 @@ class Category extends Model {
      *
      * @var string
      */
-    protected $table = 'categories';
+    protected $table = 'post_categories';
 
+    /**
+     * @var array
+     */
     protected $fillable = ['slug'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function contents()
     {
         return $this->hasMany('Modules\Blog\Entities\CategoryContent');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function posts()
     {
         return $this->hasMany('Modules\Blog\Entities\Post');
     }
 
-    public function content($locale = null)
+    /**
+     * Tries to get the translated content for the current locale
+     * Otherwise we'll take the first translated content for this category
+     * @return mixed
+     */
+    public function getContentAttribute()
     {
-        if ($locale === null) {
-            $locale = app()->getLocale();
-        }
+        $locale = app()->getLocale();
 
         $content = $this->contents()
             ->where('locale', $locale)

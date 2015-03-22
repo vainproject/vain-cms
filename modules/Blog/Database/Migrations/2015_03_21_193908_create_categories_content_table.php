@@ -12,7 +12,7 @@ class CreateCategoriesContentTable extends Migration {
      */
     public function up()
     {
-        Schema::create('categories_content', function(Blueprint $table)
+        Schema::create('post_categories_content', function(Blueprint $table)
         {
             $table->increments('id');
 
@@ -23,7 +23,7 @@ class CreateCategoriesContentTable extends Migration {
 
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('post_categories')->onDelete('cascade');
             $table->unique(['category_id', 'locale']);
         });
     }
@@ -35,7 +35,7 @@ class CreateCategoriesContentTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('categories_content');
+        Schema::drop('post_categories_content');
     }
 
 }

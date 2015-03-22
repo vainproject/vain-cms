@@ -36,7 +36,7 @@ class CategoriesTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('categories')->delete();
+        DB::table('post_categories')->delete();
 
         Category::create([
             'id' => 1,
@@ -107,7 +107,7 @@ class CategoriesContentTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('categories_content')->delete();
+        DB::table('post_categories_content')->delete();
 
         CategoryContent::create([
             'id' => 1,

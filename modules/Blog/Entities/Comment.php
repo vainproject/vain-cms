@@ -14,13 +14,22 @@ class Comment extends Model {
      */
     protected $table = 'comments';
 
+    /**
+     * @var array
+     */
     protected $fillable = ['text', 'bluepost'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo('Modules\User\Entities\User');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function post()
     {
         return $this->belongsTo('Modules\Blog\Entities\Post');

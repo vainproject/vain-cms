@@ -13,28 +13,41 @@ class Post extends Model {
      */
     protected $table = 'posts';
 
+    /**
+     * @var array
+     */
     protected $fillable = ['slug', 'role', 'published_at', 'concealed_at'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function contents()
     {
         return $this->hasMany('Modules\Blog\Entities\PostContent');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function user()
     {
         return $this->hasMany('Modules\User\Entities\User');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function category()
     {
         return $this->belongsTo('Modules\Blog\Entities\Category');
     }
 
-    public function content($locale = null)
+    /**
+     * @return mixed
+     */
+    public function getContentAttribute()
     {
-        if ($locale === null) {
-            $locale = app()->getLocale();
-        }
+        $locale = app()->getLocale();
 
         $content = $this->contents()
             ->where('locale', $locale)
