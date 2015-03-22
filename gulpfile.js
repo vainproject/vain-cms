@@ -45,7 +45,19 @@ var scripts_include = [
 ];
 
 var scripts_admin_include = [
-    './bower_components/admin-lte/dist/js/app.js'
+    /*
+     |--------------------------------------------------------------------------
+     | Vendor Javascript
+     |--------------------------------------------------------------------------
+     */
+    './bower_components/admin-lte/dist/js/app.js',
+
+    /*
+     |--------------------------------------------------------------------------
+     | Module Javascript
+     |--------------------------------------------------------------------------
+     */
+    './modules/User/Resources/assets/js/admin/*.js',
 ];
 
 /*

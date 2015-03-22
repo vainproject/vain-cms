@@ -25,11 +25,11 @@
                         <td>@lang('site::admin.id')</td>
                         <td>@lang('site::admin.slug')</td>
                         <td>@lang('site::admin.role')</td>
-                        <td>@lang('site::admin.active')</td>
                         <td>@lang('site::admin.published_at')</td>
                         <td>@lang('site::admin.concealed_at')</td>
                         <td>@lang('site::admin.created_at')</td>
                         <td>@lang('site::admin.updated_at')</td>
+                        <td>@lang('site::admin.deleted_at')</td>
                         <td></td>
                     </tr>
                     </thead>
@@ -39,11 +39,11 @@
                             <td>{{ $page->id }}</td>
                             <td>{{ $page->slug }}</td>
                             <td>{{ $page->role }}</td>
-                            <td>{{ $page->active }}</td>
                             <td>{{ $page->published_at }}</td>
                             <td>{{ $page->concealed_at }}</td>
                             <td>{{ $page->created_at }}</td>
                             <td>{{ $page->updated_at }}</td>
+                            <td>{{ $page->deleted_at }}</td>
                             <td>
                                 <a class="btn-sm btn-default" href="{{ route('site.admin.pages.edit', ['id' => $page->id]) }}"><i class="fa fa-edit"></i></a>
                                 <a class="btn-sm btn-danger" href="{{ route('site.admin.pages.delete', ['id' => $page->id]) }}"><i class="fa fa-trash"></i></a>

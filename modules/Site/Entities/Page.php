@@ -2,12 +2,13 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Vain\Packages\Translator\Translatable as TranslatableContract;
 use Vain\Packages\Translator\TranslatableTrait;
 
 class Page extends Model implements TranslatableContract {
 
-    use TranslatableTrait;
+    use SoftDeletes, TranslatableTrait;
 
     /**
      * The database table used by the model.
@@ -21,7 +22,14 @@ class Page extends Model implements TranslatableContract {
      *
      * @var array
      */
-    protected $fillable = [ 'slug', 'role', 'active', 'published_at', 'concealed_at' ];
+    protected $fillable = [ 'slug', 'role', 'published_at', 'concealed_at' ];
+
+    /**
+     * used for soft deletion
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -37,8 +45,7 @@ class Page extends Model implements TranslatableContract {
      */
     public function scopePublished($query)
     {
-        return $query->where('active', true)
-            ->where('published_at', '<=', Carbon::now())
+        return $query->where('published_at', '<=', Carbon::now())
             ->orWhere('published_at', null)
             ->where('concealed_at', '>=', Carbon::now())
             ->orWhere('concealed_at', null);
