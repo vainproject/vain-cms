@@ -2,6 +2,8 @@
 
 return [
 
+    'namespace' => 'Modules',
+
     'stubs' => [
         'enabled'   => false,
         'path'      => base_path().'/vendor/pingpong/modules/src/Pingpong/Modules/Commands/stubs',
