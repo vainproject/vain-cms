@@ -2,10 +2,10 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Vain\Packages\Translator\Translatable;
+use Vain\Packages\Translator\Translatable as TranslatableContract;
 use Vain\Packages\Translator\TranslatableTrait;
 
-class Page extends Model implements Translatable {
+class Page extends Model implements TranslatableContract {
 
     use TranslatableTrait;
 

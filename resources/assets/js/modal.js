@@ -48,22 +48,7 @@
         this.$element.modal('hide');
 
         // display notifier with error message
-        var message = this._parse(jqXHR.responseText);
-        $.fn.notify(message).error();
-    }
-
-    Modal.prototype._parse = function(error)
-    {
-        try
-        {
-            var obj = $.parseJSON(error);
-            if (obj.error && obj.error.message)
-                return obj.error.message;
-        }
-        catch (e)
-        {
-            return null;
-        }
+        $.fn.notify(jqXHR).handle();
     }
 
     $(function() {

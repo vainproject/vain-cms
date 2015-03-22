@@ -77,9 +77,7 @@ class Handler extends ExceptionHandler {
     {
         // handle our ajax errors
         $data = [
-            'error' => [
-                'message' => $e->getMessage()
-            ],
+            'message' => $e->getMessage()
         ];
 
         if ($e instanceof HttpException)

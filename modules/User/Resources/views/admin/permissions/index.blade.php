@@ -11,7 +11,7 @@
         </h1>
     </section>
 
-    <section class="content">
+    <section id="user" class="content">
         <div class="box">
             <div class="box-body table-responsive no-padding">
                 <table class="table table-striped">
@@ -37,7 +37,7 @@
                                 <td>{{ $permission->updated_at }}</td>
                                 <td>
                                     <a class="btn-sm btn-default" href="{{ route('user.admin.permissions.edit', ['id' => $permission->id]) }}"><i class="fa fa-edit"></i></a>
-                                    <a class="btn-sm btn-danger" href="{{ route('user.admin.permissions.delete', ['id' => $permission->id]) }}"><i class="fa fa-trash"></i></a>
+                                    <a class="btn-sm btn-danger js-delete" href="{{ route('user.admin.permissions.delete', ['id' => $permission->id]) }}"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -49,4 +49,5 @@
             </div>
         </div>
     </section>
+    @include('user::admin.permissions.modal')
 @endsection

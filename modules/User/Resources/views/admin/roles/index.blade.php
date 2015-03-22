@@ -11,7 +11,7 @@
         </h1>
     </section>
 
-    <section class="content">
+    <section id="user" class="content">
 
         <div class="box">
             <div class="box-body table-responsive no-padding">
@@ -38,7 +38,7 @@
                             <td>{{ $role->updated_at }}</td>
                             <td>
                                 <a class="btn-sm btn-default" href="{{ route('user.admin.roles.edit', ['id' => $role->id]) }}"><i class="fa fa-edit"></i></a>
-                                <a class="btn-sm btn-danger" href="{{ route('user.admin.roles.delete', ['id' => $role->id]) }}"><i class="fa fa-trash"></i></a>
+                                <a class="btn-sm btn-danger js-delete" href="{{ route('user.admin.roles.delete', ['id' => $role->id]) }}"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -50,4 +50,5 @@
             </div>
         </div>
     </section>
+    @include('user::admin.roles.modal')
 @endsection

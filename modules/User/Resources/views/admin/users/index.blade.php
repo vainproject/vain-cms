@@ -11,7 +11,7 @@
         </h1>
     </section>
 
-    <section class="content">
+    <section id="user" class="content">
         <div class="box">
             <div class="box-body table-responsive no-padding">
                 <table class="table table-striped">
@@ -51,16 +51,5 @@
             </div>
         </div>
     </section>
-    @include('user::admin.modal')
+    @include('user::admin.users.modal')
 @endsection
-
-@section('scripts')
-    <script>
-        $('document').ready(function() {
-            $('.js-delete').on('click', function(e) {
-                e.preventDefault();
-                $.fn.showConfirm($('#modal'), $('.js-confirm'), $(this).attr('href'), 'DELETE');
-            });
-        });
-    </script>
-@stop
