@@ -52,22 +52,6 @@ trait TranslatableTrait {
     }
 
     /**
-     * access translated properties directly
-     *
-     * @param $key
-     * @return mixed
-     */
-    function __get($key)
-    {
-        if (array_key_exists($key, $this->content()->getAttributes()))
-        {
-            return $this->content()->{$key};
-        }
-
-        parent::__get($key);
-    }
-
-    /**
      * store internal runtime cache
      *
      * @param string $locale
