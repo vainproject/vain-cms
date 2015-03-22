@@ -1,5 +1,6 @@
 <?php namespace Modules\User\Http\Middleware;
 
+use Closure;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class XmlHttpRequest

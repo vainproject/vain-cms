@@ -8,6 +8,11 @@ use Vain\Http\Controllers\Controller;
 
 class UserController extends Controller {
 
+    function __construct()
+    {
+        $this->middleware('ajax', ['only' => 'deleteUser']);
+    }
+
     function getIndex()
     {
         $users = User::paginate();
@@ -72,8 +77,9 @@ class UserController extends Controller {
         return redirect()->route('user.admin.users.index');
     }
 
-    function deleteUser()
+    function deleteUser($id)
     {
-        app()->abort(500, 'test');
+        /** @var User $user */
+        User::find($id)->delete();
     }
 }
