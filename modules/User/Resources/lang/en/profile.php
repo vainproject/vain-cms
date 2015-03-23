@@ -7,6 +7,7 @@ return [
     ],
     'action' => [
         'save' => 'Save',
+        'delete' => 'Delete',
         'abort' => 'Abort'
     ],
     'gender' => [
@@ -41,6 +42,7 @@ return [
     ],
     'section' => [
         'general' => 'General',
+        'social' => 'Social & Communities',
         'game' => 'About the Game',
         'password' => 'Change Password'
     ],

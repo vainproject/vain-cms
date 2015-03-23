@@ -14,8 +14,8 @@
     <section id="user" class="content">
 
         <div class="box">
-            <div class="box-body table-responsive no-padding">
-                <table class="table table-striped">
+            <div class="box-body table-responsive no-padding" data-pjax>
+                <table class="table table-striped" data-target>
                     <thead>
                     <tr>
                         <td>@lang('user::role.id')</td>
@@ -37,17 +37,27 @@
                             <td>{{ $role->created_at }}</td>
                             <td>{{ $role->updated_at }}</td>
                             <td>
-                                <a class="btn-sm btn-default" href="{{ route('user.admin.roles.edit', ['id' => $role->id]) }}"><i class="fa fa-edit"></i></a>
-                                <a class="btn-sm btn-danger js-delete" href="{{ route('user.admin.roles.delete', ['id' => $role->id]) }}"><i class="fa fa-trash"></i></a>
+                                {!! Form::open([
+                                     'class' => 'form-inline',
+                                     'data-remote',
+                                     'data-remote-success-message' => trans('user::role.delete.success'),
+                                     'data-remote-error-message' => trans('user::role.delete.error'),
+                                     'url' => route('user.admin.roles.delete', ['id' => $role->id]),
+                                     'method' => 'DELETE']) !!}
+                                    <a class="btn btn-default" href="{{ route('user.admin.roles.edit', ['id' => $role->id]) }}"><i class="fa fa-edit"></i></a>
+                                    <button class="btn btn-danger" type="submit" data-confirm="#modal"><i class="fa fa-trash"></i></button>
+                                {!! Form::close() !!}
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
             </div>
-            <div class="box-footer">
-                {!! $roles->render(new Vain\Presenters\AdminLtePresenter($roles)) !!}
-            </div>
+            @if ($roles->hasPages())
+                <div class="box-footer">
+                    {!! $roles->render(new Vain\Presenters\AdminLtePresenter($roles)) !!}
+                </div>
+            @endif
         </div>
     </section>
     @include('user::admin.roles.modal')

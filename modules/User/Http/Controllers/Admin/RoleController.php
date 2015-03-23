@@ -5,7 +5,7 @@ use Vain\Http\Controllers\Controller;
 
 class RoleController extends Controller {
 
-    function getIndex()
+    public function getIndex()
     {
         $roles = Role::paginate();
 
@@ -13,23 +13,28 @@ class RoleController extends Controller {
             ->with('roles', $roles);
     }
 
-    function getAdd()
+    public function getCreate()
+    {
+        return view('user::admin.role.create');
+    }
+
+    public function postCreate()
     {
 
     }
 
-    function postAdd()
+    public function getRole()
+    {
+        return view('user::admin.role.edit');
+    }
+
+    public function postRole()
     {
 
     }
 
-    function getRole()
+    public function deleteRole($id)
     {
-
-    }
-
-    function postRole()
-    {
-
+        Role::find($id)->delete();
     }
 }

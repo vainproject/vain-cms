@@ -40,6 +40,14 @@ class Page extends Model implements TranslatableContract {
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('Modules\User\Entities\User');
+    }
+
+    /**
      * @param Builder $query
      * @return mixed
      */

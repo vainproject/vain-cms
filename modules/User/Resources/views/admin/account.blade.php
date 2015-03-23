@@ -9,7 +9,7 @@
             <img src="{{ $user->getAvatar() }}" class="img-circle" alt="User Image" />
             <p>
                 {{ $user->name }}
-                <small>@lang('user::auth.member_since', [ 'date' => $user->created_at->format('F Y') ])</small>
+                <small>@lang('user::auth.member_since', [ 'date' => $user->created_at->formatLocalized('%f %Y') ])</small>
             </p>
         </li>
         <!-- Menu Footer-->

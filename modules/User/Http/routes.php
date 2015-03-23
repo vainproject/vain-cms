@@ -39,8 +39,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     {
         Route::get('/', ['as' => 'user.admin.users.index', 'uses' => 'UserController@getIndex']);
 
-        Route::get('add', ['as' => 'user.admin.users.add', 'uses' => 'UserController@getAdd']);
-        Route::post('add', ['as' => 'user.admin.users.create', 'uses' => 'UserController@postAdd']);
+        Route::get('create', ['as' => 'user.admin.users.add', 'uses' => 'UserController@getCreate']);
+        Route::post('create', ['as' => 'user.admin.users.create', 'uses' => 'UserController@postCreate']);
 
         Route::get('{id}', ['as' => 'user.admin.users.edit', 'uses' => 'UserController@getUser']);
         Route::post('{id}', ['as' => 'user.admin.users.save', 'uses' => 'UserController@postUser']);
@@ -51,8 +51,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     {
         Route::get('/', ['as' => 'user.admin.roles.index', 'uses' => 'RoleController@getIndex']);
 
-        Route::get('add', ['as' => 'user.admin.roles.add', 'uses' => 'RoleController@getAdd']);
-        Route::post('add', ['as' => 'user.admin.roles.create', 'uses' => 'RoleController@postAdd']);
+        Route::get('create', ['as' => 'user.admin.roles.add', 'uses' => 'RoleController@getCreate']);
+        Route::post('create', ['as' => 'user.admin.roles.create', 'uses' => 'RoleController@postCreate']);
 
         Route::get('{id}', ['as' => 'user.admin.roles.edit', 'uses' => 'RoleController@getRole']);
         Route::post('{id}', ['as' => 'user.admin.roles.save', 'uses' => 'RoleController@postRole']);
@@ -63,8 +63,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     {
         Route::get('/', ['as' => 'user.admin.permissions.index', 'uses' => 'PermissionController@getIndex']);
 
-        Route::get('add', ['as' => 'user.admin.permissions.add', 'uses' => 'PermissionController@getAdd']);
-        Route::post('add', ['as' => 'user.admin.permissions.create', 'uses' => 'PermissionController@postAdd']);
+        Route::get('create', ['as' => 'user.admin.permissions.add', 'uses' => 'PermissionController@getCreate']);
+        Route::post('create', ['as' => 'user.admin.permissions.create', 'uses' => 'PermissionController@postCreate']);
 
         Route::get('{id}', ['as' => 'user.admin.permissions.edit', 'uses' => 'PermissionController@getPermission']);
         Route::post('{id}', ['as' => 'user.admin.permissions.save', 'uses' => 'PermissionController@postPermission']);

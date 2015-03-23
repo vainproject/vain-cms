@@ -8,6 +8,7 @@ return [
     ],
     'action' => [
         'save' => 'Speichern',
+        'delete' => 'Löschen',
         'abort' => 'Abbrechen'
     ],
     'gender' => [
@@ -42,6 +43,7 @@ return [
     ],
     'section' => [
         'general' => 'Allgemein',
+        'social' => 'Soziales & Communities',
         'game' => 'Über das Spiel',
         'password' => 'Passwort ändern'
     ],

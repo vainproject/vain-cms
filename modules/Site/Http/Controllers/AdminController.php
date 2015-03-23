@@ -3,25 +3,24 @@
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Site\Entities\Page;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AdminController extends Controller {
 
 
     public function getIndex()
     {
-        $pages = Page::paginate();
+        $pages = Page::with('user')->paginate();
 
         return view('site::admin.index')
             ->with('pages', $pages);
     }
 
-    public function getAdd()
+    public function getCreate()
     {
 
     }
 
-    public function postAdd()
+    public function postCreate()
     {
 
     }
@@ -34,5 +33,10 @@ class AdminController extends Controller {
     public function postPage()
     {
 
+    }
+
+    public function deletePage($id)
+    {
+        Page::find($id)->delete();
     }
 }

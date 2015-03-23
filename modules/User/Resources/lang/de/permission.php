@@ -8,7 +8,9 @@ return [
     'description' => 'Beschreibung',
     'created_at' => 'Erstellt am',
     'updated_at' => 'Geändert am',
-    'delete' => 'Willst du diese Berechtigung wirklich löschen?',
     'abort' => 'Abbrechen',
     'confirm' => 'Bestätigen',
+    'delete' => 'Willst du diese Berechtigung wirklich löschen?',
+    'delete.success' => 'Die Berechtigung wurde gelöscht!',
+    'delete.error' => 'Die Berechtigung konnte nicht gelöscht werden!',
 ];

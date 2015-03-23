@@ -39,12 +39,12 @@
                             <td>{{ $user->created_at }}</td>
                             <td>
                                 {!! Form::open([
-                                'data-remote',
-                                'data-remote-success-message' => trans('user::user.delete.success'),
-                                'data-remote-error-message' => trans('user::user.delete.error'),
-                                'class' => 'form-inline',
-                                'url' => route('user.admin.users.delete', ['id' => $user->id]),
-                                'method' => 'DELETE']) !!}
+                                    'class' => 'form-inline',
+                                    'data-remote',
+                                    'data-remote-success-message' => trans('user::user.delete.success'),
+                                    'data-remote-error-message' => trans('user::user.delete.error'),
+                                    'url' => route('user.admin.users.delete', ['id' => $user->id]),
+                                    'method' => 'DELETE']) !!}
                                     <a class="btn btn-default" href="{{ route('user.admin.users.edit', ['id' => $user->id]) }}"><i class="fa fa-edit"></i></a>
                                     <button class="btn btn-danger" type="submit" data-confirm="#modal"><i class="fa fa-trash"></i></button>
                                 {!! Form::close() !!}
@@ -54,9 +54,11 @@
                     </tbody>
                 </table>
             </div>
-            <div class="box-footer">
-                {!! $users->render(new Vain\Presenters\AdminLtePresenter($users)) !!}
-            </div>
+            @if ($users->hasPages())
+                <div class="box-footer">
+                    {!! $users->render(new Vain\Presenters\AdminLtePresenter($users)) !!}
+                </div>
+            @endif
         </div>
     </section>
     @include('user::admin.users.modal')

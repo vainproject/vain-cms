@@ -10,7 +10,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">@lang('user::permission.abort')</button>
-                <button type="button" class="btn btn-danger js-confirm">@lang('user::permission.confirm')</button>
+                <button type="button" class="btn btn-danger" data-positive="modal">@lang('user::permission.confirm')</button>
             </div>
         </div>
     </div>

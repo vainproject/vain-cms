@@ -13,23 +13,28 @@ class PermissionController extends Controller {
             ->with('permissions', $permissions);
     }
 
-    function getAdd()
+    public function getCreate()
     {
-        return view('user::admin.permissions.add');
+        return view('user::admin.permissions.create');
     }
 
-    function postAdd()
+    public function postCreate()
     {
 
     }
 
-    function getPermission()
+    public function getPermission()
     {
         return view('user::admin.permissions.edit');
     }
 
-    function postPermission()
+    public function postPermission()
     {
 
+    }
+
+    public function deleteUser($id)
+    {
+        Permission::find($id)->delete();
     }
 }

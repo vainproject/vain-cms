@@ -36,17 +36,27 @@
                                 <td>{{ $permission->created_at }}</td>
                                 <td>{{ $permission->updated_at }}</td>
                                 <td>
-                                    <a class="btn-sm btn-default" href="{{ route('user.admin.permissions.edit', ['id' => $permission->id]) }}"><i class="fa fa-edit"></i></a>
-                                    <a class="btn-sm btn-danger js-delete" href="{{ route('user.admin.permissions.delete', ['id' => $permission->id]) }}"><i class="fa fa-trash"></i></a>
+                                    {!! Form::open([
+                                        'class' => 'form-inline',
+                                       'data-remote',
+                                       'data-remote-success-message' => trans('user::permission.delete.success'),
+                                       'data-remote-error-message' => trans('user::permission.delete.error'),
+                                       'url' => route('user.admin.permissions.delete', ['id' => $permission->id]),
+                                       'method' => 'DELETE']) !!}
+                                        <a class="btn btn-default" href="{{ route('user.admin.permissions.edit', ['id' => $permission->id]) }}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-danger" type="submit" data-confirm="#modal"><i class="fa fa-trash"></i></button>
+                                    {!! Form::close() !!}
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-            <div class="box-footer">
-                {!! $permissions->render(new Vain\Presenters\AdminLtePresenter($permissions)) !!}
-            </div>
+            @if ($permissions->hasPages())
+                <div class="box-footer">
+                    {!! $permissions->render(new Vain\Presenters\AdminLtePresenter($permissions)) !!}
+                </div>
+            @endif
         </div>
     </section>
     @include('user::admin.permissions.modal')

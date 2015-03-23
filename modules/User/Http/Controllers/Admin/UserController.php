@@ -14,7 +14,7 @@ class UserController extends Controller {
         $this->middleware('ajax', ['only' => 'deleteUser']);
     }
 
-    function getIndex()
+    public function getIndex()
     {
         $users = User::paginate();
 
@@ -22,12 +22,12 @@ class UserController extends Controller {
             ->with('users', $users);
     }
 
-    function getAdd()
+    public function getCreate()
     {
         return view('user::admin.users.add');
     }
 
-    function postAdd(Request $request, Registrar $registrar)
+    public function postCreate(Request $request, Registrar $registrar)
     {
         $validator = $registrar->validator($request->all());
 
@@ -42,7 +42,7 @@ class UserController extends Controller {
         return redirect()->route('user.admin.users.index');
     }
 
-    function getUser($id)
+    public function getUser($id)
     {
         /** @var User $user */
         $user = User::find($id);
@@ -59,7 +59,7 @@ class UserController extends Controller {
             ->with(['user' => $user, 'genders' => $genders, 'locales' => $locales]);
     }
 
-    function postUser(Request $request, Updater $updater, $id)
+    public function postUser(Request $request, Updater $updater, $id)
     {
         /** @var User $user */
         $user = User::find($id);
@@ -78,7 +78,7 @@ class UserController extends Controller {
         return redirect()->route('user.admin.users.index');
     }
 
-    function deleteUser(Request $request, $id)
+    public function deleteUser(Request $request, $id)
     {
         if ($id == $request->user()->id)
         {
