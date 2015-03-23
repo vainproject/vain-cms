@@ -1,61 +1,96 @@
 (function($) {
 
-    var Modal = function(element, confirm, route, method) {
-        this.$element = element;
-        this.$confirm = confirm;
-        this.$route = route;
-        this.$method = method;
+    var defaultTemplate = function(id, message, dismissText, confirmText) {
+        var buttons = '';
+
+        if (dismissText !== undefined && dismissText !== null)
+            buttons += "<button type='button' class='btn btn-default' data-dismiss='modal'>"+ dismissText +"</button>";
+
+        if (confirmText !== undefined && confirmText !== null)
+            buttons += "<button type='button' class='btn btn-danger' data-confirm='modal'>"+ confirmText +"</button>";
+
+        return "<div id='"+ id +"' class='modal fade' tabindex='-1' role='dialog' aria-hidden='true'>" +
+                    "<div class='modal-dialog'>" +
+                        "<div class='modal-content'>" +
+                            "<div class='modal-body'>"+ message +"</div>" +
+                            "<div class='modal-footer'>"+ buttons +"</div>" +
+                        "</div>" +
+                    "</div>" +
+                "</div>";
+    }
+
+    var defaultModal = function(message, dismissText, confirmText)
+    {
+        var id = "#defaultModal"
+        var last = $(id);
+
+        // remove old template since the modal has potentially changed
+        if (last.length)
+        {
+            last.remove();
+        }
+
+        // inject default modal and set is as element
+        var template = defaultTemplate(id, message, dismissText, confirmText);
+        //jQuery("body").append(template);
+
+        return $(id);
+    }
+
+    var Alert = function(element) {
+        if (! $(element).length)
+        {
+            this.$element = defaultModal(element, 'Ok');
+        }
+        else
+        {
+            this.$element = $(element);
+        }
+
+        this.$element.modal('show');
+    };
+
+    var Confirm = function(element, callback) {
+        if (! $(element).length)
+        {
+            this.$element = defaultModal(element, 'Abort', 'Confirm');
+        }
+        else
+        {
+            this.$element = $(element);
+        }
+
+        this.$callback = callback || function(){};
+
+        this.$confirm = this.$element.find('a[data-confirm="modal"], button[data-confirm="modal"]');
+        this.$dismiss = this.$element.find('a[data-dismiss="modal"], button[data-dismiss="modal"]');
 
         this.init();
     };
 
-    Modal.prototype.init = function() {
+    Confirm.prototype.init = function() {
         this.$element.modal('show');
         var self = this;
 
+        this.$dismiss.on('click', function() {
+            self.$callback(false);
+        });
+
         this.$confirm.on('click', function() {
-            self.confirm();
+            self.$element.modal('hide');
+            self.$callback(true);
         });
-    }
-
-    Modal.prototype.confirm = function() {
-        if (this.$route !== undefined && this.$route !== null)
-            this.request();
-    }
-
-    Modal.prototype.request = function() {
-        var self = this;
-
-        $.ajax({
-            url: this.$route,
-            type: this.$method
-        })
-        .done(function(data) {
-            self._onDone(data);
-        })
-        .fail(function(jqXHR) {
-            self._onFail(jqXHR);
-        });
-    }
-
-    Modal.prototype._onDone = function(data)
-    {
-        location.reload();
-    }
-
-    Modal.prototype._onFail = function(jqXHR)
-    {
-        this.$element.modal('hide');
-
-        // display notifier with error message
-        $.fn.notify(jqXHR).handle();
     }
 
     $(function() {
-        $.fn.extend({
-            showConfirm: function (element, confirm, route, method) {
-                return new Modal(element, confirm, route, method);
+        $.vain.extend({
+            alert: function (element) {
+                return new Alert(element);
+            },
+            confirm: function (element, callback) {
+                return new Confirm(element, callback);
             }
         });
     });
+
 })(jQuery);

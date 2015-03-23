@@ -1,6 +1,6 @@
 (function($) {
 
-    var Notify = function(title, message) {
+    var Notify = function() {
         this.$responseCodes = {
             HTTP_OK: 200,
             HTTP_UNAUTHORIZED: 401,
@@ -15,44 +15,36 @@
             "positionClass": "toast-bottom-right"
         });
 
-        this.init(title, message);
     };
 
-    Notify.prototype.init = function(title, message) {
-        this.$title = title;
-        this.$message = message;
-    }
-
     Notify.prototype.configure = function(options) {
-        toastr.options = options;
+        $.extend(toastr.options, options);
     }
 
-    Notify.prototype.info = function() {
-        toastr["info"](this.$title, this.$message);
+    Notify.prototype.info = function(message, title) {
+        toastr["info"](message, title);
     }
 
-    Notify.prototype.success = function() {
-        toastr["success"](this.$title, this.$message);
+    Notify.prototype.success = function(message, title) {
+        toastr["success"](message, title);
     }
 
-    Notify.prototype.warning = function() {
-        toastr["warning"](this.$title, this.$message);
+    Notify.prototype.warning = function(message, title) {
+        toastr["warning"](message, title);
     }
 
-    Notify.prototype.error = function() {
-        toastr["error"](this.$title, this.$message);
+    Notify.prototype.error = function(message, title) {
+        toastr["error"](message, title);
     }
 
-    Notify.prototype.handle = function() {
-        var code = this.$title.status;
-        var message = this.$title.responseText;
-
-        this.$title = this._parse(message);
+    Notify.prototype.handle = function(object) {
+        var code = object.status;
+        var message = this._parse(object.responseText);
 
         //noinspection FallthroughInSwitchStatementJS
         switch (code) {
             case this.$responseCodes.HTTP_OK:
-                this.success();
+                this.success(message);
                 break;
 
             case this.$responseCodes.HTTP_UNAUTHORIZED:
@@ -60,7 +52,7 @@
             case this.$responseCodes.HTTP_NOT_FOUND:
             case this.$responseCodes.HTTP_ERROR:
             default:
-                this.error();
+                this.error(message);
                 break;
         }
     }
@@ -79,10 +71,9 @@
     }
     
     $(function() {
-        $.fn.extend({
-            notify: function (title, message) {
-                return new Notify(title, message);
-            }
+        $.vain.extend({
+            notify: new Notify()
         });
     });
+
 })(jQuery);

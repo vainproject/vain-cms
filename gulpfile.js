@@ -38,10 +38,13 @@ var scripts_include = [
      | Module Javascript
      |--------------------------------------------------------------------------
      */
+    './resources/assets/js/app.js',
+    './resources/assets/js/modal.js',
+    './resources/assets/js/notify.js',
+
     './modules/Forum/Resources/assets/js/*.js',
     './modules/Site/Resources/assets/js/*.js',
     './modules/User/Resources/assets/js/*.js',
-    './resources/assets/js/*.js',
 ];
 
 var scripts_admin_include = [

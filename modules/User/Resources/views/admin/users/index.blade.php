@@ -38,8 +38,16 @@
                             <td>{{ config(sprintf('app.locales.%s', $user->locale)) }}</td>
                             <td>{{ $user->created_at }}</td>
                             <td>
-                                <a class="btn-sm btn-default" href="{{ route('user.admin.users.edit', ['id' => $user->id]) }}"><i class="fa fa-edit"></i></a>
-                                <a class="btn-sm btn-danger js-delete" href="{{ route('user.admin.users.delete', ['id' => $user->id]) }}"><i class="fa fa-trash"></i></a>
+                                {!! Form::open([
+                                'data-remote',
+                                'data-remote-success-message' => trans('user::user.delete.success'),
+                                'data-remote-error-message' => trans('user::user.delete.error'),
+                                'class' => 'form-inline',
+                                'url' => route('user.admin.users.delete', ['id' => $user->id]),
+                                'method' => 'DELETE']) !!}
+                                    <a class="btn btn-default" href="{{ route('user.admin.users.edit', ['id' => $user->id]) }}"><i class="fa fa-edit"></i></a>
+                                    <button class="btn btn-danger" type="submit" data-confirm="#modal"><i class="fa fa-trash"></i></button>
+                                {!! Form::close() !!}
                             </td>
                         </tr>
                     @endforeach

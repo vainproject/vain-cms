@@ -10,7 +10,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">@lang('user::user.abort')</button>
-                <button type="button" class="btn btn-danger js-confirm">@lang('user::user.confirm')</button>
+                <button type="button" class="btn btn-danger" data-confirm="modal">@lang('user::user.confirm')</button>
             </div>
         </div>
     </div>
