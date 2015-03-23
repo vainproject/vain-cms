@@ -32,7 +32,7 @@
             error: function()
             {
                 var message = form.data('remote-error-message');
-                message && $.notify.error(message);
+                message && $.vain.notify.error(message);
             }
         });
 

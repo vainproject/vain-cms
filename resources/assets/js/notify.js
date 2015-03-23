@@ -10,8 +10,8 @@
         };
 
         this.configure({
-            "closeButton": true,
             "newestOnTop": true,
+            "preventDuplicates": true,
             "positionClass": "toast-bottom-right"
         });
 

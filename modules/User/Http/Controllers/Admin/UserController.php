@@ -1,6 +1,7 @@
 <?php namespace Modules\User\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use InvalidArgumentException;
 use Modules\User\Entities\User;
 use Modules\User\Services\Registrar;
 use Modules\User\Services\Updater;
@@ -77,8 +78,13 @@ class UserController extends Controller {
         return redirect()->route('user.admin.users.index');
     }
 
-    function deleteUser($id)
+    function deleteUser(Request $request, $id)
     {
+        if ($id == $request->user()->id)
+        {
+            throw new InvalidArgumentException;
+        }
+
         /** @var User $user */
         User::find($id)->delete();
     }

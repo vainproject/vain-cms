@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "869317c9c7b4c4a3db9eea1f75f7568b",
+    "hash": "01c59a9f2f18aab3e5042acd62573cfa",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1068,6 +1068,50 @@
             "time": "2015-03-10 15:59:48"
         },
         {
+            "name": "laravelrus/localized-carbon",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelRUS/localized-carbon.git",
+                "reference": "862a1aa01c5c6a9bb5d4421d9393c80324c7bb26"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelRUS/localized-carbon/zipball/862a1aa01c5c6a9bb5d4421d9393c80324c7bb26",
+                "reference": "862a1aa01c5c6a9bb5d4421d9393c80324c7bb26",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=4.1.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laravelrus\\LocalizedCarbon\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aleksandr Egorov",
+                    "email": "amego2006@gmail.com"
+                }
+            ],
+            "description": "A localizable version of Carbon",
+            "keywords": [
+                "carbon",
+                "date",
+                "datetime",
+                "laravel",
+                "time"
+            ],
+            "time": "2015-03-23 03:35:11"
+        },
+        {
             "name": "league/flysystem",
             "version": "1.0.2",
             "source": {
@@ -1434,16 +1478,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "ac05ef6f95bf8361549604b6031c115f92f39528"
+                "reference": "edbf162e4cf116102d95eb635608b7d310cc01c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ac05ef6f95bf8361549604b6031c115f92f39528",
-                "reference": "ac05ef6f95bf8361549604b6031c115f92f39528",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/edbf162e4cf116102d95eb635608b7d310cc01c6",
+                "reference": "edbf162e4cf116102d95eb635608b7d310cc01c6",
                 "shasum": ""
             },
             "require": {
@@ -1453,7 +1497,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -1475,7 +1519,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2015-01-18 11:29:59"
+            "time": "2015-03-22 16:17:25"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1579,12 +1623,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pingpong-labs/modules.git",
-                "reference": "de03858a20076d503ba14a553951b0b64fc2fb95"
+                "reference": "7a0c504ac549585e2ed03d81e2d3f613e05abcfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pingpong-labs/modules/zipball/de03858a20076d503ba14a553951b0b64fc2fb95",
-                "reference": "de03858a20076d503ba14a553951b0b64fc2fb95",
+                "url": "https://api.github.com/repos/pingpong-labs/modules/zipball/7a0c504ac549585e2ed03d81e2d3f613e05abcfc",
+                "reference": "7a0c504ac549585e2ed03d81e2d3f613e05abcfc",
                 "shasum": ""
             },
             "require": {
@@ -1628,7 +1672,7 @@
                 "modules",
                 "pingpong"
             ],
-            "time": "2015-03-21 03:35:30"
+            "time": "2015-03-22 13:22:05"
         },
         {
             "name": "psr/log",
@@ -3840,7 +3884,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "pingpong/modules": 20,
-        "zizaco/entrust": 20
+        "zizaco/entrust": 20,
+        "laravelrus/localized-carbon": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
