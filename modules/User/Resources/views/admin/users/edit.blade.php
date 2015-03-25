@@ -18,10 +18,7 @@
             'data-remote',
             'data-remote-success-message' => trans('user::user.save.success'),
             'data-remote-error-message' => trans('user::user.save.error'),
-            'url' => route('user.admin.users.edit', ['id' => $user->id])]) !!}
-
-        {{--<form class="form-horizontal" method="post" action="{{ route('user.admin.users.save', ['id' => $user->id]) }}">--}}
-            {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+            'route' => ['user.admin.users.edit', $user->id]]) !!}
 
             @if (count($errors) > 0)
                 <div class="alert alert-danger">

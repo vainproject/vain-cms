@@ -12,10 +12,29 @@ class PageFormRequest extends FormRequest
      */
     public function rules()
     {
+//        $attrs = [
+//            'locale',
+//            'title',
+//            'keywords',
+//            'description',
+//            'text'
+//        ];
+//
+//        $rules = [];
+//
+//        foreach (['en', 'de'] as $locale)
+//        {
+//            foreach ($attrs as $attr)
+//            {
+//                array_push( $rules, sprintf('%s_%s', $locale, $attr));
+//            }
+//        }
+
         return [
-            'name' => 'required',
-            'display_name' => 'required',
-//            'description' => '',
+            'slug',
+            'role',
+            'published_at',
+            'concealed_at',
         ];
     }
 
