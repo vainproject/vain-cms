@@ -23,6 +23,8 @@ class SiteServiceProvider extends ServiceProvider {
 
         $viewPath = __DIR__.'/../Resources/views';
         $this->loadViewsFrom( $viewPath, 'site' );
+
+        $this->composeAdminMenu();
     }
 
     /**
@@ -33,5 +35,14 @@ class SiteServiceProvider extends ServiceProvider {
     public function register()
     {
         //
+    }
+
+    /**
+     * provides admin menu for this component
+     */
+    protected function composeAdminMenu()
+    {
+        app('menu')->handler('backend')
+            ->add(route('site.admin.sites.index'), '<i class="fa fa-file-o"></i><span>'. trans('site::admin.title'));
     }
 }

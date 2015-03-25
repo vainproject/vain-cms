@@ -7,5 +7,6 @@
 /public/static
 
 npm-debug.log
+.phpstorm.meta.php
 _ide_helper.php
 .env

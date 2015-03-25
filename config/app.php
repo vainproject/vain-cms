@@ -167,13 +167,22 @@ return [
         'Collective\Html\HtmlServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
-        'Pingpong\Modules\ModulesServiceProvider',
         'Laravel\Socialite\SocialiteServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
         'Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider',
+        'Menu\MenuServiceProvider',
 
         // in-app packages, may be excluded sometimes later
         'Vain\Packages\RealmAPI\Providers\RealmApiServiceProvider',
+//        'Vain\Packages\Menu\Providers\MenuServiceProvider',
+
+        /*
+         * Module service provider
+         *
+         * this will bootstrap the module system and all
+         * service providers from all modules
+         */
+        'Pingpong\Modules\ModulesServiceProvider',
     ],
 
     /*
@@ -221,8 +230,6 @@ return [
         'URL'       => 'Illuminate\Support\Facades\URL',
         'Validator' => 'Illuminate\Support\Facades\Validator',
         'View'      => 'Illuminate\Support\Facades\View',
-        'Form' => 'Collective\Html\FormFacade',
-        'Html' => 'Collective\Html\HtmlFacade',
 
         /*
          * Custom package facades
@@ -232,6 +239,9 @@ return [
         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
         'LocalizedCarbon' => 'Laravelrus\LocalizedCarbon\LocalizedCarbon',
         'DiffFormatter' => 'Laravelrus\LocalizedCarbon\DiffFactoryFacade',
+        'Form' => 'Collective\Html\FormFacade',
+        'Html' => 'Collective\Html\HtmlFacade',
+        'Menu' => 'Menu\Menu',
     ],
 
 ];

@@ -4,8 +4,81 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "01c59a9f2f18aab3e5042acd62573cfa",
+    "hash": "2ea761619eb93477af8b5f56581aefc6",
     "packages": [
+        {
+            "name": "anahkiasen/html-object",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Anahkiasen/html-object.git",
+                "reference": "71eb5bd920e845aaea0d7face6e73aa9a63d6bde"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/71eb5bd920e845aaea0d7face6e73aa9a63d6bde",
+                "reference": "71eb5bd920e845aaea0d7face6e73aa9a63d6bde",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "HtmlObject": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Fabre",
+                    "email": "ehtnam6@gmail.com"
+                }
+            ],
+            "description": "A set of classes to create and manipulate HTML objects abstractions",
+            "time": "2014-01-14 11:42:36"
+        },
+        {
+            "name": "anahkiasen/underscore-php",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Anahkiasen/underscore-php.git",
+                "reference": "362e5b1b6d0b4ccdddeed2e9e95f6766ec4f4f2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Anahkiasen/underscore-php/zipball/362e5b1b6d0b4ccdddeed2e9e95f6766ec4f4f2e",
+                "reference": "362e5b1b6d0b4ccdddeed2e9e95f6766ec4f4f2e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Underscore": "src/",
+                    "Laravel": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Fabre",
+                    "email": "ehtnam6@gmail.com"
+                }
+            ],
+            "description": "A redacted port of Underscore.js for PHP",
+            "time": "2013-01-17 23:07:04"
+        },
         {
             "name": "barryvdh/laravel-debugbar",
             "version": "v2.0.3",
@@ -839,16 +912,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.0.18",
+            "version": "v5.0.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b21be29a1fb12c84ab4e0b723e9c11492d0b25fe"
+                "reference": "419d3f485ce7946cace4325ef19a30e1d5543951"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b21be29a1fb12c84ab4e0b723e9c11492d0b25fe",
-                "reference": "b21be29a1fb12c84ab4e0b723e9c11492d0b25fe",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/419d3f485ce7946cace4325ef19a30e1d5543951",
+                "reference": "419d3f485ce7946cace4325ef19a30e1d5543951",
                 "shasum": ""
             },
             "require": {
@@ -961,7 +1034,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-03-21 16:10:01"
+            "time": "2015-03-24 13:36:37"
         },
         {
             "name": "laravel/socialite",
@@ -1478,16 +1551,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "edbf162e4cf116102d95eb635608b7d310cc01c6"
+                "reference": "dba7524b3724f25b947cd26a580787c55c8a6f9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/edbf162e4cf116102d95eb635608b7d310cc01c6",
-                "reference": "edbf162e4cf116102d95eb635608b7d310cc01c6",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/dba7524b3724f25b947cd26a580787c55c8a6f9b",
+                "reference": "dba7524b3724f25b947cd26a580787c55c8a6f9b",
                 "shasum": ""
             },
             "require": {
@@ -1519,7 +1592,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2015-03-22 16:17:25"
+            "time": "2015-03-24 19:10:28"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1826,57 +1899,6 @@
             ],
             "description": "A lightweight implementation of CommonJS Promises/A for PHP",
             "time": "2014-12-30 13:32:42"
-        },
-        {
-            "name": "strebl/adldap",
-            "version": "v4.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/strebl/adLDAP.git",
-                "reference": "574be37a13a20550b5127cb35955c7f33b74d68f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/strebl/adLDAP/zipball/574be37a13a20550b5127cb35955c7f33b74d68f",
-                "reference": "574be37a13a20550b5127cb35955c7f33b74d68f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "suggest": {
-                "ext-ldap": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-2.1"
-            ],
-            "authors": [
-                {
-                    "name": "Scott Barnett",
-                    "email": "scott@wiggumworld.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Richard Hyland",
-                    "email": "adldap@richardhyland.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "tagged master branch version of adldap/adLDAP",
-            "homepage": "http://adldap.sourceforge.net",
-            "keywords": [
-                "active directory",
-                "ldap",
-                "windows"
-            ],
-            "time": "2015-02-05 17:20:13"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2692,6 +2714,56 @@
                 "dump"
             ],
             "time": "2015-03-06 16:45:31"
+        },
+        {
+            "name": "vespakoen/menu",
+            "version": "3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vespakoen/menu.git",
+                "reference": "2052cf7a22f767507219dccb86edde51ddead4e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vespakoen/menu/zipball/2052cf7a22f767507219dccb86edde51ddead4e2",
+                "reference": "2052cf7a22f767507219dccb86edde51ddead4e2",
+                "shasum": ""
+            },
+            "require": {
+                "anahkiasen/html-object": "~1.2.0",
+                "anahkiasen/underscore-php": "~1",
+                "illuminate/config": "5.*",
+                "illuminate/container": "5.*",
+                "illuminate/http": "5.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.0.*",
+                "phpunit/phpunit": "4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Menu": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Koen Schmeets",
+                    "email": "hello@koenschmeets.nl"
+                }
+            ],
+            "description": "Managing menus the easy way.",
+            "keywords": [
+                "laravel",
+                "laravel 5",
+                "menu"
+            ],
+            "time": "2015-02-08 11:57:54"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -3883,9 +3955,9 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "laravelrus/localized-carbon": 20,
         "pingpong/modules": 20,
-        "zizaco/entrust": 20,
-        "laravelrus/localized-carbon": 20
+        "zizaco/entrust": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

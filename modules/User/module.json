@@ -6,9 +6,9 @@
     "active": 1,
     "order": 0,
     "providers": [
-        "Modules\\User\\Providers\\UserServiceProvider",
         "Modules\\User\\Providers\\ConfigServiceProvider",
-        "Modules\\User\\Providers\\RouteServiceProvider"
+        "Modules\\User\\Providers\\RouteServiceProvider",
+        "Modules\\User\\Providers\\UserServiceProvider"
     ],
     "aliases":{},
     "files": []

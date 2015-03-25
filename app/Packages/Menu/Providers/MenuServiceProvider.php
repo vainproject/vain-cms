@@ -1,10 +1,9 @@
-<?php namespace Vain\Providers;
+<?php namespace Vain\Packages\Menu\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Vain\Packages\Menu\Menu;
-use Vain\Packages\Menu\Presenters\AdminLtePresenter;
 
-class AppServiceProvider extends ServiceProvider
+class MenuServiceProvider extends ServiceProvider
 {
 
     /**
@@ -28,9 +27,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // todo not working? app service provider is taking the job for now
         $this->app->singleton('menu' , function() {
-            return (new Menu())->registerPresenter('backend', new AdminLtePresenter(trans('admin.menu')));
+           return new Menu();
         });
     }
 
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return ['menu', 'Vain\Packages\Menu\Menu'];
+    }
 }

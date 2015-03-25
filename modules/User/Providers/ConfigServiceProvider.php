@@ -1,7 +1,5 @@
 <?php namespace Modules\User\Providers;
 
-use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 
 class ConfigServiceProvider extends ServiceProvider {
@@ -28,19 +26,5 @@ class ConfigServiceProvider extends ServiceProvider {
         $this->mergeConfigFrom(
             __DIR__.'/../Config/entrust.php', 'entrust'
         );
-    }
-
-    /**
-     * we just prioritize our service provider over the config from
-     * other packages
-     *
-     * @param string $path
-     * @param string $key
-     */
-    protected function mergeConfigFrom($path, $key)
-    {
-        $config = $this->app['config']->get($key, []);
-
-        $this->app['config']->set($key, array_merge($config, require $path));
     }
 }
