@@ -26,7 +26,7 @@
     </li>
 
     <li class="@if (Request::is('*site*')) active @endif treeview">
-        <a href="{{ route('site.admin.pages.index') }}">
+        <a href="{{ route('site.admin.sites.index') }}">
             <i class="fa fa-file-text-o"></i> <span>@lang('site::admin.title')</span>
         </a>
     </li>

@@ -9,11 +9,6 @@ use Vain\Http\Controllers\Controller;
 
 class UserController extends Controller {
 
-    function __construct()
-    {
-        $this->middleware('ajax', ['only' => 'deleteUser']);
-    }
-
     public function getIndex()
     {
         $users = User::paginate();
@@ -39,7 +34,7 @@ class UserController extends Controller {
 
         $registrar->create($request->all());
 
-        return redirect()->route('user.admin.users.index');
+        return $this->createDefaultResponse($request);
     }
 
     public function getUser($id)
@@ -75,7 +70,7 @@ class UserController extends Controller {
 
         $updater->update($user, $request->all());
 
-        return redirect()->route('user.admin.users.index');
+        return $this->createDefaultResponse($request);
     }
 
     public function deleteUser(Request $request, $id)
@@ -87,5 +82,21 @@ class UserController extends Controller {
 
         /** @var User $user */
         User::find($id)->delete();
+
+        return $this->createDefaultResponse($request);
+    }
+
+    /**
+     * @param $request
+     * @return \Illuminate\Http\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    protected function createDefaultResponse($request)
+    {
+        if ($request->ajax()) {
+            // very default response, we basicly just need the response code
+            return response()->create('', 200);
+        }
+
+        return redirect()->route('user.admin.users.index');
     }
 }
