@@ -43,6 +43,7 @@ var scripts_include = [
     './resources/assets/js/app.js',
     './resources/assets/js/modal.js',
     './resources/assets/js/notify.js',
+    './resources/assets/js/pjax.js',
 
     './modules/Forum/Resources/assets/js/*.js',
     './modules/Site/Resources/assets/js/*.js',

@@ -14,10 +14,11 @@
     <link rel="stylesheet" href="{{ elixir("static/css/app.css") }}">
 </head>
 <body>
+<div class="wrapper" data-pjax>
     @include('layout.app.menu')
 
     @yield('content')
-
-    <script type="text/javascript" src="{{ elixir("static/js/app.js") }}"></script>
+</div>
+<script type="text/javascript" src="{{ elixir("static/js/app.js") }}"></script>
 </body>
 </html>

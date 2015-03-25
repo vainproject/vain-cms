@@ -11,7 +11,8 @@
         }
     });
 
-    $('form[data-remote]').on('submit', function(e) {
+    // make sure u use delegation!
+    $(document.body).on('submit', 'form[data-remote]', function(e) {
         var form = $(this);
         var method = form.find('input[name="_method"]').val() || 'POST';
         var url = form.attr('action');
@@ -22,12 +23,11 @@
             data: form.serialize(),
             success: function()
             {
-                $.vain.notify.configure({
-                    onHidden: function() { location.reload(); } // todo check if this is usable for all scenarios
+                // refresh the form using pjax
+                $.vain.pjax.refresh(function () {
+                    var message = form.data('remote-success-message');
+                    message && $.vain.notify.success(message);
                 });
-
-                var message = form.data('remote-success-message');
-                message && $.vain.notify.success(message);
             },
             error: function()
             {
@@ -39,7 +39,8 @@
         e.preventDefault();
     });
 
-    $('input[data-confirm], button[data-confirm]').on('click', function(e) {
+    // make sure u use delegation!
+    $(document.body).on('click', 'input[data-confirm], button[data-confirm]', function(e) {
         var input = $(this);
         var form = input.closest('form');
 

@@ -11,8 +11,7 @@
     @yield('styles')
 </head>
 <body class="skin-blue">
-<!-- Site wrapper -->
-<div class="wrapper">
+<div class="wrapper" data-pjax>
 
     <header class="main-header">
         @include('layout.admin.header')
