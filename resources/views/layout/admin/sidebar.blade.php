@@ -19,4 +19,4 @@
     </div>
 </form>
 
-{!! app('menu')->render('backend') !!}
+{!! (new \Vain\Presenters\Menu\AdminLtePresenter())->render($menu) !!}

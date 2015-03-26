@@ -1,10 +1,13 @@
-<?php namespace Vain\Presenters;
+<?php namespace Vain\Presenters\Pagination;
 
 use Illuminate\Pagination\BootstrapThreePresenter;
 
 class AdminLtePresenter extends BootstrapThreePresenter
 {
     /**
+     * basicly an bootstrap presenter with small
+     * pagination class, commonly used in admin lte
+     *
      * @return string
      */
     public function render()
@@ -18,6 +21,7 @@ class AdminLtePresenter extends BootstrapThreePresenter
                 $this->getNextButton()
             );
         }
+
         return '';
     }
 }

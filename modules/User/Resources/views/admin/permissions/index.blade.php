@@ -54,7 +54,7 @@
             </div>
             @if ($permissions->hasPages())
                 <div class="box-footer">
-                    {!! $permissions->render(new Vain\Presenters\AdminLtePresenter($permissions)) !!}
+                    {!! $permissions->render(new Vain\Presenters\Pagination\AdminLtePresenter($permissions)) !!}
                 </div>
             @endif
         </div>

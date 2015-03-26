@@ -55,7 +55,7 @@
             </div>
             @if ($roles->hasPages())
                 <div class="box-footer">
-                    {!! $roles->render(new Vain\Presenters\AdminLtePresenter($roles)) !!}
+                    {!! $roles->render(new Vain\Presenters\Pagination\AdminLtePresenter($roles)) !!}
                 </div>
             @endif
         </div>

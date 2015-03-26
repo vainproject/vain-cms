@@ -160,6 +160,7 @@ return [
         'Vain\Providers\ConfigServiceProvider',
         'Vain\Providers\EventServiceProvider',
         'Vain\Providers\RouteServiceProvider',
+        'Vain\Providers\MenuServiceProvider',
 
         /*
          * Package service provider
@@ -170,11 +171,10 @@ return [
         'Laravel\Socialite\SocialiteServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
         'Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider',
-        'Menu\MenuServiceProvider',
+        'Dowilcox\KnpMenu\MenuServiceProvider',
 
         // in-app packages, may be excluded sometimes later
         'Vain\Packages\RealmAPI\Providers\RealmApiServiceProvider',
-//        'Vain\Packages\Menu\Providers\MenuServiceProvider',
 
         /*
          * Module service provider
@@ -239,9 +239,9 @@ return [
         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
         'LocalizedCarbon' => 'Laravelrus\LocalizedCarbon\LocalizedCarbon',
         'DiffFormatter' => 'Laravelrus\LocalizedCarbon\DiffFactoryFacade',
+        'Menu' => 'Dowilcox\KnpMenu\Facades\Menu',
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
-        'Menu' => 'Menu\Menu',
     ],
 
 ];

@@ -1,8 +1,7 @@
 <?php namespace Vain\Providers;
 
+use Dowilcox\KnpMenu\Facades\Menu;
 use Illuminate\Support\ServiceProvider;
-use Vain\Packages\Menu\Menu;
-use Vain\Packages\Menu\Presenters\AdminLtePresenter;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,9 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('menu' , function() {
-            return (new Menu())->registerPresenter('backend', new AdminLtePresenter(trans('admin.menu')));
-        });
+        //
     }
 
 }

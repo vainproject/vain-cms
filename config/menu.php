@@ -1,40 +1,25 @@
-<?php return array(
+<?php
+return [
 
-  // Global options ------------------------------------------------ /
+    /*
+    |--------------------------------------------------------------------------
+    | Rendering options
+    |--------------------------------------------------------------------------
+    |
+    | For more information see:
+    | https://github.com/KnpLabs/KnpMenu/blob/master/doc/01-Basic-Menus.markdown#other-rendering-options
+    |
+    */
+    'render' => [
+        'depth'             => null,
+        'currentAsLink'     => true,
+        'currentClass'      => 'active',
+        'ancestorClass'     => 'active',
+        'firstClass'        => null,
+        'lastClass'         => null,
+        'compressed'        => false,
+        'allow_safe_labels' => true,
+        'clear_matcher'     => true
+    ]
 
-  // The maximum depth a list can be generated
-  // -1 means no limit
-  'max_depth' => -1,
-
-  // Items --------------------------------------------------------- /
-
-  // Various options related to Items
-  'item' => array(
-
-    // The default Item element
-    'element' => 'li',
-
-    // Various classes to mark active items or children
-    'active_class'       => 'active',
-    'active_child_class' => 'active',
-  ),
-
-  // ItemLists ----------------------------------------------------- /
-
-  'item_list' => array(
-
-    // The default ItemList element
-    'element' => 'ul',
-
-    // The default breadcrumb separator, set to '' to not output any separators for
-    // use with bootstrap.
-    'breadcrumb_separator' => '',
-
-    // A prefix to prepend the links URLs with
-    'prefix'         => null,
-
-    // Whether links should inherit their parent/handler's prefix
-    'prefix_parents' => false,
-    'prefix_handler' => false,
-  ),
-);
+];
