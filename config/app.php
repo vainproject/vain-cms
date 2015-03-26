@@ -165,6 +165,7 @@ return [
         /*
          * Package service provider
          */
+        'Pingpong\Modules\ModulesServiceProvider',
         'Collective\Html\HtmlServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
@@ -175,14 +176,6 @@ return [
 
         // in-app packages, may be excluded sometimes later
         'Vain\Packages\RealmAPI\Providers\RealmApiServiceProvider',
-
-        /*
-         * Module service provider
-         *
-         * this will bootstrap the module system and all
-         * service providers from all modules
-         */
-        'Pingpong\Modules\ModulesServiceProvider',
     ],
 
     /*

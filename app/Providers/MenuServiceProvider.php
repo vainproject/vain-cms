@@ -36,7 +36,16 @@ class MenuServiceProvider extends ServiceProvider
             $handler = app('menu.frontend');
             $view->with('menu', $handler);
 
-            Event::fire(new MenuHandlerWasCreated($handler, 'app', $view));
+            // inject home item
+            $handler->addChild('Home')
+                ->setUri(route('index.home'))
+                ->setExtra('icon', 'file-o');
+
+            $handler->addChild('Admin Panel')
+                ->setUri(route('user.admin.users.index'))
+                ->setExtra('icon', 'file-o');
+
+            Event::fire(new MenuHandlerWasCreated($handler, $view));
         });
     }
 
@@ -53,7 +62,7 @@ class MenuServiceProvider extends ServiceProvider
             $handler = app('menu.backend');
             $view->with('menu', $handler);
 
-            Event::fire(new MenuHandlerWasCreated($handler, 'admin', $view));
+            Event::fire(new MenuHandlerWasCreated($handler, $view));
         });
     }
 }

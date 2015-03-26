@@ -17,7 +17,7 @@ class RoleController extends Controller {
 
     public function getCreate()
     {
-        return view('user::admin.role.create');
+        return view('user::admin.roles.create');
     }
 
     public function postCreate(RoleFormRequest $request)
@@ -32,7 +32,7 @@ class RoleController extends Controller {
         /** @var User $user */
         $role = Role::find($id);
 
-        return view('user::admin.role.edit')
+        return view('user::admin.roles.edit')
             ->with('role', $role);
     }
 
@@ -63,7 +63,7 @@ class RoleController extends Controller {
     {
         if ($request->ajax()) {
             // very default response, we basicly just need the response code
-            return response()->create('', 200);
+            return response('', 200);
         }
 
         return redirect()->route('user.admin.roles.index');

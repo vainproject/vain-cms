@@ -10,6 +10,12 @@
         this.init();
     };
 
+    /**
+     * virtual contructor
+     *
+     * attaches click handlers and
+     * treats the modal
+     */
     Confirm.prototype.init = function() {
 
         this.$element.modal({
@@ -33,6 +39,9 @@
         });
     }
 
+    /**
+     * used to detach the click handlers
+     */
     Confirm.prototype.destroy = function() {
         this.$dismiss.off('click');
         this.$confirm.off('click');

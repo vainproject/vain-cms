@@ -62,7 +62,7 @@ class PermissionController extends Controller {
     {
         if ($request->ajax()) {
             // very default response, we basicly just need the response code
-            return response()->create('', 200);
+            return response('', 200);
         }
 
         return redirect()->route('user.admin.permissions.index');

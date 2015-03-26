@@ -1,5 +1,7 @@
 <?php namespace Vain\Handlers\Events;
 
+use Illuminate\View\View;
+use Knp\Menu\MenuItem;
 use Vain\Events\MenuHandlerWasCreated;
 
 abstract class MenuComposer {
@@ -10,13 +12,6 @@ abstract class MenuComposer {
      * @var MenuItem
      */
     protected $handler;
-
-    /**
-     * name of the view
-     *
-     * @var string
-     */
-    protected $name;
 
     /**
      * the view itself
@@ -43,7 +38,6 @@ abstract class MenuComposer {
     public function handle(MenuHandlerWasCreated $event)
     {
         $this->handler = $event->getHandler();
-        $this->name = $event->getName();
         $this->view = $event->getView();
 
         $this->invokeCompose();
@@ -54,7 +48,7 @@ abstract class MenuComposer {
      */
     private function invokeCompose()
     {
-        if ($this->name === 'app')
+        if ($this->view->name() === 'app')
         {
             $this->composeFrontendMenu();
         }

@@ -7,13 +7,13 @@ class AdminLtePresenter extends VainPresenter
     /**
      * @param ItemInterface $item
      * @param array $options
-     * @return string
      */
-    public function render( ItemInterface $item, array $options = array() )
+    protected function renderRootElement(ItemInterface $item, array $options = [])
     {
-        $item->setChildrenAttribute('class', 'sidebar-menu'); // add base class
+        $class = explode(' ', $item->getChildrenAttribute('class', ''));
+        $class[] = 'sidebar-menu';
 
-        return parent::render( $item, $options );
+        $item->setChildrenAttribute('class', implode(' ', $class)); // add base class
     }
 
     /**
@@ -125,20 +125,6 @@ class AdminLtePresenter extends VainPresenter
     protected function renderIconElement(ItemInterface $item, array $options = [])
     {
         return sprintf('<i class="fa fa-%s"></i>', $item->getExtra('icon'));
-    }
-
-    /**
-     * @param ItemInterface $item
-     * @param array $options
-     * @return string
-     */
-    protected function renderFolding(ItemInterface $item, array $options = [])
-    {
-        if ($item->hasChildren()) {
-            return $this->renderFoldingElement( $item, $options );
-        }
-
-        return '';
     }
 
     /**

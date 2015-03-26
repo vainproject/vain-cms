@@ -36,6 +36,6 @@ class UserMenuComposer extends EventHandler {
      */
     protected function composeFrontendMenu()
     {
-        //
+
     }
 }

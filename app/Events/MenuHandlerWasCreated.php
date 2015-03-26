@@ -16,13 +16,6 @@ class MenuHandlerWasCreated extends Event {
     protected $handler;
 
     /**
-     * name of the view
-     *
-     * @var string
-     */
-    protected $name;
-
-    /**
      * the view itself
      *
      * @var View
@@ -33,13 +26,11 @@ class MenuHandlerWasCreated extends Event {
      * Create a new event instance.
      *
      * @param MenuItem $handler
-     * @param string $name
      * @param View $view
      */
-	public function __construct(MenuItem $handler, $name, View $view)
+	public function __construct(MenuItem $handler, View $view)
 	{
 		$this->handler = $handler;
-        $this->name = $name;
         $this->view = $view;
 	}
 
@@ -49,14 +40,6 @@ class MenuHandlerWasCreated extends Event {
     public function getHandler()
     {
         return $this->handler;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**

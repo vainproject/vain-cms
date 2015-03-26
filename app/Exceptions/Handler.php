@@ -40,8 +40,8 @@ class Handler extends ExceptionHandler {
      */
     public function render($request, Exception $e)
     {
-        if ($request->isXmlHttpRequest())
-            return $this->renderXmlHttpException($e);
+//        if ($request->isXmlHttpRequest())
+//            return $this->renderXmlHttpException($e);
 
         if (config('app.debug'))
             return $this->renderExceptionWithWhoops($e);

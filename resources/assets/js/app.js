@@ -31,8 +31,11 @@
             },
             error: function()
             {
-                var message = form.data('remote-error-message');
-                message && $.vain.notify.error(message);
+                // refresh the form using pjax
+                $.vain.pjax.refresh(function () {
+                    var message = form.data('remote-error-message');
+                    message && $.vain.notify.error(message);
+                });
             }
         });
 

@@ -17,6 +17,11 @@
 
     };
 
+    /**
+     * overwrite the current config
+     *
+     * @param options
+     */
     Notify.prototype.configure = function(options) {
         $.extend(toastr.options, options);
     }
@@ -37,6 +42,12 @@
         toastr["error"](message, title);
     }
 
+    /**
+     * automatically handles an error from an jQuery
+     * jqXHR object
+     *
+     * @param object
+     */
     Notify.prototype.handle = function(object) {
         var code = object.status;
         var message = this._parse(object.responseText);
@@ -57,6 +68,14 @@
         }
     }
 
+    /**
+     * helper to parse an exception
+     * message content
+     *
+     * @param data
+     * @returns {*}
+     * @private
+     */
     Notify.prototype._parse = function(data) {
         try
         {
