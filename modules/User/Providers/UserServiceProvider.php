@@ -27,8 +27,6 @@ class UserServiceProvider extends ServiceProvider {
         $this->loadViewsFrom($viewPath, 'user');
 
         $this->composeAdminViews();
-
-        $this->composeAdminMenu();
     }
 
     /**
@@ -55,27 +53,5 @@ class UserServiceProvider extends ServiceProvider {
         {
             $view->getFactory()->inject('account', view('user::admin.account', ['user' => Auth::user()]));
         });
-    }
-
-    /**
-     * provides admin menu for this component
-     */
-    protected function composeAdminMenu()
-    {
-//        $items = app('menu')->items()
-//            ->add(route('user.admin.users.index'), '<i class="fa fa-circle-o"></i>'. trans('user::user.title'))
-//            ->add(route('user.admin.roles.index'), '<i class="fa fa-circle-o"></i>'. trans('user::role.title'))
-//            ->add(route('user.admin.permissions.index'), '<i class="fa fa-circle-o"></i>'. trans('user::permission.title'));
-//
-//        app('menu')->handler('backend')
-//            ->add('#', '<i class="fa fa-users"></i><span>'. trans('user::user.title') .'</span><i class="fa fa-angle-left pull-right"></i>', $items);
-
-        $menu = $this->app->make('menu.backend');
-
-        $menu->addChild('user.admin', [ 'uri' => '#', 'label' => trans('user::user.title') ]);
-
-        $menu['user.admin']->addChild('user.admin.users', [ 'uri' => route('user.admin.users.index'), 'label' => trans('user::user.title') ]);
-        $menu['user.admin']->addChild('user.admin.roles', [ 'uri' => route('user.admin.roles.index'), 'label' => trans('user::role.title') ]);
-        $menu['user.admin']->addChild('user.admin.permissions', [ 'uri' => route('user.admin.permissions.index'), 'label' => trans('user::permission.title') ]);
     }
 }

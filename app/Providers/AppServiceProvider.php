@@ -1,6 +1,5 @@
 <?php namespace Vain\Providers;
 
-use Dowilcox\KnpMenu\Facades\Menu;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

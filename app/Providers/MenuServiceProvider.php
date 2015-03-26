@@ -1,8 +1,10 @@
 <?php namespace Vain\Providers;
 
 use Dowilcox\KnpMenu\Facades\Menu;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Vain\Events\MenuHandlerWasCreated;
 
 class MenuServiceProvider extends ServiceProvider
 {
@@ -31,7 +33,10 @@ class MenuServiceProvider extends ServiceProvider
         });
 
         View::composer('app', function($view) {
-            $view->with('menu', app('menu.frontend'));
+            $handler = app('menu.frontend');
+            $view->with('menu', $handler);
+
+            Event::fire(new MenuHandlerWasCreated($handler, 'app', $view));
         });
     }
 
@@ -45,7 +50,10 @@ class MenuServiceProvider extends ServiceProvider
         });
 
         View::composer('admin', function ($view) {
-                $view->with('menu', app('menu.backend'));
+            $handler = app('menu.backend');
+            $view->with('menu', $handler);
+
+            Event::fire(new MenuHandlerWasCreated($handler, 'admin', $view));
         });
     }
 }

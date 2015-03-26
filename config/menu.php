@@ -18,7 +18,7 @@ return [
         'firstClass'        => null,
         'lastClass'         => null,
         'compressed'        => false,
-        'allow_safe_labels' => true,
+        'allow_safe_labels' => false,
         'clear_matcher'     => true
     ]
 
