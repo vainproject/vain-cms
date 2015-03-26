@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    @lang('blog::blog.title.post', ['name' => $post->content->title])
+@stop
+
 @section('content')
 
     <div class="container">
