@@ -10,7 +10,9 @@ return [
     'updated_at' => 'Updated at',
     'abort' => 'Abort',
     'confirm' => 'Confirm',
-    'delete' => 'Do you really want to delete the selected role?',
-    'delete.success' => 'Role has been deleted!',
-    'delete.error' => 'Role was not deleted!',
+    'delete' => [
+        'message' => 'Do you really want to delete the selected role?',
+        'success' => 'Role has been deleted!',
+        'error' => 'Role was not deleted!',
+    ],
 ];

@@ -10,7 +10,9 @@ return [
     'updated_at' => 'Updated at',
     'abort' => 'Abort',
     'confirm' => 'Confirm',
-    'delete' => 'Do you really want to delete the selected permission?',
-    'delete.success' => 'Permission has been deleted!',
-    'delete.error' => 'Permission was not deleted!',
+    'delete' => [
+        'message' => 'Do you really want to delete the selected permission?',
+        'success' => 'Permission has been deleted!',
+        'error' => 'Permission was not deleted!',
+    ],
 ];

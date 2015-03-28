@@ -20,9 +20,12 @@ class SiteMenuComposer extends EventHandler {
      */
     protected function composeFrontendMenu()
     {
+        $this->handler->addChild('site::page.index')
+            ->setUri('#');
+
         foreach (Page::published()->get() as $page)
         {
-            $this->handler->addChild($page->slug)
+            $this->handler['site::page.index']->addChild($page->slug)
                 ->setLabel($page->content->title)
                 ->setUri(route('site.show', [ 'slug' => $page->slug ]))
                 ->setExtra('raw', true);

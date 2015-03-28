@@ -6,7 +6,7 @@
                 <h4 class="modal-title" id="modalLabel">@lang('user::role.confirm')</h4>
             </div>
             <div class="modal-body">
-                @lang('user::role.delete')
+                @lang('user::role.delete.message')
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">@lang('user::role.abort')</button>

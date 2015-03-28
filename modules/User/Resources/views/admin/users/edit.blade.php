@@ -18,6 +18,7 @@
             'data-remote',
             'data-remote-success-message' => trans('user::user.save.success'),
             'data-remote-error-message' => trans('user::user.save.error'),
+            'method' => 'PUT',
             'route' => ['user.admin.users.edit', $user->id]]) !!}
 
             @if (count($errors) > 0)

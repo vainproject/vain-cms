@@ -48,7 +48,7 @@
                                      'data-remote',
                                      'data-remote-success-message' => trans('site::admin.delete.success'),
                                      'data-remote-error-message' => trans('site::admin.delete.error'),
-                                     'route' => ['site.admin.sites.delete', $page->id],
+                                     'route' => ['site.admin.sites.destroy', $page->id],
                                      'method' => 'DELETE']) !!}
                                 <a class="btn btn-default" href="{{ route('site.admin.sites.edit', ['id' => $page->id]) }}"><i class="fa fa-edit"></i></a>
                                 <button class="btn btn-danger" type="submit" data-confirm="#modal"><i class="fa fa-trash"></i></button>

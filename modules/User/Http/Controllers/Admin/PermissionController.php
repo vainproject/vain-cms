@@ -7,7 +7,7 @@ use Vain\Http\Controllers\Controller;
 
 class PermissionController extends Controller {
 
-    function getIndex()
+    function index()
     {
         $permissions = Permission::paginate();
 
@@ -15,19 +15,19 @@ class PermissionController extends Controller {
             ->with('permissions', $permissions);
     }
 
-    public function getCreate()
+    public function create()
     {
         return view('user::admin.permissions.create');
     }
 
-    public function postCreate(PermissionFormRequest $request)
+    public function store(PermissionFormRequest $request)
     {
         Permission::create($request->all());
 
         return $this->createDefaultResponse($request);
     }
 
-    public function getPermission($id)
+    public function show($id)
     {
         $permission = Permission::find($id);
 
@@ -35,7 +35,7 @@ class PermissionController extends Controller {
             ->with('permission', $permission);
     }
 
-    public function postPermission(PermissionFormRequest $request, $id)
+    public function update(PermissionFormRequest $request, $id)
     {
         $permission = Permission::find($id);
 
@@ -45,7 +45,7 @@ class PermissionController extends Controller {
         return $this->createDefaultResponse($request);
     }
 
-    public function deletePermission(Request $request, $id)
+    public function destroy(Request $request, $id)
     {
         // todo protect system permissions?
 

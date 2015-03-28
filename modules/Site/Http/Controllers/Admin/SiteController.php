@@ -7,7 +7,7 @@ use Modules\Site\Http\Requests\PageFormRequest;
 
 class SiteController extends Controller {
 
-    public function getIndex()
+    public function index()
     {
         $pages = Page::with('user')->paginate();
 
@@ -15,19 +15,19 @@ class SiteController extends Controller {
             ->with('pages', $pages);
     }
 
-    public function getCreate()
+    public function create()
     {
         return view('site::admin.pages.create');
     }
 
-    public function postCreate(PageFormRequest $request)
+    public function store(PageFormRequest $request)
     {
         Page::create($request->all());
 
         return $this->createDefaultResponse($request);
     }
 
-    public function getPage($id)
+    public function show($id)
     {
         $page = Page::find($id);
 
@@ -35,7 +35,7 @@ class SiteController extends Controller {
             ->with('page', $page);
     }
 
-    public function postPage(PageFormRequest $request, $id)
+    public function update(PageFormRequest $request, $id)
     {
         $page = Page::find($id);
 
@@ -45,7 +45,7 @@ class SiteController extends Controller {
         return $this->createDefaultResponse($request);
     }
 
-    public function deletePage(Request $request, $id)
+    public function destroy(Request $request, $id)
     {
         Page::find($id)->delete();
 
