@@ -2,7 +2,15 @@
 
 return [
     'id' => '#',
-    'title' => 'Sites',
+    'title' => [
+        'index' => 'Sites',
+        'edit' => 'Edit site',
+        'create' => 'Create site',
+    ],
+    'action' => [
+        'save' => 'Save',
+        'abort' => 'Abort'
+    ],
     'slug' => 'Slug',
     'creator' => 'Creator',
     'role' => 'Role',

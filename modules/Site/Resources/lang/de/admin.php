@@ -2,7 +2,15 @@
 
 return [
     'id' => '#',
-    'title' => 'Seiten',
+    'title' => [
+        'index' => 'Seiten',
+        'edit' => 'Seite bearbeiten',
+        'create' => 'Seite erstellen',
+    ],
+    'action' => [
+        'save' => 'Speichern',
+        'abort' => 'Abbrechen'
+    ],
     'slug' => 'Slug',
     'creator' => 'Erstellt von',
     'role' => 'Rolle',

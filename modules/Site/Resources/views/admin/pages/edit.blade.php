@@ -1,61 +1,39 @@
 @extends('site::admin.index')
 
 @section('title')
-    @lang('site::admin.title')
+    @lang('site::admin.title.edit')
 @stop
 
 @section('content')
+
+    <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-            @lang('site::admin.title')
-        </h1>
+        <h1>@lang('site::admin.title.edit')</h1>
     </section>
 
+    <!-- Main content -->
     <section class="content">
+        {!! Form::model($page, [
+            'class' => 'form-horizontal',
+            'data-remote',
+            'data-remote-success-message' => trans('site::admin.save.success'),
+            'data-remote-error-message' => trans('site::admin.save.error'),
+            'method' => 'PUT',
+            'route' => ['site.admin.sites.update', $page->id]]) !!}
 
-        @include('site::admin.statistic')
-
-        <div class="box">
-            <div class="box-body table-responsive no-padding">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <td>@lang('site::admin.id')</td>
-                        <td>@lang('site::admin.creator')</td>
-                        <td>@lang('site::admin.slug')</td>
-                        <td>@lang('site::admin.role')</td>
-                        <td>@lang('site::admin.published_at')</td>
-                        <td>@lang('site::admin.concealed_at')</td>
-                        <td>@lang('site::admin.created_at')</td>
-                        <td>@lang('site::admin.updated_at')</td>
-                        <td></td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($pages as $page)
-                        <tr>
-                            <td>{{ $page->id }}</td>
-                            <td><a class="label label-primary" href="{{ route('user.admin.users.edit', ['id' => $page->user->id]) }}">{{ $page->user->name }}</a></td>
-                            <td>{{ $page->slug }} <a href="{{ route('site.show', ['slug' => $page->slug]) }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
-                            <td>{{ $page->role }}</td>
-                            <td>{{ $page->published_at }}</td>
-                            <td>{{ $page->concealed_at }}</td>
-                            <td>{{ $page->created_at }}</td>
-                            <td>{{ $page->updated_at }}</td>
-                            <td>
-
-                            </td>
-                        </tr>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
                     @endforeach
-                    </tbody>
-                </table>
+                </ul>
             </div>
-            @if ($pages->hasPages())
-                <div class="box-footer">
-                    {!! $pages->render(new Vain\Presenters\Pagination\AdminLtePresenter($pages)) !!}
-                </div>
-            @endif
-        </div>
-    </section>
-    @include('site::admin.modal')
+        @endif
+
+        @include('site::admin.pages.form')
+
+        {!! Form::close() !!}
+    </section><!-- /.content -->
 @endsection

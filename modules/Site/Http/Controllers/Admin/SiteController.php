@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Site\Entities\Page;
 use Modules\Site\Http\Requests\PageFormRequest;
+use Modules\User\Entities\Role;
+use Modules\User\Entities\User;
 
 class SiteController extends Controller {
 
@@ -17,29 +19,46 @@ class SiteController extends Controller {
 
     public function create()
     {
-        return view('site::admin.pages.create');
+        $users = User::all()->lists('name', 'id');
+
+        $roles = Role::all()->lists('display_name', 'name');
+
+        return view('site::admin.pages.create')
+            ->with(['users' => $users, 'roles' => $roles]);
     }
 
     public function store(PageFormRequest $request)
     {
-        Page::create($request->all());
+        $page = new Page($request->all());
+
+        $creator = User::find($request->get('user_id')) ?: $request->user();
+        $page->user()->associate($creator);
+
+        $page->save();
 
         return $this->createDefaultResponse($request);
     }
 
-    public function show($id)
+    public function edit($id)
     {
         $page = Page::find($id);
 
+        $users = User::all()->lists('name', 'id');
+
+        $roles = Role::all()->lists('display_name', 'name');
+
         return view('site::admin.pages.edit')
-            ->with('page', $page);
+            ->with(['page' => $page, 'users' => $users, 'roles' => $roles]);
     }
 
     public function update(PageFormRequest $request, $id)
     {
         $page = Page::find($id);
-
         $page->fill($request->all());
+
+        $creator = User::find($request->get('user_id')) ?: $request->user();
+        $page->user()->associate($creator);
+
         $page->save();
 
         return $this->createDefaultResponse($request);

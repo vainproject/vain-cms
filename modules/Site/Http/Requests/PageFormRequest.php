@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Validator;
 
 class PageFormRequest extends FormRequest
 {
@@ -31,10 +32,11 @@ class PageFormRequest extends FormRequest
 //        }
 
         return [
-            'slug',
-            'role',
-            'published_at',
-            'concealed_at',
+            'slug' => 'required',
+            'user_id' => 'exists:users,id',
+            'role' => 'exists:roles,name',
+            'published_at' => 'date',
+            'concealed_at' => 'date',
         ];
     }
 
@@ -46,5 +48,20 @@ class PageFormRequest extends FormRequest
     public function authorize()
     {
         return Auth::check();
+    }
+
+    protected function failedAuthorization()
+    {
+        parent::failedAuthorization();
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        if ($this->ajax())
+        {
+            $this->session()->flash('errors', $validator->getMessageBag());
+        }
+
+        parent::failedValidation($validator);
     }
 }

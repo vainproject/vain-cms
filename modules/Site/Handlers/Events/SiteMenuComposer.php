@@ -10,7 +10,7 @@ class SiteMenuComposer extends EventHandler {
      */
     protected function composeBackendMenu()
     {
-        $this->handler->addChild('site::admin.title')
+        $this->handler->addChild('site::admin.title.index')
             ->setUri(route('site.admin.sites.index'))
             ->setExtra('icon', 'file-o');
     }

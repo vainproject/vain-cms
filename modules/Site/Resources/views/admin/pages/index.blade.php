@@ -1,13 +1,13 @@
 @extends('site::admin.index')
 
 @section('title')
-    @lang('site::admin.title')
+    @lang('site::admin.title.index')
 @stop
 
 @section('content')
     <section class="content-header">
         <h1>
-            @lang('site::admin.title')
+            @lang('site::admin.title.index')
         </h1>
     </section>
 

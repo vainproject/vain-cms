@@ -18,7 +18,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         'create' => 'site.admin.sites.create',
         'store' => 'site.admin.sites.store',
         'show' => 'site.admin.sites.show',
-        'update' => 'site.admin.sites.edit',
+        'edit' => 'site.admin.sites.edit',
+        'update' => 'site.admin.sites.update',
         'destroy' => 'site.admin.sites.destroy',
     ]]);
 });
