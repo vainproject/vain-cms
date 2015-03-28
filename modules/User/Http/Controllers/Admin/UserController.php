@@ -21,7 +21,7 @@ class UserController extends Controller {
         $this->request = $request;
     }
 
-    public function getIndex()
+    public function index()
     {
         $users = User::paginate();
 
@@ -29,12 +29,12 @@ class UserController extends Controller {
             ->with('users', $users);
     }
 
-    public function getCreate()
+    public function create()
     {
         return view('user::admin.users.add');
     }
 
-    public function postCreate(Store $session, Registrar $registrar)
+    public function store(Store $session, Registrar $registrar)
     {
         $validator = $registrar->validator($this->request->all());
 
@@ -46,7 +46,7 @@ class UserController extends Controller {
                 return response('', 500);
             }
 
-            return redirect()->route('user.admin.users.add')
+            return redirect()->route('user.admin.users.create')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -56,7 +56,7 @@ class UserController extends Controller {
         return $this->createDefaultResponse($this->request);
     }
 
-    public function getUser($id)
+    public function show($id)
     {
         /** @var User $user */
         $user = User::find($id);
@@ -73,7 +73,7 @@ class UserController extends Controller {
             ->with(['user' => $user, 'genders' => $genders, 'locales' => $locales]);
     }
 
-    public function postUser(Store $session, Updater $updater, $id)
+    public function update(Store $session, Updater $updater, $id)
     {
         /** @var User $user */
         $user = User::find($id);
@@ -99,7 +99,7 @@ class UserController extends Controller {
         return $this->createDefaultResponse();
     }
 
-    public function deleteUser($id)
+    public function destroy($id)
     {
         if ($id == $this->request->user()->id)
         {

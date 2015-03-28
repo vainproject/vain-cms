@@ -10,7 +10,9 @@ return [
     'updated_at' => 'Geändert am',
     'abort' => 'Abbrechen',
     'confirm' => 'Bestätigen',
-    'delete' => 'Willst du diese Rolle wirklich löschen?',
-    'delete.success' => 'Die Rolle wurde gelöscht!',
-    'delete.error' => 'Die Rolle konnte nicht gelöscht werden!',
+    'delete' => [
+        'message' => 'Willst du diese Rolle wirklich löschen?',
+        'success' => 'Die Rolle wurde gelöscht!',
+        'error' => 'Die Rolle konnte nicht gelöscht werden!',
+    ],
 ];

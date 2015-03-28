@@ -35,39 +35,30 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function()
  */
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
 {
-    Route::group(['prefix' => 'users'], function()
-    {
-        Route::get('/', ['as' => 'user.admin.users.index', 'uses' => 'UserController@getIndex']);
+    Route::resource('users', 'UserController', ['names' => [
+        'index' => 'user.admin.users.index',
+        'create' => 'user.admin.users.create',
+        'store' => 'user.admin.users.store',
+        'show' => 'user.admin.users.show',
+        'update' => 'user.admin.users.edit',
+        'destroy' => 'user.admin.users.destroy',
+    ]]);
 
-        Route::get('create', ['as' => 'user.admin.users.add', 'uses' => 'UserController@getCreate']);
-        Route::post('create', ['as' => 'user.admin.users.create', 'uses' => 'UserController@postCreate']);
+    Route::resource('roles', 'RoleController', ['names' => [
+        'index' => 'user.admin.roles.index',
+        'create' => 'user.admin.roles.create',
+        'store' => 'user.admin.roles.store',
+        'show' => 'user.admin.roles.show',
+        'update' => 'user.admin.roles.edit',
+        'destroy' => 'user.admin.roles.destroy',
+    ]]);
 
-        Route::get('{id}', ['as' => 'user.admin.users.edit', 'uses' => 'UserController@getUser']);
-        Route::post('{id}', ['as' => 'user.admin.users.save', 'uses' => 'UserController@postUser']);
-        Route::delete('{id}', ['as' => 'user.admin.users.delete', 'uses' => 'UserController@deleteUser']);
-    });
-
-    Route::group(['prefix' => 'roles'], function()
-    {
-        Route::get('/', ['as' => 'user.admin.roles.index', 'uses' => 'RoleController@getIndex']);
-
-        Route::get('create', ['as' => 'user.admin.roles.add', 'uses' => 'RoleController@getCreate']);
-        Route::post('create', ['as' => 'user.admin.roles.create', 'uses' => 'RoleController@postCreate']);
-
-        Route::get('{id}', ['as' => 'user.admin.roles.edit', 'uses' => 'RoleController@getRole']);
-        Route::post('{id}', ['as' => 'user.admin.roles.save', 'uses' => 'RoleController@postRole']);
-        Route::delete('{id}', ['as' => 'user.admin.roles.delete', 'uses' => 'RoleController@deleteRole']);
-    });
-
-    Route::group(['prefix' => 'permissions'], function()
-    {
-        Route::get('/', ['as' => 'user.admin.permissions.index', 'uses' => 'PermissionController@getIndex']);
-
-        Route::get('create', ['as' => 'user.admin.permissions.add', 'uses' => 'PermissionController@getCreate']);
-        Route::post('create', ['as' => 'user.admin.permissions.create', 'uses' => 'PermissionController@postCreate']);
-
-        Route::get('{id}', ['as' => 'user.admin.permissions.edit', 'uses' => 'PermissionController@getPermission']);
-        Route::post('{id}', ['as' => 'user.admin.permissions.save', 'uses' => 'PermissionController@postPermission']);
-        Route::delete('{id}', ['as' => 'user.admin.permissions.delete', 'uses' => 'PermissionController@deletePermission']);
-    });
+    Route::resource('permissions', 'PermissionController', ['names' => [
+        'index' => 'user.admin.permissions.index',
+        'create' => 'user.admin.permissions.create',
+        'store' => 'user.admin.permissions.store',
+        'show' => 'user.admin.permissions.show',
+        'update' => 'user.admin.permissions.edit',
+        'destroy' => 'user.admin.permissions.destroy',
+    ]]);
 });

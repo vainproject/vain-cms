@@ -7,7 +7,7 @@ use Vain\Http\Controllers\Controller;
 
 class RoleController extends Controller {
 
-    public function getIndex()
+    public function index()
     {
         $roles = Role::paginate();
 
@@ -15,19 +15,19 @@ class RoleController extends Controller {
             ->with('roles', $roles);
     }
 
-    public function getCreate()
+    public function create()
     {
         return view('user::admin.roles.create');
     }
 
-    public function postCreate(RoleFormRequest $request)
+    public function store(RoleFormRequest $request)
     {
         Role::create($request->all());
 
         return $this->createDefaultResponse($request);
     }
 
-    public function getRole($id)
+    public function show($id)
     {
         /** @var User $user */
         $role = Role::find($id);
@@ -36,7 +36,7 @@ class RoleController extends Controller {
             ->with('role', $role);
     }
 
-    public function postRole(RoleFormRequest $request, $id)
+    public function update(RoleFormRequest $request, $id)
     {
         $role = Role::find($id);
 
@@ -46,7 +46,7 @@ class RoleController extends Controller {
         return $this->createDefaultResponse($request);
     }
 
-    public function deleteRole(Request $request, $id)
+    public function destroy(Request $request, $id)
     {
         // todo protect system roles?
 

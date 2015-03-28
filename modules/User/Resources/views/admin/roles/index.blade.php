@@ -42,7 +42,7 @@
                                      'data-remote',
                                      'data-remote-success-message' => trans('user::role.delete.success'),
                                      'data-remote-error-message' => trans('user::role.delete.error'),
-                                     'route' => ['user.admin.roles.delete', $role->id],
+                                     'route' => ['user.admin.roles.destroy', $role->id],
                                      'method' => 'DELETE']) !!}
                                     <a class="btn btn-default" href="{{ route('user.admin.roles.edit', ['id' => $role->id]) }}"><i class="fa fa-edit"></i></a>
                                     <button class="btn btn-danger" type="submit" data-confirm="#modal"><i class="fa fa-trash"></i></button>

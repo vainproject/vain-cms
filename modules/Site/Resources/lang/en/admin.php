@@ -13,7 +13,13 @@ return [
     'deleted_at' => 'Deleted at',
     'abort' => 'Abort',
     'confirm' => 'Confirm',
-    'delete' => 'Do you really want to delete the selected content?',
-    'delete.success' => 'Content has been deleted!',
-    'delete.error' => 'Content was not deleted!',
+    'delete' => [
+        'message' => 'Do you really want to delete the selected content?',
+        'success' => 'Content has been deleted!',
+        'error' => 'Content was not deleted!',
+    ],
+    'save' => [
+        'success' => 'Page has been saved!',
+        'error' => 'Page has not been saved!'
+    ],
 ];

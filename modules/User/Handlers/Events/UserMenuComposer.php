@@ -9,10 +9,6 @@ class UserMenuComposer extends EventHandler {
      */
     protected function composeBackendMenu()
     {
-        $this->handler->addChild('site::admin.title')
-            ->setUri(route('site.admin.sites.index'))
-            ->setExtra('icon', 'file-o');
-
         $this->handler->addChild('user.admin')
             ->setUri('#')
             ->setLabel('user::user.title')

@@ -10,7 +10,9 @@ return [
     'updated_at' => 'Geändert am',
     'abort' => 'Abbrechen',
     'confirm' => 'Bestätigen',
-    'delete' => 'Willst du diese Berechtigung wirklich löschen?',
-    'delete.success' => 'Die Berechtigung wurde gelöscht!',
-    'delete.error' => 'Die Berechtigung konnte nicht gelöscht werden!',
+    'delete' => [
+        'message' => 'Willst du diese Berechtigung wirklich löschen?',
+        'success' => 'Die Berechtigung wurde gelöscht!',
+        'error' => 'Die Berechtigung konnte nicht gelöscht werden!',
+    ],
 ];
