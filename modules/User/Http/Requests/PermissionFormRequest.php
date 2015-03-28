@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Validator;
 
 class PermissionFormRequest extends FormRequest
 {
@@ -27,5 +28,21 @@ class PermissionFormRequest extends FormRequest
     public function authorize()
     {
         return Auth::check();
+    }
+
+    protected function failedAuthorization()
+    {
+        parent::failedAuthorization();
+    }
+
+
+    protected function failedValidation(Validator $validator)
+    {
+        if ($this->ajax())
+        {
+            $this->session()->flash('errors', $validator->getMessageBag());
+        }
+
+        parent::failedValidation($validator);
     }
 }

@@ -1,13 +1,13 @@
 @extends('user::admin.index')
 
 @section('title')
-    @lang('user::user.title')
+    @lang('user::user.title.index')
 @stop
 
 @section('content')
     <section class="content-header">
         <h1>
-            @lang('user::user.title')
+            @lang('user::user.title.index')
         </h1>
     </section>
 

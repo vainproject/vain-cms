@@ -2,7 +2,15 @@
 
 return [
     'id' => '#',
-    'title' => 'Berechtigungen',
+    'title' => [
+        'index' => 'Berechtigungen',
+        'edit' => 'Berechtigung erstellen',
+        'create' => 'Berechtigungen bearbeiten',
+    ],
+    'action' => [
+        'save' => 'Speichern',
+        'abort' => 'Abbrechen'
+    ],
     'alias' => 'Alias',
     'name' => 'Name',
     'description' => 'Beschreibung',
@@ -14,5 +22,9 @@ return [
         'message' => 'Willst du diese Berechtigung wirklich löschen?',
         'success' => 'Die Berechtigung wurde gelöscht!',
         'error' => 'Die Berechtigung konnte nicht gelöscht werden!',
+    ],
+    'save' => [
+        'success' => 'Die Berechtigung wurde gespeichert!',
+        'error' => 'Die Berechtigung konnte nicht gespeichert werden!'
     ],
 ];

@@ -2,7 +2,15 @@
 
 return [
     'id' => '#',
-    'title' => 'Rollen',
+    'title' => [
+        'index' => 'Rollen',
+        'edit' => 'Rolle bearbeiten',
+        'create' => 'Rolle erstellen',
+    ],
+    'action' => [
+        'save' => 'Speichern',
+        'abort' => 'Abbrechen'
+    ],
     'alias' => 'Alias',
     'name' => 'Name',
     'description' => 'Beschreibung',
@@ -14,5 +22,9 @@ return [
         'message' => 'Willst du diese Rolle wirklich löschen?',
         'success' => 'Die Rolle wurde gelöscht!',
         'error' => 'Die Rolle konnte nicht gelöscht werden!',
+    ],
+    'save' => [
+        'success' => 'Die Rolle wurde gespeichert!',
+        'error' => 'Die Rolle konnte nicht gespeichert werden!'
     ],
 ];

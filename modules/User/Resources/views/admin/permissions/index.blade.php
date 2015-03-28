@@ -1,13 +1,13 @@
 @extends('user::admin.index')
 
 @section('title')
-    @lang('user::permission.title')
+    @lang('user::permission.title.index')
 @stop
 
 @section('content')
     <section class="content-header">
         <h1>
-            @lang('user::permission.title')
+            @lang('user::permission.title.index')
         </h1>
     </section>
 

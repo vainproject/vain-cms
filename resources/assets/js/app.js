@@ -23,6 +23,9 @@
             data: form.serialize(),
             success: function()
             {
+                var redirect = form.data('remote-success-redirect');
+                redirect && (window.location = redirect);
+
                 // refresh the form using pjax
                 $.vain.pjax.refresh(function () {
                     var message = form.data('remote-success-message');

@@ -11,18 +11,18 @@ class UserMenuComposer extends EventHandler {
     {
         $this->handler->addChild('user.admin')
             ->setUri('#')
-            ->setLabel('user::user.title')
+            ->setLabel('user::user.title.index')
             ->setExtra('icon', 'users');
 
-        $this->handler['user.admin']->addChild('user::user.title')
+        $this->handler['user.admin']->addChild('user::user.title.index')
             ->setUri(route('user.admin.users.index'))
             ->setExtra('icon', 'circle-o');
 
-        $this->handler['user.admin']->addChild('user::role.title')
+        $this->handler['user.admin']->addChild('user::role.title.index')
             ->setUri(route('user.admin.roles.index'))
             ->setExtra('icon', 'circle-o');
 
-        $this->handler['user.admin']->addChild('user::permission.title')
+        $this->handler['user.admin']->addChild('user::permission.title.index')
             ->setUri(route('user.admin.permissions.index'))
             ->setExtra('icon', 'circle-o');
     }

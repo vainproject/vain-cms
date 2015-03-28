@@ -31,7 +31,16 @@ class UserController extends Controller {
 
     public function create()
     {
-        return view('user::admin.users.add');
+        $genders = [
+            null => trans('user::profile.gender.none'),
+            'male' => trans('user::profile.gender.male'),
+            'female' => trans('user::profile.gender.female')
+        ];
+
+        $locales = config('app.locales');
+
+        return view('user::admin.users.create')
+            ->with(['genders' => $genders, 'locales' => $locales]);
     }
 
     public function store(Store $session, Registrar $registrar)

@@ -2,7 +2,11 @@
 
 return [
     'id' => '#',
-    'title' => 'Benutzer',
+    'title' => [
+        'index' => 'Benutzer',
+        'edit' => 'Benutzer bearbeiten',
+        'create' => 'Benutzer erstellen',
+    ],
     'created_at' => 'Registriert am',
     'updated_at' => 'Geändert am',
     'abort' => 'Abbrechen',
