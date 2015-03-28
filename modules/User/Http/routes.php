@@ -40,7 +40,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         'create' => 'user.admin.users.create',
         'store' => 'user.admin.users.store',
         'show' => 'user.admin.users.show',
-        'update' => 'user.admin.users.edit',
+        'edit' => 'user.admin.users.edit',
+        'update' => 'user.admin.users.update',
         'destroy' => 'user.admin.users.destroy',
     ]]);
 
@@ -49,7 +50,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         'create' => 'user.admin.roles.create',
         'store' => 'user.admin.roles.store',
         'show' => 'user.admin.roles.show',
-        'update' => 'user.admin.roles.edit',
+        'edit' => 'user.admin.roles.edit',
+        'update' => 'user.admin.roles.update',
         'destroy' => 'user.admin.roles.destroy',
     ]]);
 
@@ -58,7 +60,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         'create' => 'user.admin.permissions.create',
         'store' => 'user.admin.permissions.store',
         'show' => 'user.admin.permissions.show',
-        'update' => 'user.admin.permissions.edit',
+        'edit' => 'user.admin.permissions.edit',
+        'update' => 'user.admin.permissions.update',
         'destroy' => 'user.admin.permissions.destroy',
     ]]);
 });

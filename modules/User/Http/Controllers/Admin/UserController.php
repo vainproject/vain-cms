@@ -65,7 +65,7 @@ class UserController extends Controller {
         return $this->createDefaultResponse($this->request);
     }
 
-    public function show($id)
+    public function edit($id)
     {
         /** @var User $user */
         $user = User::find($id);

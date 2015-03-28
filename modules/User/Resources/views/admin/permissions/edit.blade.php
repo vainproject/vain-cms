@@ -19,7 +19,7 @@
             'data-remote-success-message' => trans('user::permission.save.success'),
             'data-remote-error-message' => trans('user::permission.save.error'),
             'method' => 'PUT',
-            'route' => ['user.admin.permissions.edit', $permission->id]]) !!}
+            'route' => ['user.admin.permissions.update', $permission->id]]) !!}
 
         @if ($errors->any())
             <div class="alert alert-danger">

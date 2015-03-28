@@ -27,7 +27,7 @@ class PermissionController extends Controller {
         return $this->createDefaultResponse($request);
     }
 
-    public function show($id)
+    public function edit($id)
     {
         $permission = Permission::find($id);
 

@@ -27,7 +27,7 @@ class RoleController extends Controller {
         return $this->createDefaultResponse($request);
     }
 
-    public function show($id)
+    public function edit($id)
     {
         /** @var User $user */
         $role = Role::find($id);
