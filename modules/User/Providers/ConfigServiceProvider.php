@@ -1,7 +1,5 @@
 <?php namespace Modules\User\Providers;
 
-use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 
 class ConfigServiceProvider extends ServiceProvider {

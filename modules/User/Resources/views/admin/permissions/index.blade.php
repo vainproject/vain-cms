@@ -41,7 +41,7 @@
                                        'data-remote',
                                        'data-remote-success-message' => trans('user::permission.delete.success'),
                                        'data-remote-error-message' => trans('user::permission.delete.error'),
-                                       'url' => route('user.admin.permissions.delete', ['id' => $permission->id]),
+                                       'route' => ['user.admin.permissions.delete', $permission->id],
                                        'method' => 'DELETE']) !!}
                                         <a class="btn btn-default" href="{{ route('user.admin.permissions.edit', ['id' => $permission->id]) }}"><i class="fa fa-edit"></i></a>
                                         <button class="btn btn-danger" type="submit" data-confirm="#modal"><i class="fa fa-trash"></i></button>
@@ -54,7 +54,7 @@
             </div>
             @if ($permissions->hasPages())
                 <div class="box-footer">
-                    {!! $permissions->render(new Vain\Presenters\AdminLtePresenter($permissions)) !!}
+                    {!! $permissions->render(new Vain\Presenters\Pagination\AdminLtePresenter($permissions)) !!}
                 </div>
             @endif
         </div>

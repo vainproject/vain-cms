@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "01c59a9f2f18aab3e5042acd62573cfa",
+    "hash": "7c251ccd4ff188d842ad714cc2aab1c1",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -338,6 +338,46 @@
                 "string"
             ],
             "time": "2014-12-20 21:24:13"
+        },
+        {
+            "name": "dowilcox/knp-menu-laravel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dowilcox/KnpMenu-Laravel.git",
+                "reference": "6560b286b1f7f7e0e9cdeaae8d8573ef9aa9a4ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dowilcox/KnpMenu-Laravel/zipball/6560b286b1f7f7e0e9cdeaae8d8573ef9aa9a4ec",
+                "reference": "6560b286b1f7f7e0e9cdeaae8d8573ef9aa9a4ec",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.0.*",
+                "knplabs/knp-menu": "~2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dowilcox\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Donald Wilcox",
+                    "email": "dowilcox@umflint.edu"
+                }
+            ],
+            "description": "Laravel package to create navigation menus, based on KnpLabs/KnpMenu.",
+            "time": "2015-03-13 18:04:40"
         },
         {
             "name": "filp/whoops",
@@ -838,17 +878,81 @@
             "time": "2015-03-11 20:06:43"
         },
         {
-            "name": "laravel/framework",
-            "version": "v5.0.21",
+            "name": "knplabs/knp-menu",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "d30ff645035856d145a0ac191f07151d20fe691a"
+                "url": "https://github.com/KnpLabs/KnpMenu.git",
+                "reference": "5758d0026d7ed00c8dd4727e413918cf2dc74c1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d30ff645035856d145a0ac191f07151d20fe691a",
-                "reference": "d30ff645035856d145a0ac191f07151d20fe691a",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/5758d0026d7ed00c8dd4727e413918cf2dc74c1a",
+                "reference": "5758d0026d7ed00c8dd4727e413918cf2dc74c1a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "pimple/pimple": "1.0.*",
+                "silex/silex": "1.0.*",
+                "twig/twig": ">=1.2,<2.0-dev"
+            },
+            "suggest": {
+                "pimple/pimple": "for the built-in implementations of the menu provider and renderer provider",
+                "silex/silex": "for the integration with your silex application",
+                "twig/twig": "for the TwigRenderer and the integration with your templates"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Menu\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                },
+                {
+                    "name": "Knplabs",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/KnpLabs/KnpMenu/contributors"
+                }
+            ],
+            "description": "An object oriented menu library",
+            "homepage": "http://knplabs.com",
+            "keywords": [
+                "menu",
+                "tree"
+            ],
+            "time": "2014-08-01 09:50:16"
+        },
+        {
+            "name": "laravel/framework",
+            "version": "v5.0.23",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "59219f7afb60be05d74ce01fcb5d2440f7a1b13d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/59219f7afb60be05d74ce01fcb5d2440f7a1b13d",
+                "reference": "59219f7afb60be05d74ce01fcb5d2440f7a1b13d",
                 "shasum": ""
             },
             "require": {
@@ -961,7 +1065,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-03-26 19:09:29"
+            "time": "2015-03-28 16:56:59"
         },
         {
             "name": "laravel/socialite",
@@ -1827,57 +1931,6 @@
             ],
             "description": "A lightweight implementation of CommonJS Promises/A for PHP",
             "time": "2014-12-30 13:32:42"
-        },
-        {
-            "name": "strebl/adldap",
-            "version": "v4.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/strebl/adLDAP.git",
-                "reference": "574be37a13a20550b5127cb35955c7f33b74d68f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/strebl/adLDAP/zipball/574be37a13a20550b5127cb35955c7f33b74d68f",
-                "reference": "574be37a13a20550b5127cb35955c7f33b74d68f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "suggest": {
-                "ext-ldap": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-2.1"
-            ],
-            "authors": [
-                {
-                    "name": "Scott Barnett",
-                    "email": "scott@wiggumworld.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Richard Hyland",
-                    "email": "adldap@richardhyland.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "tagged master branch version of adldap/adLDAP",
-            "homepage": "http://adldap.sourceforge.net",
-            "keywords": [
-                "active directory",
-                "ldap",
-                "windows"
-            ],
-            "time": "2015-02-05 17:20:13"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3884,9 +3937,10 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "laravelrus/localized-carbon": 20,
         "pingpong/modules": 20,
         "zizaco/entrust": 20,
-        "laravelrus/localized-carbon": 20
+        "dowilcox/knp-menu-laravel": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

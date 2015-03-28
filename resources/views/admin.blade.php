@@ -11,7 +11,7 @@
     @yield('styles')
 </head>
 <body class="skin-blue">
-<div class="wrapper" data-pjax>
+<div class="wrapper">
 
     <header class="main-header">
         @include('layout.admin.header')
@@ -27,7 +27,8 @@
     </aside>
 
     <!-- Right side column. Contains the navbar and content of the page -->
-    <div class="content-wrapper">
+    <!-- Pjax container since AdminLTE does not use $.on() delegation -->
+    <div class="content-wrapper" data-pjax>
        @yield('content')
     </div><!-- /.content-wrapper -->
 

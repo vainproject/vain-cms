@@ -160,17 +160,19 @@ return [
         'Vain\Providers\ConfigServiceProvider',
         'Vain\Providers\EventServiceProvider',
         'Vain\Providers\RouteServiceProvider',
+        'Vain\Providers\MenuServiceProvider',
 
         /*
          * Package service provider
          */
+        'Pingpong\Modules\ModulesServiceProvider',
         'Collective\Html\HtmlServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
-        'Pingpong\Modules\ModulesServiceProvider',
         'Laravel\Socialite\SocialiteServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
         'Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider',
+        'Dowilcox\KnpMenu\MenuServiceProvider',
 
         // in-app packages, may be excluded sometimes later
         'Vain\Packages\RealmAPI\Providers\RealmApiServiceProvider',
@@ -221,8 +223,6 @@ return [
         'URL'       => 'Illuminate\Support\Facades\URL',
         'Validator' => 'Illuminate\Support\Facades\Validator',
         'View'      => 'Illuminate\Support\Facades\View',
-        'Form' => 'Collective\Html\FormFacade',
-        'Html' => 'Collective\Html\HtmlFacade',
 
         /*
          * Custom package facades
@@ -232,6 +232,9 @@ return [
         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
         'LocalizedCarbon' => 'Laravelrus\LocalizedCarbon\LocalizedCarbon',
         'DiffFormatter' => 'Laravelrus\LocalizedCarbon\DiffFactoryFacade',
+        'Menu' => 'Dowilcox\KnpMenu\Facades\Menu',
+        'Form' => 'Collective\Html\FormFacade',
+        'Html' => 'Collective\Html\HtmlFacade',
     ],
 
 ];

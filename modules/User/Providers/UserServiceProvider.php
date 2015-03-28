@@ -26,7 +26,7 @@ class UserServiceProvider extends ServiceProvider {
         $viewPath = __DIR__.'/../Resources/views';
         $this->loadViewsFrom($viewPath, 'user');
 
-        $this->composeAdminViews();
+        $this->composeViews();
     }
 
     /**
@@ -47,8 +47,15 @@ class UserServiceProvider extends ServiceProvider {
     /**
      * composes admin views
      */
-    protected function composeAdminViews()
+    protected function composeViews()
     {
+        // user menu in app
+        View::composer('app', function($view)
+        {
+            $view->getFactory()->inject('account', view('user::menu', ['guest' => Auth::guest(), 'user' => Auth::user()]));
+        });
+
+        // user menu in admin
         View::composer('admin', function($view)
         {
             $view->getFactory()->inject('account', view('user::admin.account', ['user' => Auth::user()]));

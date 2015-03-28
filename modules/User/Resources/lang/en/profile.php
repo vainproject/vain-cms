@@ -3,6 +3,7 @@
 return [
     'title' => [
         'index' => 'Profile of :name',
+        'mine' => 'My profile',
         'edit' => 'Edit my profile',
     ],
     'action' => [
