@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Entities\Permission;
+use Modules\User\Entities\Role;
 
 class MandatoryDatabaseSeeder extends Seeder {
 
@@ -18,6 +19,8 @@ class MandatoryDatabaseSeeder extends Seeder {
         $this->call('Modules\User\Database\Seeders\PermissionPermissionTableSeeder');
         $this->call('Modules\User\Database\Seeders\RolePermissionTableSeeder');
         $this->call('Modules\User\Database\Seeders\UserPermissionTableSeeder');
+
+        $this->call('Modules\User\Database\Seeders\RoleTableSeeder');
     }
 
 }
@@ -120,6 +123,47 @@ class UserPermissionTableSeeder extends Seeder {
             'name' => 'user.user.destroy',
             'display_name' => 'Delete page',
             'description' => 'Permission to delete an existing user.'
+        ]);
+    }
+}
+
+class RoleTableSeeder extends Seeder {
+
+    public function run()
+    {
+        Role::where('name', 'admin')->delete();
+        Role::create([
+            'name' => 'admin',
+            'display_name' => 'Administrator',
+            'description' => 'User has full access to everything in the system.'
+        ]);
+
+        Role::where('name', 'manager')->delete();
+        Role::create([
+            'name' => 'manager',
+            'display_name' => 'Manager',
+            'description' => 'User is able to manage content and community.'
+        ]);
+
+        Role::where('name', 'team')->delete();
+        Role::create([
+            'name' => 'team',
+            'display_name' => 'Team',
+            'description' => 'User is a member of the staff.'
+        ]);
+
+        Role::where('name', 'registered')->delete();
+        Role::create([
+            'name' => 'registered',
+            'display_name' => 'Registered',
+            'description' => 'A registered member of the community.'
+        ]);
+
+        Role::where('name', 'unconfirmed')->delete();
+        Role::create([
+            'name' => 'unconfirmed',
+            'display_name' => 'Unconfirmed',
+            'description' => 'User has registered but did not finish the process yet.'
         ]);
     }
 }
