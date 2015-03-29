@@ -1,6 +1,7 @@
 <?php namespace Modules\User\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Modules\User\Entities\Permission;
 use Modules\User\Entities\Role;
 use Modules\User\Http\Requests\RoleFormRequest;
 use Vain\Http\Controllers\Controller;
@@ -25,12 +26,18 @@ class RoleController extends Controller {
 
     public function create()
     {
-        return view('user::admin.roles.create');
+        $permissions = Permission::all()->lists('display_name', 'id');
+
+        return view('user::admin.roles.create')
+            ->with('permissions', $permissions);
     }
 
     public function store(RoleFormRequest $request)
     {
-        Role::create($request->all());
+        $role = Role::create($request->all());
+
+        $permissions = $request->get('permissions');
+        $role->attachPermissions($permissions);
 
         return $this->createDefaultResponse($request);
     }
@@ -40,8 +47,10 @@ class RoleController extends Controller {
         /** @var User $user */
         $role = Role::find($id);
 
+        $permissions = Permission::all()->lists('display_name', 'id');
+
         return view('user::admin.roles.edit')
-            ->with('role', $role);
+            ->with(['role' => $role, 'permissions' => $permissions]);
     }
 
     public function update(RoleFormRequest $request, $id)
@@ -50,6 +59,9 @@ class RoleController extends Controller {
 
         $role->fill($request->all());
         $role->save();
+
+        $permissions = $request->get('permissions');
+        $role->attachPermissions($permissions);
 
         return $this->createDefaultResponse($request);
     }

@@ -13,6 +13,9 @@ return [
         'abort' => 'Abbrechen',
         'confirm' => 'Bestätigen',
     ],
+    'section' => [
+        'role' => 'Rollen',
+    ],
     'delete' => [
         'message' => 'Willst du diesen Benutzer wirklich löschen?',
         'success' => 'Der Benutzer wurde gelöscht!',

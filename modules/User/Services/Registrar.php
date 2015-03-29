@@ -44,7 +44,7 @@ class Registrar implements RegistrarContract {
      */
     public function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
@@ -66,6 +66,10 @@ class Registrar implements RegistrarContract {
             'favorite_instance' => $data['favorite_instance'],
             'favorite_battleground' => $data['favorite_battleground'],
         ]);
+
+        $user->attachRoles($data['roles']);
+
+        return $user;
     }
 
 }

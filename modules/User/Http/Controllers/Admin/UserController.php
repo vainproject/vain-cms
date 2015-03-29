@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Session;
 use InvalidArgumentException;
+use Modules\User\Entities\Role;
 use Modules\User\Entities\User;
 use Modules\User\Services\Registrar;
 use Modules\User\Services\Updater;
@@ -36,6 +37,8 @@ class UserController extends Controller {
 
     public function create()
     {
+        $roles = Role::all()->lists('display_name', 'id');
+
         $genders = [
             null => trans('user::profile.gender.none'),
             'male' => trans('user::profile.gender.male'),
@@ -45,7 +48,7 @@ class UserController extends Controller {
         $locales = config('app.locales');
 
         return view('user::admin.users.create')
-            ->with(['genders' => $genders, 'locales' => $locales]);
+            ->with(['roles' => $roles, 'genders' => $genders, 'locales' => $locales]);
     }
 
     public function store(Store $session, Registrar $registrar)
@@ -75,6 +78,8 @@ class UserController extends Controller {
         /** @var User $user */
         $user = User::find($id);
 
+        $roles = Role::all()->lists('display_name', 'id');
+
         $genders = [
             null => trans('user::profile.gender.none'),
             'male' => trans('user::profile.gender.male'),
@@ -84,7 +89,7 @@ class UserController extends Controller {
         $locales = config('app.locales');
 
         return view('user::admin.users.edit')
-            ->with(['user' => $user, 'genders' => $genders, 'locales' => $locales]);
+            ->with(['user' => $user, 'roles' => $roles, 'genders' => $genders, 'locales' => $locales]);
     }
 
     public function update(Store $session, Updater $updater, $id)

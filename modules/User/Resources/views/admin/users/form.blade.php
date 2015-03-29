@@ -187,4 +187,18 @@
             </div><!-- /.box-body -->
         </div><!-- /.box -->
     </div>
+    <div class="col-md-6 col-sm-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">@lang('user::user.section.role')</h3>
+            </div>
+            <div class="box-body">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        {!! Form::select('roles[]', $roles, null, ['multiple', 'class' => 'form-control', 'size' => count($roles)]) !!}
+                    </div>
+                </div>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
 </div>

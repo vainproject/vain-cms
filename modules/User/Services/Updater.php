@@ -66,6 +66,8 @@ class Updater {
             'favorite_battleground' => $data['favorite_battleground'],
         ]);
 
+        $user->attachRoles($data['roles']);
+
         // only fill password if specified
         if (array_key_exists('password', $data)
             && !empty($data['password']))

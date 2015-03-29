@@ -13,6 +13,9 @@ return [
         'abort' => 'Abort',
         'confirm' => 'Confirm',
     ],
+    'section' => [
+        'role' => 'Roles',
+    ],
     'delete' => [
         'message' => 'Do you really want to delete the selected user?',
         'success' => 'User has been deleted!',

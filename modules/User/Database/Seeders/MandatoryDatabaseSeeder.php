@@ -32,28 +32,28 @@ class PermissionPermissionTableSeeder extends Seeder {
         Permission::where('name', 'user.permission.show')->delete();
         Permission::create([
             'name' => 'user.permission.show',
-            'display_name' => 'Show page',
+            'display_name' => 'Show permission',
             'description' => 'Permission to show a list of or a single permission.'
         ]);
 
         Permission::where('name', 'user.permission.create')->delete();
         Permission::create([
             'name' => 'user.permission.create',
-            'display_name' => 'Create page',
+            'display_name' => 'Create permission',
             'description' => 'Permission to create a new permission.'
         ]);
 
         Permission::where('name', 'user.permission.edit')->delete();
         Permission::create([
             'name' => 'user.permission.edit',
-            'display_name' => 'Edit page',
+            'display_name' => 'Edit permission',
             'description' => 'Permission to modify an existing permission.'
         ]);
 
         Permission::where('name', 'user.permission.destroy')->delete();
         Permission::create([
             'name' => 'user.permission.destroy',
-            'display_name' => 'Delete page',
+            'display_name' => 'Delete permission',
             'description' => 'Permission to delete an existing permission.'
         ]);
     }
@@ -66,28 +66,28 @@ class RolePermissionTableSeeder extends Seeder {
         Permission::where('name', 'user.role.show')->delete();
         Permission::create([
             'name' => 'user.role.show',
-            'display_name' => 'Show page',
+            'display_name' => 'Show role',
             'description' => 'Permission to show a list of or a single role.'
         ]);
 
         Permission::where('name', 'user.role.create')->delete();
         Permission::create([
             'name' => 'user.role.create',
-            'display_name' => 'Create page',
+            'display_name' => 'Create role',
             'description' => 'Permission to create a new role.'
         ]);
 
         Permission::where('name', 'user.role.edit')->delete();
         Permission::create([
             'name' => 'user.role.edit',
-            'display_name' => 'Edit page',
+            'display_name' => 'Edit role',
             'description' => 'Permission to modify an existing role.'
         ]);
 
         Permission::where('name', 'user.role.destroy')->delete();
         Permission::create([
             'name' => 'user.role.destroy',
-            'display_name' => 'Delete page',
+            'display_name' => 'Delete role',
             'description' => 'Permission to delete an existing role.'
         ]);
     }
@@ -100,28 +100,28 @@ class UserPermissionTableSeeder extends Seeder {
         Permission::where('name', 'user.user.show')->delete();
         Permission::create([
             'name' => 'user.user.show',
-            'display_name' => 'Show page',
+            'display_name' => 'Show user',
             'description' => 'Permission to show a list of or a single user.'
         ]);
 
         Permission::where('name', 'user.user.create')->delete();
         Permission::create([
             'name' => 'user.user.create',
-            'display_name' => 'Create page',
+            'display_name' => 'Create user',
             'description' => 'Permission to create a new user.'
         ]);
 
         Permission::where('name', 'user.user.edit')->delete();
         Permission::create([
             'name' => 'user.user.edit',
-            'display_name' => 'Edit page',
+            'display_name' => 'Edit user',
             'description' => 'Permission to modify an existing user.'
         ]);
 
         Permission::where('name', 'user.user.destroy')->delete();
         Permission::create([
             'name' => 'user.user.destroy',
-            'display_name' => 'Delete page',
+            'display_name' => 'Delete user',
             'description' => 'Permission to delete an existing user.'
         ]);
     }
