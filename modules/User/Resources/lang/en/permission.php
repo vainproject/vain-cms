@@ -27,4 +27,5 @@ return [
         'success' => 'Permission has been saved!',
         'error' => 'Permission has not been saved!'
     ],
+    'lock' => 'The Permission can not be modified!',
 ];

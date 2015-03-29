@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <form class="form-horizontal" method="post" action="{{ route('user.profile.save') }}">
-            @if (count($errors) > 0)
+            @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>Whoops!</strong> There were some problems with your input.<br><br>
                     <ul>

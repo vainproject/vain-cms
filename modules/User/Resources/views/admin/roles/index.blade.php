@@ -11,7 +11,7 @@
         </h1>
     </section>
 
-    <section id="user" class="content">
+    <section class="content">
 
         <div class="box">
             <div class="box-body table-responsive no-padding" data-pjax>

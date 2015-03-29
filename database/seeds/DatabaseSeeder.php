@@ -14,7 +14,10 @@ class DatabaseSeeder extends Seeder {
     {
         Model::unguard();
 
-        // $this->call('UserTableSeeder');
+        // register your mandatory module seeders here
+
+        $this->call('Modules\User\Database\Seeders\MandatoryDatabaseSeeder');
+        $this->call('Modules\Site\Database\Seeders\MandatoryDatabaseSeeder');
     }
 
 }

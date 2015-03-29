@@ -27,4 +27,5 @@ return [
         'success' => 'Die Berechtigung wurde gespeichert!',
         'error' => 'Die Berechtigung konnte nicht gespeichert werden!'
     ],
+    'lock' => 'Die Resource kann nicht bearbeitet werden!',
 ];

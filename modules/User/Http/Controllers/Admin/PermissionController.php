@@ -7,6 +7,15 @@ use Vain\Http\Controllers\Controller;
 
 class PermissionController extends Controller {
 
+    function __construct()
+    {
+        // protect the modifying logic from executing
+        // we do not wan't a change in permissions since they
+        // only should be modified from module migrations
+
+        $this->middleware('lockdown', [ 'except' => 'index' ]);
+    }
+
     function index()
     {
         $permissions = Permission::paginate();
@@ -47,8 +56,6 @@ class PermissionController extends Controller {
 
     public function destroy(Request $request, $id)
     {
-        // todo protect system permissions?
-
         Permission::find($id)->delete();
 
         return $this->createDefaultResponse($request);
