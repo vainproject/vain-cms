@@ -2,15 +2,17 @@
 
 return [
     'id' => '#',
+    'created_at' => 'Registriert am',
+    'updated_at' => 'Geändert am',
     'title' => [
         'index' => 'Benutzer',
         'edit' => 'Benutzer bearbeiten',
         'create' => 'Benutzer erstellen',
     ],
-    'created_at' => 'Registriert am',
-    'updated_at' => 'Geändert am',
-    'abort' => 'Abbrechen',
-    'confirm' => 'Bestätigen',
+    'action' => [
+        'abort' => 'Abbrechen',
+        'confirm' => 'Bestätigen',
+    ],
     'delete' => [
         'message' => 'Willst du diesen Benutzer wirklich löschen?',
         'success' => 'Der Benutzer wurde gelöscht!',

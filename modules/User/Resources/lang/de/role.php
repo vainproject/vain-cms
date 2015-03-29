@@ -2,6 +2,11 @@
 
 return [
     'id' => '#',
+    'alias' => 'Alias',
+    'name' => 'Name',
+    'description' => 'Beschreibung',
+    'created_at' => 'Erstellt am',
+    'updated_at' => 'Geändert am',
     'title' => [
         'index' => 'Rollen',
         'edit' => 'Rolle bearbeiten',
@@ -9,15 +14,13 @@ return [
     ],
     'action' => [
         'save' => 'Speichern',
-        'abort' => 'Abbrechen'
+        'abort' => 'Abbrechen',
+        'confirm' => 'Bestätigen',
     ],
-    'alias' => 'Alias',
-    'name' => 'Name',
-    'description' => 'Beschreibung',
-    'created_at' => 'Erstellt am',
-    'updated_at' => 'Geändert am',
-    'abort' => 'Abbrechen',
-    'confirm' => 'Bestätigen',
+    'section' => [
+        'general' => 'Allgemein',
+        'permission' => 'Berechtigungen',
+    ],
     'delete' => [
         'message' => 'Willst du diese Rolle wirklich löschen?',
         'success' => 'Die Rolle wurde gelöscht!',

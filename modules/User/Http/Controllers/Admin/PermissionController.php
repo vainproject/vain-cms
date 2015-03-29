@@ -14,6 +14,11 @@ class PermissionController extends Controller {
         // only should be modified from module migrations
 
         $this->middleware('lockdown', [ 'except' => 'index' ]);
+
+        $this->beforeFilter('permission:user.permission.show', ['only' => ['index', 'show']]);
+        $this->beforeFilter('permission:user.permission.create', ['only' => ['create', 'store']]);
+        $this->beforeFilter('permission:user.permission.edit', ['only' => ['edit', 'update']]);
+        $this->beforeFilter('permission:user.permission.destroy', ['only' => 'destroy']);
     }
 
     function index()

@@ -2,6 +2,11 @@
 
 return [
     'id' => '#',
+    'alias' => 'Alias',
+    'name' => 'Name',
+    'description' => 'Beschreibung',
+    'created_at' => 'Erstellt am',
+    'updated_at' => 'Geändert am',
     'title' => [
         'index' => 'Berechtigungen',
         'edit' => 'Berechtigung erstellen',
@@ -9,15 +14,9 @@ return [
     ],
     'action' => [
         'save' => 'Speichern',
-        'abort' => 'Abbrechen'
+        'abort' => 'Abbrechen',
+        'confirm' => 'Bestätigen',
     ],
-    'alias' => 'Alias',
-    'name' => 'Name',
-    'description' => 'Beschreibung',
-    'created_at' => 'Erstellt am',
-    'updated_at' => 'Geändert am',
-    'abort' => 'Abbrechen',
-    'confirm' => 'Bestätigen',
     'delete' => [
         'message' => 'Willst du diese Berechtigung wirklich löschen?',
         'success' => 'Die Berechtigung wurde gelöscht!',

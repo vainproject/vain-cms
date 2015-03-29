@@ -35,6 +35,8 @@ class RouteServiceProvider extends ServiceProvider {
      */
     public function map(Router $router)
     {
+        require app_path('Http/filters.php'); // DEPRECATED, ONLY FOR PERMISSION MANAGEMENT
+
         $router->group(['namespace' => $this->namespace], function($router)
         {
             require app_path('Http/routes.php');

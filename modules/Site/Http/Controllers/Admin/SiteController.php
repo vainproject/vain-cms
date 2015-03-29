@@ -9,6 +9,14 @@ use Modules\User\Entities\User;
 
 class SiteController extends Controller {
 
+    function __construct()
+    {
+        $this->beforeFilter('permission:site.page.show', ['only' => ['index', 'show']]);
+        $this->beforeFilter('permission:site.page.create', ['only' => ['create', 'store']]);
+        $this->beforeFilter('permission:site.page.edit', ['only' => ['edit', 'update']]);
+        $this->beforeFilter('permission:site.page.destroy', ['only' => 'destroy']);
+    }
+
     public function index()
     {
         $pages = Page::with('user')->paginate();

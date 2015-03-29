@@ -2,6 +2,11 @@
 
 return [
     'id' => '#',
+    'alias' => 'Alias',
+    'name' => 'Name',
+    'description' => 'Description',
+    'created_at' => 'Created at',
+    'updated_at' => 'Updated at',
     'title' => [
         'index' => 'Permissions',
         'edit' => 'Create permission',
@@ -9,15 +14,9 @@ return [
     ],
     'action' => [
         'save' => 'Save',
-        'abort' => 'Abort'
+        'abort' => 'Abort',
+        'confirm' => 'Confirm',
     ],
-    'alias' => 'Alias',
-    'name' => 'Name',
-    'description' => 'Description',
-    'created_at' => 'Created at',
-    'updated_at' => 'Updated at',
-    'abort' => 'Abort',
-    'confirm' => 'Confirm',
     'delete' => [
         'message' => 'Do you really want to delete the selected permission?',
         'success' => 'Permission has been deleted!',

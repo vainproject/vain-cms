@@ -2,15 +2,6 @@
 
 return [
     'id' => '#',
-    'title' => [
-        'index' => 'Seiten',
-        'edit' => 'Seite bearbeiten',
-        'create' => 'Seite erstellen',
-    ],
-    'action' => [
-        'save' => 'Speichern',
-        'abort' => 'Abbrechen'
-    ],
     'slug' => 'Slug',
     'creator' => 'Erstellt von',
     'role' => 'Rolle',
@@ -19,8 +10,16 @@ return [
     'created_at' => 'Erstellt am',
     'updated_at' => 'Geändert am',
     'deleted_at' => 'Gelöscht am',
-    'abort' => 'Abbrechen',
-    'confirm' => 'Bestätigen',
+    'title' => [
+        'index' => 'Seiten',
+        'edit' => 'Seite bearbeiten',
+        'create' => 'Seite erstellen',
+    ],
+    'action' => [
+        'save' => 'Speichern',
+        'abort' => 'Abbrechen',
+        'confirm' => 'Bestätigen',
+    ],
     'delete' => [
         'message' => 'Willst du diesen Inhalt wirklich löschen?',
         'success' => 'Der Inhalt wurde gelöscht!',

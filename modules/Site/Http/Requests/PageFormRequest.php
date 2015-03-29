@@ -47,6 +47,17 @@ class PageFormRequest extends FormRequest
      */
     public function authorize()
     {
+        $route = $this->route()->getName();
+
+        if (in_array($route, ['site.admin.sites.create', 'site.admin.sites.store']))
+        {
+
+        }
+        else if (in_array($route, ['site.admin.sites.edit', 'site.admin.sites.update']))
+        {
+
+        }
+
         return Auth::check();
     }
 

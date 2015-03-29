@@ -2,15 +2,17 @@
 
 return [
     'id' => '#',
+    'created_at' => 'Member since',
+    'updated_at' => 'Updated at',
     'title' => [
         'index' => 'Users',
         'edit' => 'Edit user',
         'create' => 'Create user',
     ],
-    'created_at' => 'Member since',
-    'updated_at' => 'Updated at',
-    'abort' => 'Abort',
-    'confirm' => 'Confirm',
+    'action' => [
+        'abort' => 'Abort',
+        'confirm' => 'Confirm',
+    ],
     'delete' => [
         'message' => 'Do you really want to delete the selected user?',
         'success' => 'User has been deleted!',

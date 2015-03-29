@@ -2,15 +2,6 @@
 
 return [
     'id' => '#',
-    'title' => [
-        'index' => 'Sites',
-        'edit' => 'Edit site',
-        'create' => 'Create site',
-    ],
-    'action' => [
-        'save' => 'Save',
-        'abort' => 'Abort'
-    ],
     'slug' => 'Slug',
     'creator' => 'Creator',
     'role' => 'Role',
@@ -19,8 +10,16 @@ return [
     'created_at' => 'Created at',
     'updated_at' => 'Updated at',
     'deleted_at' => 'Deleted at',
-    'abort' => 'Abort',
-    'confirm' => 'Confirm',
+    'title' => [
+        'index' => 'Sites',
+        'edit' => 'Edit site',
+        'create' => 'Create site',
+    ],
+    'action' => [
+        'save' => 'Save',
+        'abort' => 'Abort',
+        'confirm' => 'Confirm',
+    ],
     'delete' => [
         'message' => 'Do you really want to delete the selected content?',
         'success' => 'Content has been deleted!',

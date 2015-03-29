@@ -19,6 +19,11 @@ class UserController extends Controller {
     function __construct(Request $request)
     {
         $this->request = $request;
+
+        $this->beforeFilter('permission:user.user.show', ['only' => ['index', 'show']]);
+        $this->beforeFilter('permission:user.user.create', ['only' => ['create', 'store']]);
+        $this->beforeFilter('permission:user.user.edit', ['only' => ['edit', 'update']]);
+        $this->beforeFilter('permission:user.user.destroy', ['only' => 'destroy']);
     }
 
     public function index()
