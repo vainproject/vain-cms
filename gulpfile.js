@@ -2,27 +2,6 @@ var elixir = require('laravel-elixir');
 
 elixir.extend('sourcemaps', false);
 
-var styles_include = [
-    /*
-     |--------------------------------------------------------------------------
-     | Vendor Stylesheets
-     |--------------------------------------------------------------------------
-     */
-    './bower_components/bootstrap/less',
-    './bower_components/bootstrap-material-design/less',
-    './bower_components/admin-lte/build/less',
-    './bower_components/toastr',
-
-    /*
-     |--------------------------------------------------------------------------
-     | Module Stylesheets
-     |--------------------------------------------------------------------------
-     */
-    './modules/Forum/Resources/assets/less',
-    './modules/Site/Resources/assets/less',
-    './modules/User/Resources/assets/less',
-];
-
 var scripts_include = [
     /*
      |--------------------------------------------------------------------------
@@ -80,9 +59,7 @@ var scripts_admin_include = [
 elixir(function(mix) {
 
     // compile less
-    mix.less(['app.less', 'admin.less'], 'public/static/css', {
-        paths: styles_include
-    });
+    mix.less(['app.less', 'admin.less'], 'public/static/css');
 
     // concat scripts
     mix.scripts(scripts_include, 'public/static/js/app.js', './');
