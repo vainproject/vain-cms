@@ -173,6 +173,7 @@ return [
         'Zizaco\Entrust\EntrustServiceProvider',
         'Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider',
         'Dowilcox\KnpMenu\MenuServiceProvider',
+        'Ottowayne\LangCheck\LangCheckServiceProvider',
 
         // in-app packages, may be excluded sometimes later
         'Vain\Packages\RealmAPI\Providers\RealmApiServiceProvider',
