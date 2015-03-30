@@ -14,6 +14,7 @@
 </div>
 
 <div class="row">
+
     <div class="col-md-6 col-sm-12">
         <div class="box">
             <div class="box-header with-border">
@@ -69,51 +70,22 @@
     <div class="col-md-6 col-sm-12">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">@lang('user::profile.section.social')</h3>
+                <h3 class="box-title">@lang('user::user.section.role')</h3>
             </div>
             <div class="box-body">
                 <div class="form-group">
-                    {!! Form::label('profession', trans('user::profile.field.profession'), ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-9">
-                        {!! Form::text('profession', null, ['class' => 'form-control']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('hobbies', trans('user::profile.field.hobbies'), ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-9">
-                        {!! Form::text('hobbies', null, ['class' => 'form-control']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('homepage', trans('user::profile.field.homepage'), ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-9">
-                        {!! Form::text('homepage', null, ['class' => 'form-control']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('skype', trans('user::profile.field.skype'), ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-9">
-                        {!! Form::text('skype', null, ['class' => 'form-control']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('facebook', trans('user::profile.field.facebook'), ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-9">
-                        {!! Form::text('facebook', null, ['class' => 'form-control']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('twitter', trans('user::profile.field.twitter'), ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-9">
-                        {!! Form::text('twitter', null, ['class' => 'form-control']) !!}
+                    <div class="col-sm-12">
+                        {!! Form::select('roles[]', $roles, $user->roles()->lists('id'), ['multiple', 'class' => 'form-control', 'size' => count($roles)]) !!}
                     </div>
                 </div>
             </div><!-- /.box-body -->
         </div><!-- /.box -->
     </div>
-</div>
+
+</div><!-- /.row -->
 
 <div class="row">
+
     <div class="col-md-6 col-sm-12">
         <!-- Default box -->
         <div class="box">
@@ -166,8 +138,59 @@
             </div><!-- /.box-body -->
         </div><!-- /.box -->
     </div>
+
     <div class="col-md-6 col-sm-12">
         <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">@lang('user::profile.section.social')</h3>
+            </div>
+            <div class="box-body">
+                <div class="form-group">
+                    {!! Form::label('profession', trans('user::profile.field.profession'), ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::text('profession', null, ['class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {!! Form::label('hobbies', trans('user::profile.field.hobbies'), ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::text('hobbies', null, ['class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {!! Form::label('homepage', trans('user::profile.field.homepage'), ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::text('homepage', null, ['class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {!! Form::label('skype', trans('user::profile.field.skype'), ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::text('skype', null, ['class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {!! Form::label('facebook', trans('user::profile.field.facebook'), ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::text('facebook', null, ['class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {!! Form::label('twitter', trans('user::profile.field.twitter'), ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::text('twitter', null, ['class' => 'form-control']) !!}
+                    </div>
+                </div>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+
+</div><!-- /.row -->
+
+<div class="row">
+
+    <div class="col-md-6 col-sm-12">
+        <div class="box box-danger">
             <div class="box-header with-border">
                 <h3 class="box-title">@lang('user::profile.section.password')</h3>
             </div>
@@ -187,18 +210,5 @@
             </div><!-- /.box-body -->
         </div><!-- /.box -->
     </div>
-    <div class="col-md-6 col-sm-12">
-        <div class="box">
-            <div class="box-header with-border">
-                <h3 class="box-title">@lang('user::user.section.role')</h3>
-            </div>
-            <div class="box-body">
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        {!! Form::select('roles[]', $roles, $user->roles()->lists('id'), ['multiple', 'class' => 'form-control', 'size' => count($roles)]) !!}
-                    </div>
-                </div>
-            </div><!-- /.box-body -->
-        </div><!-- /.box -->
-    </div>
-</div>
+
+</div><!-- /.row -->
