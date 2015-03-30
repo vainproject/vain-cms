@@ -11,7 +11,7 @@ Route::group(['prefix' => 'sites'], function()
 /**
  * Backend
  */
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function()
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function()
 {
     Route::resource('sites', 'SiteController', ['names' => [
         'index' => 'site.admin.sites.index',

@@ -29,6 +29,15 @@ class PermissionPermissionTableSeeder extends Seeder {
 
     public function run()
     {
+        // general admin view permission, though the user component
+        // delivers permission management we seed it from here
+        Permission::where('name', 'app.admin.show')->delete();
+        Permission::create([
+            'name' => 'app.admin.show',
+            'display_name' => 'Show admin panel',
+            'description' => 'Permission to generally view the admin control panel.'
+        ]);
+
         Permission::where('name', 'user.permission.show')->delete();
         Permission::create([
             'name' => 'user.permission.show',

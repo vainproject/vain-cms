@@ -20,7 +20,7 @@ Route::filter('permission', function($route, $request, $value)
 {
     if ( ! Entrust::can($value))
     {
-        //app()->abort(403, 'Missing permission \''. $value .'\'');
+        app()->abort(403, 'Missing permission \''. $value .'\'');
     }
 });
 
@@ -28,6 +28,6 @@ Route::filter('role', function($route, $request, $value)
 {
     if ( ! Entrust::hasRole($value))
     {
-        //app()->abort(403, 'Missing role \''. $value .'\'');
+        app()->abort(403, 'Missing role \''. $value .'\'');
     }
 });

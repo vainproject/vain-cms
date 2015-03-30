@@ -33,7 +33,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function()
 /*
  * Backend
  */
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function()
 {
     Route::resource('users', 'UserController', ['names' => [
         'index' => 'user.admin.users.index',

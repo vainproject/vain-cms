@@ -29,6 +29,7 @@ class Kernel extends HttpKernel {
         'auth.basic' => 'Illuminate\User\Middleware\AuthenticateWithBasicAuth',
         'guest' => 'Modules\User\Http\Middleware\RedirectIfAuthenticated',
         'lockdown' => 'Modules\User\Http\Middleware\LockdownResource',
+        'admin' => 'Vain\Http\Middleware\VerfiyBackendPermission',
     ];
 
 }
