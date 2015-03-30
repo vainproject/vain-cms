@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Modules\User\Entities\Permission;
+use Modules\User\Entities\Role;
 use Modules\User\Entities\User;
 
 class UserDatabaseSeeder extends Seeder {
@@ -18,9 +20,19 @@ class UserDatabaseSeeder extends Seeder {
 
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
+        $this->call('Modules\User\Database\Seeders\UserTableSeeder');
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+    }
+}
+
+class UserTableSeeder extends Seeder {
+
+    public function run()
+    {
         DB::table('users')->delete();
 
-        User::create([
+        $user = User::create([
             'id' => 1,
             'name' => 'Test Admin',
             'alias' => 'Admin',
@@ -29,7 +41,15 @@ class UserDatabaseSeeder extends Seeder {
             'locale' => 'en'
         ]);
 
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-    }
+        // add user to admin roles
+        $adminRoles = Role::where('name', 'admin')->get();
+        $user->saveRoles($adminRoles);
 
+        // add all permissions to admin roles
+        $permissions = Permission::all();
+        foreach ($adminRoles as $role)
+        {
+            $role->savePermissions($permissions);
+        }
+    }
 }
