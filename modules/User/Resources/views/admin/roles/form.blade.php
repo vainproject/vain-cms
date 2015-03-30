@@ -50,7 +50,7 @@
             <div class="box-body">
                 <div class="form-group">
                      <div class="col-sm-12">
-                        {!! Form::select('permissions[]', $permissions, null, ['multiple', 'class' => 'form-control', 'size' => count($permissions)]) !!}
+                        {!! Form::select('permissions[]', $permissions, $role->perms()->lists('id'), ['multiple', 'class' => 'form-control', 'size' => count($permissions)]) !!}
                     </div>
                 </div>
             </div><!-- /.box-body -->

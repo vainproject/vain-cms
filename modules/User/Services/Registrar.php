@@ -67,7 +67,7 @@ class Registrar implements RegistrarContract {
             'favorite_battleground' => $data['favorite_battleground'],
         ]);
 
-        $user->attachRoles($data['roles']);
+        $user->saveRoles($data['roles']);
 
         return $user;
     }

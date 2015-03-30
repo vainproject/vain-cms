@@ -37,7 +37,7 @@ class RoleController extends Controller {
         $role = Role::create($request->all());
 
         $permissions = $request->get('permissions');
-        $role->attachPermissions($permissions);
+        $role->savePermissions($permissions);
 
         return $this->createDefaultResponse($request);
     }
@@ -46,7 +46,7 @@ class RoleController extends Controller {
     {
         /** @var User $user */
         $role = Role::find($id);
-
+//        dd($role->perms()->lists('id'));
         $permissions = Permission::all()->lists('display_name', 'id');
 
         return view('user::admin.roles.edit')
@@ -55,13 +55,14 @@ class RoleController extends Controller {
 
     public function update(RoleFormRequest $request, $id)
     {
+        /** @var Role $role */
         $role = Role::find($id);
 
         $role->fill($request->all());
         $role->save();
 
         $permissions = $request->get('permissions');
-        $role->attachPermissions($permissions);
+        $role->savePermissions($permissions);
 
         return $this->createDefaultResponse($request);
     }

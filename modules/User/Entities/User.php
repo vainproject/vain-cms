@@ -64,6 +64,22 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
+     * Save the inputted roles.
+     *
+     * @param mixed $inputRoles
+     *
+     * @return void
+     */
+    public function saveRoles($inputRoles)
+    {
+        if (!empty($inputRoles)) {
+            $this->roles()->sync($inputRoles);
+        } else {
+            $this->roles()->detach();
+        }
+    }
+
+    /**
      * @return String
      */
     public function getAvatar()

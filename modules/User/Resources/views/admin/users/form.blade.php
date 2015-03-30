@@ -195,7 +195,7 @@
             <div class="box-body">
                 <div class="form-group">
                     <div class="col-sm-12">
-                        {!! Form::select('roles[]', $roles, null, ['multiple', 'class' => 'form-control', 'size' => count($roles)]) !!}
+                        {!! Form::select('roles[]', $roles, $user->roles()->lists('id'), ['multiple', 'class' => 'form-control', 'size' => count($roles)]) !!}
                     </div>
                 </div>
             </div><!-- /.box-body -->
