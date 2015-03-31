@@ -17,6 +17,7 @@ class Kernel extends HttpKernel {
         'Illuminate\View\Middleware\ShareErrorsFromSession',
         'Vain\Http\Middleware\VerifyCsrfToken',
         'Vain\Http\Middleware\LoadUserLocale',
+        'Modules\User\Http\Middleware\TrackUserActivity',
     ];
 
     /**

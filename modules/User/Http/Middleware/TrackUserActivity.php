@@ -1,10 +1,11 @@
 <?php namespace Modules\User\Http\Middleware;
 
 use Closure;
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\Guard;
 
-class Authenticate {
-
+class TrackUserActivity
+{
     /**
      * The Guard implementation.
      *
@@ -25,25 +26,23 @@ class Authenticate {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  \Illuminate\Http\Request $request
+     * @param callable|Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->guest())
+        if ($this->auth->check())
         {
-            if ($request->ajax())
-            {
-                return response('Unauthorized.', 401);
-            }
-            else
-            {
-                return redirect()->guest('auth/login');
-            }
+            /** @var \Modules\User\Entities\User $user */
+            $user = $this->auth->user();
+
+            $user->last_active_at = $user->freshTimestamp();
+
+            $user->timestamps = false; // don't update updated_at
+            $user->save();
         }
 
         return $next($request);
     }
-
 }
