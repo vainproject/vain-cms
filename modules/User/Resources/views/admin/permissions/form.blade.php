@@ -3,15 +3,28 @@
         <div class="box">
             <div class="box-body">
                 <button class="btn btn-success" type="submit">
+                    <i class="fa fa-floppy-o fa-lg"></i>&nbsp;
                     @lang('user::permission.action.save')
                 </button>
                 <a class="btn btn-default" href="{{ route('user.admin.permissions.index') }}">
+                    <i class="fa fa-ban fa-lg"></i>&nbsp;
                     @lang('user::permission.action.abort')
                 </a>
             </div>
         </div>
     </div>
 </div>
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <div class="row">
     <div class="col-md-6 col-sm-12">

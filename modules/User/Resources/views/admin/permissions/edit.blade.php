@@ -21,17 +21,6 @@
             'method' => 'PUT',
             'route' => ['user.admin.permissions.update', $permission->id]]) !!}
 
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         @include('user::admin.permissions.form')
 
         {!! Form::close() !!}

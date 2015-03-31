@@ -20,17 +20,6 @@
             'data-remote-error-message' => trans('user::role.save.error'),
             'route' => ['user.admin.roles.store']]) !!}
 
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         @include('user::admin.roles.form')
 
         {!! Form::close() !!}

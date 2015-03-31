@@ -3,15 +3,28 @@
         <div class="box">
             <div class="box-body">
                 <button class="btn btn-success" type="submit">
+                    <i class="fa fa-floppy-o fa-lg"></i>&nbsp;
                     @lang('user::role.action.save')
                 </button>
                 <a class="btn btn-default" href="{{ route('user.admin.roles.index') }}">
+                    <i class="fa fa-ban fa-lg"></i>&nbsp;
                     @lang('user::role.action.abort')
                 </a>
             </div>
         </div>
     </div>
 </div>
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <div class="row">
     <div class="col-md-6 col-sm-12">
@@ -50,7 +63,7 @@
             <div class="box-body">
                 <div class="form-group">
                      <div class="col-sm-12">
-                        {!! Form::select('permissions[]', $permissions, $role->perms()->lists('id'), ['multiple', 'class' => 'form-control', 'size' => count($permissions)]) !!}
+                        {!! Form::select('permissions[]', $permissions, empty($role) ?: $role->perms()->lists('id'), ['multiple', 'class' => 'form-control', 'size' => count($permissions)]) !!}
                     </div>
                 </div>
             </div><!-- /.box-body -->
