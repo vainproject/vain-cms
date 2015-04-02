@@ -55,10 +55,13 @@ class UserServiceProvider extends ServiceProvider {
             $view->getFactory()->inject('account', view('user::menu', ['guest' => Auth::guest(), 'user' => Auth::user()]));
         });
 
-        // user menu in admin
         View::composer('admin', function($view)
         {
-            $view->getFactory()->inject('account', view('user::admin.account', ['user' => Auth::user()]));
+            // user menu in admin menu
+            $view->getFactory()->inject('account', view('user::admin.partials.account', ['user' => Auth::user()]));
+
+            // user panel in admin sidebar
+            $view->getFactory()->inject('userpanel', view('user::admin.partials.userpanel', ['user' => Auth::user()]));
         });
     }
 }
