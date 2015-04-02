@@ -1,34 +1,48 @@
 <?php namespace Modules\Site\Handlers\Events;
 
 use Modules\Site\Entities\Page;
-use Vain\Handlers\Events\MenuComposer as EventHandler;
+use Vain\Events\BackendMenuCreated;
+use Vain\Events\FrontendMenuCreated;
 
-class SiteMenuComposer extends EventHandler {
+class SiteMenuComposer {
 
     /**
-     * @return void
+     * @param BackendMenuCreated $event
      */
-    protected function composeBackendMenu()
+    public function composeBackendMenu(BackendMenuCreated $event)
     {
-        $this->handler->addChild('site::admin.title.index')
+        $event->handler->addChild('site::admin.title.index')
             ->setUri(route('site.admin.sites.index'))
             ->setExtra('icon', 'file-o');
     }
 
     /**
-     * @return void
+     * @param FrontendMenuCreated $event
      */
-    protected function composeFrontendMenu()
+    public function composeFrontendMenu(FrontendMenuCreated $event)
     {
-        $this->handler->addChild('site::page.index')
+        $event->handler->addChild('site::page.index')
             ->setUri('#');
 
         foreach (Page::published()->get() as $page)
         {
-            $this->handler['site::page.index']->addChild($page->slug)
+            $event->handler['site::page.index']->addChild($page->slug)
                 ->setLabel($page->content->title)
                 ->setUri(route('site.show', [ 'slug' => $page->slug ]))
                 ->setExtra('raw', true);
         }
+    }
+
+    /**
+     * Register the listeners for the subscriber.
+     *
+     * @param  \Illuminate\Events\Dispatcher  $events
+     * @return array
+     */
+    public function subscribe($events)
+    {
+        $events->listen('Vain\Events\BackendMenuCreated', 'Modules\Site\Handlers\Events\SiteMenuComposer@composeBackendMenu');
+
+        $events->listen('Vain\Events\FrontendMenuCreated', 'Modules\Site\Handlers\Events\SiteMenuComposer@composeFrontendMenu');
     }
 }

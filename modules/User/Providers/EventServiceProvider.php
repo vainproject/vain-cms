@@ -10,10 +10,14 @@ class EventServiceProvider extends ServiceProvider {
      *
      * @var array
      */
-    protected $listen = [
-        'Vain\Events\MenuHandlerWasCreated' => [
-            'Modules\User\Handlers\Events\UserMenuComposer',
-        ],
+    protected $listen = [];
+
+    /**
+     * @var array
+     */
+    protected $subscribe = [
+        'Modules\User\Handlers\Events\UserActivityHandler',
+        'Modules\User\Handlers\Events\UserMenuComposer',
     ];
 
     /**
