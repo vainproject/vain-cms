@@ -1,5 +1,6 @@
 <?php namespace Modules\User\Entities;
 
+use Carbon\Carbon;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
@@ -61,6 +62,47 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function sites()
     {
         $this->hasMany('Modules\Site\Entities\Page');
+    }
+
+    /**
+     * queries all possible online users
+     *
+     * @param $query
+     * @return \Illuminate\Database\Eloquent\Builder|static
+     */
+    public function scopeOnline($query)
+    {
+        $expiryDate = Carbon::now()
+            ->subMinutes(config('session.lifetime'));
+
+        return $query->where('last_active_at', '>', $expiryDate)
+            ->andWhere('logged_out', false);
+    }
+
+    /**
+     * accessor for current online state
+     *
+     * @param $value
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function getOnlineAttribute($value)
+    {
+        $expiryDate = Carbon::now()
+            ->subMinutes(config('session.lifetime'));
+
+        return ( ! $this->logged_out)
+            && $expiryDate->lt($this->last_active_at);
+    }
+
+    /**
+     * accessor for the users avatar
+     *
+     * @param $value
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function getAvatarAttribute($value)
+    {
+        return $this->getAvatar();
     }
 
     /**

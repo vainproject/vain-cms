@@ -4,7 +4,8 @@ use Dowilcox\KnpMenu\Facades\Menu;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Vain\Events\MenuHandlerWasCreated;
+use Vain\Events\BackendMenuCreated;
+use Vain\Events\FrontendMenuCreated;
 
 class MenuServiceProvider extends ServiceProvider
 {
@@ -45,7 +46,7 @@ class MenuServiceProvider extends ServiceProvider
                 ->setUri(route('user.admin.users.index'))
                 ->setExtra('icon', 'file-o');
 
-            Event::fire(new MenuHandlerWasCreated($handler, $view));
+            Event::fire(new FrontendMenuCreated($handler, $view));
         });
     }
 
@@ -62,7 +63,7 @@ class MenuServiceProvider extends ServiceProvider
             $handler = app('menu.backend');
             $view->with('menu', $handler);
 
-            Event::fire(new MenuHandlerWasCreated($handler, $view));
+            Event::fire(new BackendMenuCreated($handler, $view));
         });
     }
 }

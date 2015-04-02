@@ -14,6 +14,7 @@ class AddLastActivityToUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
+			$table->boolean('logged_out');
             $table->timestamp('last_active_at');
 		});
 	}
@@ -27,6 +28,7 @@ class AddLastActivityToUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
+			$table->dropColumn('logged_out');
             $table->dropColumn('last_active_at');
 		});
 	}

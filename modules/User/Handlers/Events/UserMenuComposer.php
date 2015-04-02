@@ -1,37 +1,40 @@
 <?php namespace Modules\User\Handlers\Events;
 
-use Vain\Handlers\Events\MenuComposer as EventHandler;
+use Vain\Events\BackendMenuCreated;
 
-class UserMenuComposer extends EventHandler {
+class UserMenuComposer {
 
     /**
-     * @return void
+     * @param BackendMenuCreated $event
      */
-    protected function composeBackendMenu()
+    public function composeBackendMenu(BackendMenuCreated $event)
     {
-        $this->handler->addChild('user.admin')
+        $event->handler->addChild('user.admin')
             ->setUri('#')
             ->setLabel('user::user.title.index')
             ->setExtra('icon', 'users');
 
-        $this->handler['user.admin']->addChild('user::user.title.index')
+        $event->handler['user.admin']->addChild('user::user.title.index')
             ->setUri(route('user.admin.users.index'))
             ->setExtra('icon', 'circle-o');
 
-        $this->handler['user.admin']->addChild('user::role.title.index')
+        $event->handler['user.admin']->addChild('user::role.title.index')
             ->setUri(route('user.admin.roles.index'))
             ->setExtra('icon', 'circle-o');
 
-        $this->handler['user.admin']->addChild('user::permission.title.index')
+        $event->handler['user.admin']->addChild('user::permission.title.index')
             ->setUri(route('user.admin.permissions.index'))
             ->setExtra('icon', 'circle-o');
     }
 
     /**
-     * @return void
+     * Register the listeners for the subscriber.
+     *
+     * @param  \Illuminate\Events\Dispatcher  $events
+     * @return array
      */
-    protected function composeFrontendMenu()
+    public function subscribe($events)
     {
-
+        $events->listen('Vain\Events\BackendMenuCreated', 'Modules\User\Handlers\Events\UserMenuComposer@composeBackendMenu');
     }
 }
