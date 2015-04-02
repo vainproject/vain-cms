@@ -4,7 +4,7 @@
         <li><a href="/auth/register">@lang('user::auth.action.register')</a></li>
     @else
         <li class="dropdown dropdown-user">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ $user->name }} <img src="{{ $user->getAvatar() }}" /> <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ $user->name }} <img src="{{ $user->avatar }}" /> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
                 <li><a href="{{ route( 'user.profile', [ $user->id ] ) }}">@lang('user::profile.title.mine')</a></li>
                 <li><a href="/auth/logout">@lang('user::auth.action.logout')</a></li>

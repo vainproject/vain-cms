@@ -2,7 +2,7 @@
 
 use Illuminate\View\View;
 use Knp\Menu\MenuItem;
-use Vain\Events\BackendMenuCreated;
+use Modules\User\Entities\User;
 
 class UserActivityHandler {
 
@@ -23,21 +23,27 @@ class UserActivityHandler {
     /**
      * Handle user login events.
      *
-     * @param \App\Events\UserLoggedIn $event
+     * @param User $user
      */
-    public function onUserLogin($event)
+    public function onUserLogin(User $user)
     {
-        //
+        $user->logged_out = false;
+
+        $user->timestamps = false; // don't update updated_at
+        $user->save();
     }
 
     /**
      * Handle user logout events.
      *
-     * @param \App\Events\UserLoggedOut $event
+     * @param User $user
      */
-    public function onUserLogout($event)
+    public function onUserLogout(User $user)
     {
-        //
+        $user->logged_out = true;
+
+        $user->timestamps = false; // don't update updated_at
+        $user->save();
     }
 
     /**
@@ -48,8 +54,8 @@ class UserActivityHandler {
      */
     public function subscribe($events)
     {
-        $events->listen('App\Events\UserLoggedIn', 'Modules\User\Handlers\Events\UserActivityHandler@onUserLogin');
+        $events->listen('auth.login', 'Modules\User\Handlers\Events\UserActivityHandler@onUserLogin');
 
-        $events->listen('App\Events\UserLoggedOut', 'Modules\User\Handlers\Events\UserActivityHandler@onUserLogout');
+        $events->listen('auth.logout', 'Modules\User\Handlers\Events\UserActivityHandler@onUserLogout');
     }
 }

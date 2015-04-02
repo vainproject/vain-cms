@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-3">
-                <img src="{{ $user->getAvatar() }}" alt="Voydz" class="img-circle">
+                <img src="{{ $user->avatar }}" alt="Voydz" class="img-circle">
             </div>
             <div class="col-xs-9">
                 <strong>{{ $user->name }}</strong><br>
