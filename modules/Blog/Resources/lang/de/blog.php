@@ -2,9 +2,18 @@
 
 return [
     'title' => [
-        'index' => 'Übersicht',
-        'post' => 'Blog: :name'
+        'index' => 'Blog-Übersicht',
+        'post' => 'Blog: :name',
     ],
-    'comment_count' => ':count Kommentar|:count Kommentare',
-    'comment_credits' => 'geschrieben von :name :time'
+    'index' => 'Blog',
+    'comment' => [
+        'save' => [
+            'error' => 'Fehler beim Speichern des Kommentars',
+            'button' => 'Abschicken',
+        ],
+        'write' => 'Neuen Kommentar schreiben',
+        'placeholder' => 'Hier ist Platz für deinen Kommentar...',
+        'count' => ':count Kommentar|:count Kommentare',
+        'credits' => 'geschrieben von :name :time',
+    ],
 ];

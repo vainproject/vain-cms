@@ -2,9 +2,17 @@
 
 return [
     'title' => [
-        'index' => 'Overview',
+        'index' => 'Blog overview',
         'post' => 'Blog: :name'
     ],
-    'comment_count' => ':count Comment|:count Comments',
-    'comment_credits' => 'posted by :name :time'
+    'index' => 'Blog',
+    'comment' => [
+        'save' => [
+            'error' => 'An error occurred while trying to store your comment'
+        ],
+        'write' => 'Write new comment',
+        'placeholder' => 'Now it\'s time for your comment...',
+        'count' => ':count Comment|:count Comments',
+        'credits' => 'posted by :name :time',
+    ]
 ];

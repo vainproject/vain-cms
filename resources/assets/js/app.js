@@ -62,5 +62,27 @@
         e.preventDefault();
     });
 
+    // may be used to serve automatically expanding textareas
+    $(document.body).on('focus', 'textarea[data-expand]', function(e) {
+
+        var textarea = $(this);
+        var maxRows = textarea.data('expand-rows-max');
+        // min-rows is optional - current rows are taken instead then
+        var minRows = textarea.data('expand-rows-min') ? textarea.data('expand-rows-min') : textarea.attr('rows');
+        textarea.data('expand-rows-min', minRows);
+
+        textarea.attr('rows', maxRows);
+
+        textarea.on('blur', function(e) {
+
+            var self = $(this);
+
+            if (self.val().length < 1)
+                self.attr('rows', textarea.data('expand-rows-min'));
+        });
+
+        e.preventDefault();
+    });
+
 })();
 
