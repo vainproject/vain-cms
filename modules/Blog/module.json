@@ -6,7 +6,8 @@
     "active": 1,
     "priority": 0,
     "providers": [
-        "Modules\\Blog\\Providers\\BlogServiceProvider"
+        "Modules\\Blog\\Providers\\BlogServiceProvider",
+        "Modules\\Blog\\Providers\\EventServiceProvider"
     ],
     "aliases":{},
     "files": [
