@@ -44,27 +44,6 @@ class PermissionPermissionTableSeeder extends Seeder {
             'display_name' => 'Show permission',
             'description' => 'Permission to show a list of or a single permission.'
         ]);
-
-        Permission::where('name', 'user.permission.create')->delete();
-        Permission::create([
-            'name' => 'user.permission.create',
-            'display_name' => 'Create permission',
-            'description' => 'Permission to create a new permission.'
-        ]);
-
-        Permission::where('name', 'user.permission.edit')->delete();
-        Permission::create([
-            'name' => 'user.permission.edit',
-            'display_name' => 'Edit permission',
-            'description' => 'Permission to modify an existing permission.'
-        ]);
-
-        Permission::where('name', 'user.permission.destroy')->delete();
-        Permission::create([
-            'name' => 'user.permission.destroy',
-            'display_name' => 'Delete permission',
-            'description' => 'Permission to delete an existing permission.'
-        ]);
     }
 }
 

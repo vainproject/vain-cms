@@ -12,18 +12,6 @@
     </section>
 
     <section class="content">
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <div class="box">
             <div class="box-body table-responsive no-padding">
                 <table class="table table-striped">
@@ -35,7 +23,6 @@
                             <td>@lang('user::permission.description')</td>
                             <td>@lang('user::permission.created_at')</td>
                             <td>@lang('user::permission.updated_at')</td>
-                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,18 +34,6 @@
                                 <td>{{ $permission->description }}</td>
                                 <td>{{ $permission->created_at }}</td>
                                 <td>{{ $permission->updated_at }}</td>
-                                <td>
-                                    {!! Form::open([
-                                        'class' => 'form-inline',
-                                       'data-remote',
-                                       'data-remote-success-message' => trans('user::permission.delete.success'),
-                                       'data-remote-error-message' => trans('user::permission.delete.error'),
-                                       'route' => ['user.admin.permissions.destroy', $permission->id],
-                                       'method' => 'DELETE']) !!}
-                                        <a class="btn btn-default" href="{{ route('user.admin.permissions.edit', ['id' => $permission->id]) }}"><i class="fa fa-edit"></i></a>
-                                        <button class="btn btn-danger" type="submit" data-confirm="#modal"><i class="fa fa-trash"></i></button>
-                                    {!! Form::close() !!}
-                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -71,5 +46,4 @@
             @endif
         </div>
     </section>
-    @include('user::admin.permissions.modal')
 @endsection

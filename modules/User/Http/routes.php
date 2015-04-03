@@ -55,13 +55,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
         'destroy' => 'user.admin.roles.destroy',
     ]]);
 
-    Route::resource('permissions', 'PermissionController', ['names' => [
-        'index' => 'user.admin.permissions.index',
-        'create' => 'user.admin.permissions.create',
-        'store' => 'user.admin.permissions.store',
-        'show' => 'user.admin.permissions.show',
-        'edit' => 'user.admin.permissions.edit',
-        'update' => 'user.admin.permissions.update',
-        'destroy' => 'user.admin.permissions.destroy',
-    ]]);
+    Route::get('permissions', [ 'as' => 'user.admin.permissions.index', 'uses' => 'PermissionController@index' ]);
 });
