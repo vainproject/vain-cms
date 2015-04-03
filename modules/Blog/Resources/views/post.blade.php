@@ -28,7 +28,8 @@
                 'url' => route('blog.comment.create', ['postId' => $post->id])]) !!}
 
                 <div class="form-group">
-                    <textarea name="text" class="form-control" data-expand data-expand-rows-max="6" rows="2" placeholder="{{ Lang::get('blog::blog.comment.placeholder')}}"></textarea>
+                    <textarea name="text" class="form-control" data-expand data-expand-rows-max="6" rows="2"
+                              placeholder="{{ Lang::get('blog::blog.comment.placeholder')}}"></textarea>
                 </div>
                 <div class="form-group">
                     {!! Form::submit(Lang::get('blog::blog.comment.save.button'),
@@ -41,7 +42,7 @@
         @if(Entrust::can('blog.comment.create'))
             <h3>{{ Lang::choice('blog::blog.comment.count', $post->comments->count()) }}</h3>
             @foreach($post->comments as $comment)
-                <div class="panel panel-default">
+                <div class="panel @if($comment->bluepost) panel-info-styled-footer @else panel-default @endif">
                     <div class="panel-body">
                         {{ $comment->text }}
                     </div>

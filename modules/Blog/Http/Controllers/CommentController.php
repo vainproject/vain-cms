@@ -23,13 +23,14 @@ class CommentController extends Controller
     {
         $post = Post::published()->findOrFail($postId);
 
-        $comment = new Comment([
-            'text' => $request->get('text'),
-            'is_bluepost' => false // to be implemented
-        ]);
+        new Comment($request->all());
+
+        $comment = new Comment($request->all());
 
         $comment->user()->associate($request->user());
         $comment->post()->associate($post);
+        $comment->bluepost = $request->user()->can('blog.comment.bluepost');
+
         $comment->save();
 
         return $this->createDefaultResponse($request);

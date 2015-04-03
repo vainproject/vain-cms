@@ -82,5 +82,11 @@ class CommentPermissionTableSeeder extends Seeder {
             'display_name' => 'Delete blog comment',
             'description' => 'Permission to delete an existing comment.'
         ]);
+
+        Permission::create([
+            'name' => 'blog.comment.bluepost',
+            'display_name' => 'Posts comments as bluepost',
+            'description' => 'All comments from this user are blueposts'
+        ]);
     }
 }
