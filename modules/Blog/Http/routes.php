@@ -9,7 +9,7 @@ Route::group(['prefix' => 'blog', 'namespace' => 'Modules\Blog\Http\Controllers'
 
 
     Route::get('category/{slug}', [
-        'uses' => 'BlogControlle@getCategory',
+        'uses' => 'BlogController@getCategory',
         'as' => 'blog.category.show'
     ]);
 
