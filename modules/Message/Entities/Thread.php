@@ -97,23 +97,8 @@ class Thread extends MessengerThread
      */
     public function getAvatarAttribute()
     {
-        if ($this->participants->count() == 1)
-            return $this->participants->first()->avatar;
-
-        if ($this->lastmessage->user_id != Auth::id())
-            return $this->lastmessage->user->avatar;
-
-        // actually we want to sort by last message written in thread
-        // but that's not possibly without additional db queries
-        $participants = $this->participants->sortBy(function ($participant) {
-            return $participant->last_read;
-        });
-
-        foreach ($participants as $participant)
-            if ($participant->user_id != Auth::id())
-                return $participant->user->avatar;
-
-        return Auth::user()->avatar;
+        // ToDo: if possible show multiple avatars
+        return $this->lastmessage->user->avatar;
     }
 
     /**

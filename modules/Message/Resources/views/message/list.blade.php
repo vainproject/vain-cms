@@ -80,10 +80,9 @@
                 <div class="msg-wrap" id="msg-wrap">
 
                     @if ($curThread)
-                        <?php $lastDate = false; ?>
                         @foreach ($curThread->messages as $message)
                             {{-- Not happy with this :x --}}
-                            @if ($lastDate && $lastDate->format('Y-m-d') != $message->created_at->format('Y-m-d'))
+                            @if (!isset($lastDate) || $lastDate->format('Y-m-d') != $message->created_at->format('Y-m-d'))
                                 <div class="alert alert-info msg-date">
                                     @if ($message->created_at->format('Y-m-d') == Carbon\Carbon::now()->format('Y-m-d'))
                                         <strong>@lang('message::message.today')</strong>
