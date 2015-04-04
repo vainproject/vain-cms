@@ -14,22 +14,15 @@ class MessageController extends Controller
 {
 
     /**
+     * Render thread overview and open most recent thread
      * @return \Illuminate\View\View
      */
     public function index()
     {
         /** @var Thread[] $threads */
-        $threads = Thread::with(array(
-            'participants' => function ($query) {
-                $query->orderBy('last_read', 'desc');
-            },
-            'participants.user',
-            'messages',
-            'messages.user',
-            'latestMessage',
-            'latestMessage.user',
-        ))
-            ->forUser(Auth::id());
+        $threads = Thread::withComponents()
+            ->forUser(Auth::id())
+            ->get();
 
         /** @var Thread $curThread */
         $curThread = $threads->first();
@@ -40,6 +33,7 @@ class MessageController extends Controller
     }
 
     /**
+     * Render message create form
      * @return \Illuminate\View\View
      */
     public function create()
@@ -48,13 +42,14 @@ class MessageController extends Controller
     }
 
     /**
+     * Store new thread
      * @param StoreMessageRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreMessageRequest $request)
     {
         // ToDo: split participants
-        $user = User::where('name', $request->input('participants'))->first();
+        $user = User::whereName($request->input('participants'))->first();
         if (is_null($user))
             return redirect()->back();
 
@@ -77,27 +72,21 @@ class MessageController extends Controller
 
         $thread->addParticipants([$user->id]);
 
-        return redirect()->route('message.message.index'); // ToDo: flash success message
+        return redirect()->route('message.message.index')
+            ->with('success', trans('message::message.thread_created'));
     }
 
     /**
+     * Render specific message thread
      * @param Thread $thread
      * @return \Illuminate\View\View
      */
     public function show(Thread $curThread)
     {
         /** @var Thread[] $threads */
-        $threads = Thread::with(array(
-            'participants' => function ($query) {
-                $query->orderBy('last_read', 'desc');
-            },
-            'participants.user',
-            'messages',
-            'messages.user',
-            'latestMessage',
-            'latestMessage.user',
-        ))
-            ->forUser(Auth::id());
+        $threads = Thread::withComponents()
+            ->forUser(Auth::id())
+            ->get();
 
         $curThread->markAsRead(Auth::id());
 
@@ -105,6 +94,7 @@ class MessageController extends Controller
     }
 
     /**
+     * Store new message for existing thread
      * @param UpdateMessageRequest $request
      * @param Thread $thread
      * @return \Illuminate\Http\RedirectResponse
@@ -122,15 +112,17 @@ class MessageController extends Controller
         $participant = Participant::where('thread_id', $thread->id)
             ->where('user_id', Auth::id())
             ->first();
-//        $participant = Participant::firstOrCreate([
-//            'thread_id' => $thread->id,
-//            'user_id'   => Auth::id(),
-//        ]);
+
+        // ToDo: cleaner check
+        if (!$participant)
+            return redirect()->route('message.message.index')
+                ->withErrors(trans('message::message.not_found'));
+
         $participant->last_read = new Carbon;
         $participant->save();
 
-        return redirect()->route('message.message.index');
-//        return redirect()->route('message.message.show', $thread->id); // ToDo: flash success message
+        return redirect()->route('message.message.index')
+            ->with('success', trans('message::message.message_added'));
     }
 
 }

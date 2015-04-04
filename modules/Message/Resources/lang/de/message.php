@@ -14,4 +14,7 @@ return [
     'send'            => 'Absenden',
     'subject'         => 'Betreff',
     'add_participant' => 'Teilnehmer hinzufügen',
+    'not_found'       => 'Nachricht wurde nicht gefunden',
+    'message_added'   => 'Nachricht wurde abgeschickt',
+    'thread_created'  => 'Konversation wurde erstellt',
 ];

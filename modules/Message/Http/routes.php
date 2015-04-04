@@ -1,6 +1,11 @@
 <?php
 
-Route::model('messages', 'Modules\Message\Entities\Thread');
+Route::bind('messages', function($value) {
+    if ($thread = Modules\Message\Entities\Thread::forUser(Auth::id())->find($value))
+        return $thread;
+
+    throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+});
 
 Route::group(['namespace' => 'Modules\Message\Http\Controllers', 'middleware' => 'auth'], function()
 {

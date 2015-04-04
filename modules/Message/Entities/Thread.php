@@ -8,7 +8,6 @@ class Thread extends MessengerThread {
 
     /**
      * Messages relationship
-     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function messages()
@@ -18,7 +17,6 @@ class Thread extends MessengerThread {
 
     /**
      * Participants relationship
-     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function participants()
@@ -28,7 +26,6 @@ class Thread extends MessengerThread {
 
     /**
      * Last message relationship
-     *
      * @return mixed
      */
     public function latestMessage()
@@ -36,10 +33,43 @@ class Thread extends MessengerThread {
         return $this->hasOne('Modules\Message\Entities\Message')->latest()->limit(1);
     }
 
+    /**
+     * Returns threads that the user is associated with
+     * @param $query
+     * @param $userId
+     * @return mixed
+     */
+    public function scopeForUser($query, $userId)
+    {
+        return $query->join('participants', 'threads.id', '=', 'participants.thread_id')
+            ->where('participants.user_id', $userId)
+            ->where('participants.deleted_at', null)
+            ->select('threads.*')
+            ->latest('updated_at');
+    }
+
+    /**
+     * Loads various needed components
+     * @param $query
+     * @param $userId
+     * @return mixed
+     */
+    public function scopeWithComponents($query)
+    {
+        return $query->with(array(
+            'participants' => function ($query) {
+                $query->orderBy('last_read', 'desc');
+            },
+            'participants.user',
+            'messages',
+            'messages.user',
+            'latestMessage',
+            'latestMessage.user',
+        ));
+    }
 
     /**
      * Get fitting avatar for conversation (avoiding additional db queries)
-     *
      * @return mixed
      */
     public function getAvatarAttribute()
@@ -60,7 +90,6 @@ class Thread extends MessengerThread {
 
     /**
      * Generates a string of participant information
-     *
      * @param null $userId
      * @param array $columns
      * @return string
