@@ -88,6 +88,7 @@ class MessageController extends Controller
             ->forUser(Auth::id())
             ->get();
 
+        $curThread->load(['messages', 'messages.user']);
         $curThread->markAsRead(Auth::id());
 
         return view('message::message.list', compact('threads', 'curThread'));
