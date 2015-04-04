@@ -9,5 +9,10 @@ class Role extends EntrustRole
      *
      * @var array
      */
-    protected $fillable = ['name', 'display_name', 'description'];
+    protected $fillable = ['name', 'display_name', 'description', 'color', 'order'];
+
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('order', 'ASC');
+    }
 }

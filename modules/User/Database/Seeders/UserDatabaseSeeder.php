@@ -42,7 +42,7 @@ class UserTableSeeder extends Seeder {
         ]);
 
         // add user to admin roles
-        $adminRoles = Role::where('name', 'admin')->get();
+        $adminRoles = Role::where('name', 'administrator')->get();
         $user->saveRoles($adminRoles);
 
         // add all permissions to admin roles
