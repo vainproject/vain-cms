@@ -10,7 +10,6 @@ return [
         'moderator',
         'designer',
         'vip',
-        'teammember',
         'registered',
     ]
 ];

@@ -50,7 +50,7 @@
                     <div class="col-sm-9">
                         <select name="color" data-select data-width="100%">
                             @foreach(config('roles.roles') as $value)
-                                <option @if(isset($role) && $role->color == $value) selected @endif data-content="<span class='label label-role role-{{ $value }}'>{{ $value }}" value="{{ $value }}">{{ $value }}</option>
+                                <option @if(isset($role) && $role->color == $value) selected @endif data-content="<span class='label label-role label-expand role-{{ $value }}'>&nbsp;</span>" value="{{ $value }}"></option>
                             @endforeach
                         </select>
                     </div>

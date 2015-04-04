@@ -6,6 +6,11 @@
   font-size: 10pt;
 }
 
+.label-expand {
+  display: inline-block;
+  width: 100%!important;
+}
+
 .role-emphasize {
   font-weight: bold;
 }
@@ -48,12 +53,6 @@
 .role-vip {
   &:extend(.role-emphasize);
   background-color: @cyan;
-}
-
-.role-teammember {
-  font-weight: normal;
-  color: @black;
-  background: transparent;
 }
 
 .role-registered {

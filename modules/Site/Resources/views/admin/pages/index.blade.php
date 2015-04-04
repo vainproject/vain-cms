@@ -35,7 +35,7 @@
                     @foreach($pages as $page)
                         <tr>
                             <td>{{ $page->id }}</td>
-                            <td><a class="label label-primary" href="{{ route('user.admin.users.edit', ['id' => $page->user->id]) }}">{{ $page->user->name }}</a></td>
+                            <td>@userbadge($page->user)</td>
                             <td>{{ $page->slug }} <a href="{{ route('site.show', ['slug' => $page->slug]) }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
                             <td>{{ $page->role }}</td>
                             <td>{{ $page->published_at }}</td>
