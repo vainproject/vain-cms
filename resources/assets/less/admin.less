@@ -2,3 +2,12 @@
 
 // include skins here, for default blue is totally fine
 @import "/bower_components/admin-lte/build/less/skins/skin-blue";
+
+.sidebar-form {
+  input[type="text"] {
+    &:focus, &:focus + .input-group-btn .btn {
+      color: #fff !important;
+      background-color: lighten(@sidebar-dark-bg, 10%) !important;
+    }
+  }
+}

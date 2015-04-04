@@ -63,6 +63,9 @@ class MenuServiceProvider extends ServiceProvider
             $handler = app('menu.backend');
             $view->with('menu', $handler);
 
+            $handler->addChild('admin.menu')
+                ->setAttribute('class', 'header');
+
             Event::fire(new BackendMenuCreated($handler, $view));
         });
     }
