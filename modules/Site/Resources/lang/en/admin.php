@@ -14,6 +14,7 @@ return [
     'created_at' => 'Created at',
     'updated_at' => 'Updated at',
     'deleted_at' => 'Deleted at',
+    'role.none' => 'No role',
     'title' => [
         'index' => 'Sites',
         'edit' => 'Edit site',

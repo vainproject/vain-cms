@@ -14,6 +14,7 @@ return [
     'created_at' => 'Erstellt am',
     'updated_at' => 'Geändert am',
     'deleted_at' => 'Gelöscht am',
+    'role.none' => 'Keine Rolle',
     'title' => [
         'index' => 'Seiten',
         'edit' => 'Seite bearbeiten',

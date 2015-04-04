@@ -30,11 +30,13 @@ class SiteController extends Controller {
     {
         $users = User::all()->lists('name', 'id');
 
-        $roles = Role::all()->lists('display_name', 'name');
+        $roles = array_merge(
+            [ null => trans('site::admin.pages.role') ],
+            Role::all()->lists('display_name', 'name') );
 
         $locales = config('app.locales');
 
-        return view('site::admin.pages.create')
+        return view('site::admin.role.none')
             ->with(['users' => $users, 'roles' => $roles, 'locales' => $locales]);
     }
 
@@ -64,7 +66,9 @@ class SiteController extends Controller {
 
         $users = User::all()->lists('name', 'id');
 
-        $roles = Role::all()->lists('display_name', 'name');
+        $roles = array_merge(
+            [ null => trans('site::admin.role.none') ],
+            Role::all()->lists('display_name', 'name') );
 
         $locales = config('app.locales');
 
