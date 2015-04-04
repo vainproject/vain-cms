@@ -174,6 +174,7 @@ return [
         'Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider',
         'Dowilcox\KnpMenu\MenuServiceProvider',
         'Ottowayne\LangCheck\LangCheckServiceProvider',
+        'Cmgmyr\Messenger\MessengerServiceProvider',
 
         // in-app packages, may be excluded sometimes later
         'Vain\Packages\RealmAPI\Providers\RealmApiServiceProvider',
