@@ -1,25 +1,35 @@
 <?php namespace Modules\Blog\Handlers\Events;
 
 use Modules\Blog\Entities\Category;
-use Vain\Handlers\Events\MenuComposer as EventHandler;
+use Vain\Events\BackendMenuCreated;
+use Vain\Events\FrontendMenuCreated;
 
-class BlogMenuComposer extends EventHandler
+class BlogMenuComposer
 {
-
     /**
-     * @return void
+     * @param FrontendMenuCreated $event
      */
-    protected function composeBackendMenu()
+    public function composeFrontendMenu(FrontendMenuCreated $event)
     {
-
+        $event->handler->addChild('blog::blog.index')
+            ->setUri(route('blog.post.index'));
     }
 
     /**
-     * @return void
+     * @param FrontendMenuCreated $event
      */
-    protected function composeFrontendMenu()
+    public function composeBackendMenu(BackendMenuCreated $event)
     {
-        $this->handler->addChild('blog::blog.index')
-            ->setUri(route('blog.index'));
+        $event->handler->addChild('blog::blog.index')
+            ->setUri(route('blog.post.index'));
+    }
+
+    /**
+     * @param \Illuminate\Events\Dispatcher $event
+     */
+    public function subscribe($event)
+    {
+        $event->listen('Vain\Events\FrontendMenuCreated', 'Modules\Blog\Handlers\Events\BlogMenuComposer@composeFrontendMenu');
+        $event->listen('Vain\Events\BackendMenuCreated', 'Modules\Blog\Handlers\Events\BlogMenuComposer@composeBackendMenu');
     }
 }

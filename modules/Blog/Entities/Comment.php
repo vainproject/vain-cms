@@ -18,7 +18,7 @@ class Comment extends Model {
     /**
      * @var array
      */
-    protected $fillable = ['text', 'bluepost'];
+    protected $fillable = ['text'];
 
     protected $dates = ['created_at'];
 

@@ -14,6 +14,7 @@ class CommentFormRequest extends FormRequest
     public function rules()
     {
         return [
+            'id' => 'exists:comments',
             'text' => 'required|min:3',
         ];
     }

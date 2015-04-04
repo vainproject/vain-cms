@@ -6,15 +6,8 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 class EventServiceProvider extends ServiceProvider
 {
 
-    /**
-     * The event handler mappings for the application.
-     *
-     * @var array
-     */
-    protected $listen = [
-        'Vain\Events\MenuHandlerWasCreated' => [
-            'Modules\Blog\Handlers\Events\BlogMenuComposer',
-        ],
+    protected $subscribe = [
+        'Modules\Blog\Handlers\Events\BlogMenuComposer'
     ];
 
     /**
@@ -26,8 +19,6 @@ class EventServiceProvider extends ServiceProvider
     public function boot(DispatcherContract $events)
     {
         parent::boot($events);
-
-        //
     }
 
 }
