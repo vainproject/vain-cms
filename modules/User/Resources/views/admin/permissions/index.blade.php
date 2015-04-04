@@ -13,9 +13,6 @@
 
     <section class="content">
         <div class="box">
-            <div class="box-header with-border">
-                <a class="btn btn-success" href="asd"><i class="fa fa-plus-circle"></i> New</a>
-            </div>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-striped">
                     <thead>
