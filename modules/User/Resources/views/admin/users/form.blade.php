@@ -49,13 +49,13 @@
                 <div class="form-group">
                     {!! Form::label('gender', trans('user::profile.field.gender'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
-                        {!! Form::select('gender', $genders, null, [ 'class' => 'form-control' ]) !!}
+                        {!! Form::select('gender', $genders, null, [ 'data-select', 'class' => 'form-control' ]) !!}
                     </div>
                 </div>
                 <div class="form-group">
                     {!! Form::label('locale', trans('user::profile.field.locale'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
-                        {!! Form::select('locale', $locales, null, [ 'class' => 'form-control' ]) !!}
+                        {!! Form::select('locale', $locales, null, [ 'data-select', 'class' => 'form-control' ]) !!}
                     </div>
                 </div>
                 <div class="form-group">

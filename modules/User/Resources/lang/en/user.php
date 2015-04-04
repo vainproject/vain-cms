@@ -5,6 +5,7 @@ return [
     'created_at' => 'Member since',
     'updated_at' => 'Updated at',
     'title' => [
+        'menu' => 'Users & Roles',
         'index' => 'Users',
         'edit' => 'Edit user',
         'create' => 'Create user',

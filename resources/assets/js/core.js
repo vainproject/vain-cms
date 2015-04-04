@@ -81,6 +81,44 @@
     });
 
     /**
+     * proof of concept, child items are not displayed by now
+     *
+     * todo: see in code
+     */
+    $(document).on('keyup', 'input[data-menu-search]', function(e) {
+
+        var element = $(this);
+        var container = element.closest(element.data('menu-search'));
+        var q = element.val();
+
+        container.find('ul > .treeview').each(function() {
+            var item = $(this);
+            item.removeClass('active')
+                .hide();
+
+            item.find('.active')
+                .removeClass('active');
+
+            // close treeview menu
+
+            var filter = item.find('span:containsIn(\''+ q +'\')')
+
+            // open treeview submenu
+
+            // mark "root" as active too
+
+            filter.closest('.treeview')
+                .show();
+
+            if (q.length)
+            {
+                filter.closest('li')
+                    .addClass('active');
+            }
+        });
+    });
+
+    /**
      * this actions will be triggered on every ().ready and ().vain.pjax.complete
      */
     var onLoad = function() {

@@ -5,6 +5,7 @@ return [
     'created_at' => 'Registriert am',
     'updated_at' => 'Geändert am',
     'title' => [
+        'menu' => 'Benutzer & Rollen',
         'index' => 'Benutzer',
         'edit' => 'Benutzer bearbeiten',
         'create' => 'Benutzer erstellen',

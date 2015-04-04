@@ -11,7 +11,7 @@ class UserMenuComposer {
     {
         $event->handler->addChild('user.admin')
             ->setUri('#')
-            ->setLabel('user::user.title.index')
+            ->setLabel('user::user.title.menu')
             ->setExtra('icon', 'users');
 
         $event->handler['user.admin']->addChild('user::user.title.index')
