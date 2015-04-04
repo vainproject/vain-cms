@@ -1,6 +1,6 @@
 <?php namespace Vain\Packages\Translator;
 
-trait TranslatableFillTrait {
+trait TranslatableContentTrait {
 
     /**
      * name of the locale field
@@ -40,5 +40,18 @@ trait TranslatableFillTrait {
         }
 
         return $this;
+    }
+
+    /**
+     * basicly used to update a localization with ease
+     *
+     * @param $query
+     * @param $locale
+     * @return static
+     */
+    public function scopeLocaleOrNew($query, $locale)
+    {
+        $obj = $query->where($this->locale_field, $locale)->first();
+        return $obj ?: new static;
     }
 }
