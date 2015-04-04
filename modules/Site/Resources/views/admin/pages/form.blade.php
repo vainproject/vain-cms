@@ -89,5 +89,5 @@
 </div>
 
 @section('scripts')
-    <script src="/static/vendor/ckeditor/ckeditor.js"></script>
+    <script src="/vendor/ckeditor/ckeditor.js"></script>
 @stop

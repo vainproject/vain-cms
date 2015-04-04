@@ -5,6 +5,7 @@
     "bootstrap": "*",
     "admin-lte": "*",
     "toastr": "*",
-    "bootstrap-select" : "*"
+    "bootstrap-select": "*",
+    "font-awesome": "*"
   }
 }

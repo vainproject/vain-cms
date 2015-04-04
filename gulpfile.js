@@ -1,6 +1,6 @@
 var elixir = require('laravel-elixir');
 
-elixir.extend('sourcemaps', false);
+//elixir.extend('sourcemaps', false);
 
 var scripts_include = [
     /*
@@ -15,7 +15,7 @@ var scripts_include = [
 
     /*
      |--------------------------------------------------------------------------
-     | Module Javascript
+     | App Javascript
      |--------------------------------------------------------------------------
      */
     './resources/assets/js/app.js',
@@ -24,9 +24,14 @@ var scripts_include = [
     './resources/assets/js/pjax.js',
     './resources/assets/js/core.js',
 
-    './modules/Forum/Resources/assets/js/*.js',
-    './modules/Site/Resources/assets/js/*.js',
-    './modules/User/Resources/assets/js/*.js',
+    /*
+     |--------------------------------------------------------------------------
+     | Module Javascript
+     |--------------------------------------------------------------------------
+     */
+    //'./modules/Forum/Resources/assets/js/*.js',
+    //'./modules/Site/Resources/assets/js/*.js',
+    //'./modules/User/Resources/assets/js/*.js',
 ];
 
 var scripts_admin_include = [
@@ -42,7 +47,7 @@ var scripts_admin_include = [
      | Module Javascript
      |--------------------------------------------------------------------------
      */
-    './modules/User/Resources/assets/js/admin/*.js',
+    //'./modules/User/Resources/assets/js/admin/*.js',
 ];
 
 /*
@@ -68,15 +73,15 @@ elixir(function(mix) {
 
     // copy fonts
     mix.copy('./bower_components/bootstrap/dist/fonts', 'public/static/fonts');
-    //mix.copy('./bower_components/bootstrap-material-design/dist/fonts', 'public/static/fonts');
+    mix.copy('./bower_components/font-awesome/fonts', 'public/static/fonts');
 
     // copy admin statics
-    mix.copy('./bower_components/admin-lte/plugins', 'public/static/plugins');
+    //mix.copy('./bower_components/admin-lte/plugins', 'public/static/plugins');
 
     // versioning files
-    mix.version([
-        'public/static/css/app.css',
-        'public/static/css/admin.css',
-        'public/static/js/app.js',
-        'public/static/js/admin.js']);
+    //mix.version([
+    //    'public/static/css/app.css',
+    //    'public/static/css/admin.css',
+    //    'public/static/js/app.js',
+    //    'public/static/js/admin.js']);
 });
