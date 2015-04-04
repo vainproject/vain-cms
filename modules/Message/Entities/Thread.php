@@ -1,7 +1,7 @@
 <?php namespace Modules\Message\Entities;
 
 use Cmgmyr\Messenger\Models\Thread as MessengerThread;
-use Illuminate\Support\Facades\App;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -26,7 +26,8 @@ use Illuminate\Support\Facades\Auth;
  * @method static \Modules\Message\Entities\Thread withComponents()
  * @method static \Cmgmyr\Messenger\Models\Thread forUserWithNewMessages($userId)
  */
-class Thread extends MessengerThread {
+class Thread extends MessengerThread
+{
 
     /**
      * Messages relationship
@@ -48,11 +49,11 @@ class Thread extends MessengerThread {
 
     /**
      * Last message relationship
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function latestMessage()
+    public function lastmessage()
     {
-        return $this->hasOne('Modules\Message\Entities\Message')->latest()->limit(1);
+        return $this->hasOne('Modules\Message\Entities\Message')->latest();
     }
 
     /**
@@ -78,16 +79,16 @@ class Thread extends MessengerThread {
      */
     public function scopeWithComponents($query)
     {
-        return $query->with(array(
+        return $query->with([
             'participants' => function ($query) {
                 $query->orderBy('last_read', 'desc');
             },
             'participants.user',
             'messages',
             'messages.user',
-            'latestMessage',
-            'latestMessage.user',
-        ));
+            'lastmessage',
+            'lastmessage.user'
+        ]);
     }
 
     /**
@@ -99,6 +100,11 @@ class Thread extends MessengerThread {
         if ($this->participants->count() == 1)
             return $this->participants->first()->avatar;
 
+        if ($this->lastmessage->user_id != Auth::id())
+            return $this->lastmessage->user->avatar;
+
+        // actually we want to sort by last message written in thread
+        // but that's not possibly without additional db queries
         $participants = $this->participants->sortBy(function ($participant) {
             return $participant->last_read;
         });
@@ -116,7 +122,7 @@ class Thread extends MessengerThread {
      * @param array $columns
      * @return string
      */
-    public function participantsString($userId=null, $columns=['name'], $maxLength = false)
+    public function participantsString($userId = null, $columns = ['name'], $maxLength = false)
     {
         $participantNames = [];
         $length = 0;
@@ -133,6 +139,42 @@ class Thread extends MessengerThread {
         }
 
         return implode(', ', $participantNames);
+    }
+
+    /**
+     * See if the current thread is unread by the user - avoid db queries
+     * @param integer $userId
+     * @return bool
+     */
+    public function isUnread($userId)
+    {
+        try {
+            foreach ($this->participants as $participant)
+                if ($participant->user_id == $userId)
+                    if ($this->updated_at > $participant->last_read)
+                        return true;
+
+        } catch (ModelNotFoundException $e) {
+            // do nothing
+        }
+
+        return false;
+    }
+
+    /**
+     * Returns active/unread class states
+     * @param Thread $curThread
+     * @return string
+     */
+    public function classStates($curThread)
+    {
+        if ($this->id == $curThread->id)
+            return 'media-message-active';
+
+        if (Auth::check() && $this->isUnread(Auth::id()))
+            return 'media-message-unread';
+
+        return '';
     }
 
 }

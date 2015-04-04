@@ -51,16 +51,16 @@
 
                 @if ($threads->count() > 0)
                     @foreach ($threads as $thread)
-                        <div class="media conversation media-message-link @if($curThread && $thread->id == $curThread->id) media-message-active @endif">
+                        <div class="media conversation media-message-link {!! $thread->classStates($curThread) !!}">
                             <a href="{!! URL::route('message.message.show', $thread->id) !!}"></a>
                             <div class="pull-left">
-                                <img class="media-object" alt="{{ $thread->latestMessage->user->name }}" style="width: 50px; height: 50px;" src="{!! $thread->avatar !!}">
+                                <img class="media-object" alt="{{ $thread->lastmessage->user->name }}" style="width: 50px; height: 50px;" src="{!! $thread->avatar !!}">
                             </div>
                             <div class="media-body">
                                 <h5 class="media-heading">
                                     <strong>{!! $thread->participantsString(Auth::id(), ['name'], 30) !!}</strong>
                                 </h5>
-                                <small>{{ str_limit($thread->latestMessage->body, 30) }}</small>
+                                <small>{{ str_limit($thread->lastmessage->body, 30) }}</small>
                             </div>
                         </div>
                     @endforeach
