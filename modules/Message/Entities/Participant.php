@@ -5,15 +5,15 @@ use Cmgmyr\Messenger\Models\Participant as MessengerParticipant;
 /**
  * Modules\Message\Entities\Participant
  *
- * @property integer $id 
- * @property integer $thread_id 
- * @property integer $user_id 
- * @property \Carbon\Carbon $last_read 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property \Carbon\Carbon $deleted_at 
- * @property-read \Modules\Message\Entities\Thread $thread 
- * @property-read \Config::get('messenger.user_model') $user 
+ * @property integer $id
+ * @property integer $thread_id
+ * @property integer $user_id
+ * @property \Carbon\Carbon $last_read
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property \Carbon\Carbon $deleted_at
+ * @property-read \Modules\Message\Entities\Thread $thread
+ * @property-read \Config::get('messenger.user_model') $user
  * @method static \Illuminate\Database\Query\Builder|\Modules\Message\Entities\Participant whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Modules\Message\Entities\Participant whereThreadId($value)
  * @method static \Illuminate\Database\Query\Builder|\Modules\Message\Entities\Participant whereUserId($value)

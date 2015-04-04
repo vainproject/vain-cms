@@ -7,16 +7,16 @@ use Illuminate\Support\Facades\Auth;
 /**
  * Modules\Message\Entities\Thread
  *
- * @property integer $id 
- * @property string $subject 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property \Carbon\Carbon $deleted_at 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Message\Entities\Message[] $messages 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Message\Entities\Participant[] $participants 
- * @property-read \Modules\Message\Entities\Message')->latest()->limit(1 $latestMessage 
- * @property-read mixed $avatar 
- * @property-read mixed $latest_message 
+ * @property integer $id
+ * @property string $subject
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property \Carbon\Carbon $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Message\Entities\Message[] $messages
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Message\Entities\Participant[] $participants
+ * @property-read \Modules\Message\Entities\Message')->latest()->limit(1 $latestMessage
+ * @property-read mixed $avatar
+ * @property-read mixed $latest_message
  * @method static \Illuminate\Database\Query\Builder|\Modules\Message\Entities\Thread whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Modules\Message\Entities\Thread whereSubject($value)
  * @method static \Illuminate\Database\Query\Builder|\Modules\Message\Entities\Thread whereCreatedAt($value)
@@ -99,7 +99,7 @@ class Thread extends MessengerThread {
         if ($this->participants->count() == 1)
             return $this->participants->first()->avatar;
 
-        $participants = $this->participants->sortBy(function($participant) {
+        $participants = $this->participants->sortBy(function ($participant) {
             return $participant->last_read;
         });
 
