@@ -1,6 +1,9 @@
 var elixir = require('laravel-elixir');
 
-//elixir.extend('sourcemaps', false);
+var watch_paths = [
+    'modules/Blog/Resources/assets/**',
+    'modules/User/Resources/assets/**',
+];
 
 var scripts_include = [
     /*
@@ -49,6 +52,11 @@ var scripts_admin_include = [
      */
     //'./modules/User/Resources/assets/js/admin/*.js',
 ];
+
+/**
+ * register additional watchs paths
+ */
+elixir.config.registerWatcher('default', watch_paths);
 
 /*
  |--------------------------------------------------------------------------

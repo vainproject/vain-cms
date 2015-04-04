@@ -15,8 +15,8 @@ class Updater {
     public function validator(User $user, array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => sprintf('required|email|max:255|unique:users,email,%d', $user->id),
+            'name' => 'required|max:255|unique:users,name,'. $user->id,
+            'email' => 'required|email|max:255|unique:users,email,'. $user->id,
             'password' => 'confirmed|min:6',
             'birthday_at' => 'date|before:now',
             'gender' => 'in:male,female',
