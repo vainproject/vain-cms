@@ -21,14 +21,15 @@ class PostController extends Controller {
 
 	public function index()
 	{
-        $posts = Post::published()->paginate(config('blog.posts_per_page'));
+        $posts = Post::with('user', 'category')->published()->paginate(config('blog.posts_per_page'));
 
-		return View::make('blog::index')->with('posts', $posts);
+		return view('blog::index')->with('posts', $posts);
 	}
 
     public function show($slug)
     {
         $post = Post::published()
+            ->with('user', 'category')
             ->where('slug', $slug)
             ->first();
 

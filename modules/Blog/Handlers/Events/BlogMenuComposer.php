@@ -16,12 +16,23 @@ class BlogMenuComposer
     }
 
     /**
-     * @param FrontendMenuCreated $event
+     * @param BackendMenuCreated $event
      */
     public function composeBackendMenu(BackendMenuCreated $event)
     {
-        $event->handler->addChild('blog::blog.index')
+        $event->handler->addChild('blog.admin')
+            ->setUri('#')
+            ->setLabel('blog::admin.title.index')
+            ->setExtra('icon', 'newspaper-o')
             ->setUri(route('blog.post.index'));
+
+        $event->handler['blog.admin']->addChild('blog::admin.title.posts')
+            ->setUri(route('blog.admin.posts.index'))
+            ->setExtra('icon', 'circle-o');
+
+        $event->handler['blog.admin']->addChild('blog::admin.title.categories')
+            ->setUri(route('blog.admin.categories.index'))
+            ->setExtra('icon', 'circle-o');
     }
 
     /**

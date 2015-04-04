@@ -3,12 +3,14 @@
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
 use Vain\Packages\Translator\Translatable;
 use Vain\Packages\Translator\TranslatableTrait;
 
 class Post extends Model implements Translatable {
 
-    use TranslatableTrait;
+    use SoftDeletes, TranslatableTrait, LocalizedEloquentTrait;
 
     /**
      * The database table used by the model.
@@ -23,6 +25,11 @@ class Post extends Model implements Translatable {
     protected $fillable = ['slug', 'role', 'published_at', 'concealed_at'];
 
     /**
+     * @var array
+     */
+    protected $dates = ['published_at', 'concealed_at', 'created_at', 'deleted_at'];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function contents()
@@ -35,7 +42,7 @@ class Post extends Model implements Translatable {
      */
     public function user()
     {
-        return $this->hasMany('Modules\User\Entities\User');
+        return $this->belongsTo('Modules\User\Entities\User');
     }
 
     /**
@@ -64,5 +71,30 @@ class Post extends Model implements Translatable {
             ->orWhere('published_at', null)
             ->where('concealed_at', '>=', Carbon::now())
             ->orWhere('concealed_at', null);
+    }
+
+
+    /**
+     * fix optional empty dates
+     *
+     * @param $value
+     */
+    public function setPublishedAtAttribute($value)
+    {
+        $this->attributes['published_at'] = !empty($value)
+            ? $value
+            : null;
+    }
+
+    /**
+     * fix optional empty dates
+     *
+     * @param $value
+     */
+    public function setConcealedAtAttribute($value)
+    {
+        $this->attributes['concealed_at'] = !empty($value)
+            ? $value
+            : null;
     }
 }

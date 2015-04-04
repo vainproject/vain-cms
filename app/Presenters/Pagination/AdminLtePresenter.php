@@ -15,7 +15,7 @@ class AdminLtePresenter extends BootstrapThreePresenter
         if ($this->hasPages())
         {
             return sprintf(
-                '<ul class="pagination pagination-sm no-margin">%s %s %s</ul>',
+                '<ul class="pagination no-margin">%s %s %s</ul>',
                 $this->getPreviousButton(),
                 $this->getLinks(),
                 $this->getNextButton()

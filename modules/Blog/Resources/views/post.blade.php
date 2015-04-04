@@ -61,7 +61,7 @@
                                 {!! Form::close() !!}
                             @endif
                         </div>
-                        {{ trans('blog::blog.comment.credits', ['name' => $comment->user->name, 'time' => $comment->created_at->diffForHumans()]) }}
+                        {{ trans('blog::blog.comment.credits', ['time' => $comment->created_at->diffForHumans()]) }} @userbadge($comment->user)
                     </div>
                 </div>
             @endforeach

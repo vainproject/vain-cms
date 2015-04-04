@@ -45,7 +45,6 @@ class CommentController extends Controller
         return $this->createDefaultResponse($request);
     }
 
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Symfony\Component\HttpFoundation\Response

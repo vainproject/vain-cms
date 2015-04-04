@@ -19,6 +19,6 @@ return [
         'write' => 'Write new comment',
         'placeholder' => 'Now it\'s time for your comment...',
         'count' => ':count Comment so far|:count Comments so far',
-        'credits' => 'posted by :name :time',
+        'credits' => 'posted vor :time von',
     ]
 ];

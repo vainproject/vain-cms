@@ -19,6 +19,6 @@ return [
         'write' => 'Neuen Kommentar schreiben',
         'placeholder' => 'Hier ist Platz für deinen Kommentar...',
         'count' => ':count Kommentar bisher|:count Kommentare bisher',
-        'credits' => 'geschrieben von :name :time',
+        'credits' => 'geschrieben vor :time von ',
     ],
 ];

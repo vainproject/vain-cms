@@ -33,4 +33,30 @@ Route::group(['prefix' => 'blog', 'namespace' => 'Modules\Blog\Http\Controllers'
         ]);
     });
 
+    /**
+     * Backend
+     */
+    Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function()
+    {
+        Route::resource('posts', 'PostController', ['names' => [
+            'index' => 'blog.admin.posts.index',
+            'create' => 'blog.admin.posts.create',
+            'store' => 'blog.admin.posts.store',
+            'show' => 'blog.admin.posts.show',
+            'edit' => 'blog.admin.posts.edit',
+            'update' => 'blog.admin.posts.update',
+            'destroy' => 'blog.admin.posts.destroy',
+        ]]);
+
+        Route::resource('categories', 'CategoryController', ['names' => [
+            'index' => 'blog.admin.categories.index',
+            'create' => 'blog.admin.categories.create',
+            'store' => 'blog.admin.categories.store',
+            'show' => 'blog.admin.categories.show',
+            'edit' => 'blog.admin.categories.edit',
+            'update' => 'blog.admin.categories.update',
+            'destroy' => 'blog.admin.categories.destroy',
+        ]]);
+    });
 });
+

@@ -1,8 +1,11 @@
 <?php namespace Modules\Blog\Entities;
    
 use Illuminate\Database\Eloquent\Model;
+use Vain\Packages\Translator\TranslatableContentTrait;
 
 class PostContent extends Model {
+
+    use TranslatableContentTrait;
 
     /**
      * The database table used by the model.

@@ -13,6 +13,9 @@
 
     <section class="content">
         <div class="box">
+            <div class="box-header with-border">
+                <a class="btn btn-success" href="asd"><i class="fa fa-plus-circle"></i> New</a>
+            </div>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-striped">
                     <thead>
@@ -41,7 +44,11 @@
             </div>
             @if ($permissions->hasPages())
                 <div class="box-footer">
-                    {!! $permissions->render(new Vain\Presenters\Pagination\AdminLtePresenter($permissions)) !!}
+                    <div class="pull-right">
+                        {!! $permissions->render(new Vain\Presenters\Pagination\AdminLtePresenter($permissions)) !!}
+                    </div>
+
+                    <div class="clearfix"></div>
                 </div>
             @endif
         </div>
