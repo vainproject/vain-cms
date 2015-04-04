@@ -29,7 +29,7 @@ class Page extends Model implements TranslatableContract {
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = [ 'published_at', 'concealed_at', 'deleted_at' ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -59,4 +59,27 @@ class Page extends Model implements TranslatableContract {
             ->orWhere('concealed_at', null);
     }
 
+    /**
+     * fix optional empty dates
+     *
+     * @param $value
+     */
+    public function setPublishedAtAttribute($value)
+    {
+        $this->attributes['published_at'] = !empty($value)
+            ? $value
+            : null;
+    }
+
+    /**
+     * fix optional empty dates
+     *
+     * @param $value
+     */
+    public function setConcealedAtAttribute($value)
+    {
+        $this->attributes['concealed_at'] = !empty($value)
+            ? $value
+            : null;
+    }
 }

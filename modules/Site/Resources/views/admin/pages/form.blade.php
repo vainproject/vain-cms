@@ -48,6 +48,12 @@
                         {!! Form::select('role', $roles, null, [ 'class' => 'form-control' ]) !!}
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+        <div class="box">
+            <div class="box-body">
                 <div class="form-group">
                     {!! Form::label('published_at', trans('site::admin.published_at'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
@@ -60,7 +66,28 @@
                         {!! Form::date('concealed_at', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
-            </div><!-- /.box-body -->
-        </div><!-- /.box -->
+            </div>
+        </div>
     </div>
 </div>
+
+<div role="tabpanel" class="nav-tabs-custom">
+    <ul class="nav nav-tabs" role="tablist" data-auto-active>
+        @foreach($locales as $locale => $name)
+            <li role="presentation">
+                <a href="#{{ $locale }}" aria-controls="{{ $locale }}" role="tab" data-toggle="tab">{{ $name }}</a>
+            </li>
+        @endforeach
+    </ul>
+    <div class="tab-content" data-auto-active>
+        @foreach($locales as $locale => $name)
+            <div role="tabpanel" class="tab-pane" id="{{ $locale }}">
+                @include('site::admin.pages.content', ['locale' => $locale])
+            </div>
+        @endforeach
+    </div>
+</div>
+
+@section('scripts')
+    <script src="/static/vendor/ckeditor/ckeditor.js"></script>
+@stop

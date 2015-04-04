@@ -1,8 +1,11 @@
 <?php namespace Modules\Site\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Vain\Packages\Translator\TranslatableFillTrait;
 
 class Content extends Model {
+
+    use TranslatableFillTrait;
 
     /**
      * The database table used by the model.

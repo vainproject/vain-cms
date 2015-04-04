@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Site\Entities\Content;
 use Modules\Site\Entities\Page;
 use Modules\Site\Http\Requests\PageFormRequest;
 use Modules\User\Entities\Role;
@@ -31,18 +32,28 @@ class SiteController extends Controller {
 
         $roles = Role::all()->lists('display_name', 'name');
 
+        $locales = config('app.locales');
+
         return view('site::admin.pages.create')
-            ->with(['users' => $users, 'roles' => $roles]);
+            ->with(['users' => $users, 'roles' => $roles, 'locales' => $locales]);
     }
 
     public function store(PageFormRequest $request)
     {
         $page = new Page($request->all());
 
-        $creator = User::find($request->get('user_id')) ?: $request->user();
+        $creator = $request->user();
         $page->user()->associate($creator);
-
         $page->save();
+
+        foreach (config('app.locales') as $locale => $name)
+        {
+            $content = (new Content())
+                ->fillTranslated($locale, $request->all());
+
+            $content->page()->associate($page);
+            $content->save();
+        }
 
         return $this->createDefaultResponse($request);
     }
@@ -55,19 +66,26 @@ class SiteController extends Controller {
 
         $roles = Role::all()->lists('display_name', 'name');
 
+        $locales = config('app.locales');
+
         return view('site::admin.pages.edit')
-            ->with(['page' => $page, 'users' => $users, 'roles' => $roles]);
+            ->with(['page' => $page, 'users' => $users, 'roles' => $roles, 'locales' => $locales]);
     }
 
     public function update(PageFormRequest $request, $id)
     {
         $page = Page::find($id);
         $page->fill($request->all());
-
-        $creator = User::find($request->get('user_id')) ?: $request->user();
-        $page->user()->associate($creator);
-
         $page->save();
+
+        foreach (config('app.locales') as $locale => $name)
+        {
+            $content = $page->content()
+                ->fillTranslated($locale, $request->all());
+
+            $content->page()->associate($page);
+            $content->save();
+        }
 
         return $this->createDefaultResponse($request);
     }

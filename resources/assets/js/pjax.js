@@ -3,7 +3,8 @@
     var Pjax = function() {};
 
     Pjax.prototype.options = {
-        element: '[data-pjax]'
+        element: '[data-pjax]',
+        complete: null
     }
 
     /**
@@ -35,6 +36,11 @@
 
                 // notify we are finished
                 callback && callback();
+            },
+            complete: function()
+            {
+                // if a global notifier is set we use this
+                self.options.complete && self.options.complete();
             }
         });
     }

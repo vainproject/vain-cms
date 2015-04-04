@@ -3,8 +3,12 @@
 return [
     'id' => '#',
     'slug' => 'Slug',
-    'creator' => 'Erstellt von',
     'role' => 'Rolle',
+    'name' => 'Titel',
+    'text' => 'Inhalt',
+    'creator' => 'Erstellt von',
+    'keywords' => 'Schlüsselwörter',
+    'description' => 'Beschreibung',
     'published_at' => 'Veröffentlichung am',
     'concealed_at' => 'Verbergen am',
     'created_at' => 'Erstellt am',

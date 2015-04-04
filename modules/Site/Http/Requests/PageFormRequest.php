@@ -13,57 +13,50 @@ class PageFormRequest extends FormRequest
      */
     public function rules()
     {
-//        $attrs = [
-//            'locale',
-//            'title',
-//            'keywords',
-//            'description',
-//            'text'
-//        ];
-//
-//        $rules = [];
-//
-//        foreach (['en', 'de'] as $locale)
-//        {
-//            foreach ($attrs as $attr)
-//            {
-//                array_push( $rules, sprintf('%s_%s', $locale, $attr));
-//            }
-//        }
+        $attributes = [
+            'title' => 'required',
+            'text' => 'required'
+        ];
 
-        return [
+        $rules = $this->buildRules($attributes);
+
+        return array_merge($rules, [
             'slug' => 'required',
             'user_id' => 'exists:users,id',
             'role' => 'exists:roles,name',
             'published_at' => 'date',
             'concealed_at' => 'date',
-        ];
+        ]);
     }
 
     /**
-     * todo implement permissions?
-     *
      * @return bool
      */
     public function authorize()
     {
-        $route = $this->route()->getName();
-
-        if (in_array($route, ['site.admin.sites.create', 'site.admin.sites.store']))
-        {
-
-        }
-        else if (in_array($route, ['site.admin.sites.edit', 'site.admin.sites.update']))
-        {
-
-        }
-
         return Auth::check();
     }
 
-    protected function failedAuthorization()
+    /**
+     * builds localized suffixed rules for validation
+     *
+     * @param $attributes
+     * @return array
+     */
+    protected function buildRules($attributes)
     {
-        parent::failedAuthorization();
+        $rules = [];
+        $locales = config('app.locales');
+
+        foreach ($locales as $locale => $name)
+        {
+            foreach ($attributes as $attribute => $rule)
+            {
+                $rules[$attribute .'_'. $locale] = $rule;
+            }
+        }
+
+        return $rules;
     }
 
     protected function failedValidation(Validator $validator)

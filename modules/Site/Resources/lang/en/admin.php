@@ -3,8 +3,12 @@
 return [
     'id' => '#',
     'slug' => 'Slug',
-    'creator' => 'Creator',
     'role' => 'Role',
+    'name' => 'Title',
+    'text' => 'Content',
+    'creator' => 'Creator',
+    'keywords' => 'Keywords',
+    'description' => 'Description',
     'published_at' => 'Publish at',
     'concealed_at' => 'Conceal at',
     'created_at' => 'Created at',

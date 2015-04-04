@@ -22,9 +22,10 @@ trait TranslatableTrait {
      * returns the localized content
      *
      * @param null $locale
+     * @param bool $fallback
      * @return \Illuminate\Database\Eloquent\Model
      */
-    public function content($locale = null)
+    public function content($locale = null, $fallback = true)
     {
         if ($locale === null)
         {
@@ -40,7 +41,7 @@ trait TranslatableTrait {
             ->where('locale', $locale)
             ->first();
 
-        if ($content === null)
+        if ($fallback && $content === null)
         {
             $content = $this->contents()
                 ->first();
