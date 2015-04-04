@@ -23,11 +23,11 @@ Route::group(['namespace' => 'Auth'], function()
  */
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function()
 {
-    Route::get('{id}', ['as' => 'user.profile', 'uses' => 'UserController@getProfile']) // only match numeric ids!
+    Route::get('{id}', ['as' => 'user.profile', 'uses' => 'UserController@show']) // only match numeric ids!
         ->where('id', '[0-9]+');
 
-    Route::get('edit', ['as' => 'user.profile.edit', 'uses' => 'UserController@getEdit']);
-    Route::post('edit', ['as' => 'user.profile.save', 'uses' => 'UserController@postEdit']);
+    Route::get('edit', ['as' => 'user.profile.edit', 'uses' => 'UserController@edit']);
+    Route::put('edit', ['as' => 'user.profile.update', 'uses' => 'UserController@update']);
 });
 
 /*

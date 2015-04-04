@@ -6,11 +6,12 @@
         var method = form.find('input[name="_method"]').val() || 'POST';
         var url = form.attr('action');
 
-        CKEDITOR && function()
-        {
-            for (var instance in CKEDITOR.instances)
-                CKEDITOR.instances[instance].updateElement();
-        }();
+        // todo check if still necessary
+        //CKEDITOR && function()
+        //{
+        //    for (var instance in CKEDITOR.instances)
+        //        CKEDITOR.instances[instance].updateElement();
+        //}();
 
         $.ajax({
             url: url,

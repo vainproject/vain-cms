@@ -18,7 +18,6 @@ return [
     ],
     'field' => [
         'name' => 'Name',
-        'alias' => 'Nickname',
         'email' => 'Email',
         'password' => 'Passwort',
         'password_confirmation' => 'Passwort bestätigen',
@@ -46,5 +45,9 @@ return [
         'social' => 'Soziales & Communities',
         'game' => 'Über das Spiel',
         'password' => 'Passwort ändern'
+    ],
+    'save' => [
+        'success' => 'Dein Profil wurde gespeichert!',
+        'error' => 'Dein Profil konnte nicht gespeichert werden!'
     ],
 ];

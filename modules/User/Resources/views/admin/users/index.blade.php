@@ -19,7 +19,6 @@
                     <tr>
                         <td>@lang('user::user.id')</td>
                         <td>@lang('user::profile.field.name')</td>
-                        <td>@lang('user::profile.field.alias')</td>
                         <td>@lang('user::profile.field.email')</td>
                         <td>@lang('user::profile.field.gender')</td>
                         <td>@lang('user::profile.field.locale')</td>
@@ -32,7 +31,6 @@
                         <tr>
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
-                            <td>{{ $user->alias }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->gender }}</td>
                             <td>{{ config(sprintf('app.locales.%s', $user->locale)) }}</td>

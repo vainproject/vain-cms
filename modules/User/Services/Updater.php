@@ -18,7 +18,6 @@ class Updater {
             'name' => 'required|max:255',
             'email' => sprintf('required|email|max:255|unique:users,email,%d', $user->id),
             'password' => 'confirmed|min:6',
-            'alias' => sprintf('required|max:50|unique:users,alias,%d', $user->id),
             'birthday_at' => 'date|before:now',
             'gender' => 'in:male,female',
             'locale' => 'required|size:2',
@@ -46,7 +45,6 @@ class Updater {
         $user->fill([
             'name' => $data['name'],
             'email' => $data['email'],
-            'alias' => $data['alias'],
             'birthday_at' => $data['birthday_at'],
             'gender' => $data['gender'],
             'locale' => $data['locale'],

@@ -41,12 +41,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('alias', trans('user::profile.field.alias'), ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-9">
-                        {!! Form::text('alias', null, ['class' => 'form-control']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
                     {!! Form::label('email', trans('user::profile.field.email'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
                         {!! Form::text('email', null, ['class' => 'form-control']) !!}

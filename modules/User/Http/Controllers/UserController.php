@@ -1,11 +1,10 @@
 <?php namespace Modules\User\Http\Controllers;
 
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Session\Store;
 use Modules\User\Entities\User;
 use Modules\User\Services\Updater;
-use Vain\Packages\RealmAPI\EmulatorFactory;
 
 class UserController extends Controller {
 
@@ -14,11 +13,9 @@ class UserController extends Controller {
     function __construct(Updater $updater)
     {
         $this->updater = $updater;
-
-        #$this->middleware('ajax', ['only' => 'postEdit']);
     }
 
-    public function getProfile($id)
+    public function show($id)
     {
         /** @var User $user */
         $user = User::find($id);
@@ -27,7 +24,7 @@ class UserController extends Controller {
             ->with('user', $user);
     }
 
-    public function getEdit(Request $request)
+    public function edit(Request $request)
     {
         /** @var User $user */
         $user = $request->user();
@@ -44,19 +41,29 @@ class UserController extends Controller {
             ->with(['user' => $user, 'genders' => $genders, 'locales' => $locales]);
     }
 
-    public function postEdit(Request $request)
+    public function update(Request $request, Store $session)
     {
         $validator = $this->updater->validator($request->user(), $request->all());
 
         if ($validator->fails())
         {
+            if ($request->ajax())
+            {
+                $session->flash('errors', $validator->getMessageBag());
+                return response('', 500);
+            }
+
             return redirect(route('user.profile.edit'))
                 ->withErrors($validator);
         }
 
-        $success = $this->updater->update($request->user(), $request->all());
+        $this->updater->update($request->user(), $request->all());
 
-        return new JsonResponse([ 'error' => !$success ]);
+        if ($request->ajax()) {
+            // very default response, we basicly just need the response code
+            return response('', 200);
+        }
+
+        return redirect()->route('user.profile', [ 'id' => $request->user()->id ]);
     }
-
 }

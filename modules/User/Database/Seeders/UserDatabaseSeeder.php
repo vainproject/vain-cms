@@ -34,8 +34,7 @@ class UserTableSeeder extends Seeder {
 
         $user = User::create([
             'id' => 1,
-            'name' => 'Test Admin',
-            'alias' => 'Admin',
+            'name' => 'Admin',
             'email' => 'admin@vain.app',
             'password' => bcrypt('123456'),
             'locale' => 'en'

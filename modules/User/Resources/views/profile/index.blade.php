@@ -12,7 +12,6 @@
             </div>
             <div class="col-xs-9">
                 <strong>{{ $user->name }}</strong><br>
-                {{ $user->alias }}<br>
                 {{ $user->email }}<br>
                 {{ $user->birthday_at }}<br>
                 {{ $user->gender }}<br>
