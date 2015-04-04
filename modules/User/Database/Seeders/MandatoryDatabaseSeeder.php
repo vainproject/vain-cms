@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Modules\User\Entities\Permission;
 use Modules\User\Entities\Role;
 
@@ -119,39 +120,97 @@ class RoleTableSeeder extends Seeder {
 
     public function run()
     {
-        Role::where('name', 'admin')->delete();
+        DB::table('roles')->delete();
+        // possibly later we'll add roles in module's seeds, so we possibly should restrict deletion here
+        /*Role::whereIn('name', ['administrator', 'supporter', 'developer', 'teamleader', 'moderator', 'designer', 'vip',
+            'tester', 'teammember', 'registered', 'unconfirmed'])->delete();*/
+
         Role::create([
-            'name' => 'admin',
+            'name' => 'administrator',
             'display_name' => 'Administrator',
-            'description' => 'User has full access to everything in the system.'
+            'description' => 'User has full access to everything in the system.',
+            'color' => 'administrator',
+            'order' => 1
         ]);
 
-        Role::where('name', 'manager')->delete();
         Role::create([
-            'name' => 'manager',
-            'display_name' => 'Manager',
-            'description' => 'User is able to manage content and community.'
+            'name' => 'supporter',
+            'display_name' => 'Supporter',
+            'description' => 'User is able to manage content and community.',
+            'color' => 'supporter',
+            'order' => 30
         ]);
 
-        Role::where('name', 'team')->delete();
         Role::create([
-            'name' => 'team',
-            'display_name' => 'Team',
-            'description' => 'User is a member of the staff.'
+            'name' => 'teammember',
+            'display_name' => 'Teammember',
+            'description' => 'User is a member of the staff.',
+            'color' => 'teammember',
+            'order' => 60
         ]);
 
-        Role::where('name', 'registered')->delete();
+        Role::create([
+            'name' => 'teamleader',
+            'display_name' => 'Teamleader',
+            'description' => 'User is team leader.',
+            'color' => 'teamleader',
+            'order' => 10
+        ]);
+
+        Role::create([
+            'name' => 'developer',
+            'display_name' => 'Developer',
+            'description' => 'User is developer.',
+            'color' => 'developer',
+            'order' => 20
+        ]);
+
+        Role::create([
+            'name' => 'tester',
+            'display_name' => 'Tester',
+            'description' => 'User is tester.',
+            'color' => 'tester',
+            'order' => 40
+        ]);
+
+        Role::create([
+            'name' => 'moderator',
+            'display_name' => 'Moderator',
+            'description' => 'User is moderator.',
+            'color' => 'moderator',
+            'order' => 100
+        ]);
+
+        Role::create([
+            'name' => 'designer',
+            'display_name' => 'Designer',
+            'description' => 'User is designer.',
+            'color' => 'designer',
+            'order' => 70
+        ]);
+
+        Role::create([
+            'name' => 'vip',
+            'display_name' => 'VIP',
+            'description' => 'User is VIP.',
+            'color' => 'vip',
+            'order' => 90
+        ]);
+
         Role::create([
             'name' => 'registered',
             'display_name' => 'Registered',
-            'description' => 'A registered member of the community.'
+            'description' => 'A registered member of the community.',
+            'color' => 'registered',
+            'order' => 200
         ]);
 
-        Role::where('name', 'unconfirmed')->delete();
         Role::create([
             'name' => 'unconfirmed',
             'display_name' => 'Unconfirmed',
-            'description' => 'User has registered but did not finish the process yet.'
+            'description' => 'User has registered but did not finish the process yet.',
+            'color' => 'registered',
+            'order' => 255
         ]);
     }
 }

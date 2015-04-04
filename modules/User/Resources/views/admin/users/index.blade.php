@@ -30,7 +30,7 @@
                     @foreach($users as $user)
                         <tr>
                             <td>{{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
+                            <td>@userbadge($user)</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->gender }}</td>
                             <td>{{ config(sprintf('app.locales.%s', $user->locale)) }}</td>

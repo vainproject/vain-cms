@@ -46,6 +46,22 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    {!! Form::label('color', trans('user::role.color'), ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        <select name="color" data-select data-width="100%">
+                            @foreach(config('roles.roles') as $value)
+                                <option @if(isset($role) && $role->color == $value) selected @endif data-content="<span class='label label-role label-expand role-{{ $value }}'>&nbsp;</span>" value="{{ $value }}"></option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    {!! Form::label('order', trans('user::role.order'), ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::text('order', null, ['class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
                     {!! Form::label('description', trans('user::role.description'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
                         {!! Form::textarea('description', null, ['class' => 'form-control']) !!}

@@ -103,6 +103,8 @@
             var cls = element.data('auto-active') || 'active';
             element.find(':first-child').first().addClass(cls);
         });
+
+        $('[data-select]').selectpicker();
     };
 
     $(function() {

@@ -26,6 +26,10 @@ class ConfigServiceProvider extends ServiceProvider {
         $this->mergeConfigFrom(
             __DIR__.'/../Config/entrust.php', 'entrust'
         );
+
+        $this->mergeConfigFrom(
+            __DIR__.'/../Config/roles.php', 'roles'
+        );
     }
 
     /**

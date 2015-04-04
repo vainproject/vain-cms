@@ -11,8 +11,7 @@ var scripts_include = [
     './bower_components/jquery/dist/jquery.js',
     './bower_components/bootstrap/dist/js/bootstrap.js',
     './bower_components/toastr/toastr.js',
-    //'./bower_components/bootstrap-material-design/dist/js/ripples.js',
-    //'./bower_components/bootstrap-material-design/dist/js/material.js',
+    './bower_components/bootstrap-select/dist/js/bootstrap-select.js',
 
     /*
      |--------------------------------------------------------------------------

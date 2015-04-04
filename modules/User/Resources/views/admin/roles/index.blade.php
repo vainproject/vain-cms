@@ -32,7 +32,7 @@
                         <tr>
                             <td>{{ $role->id }}</td>
                             <td>{{ $role->name }}</td>
-                            <td>{{ $role->display_name }}</td>
+                            <td><span class="label label-role role-{{ $role->color }}">{{ $role->display_name }}</span></td>
                             <td>{{ $role->description }}</td>
                             <td>{{ $role->created_at }}</td>
                             <td>{{ $role->updated_at }}</td>

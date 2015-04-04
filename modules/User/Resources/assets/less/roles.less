@@ -1,0 +1,62 @@
+@import "/resources/assets/less/colors";
+
+.label-role {
+  &:extend(.label-default);
+  color: #fff;
+  font-size: 10pt;
+}
+
+.label-expand {
+  display: inline-block;
+  width: 100%!important;
+}
+
+.role-emphasize {
+  font-weight: bold;
+}
+
+.role-administrator {
+  &:extend(.role-emphasize);
+  background-color: @red;
+}
+
+.role-developer {
+  &:extend(.role-emphasize);
+  background-color: @brown;
+}
+
+.role-tester {
+  &:extend(.role-emphasize);
+  background-color: @deep-purple;
+}
+
+.role-supporter {
+  &:extend(.role-emphasize);
+  background-color: @green;
+}
+
+.role-teamleader {
+  &:extend(.role-emphasize);
+  background-color: @grey;
+}
+
+.role-moderator {
+  &:extend(.role-emphasize);
+  background-color: @pink-A700;
+}
+
+.role-designer {
+  &:extend(.role-emphasize);
+  background-color: @orange;
+}
+
+.role-vip {
+  &:extend(.role-emphasize);
+  background-color: @cyan;
+}
+
+.role-registered {
+  font-weight: normal;
+  color: @black;
+  background: transparent;
+}

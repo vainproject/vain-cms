@@ -7,6 +7,8 @@ return [
     'description' => 'Description',
     'created_at' => 'Created at',
     'updated_at' => 'Updated at',
+    'color' => 'Color',
+    'order' => 'Order',
     'title' => [
         'index' => 'Roles',
         'edit' => 'Edit role',

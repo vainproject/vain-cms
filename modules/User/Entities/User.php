@@ -60,7 +60,17 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public function sites()
     {
-        $this->hasMany('Modules\Site\Entities\Page');
+        return $this->hasMany('Modules\Site\Entities\Page');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany('Modules\Blog\Entities\Post');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('Modules\Blog\Entities\Comment');
     }
 
     /**
