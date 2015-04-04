@@ -68,7 +68,8 @@ class UserController extends Controller {
                 ->withInput();
         }
 
-        $registrar->create($this->request->all());
+        $user = $registrar->create($this->request->all());
+        $user->saveRoles($this->request->get('roles'));
 
         return $this->createDefaultResponse($this->request);
     }
@@ -114,6 +115,7 @@ class UserController extends Controller {
         }
 
         $updater->update($user, $this->request->all());
+        $user->saveRoles($this->request->get('roles'));
 
         return $this->createDefaultResponse();
     }

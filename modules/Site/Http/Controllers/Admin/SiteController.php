@@ -80,7 +80,8 @@ class SiteController extends Controller {
 
         foreach (config('app.locales') as $locale => $name)
         {
-            $content = $page->content()
+            $content = $page->contents()
+                ->localeOrNew($locale)
                 ->fillTranslated($locale, $request->all());
 
             $content->page()->associate($page);

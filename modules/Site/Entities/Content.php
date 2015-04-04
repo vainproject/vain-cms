@@ -25,4 +25,17 @@ class Content extends Model {
     {
         return $this->belongsTo('Modules\Site\Entities\Page');
     }
+
+    /**
+     * basicly used to update a localization with ease
+     *
+     * @param $query
+     * @param $locale
+     * @return static
+     */
+    public function scopeLocaleOrNew($query, $locale)
+    {
+        $obj = $query->where('locale', $locale)->first();
+        return $obj ?: new static;
+    }
 }

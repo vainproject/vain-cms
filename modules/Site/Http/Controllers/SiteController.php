@@ -23,7 +23,7 @@ class SiteController extends Controller {
             throw new NotFoundHttpException('page with slug \''. $slug .'\' not found');
         }
 
-        if (!empty($page->role) && !$request->getUser()->hasRole($page->role))
+        if (!empty($page->role) && !$request->user()->hasRole($page->role))
         {
             throw new NotFoundHttpException('no permission to view page with slug \''. $slug .'\'');
         }
