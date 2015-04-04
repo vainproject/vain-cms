@@ -4,6 +4,28 @@ use Cmgmyr\Messenger\Models\Thread as MessengerThread;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Modules\Message\Entities\Thread
+ *
+ * @property integer $id 
+ * @property string $subject 
+ * @property \Carbon\Carbon $created_at 
+ * @property \Carbon\Carbon $updated_at 
+ * @property \Carbon\Carbon $deleted_at 
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Message\Entities\Message[] $messages 
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Message\Entities\Participant[] $participants 
+ * @property-read \Modules\Message\Entities\Message')->latest()->limit(1 $latestMessage 
+ * @property-read mixed $avatar 
+ * @property-read mixed $latest_message 
+ * @method static \Illuminate\Database\Query\Builder|\Modules\Message\Entities\Thread whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Modules\Message\Entities\Thread whereSubject($value)
+ * @method static \Illuminate\Database\Query\Builder|\Modules\Message\Entities\Thread whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Modules\Message\Entities\Thread whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Modules\Message\Entities\Thread whereDeletedAt($value)
+ * @method static \Modules\Message\Entities\Thread forUser($userId)
+ * @method static \Modules\Message\Entities\Thread withComponents()
+ * @method static \Cmgmyr\Messenger\Models\Thread forUserWithNewMessages($userId)
+ */
 class Thread extends MessengerThread {
 
     /**
