@@ -1,14 +1,6 @@
 <?php
 
 return [
-    'id' => '#',
-    'alias' => 'Alias',
-    'name' => 'Name',
-    'description' => 'Beschreibung',
-    'created_at' => 'Erstellt am',
-    'updated_at' => 'Geändert am',
-    'color' => 'Farbe',
-    'order' => 'Reihenfolge',
     'title' => [
         'index' => 'Rollen',
         'edit' => 'Rolle bearbeiten',
@@ -19,6 +11,16 @@ return [
         'save' => 'Speichern',
         'abort' => 'Abbrechen',
         'confirm' => 'Bestätigen',
+    ],
+    'field' => [
+        'id' => '#',
+        'alias' => 'Alias',
+        'name' => 'Name',
+        'description' => 'Beschreibung',
+        'created_at' => 'Erstellt',
+        'updated_at' => 'Geändert',
+        'color' => 'Farbe',
+        'order' => 'Reihenfolge',
     ],
     'section' => [
         'general' => 'Allgemein',

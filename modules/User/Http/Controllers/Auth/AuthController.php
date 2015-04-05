@@ -36,11 +36,11 @@ class AuthController extends Controller {
 
     public function getRegister()
     {
-        return view('user::register');
+        return view('user::auth.register');
     }
 
     public function getLogin()
     {
-        return view('user::login');
+        return view('user::auth.login');
     }
 }

@@ -1,14 +1,6 @@
 <?php
 
 return [
-    'id' => '#',
-    'alias' => 'Alias',
-    'name' => 'Name',
-    'description' => 'Description',
-    'created_at' => 'Created at',
-    'updated_at' => 'Updated at',
-    'color' => 'Color',
-    'order' => 'Order',
     'title' => [
         'index' => 'Roles',
         'edit' => 'Edit role',
@@ -19,6 +11,16 @@ return [
         'save' => 'Save',
         'abort' => 'Abort',
         'confirm' => 'Confirm',
+    ],
+    'field' => [
+        'id' => '#',
+        'alias' => 'Alias',
+        'name' => 'Name',
+        'description' => 'Description',
+        'created_at' => 'Created',
+        'updated_at' => 'Updated',
+        'color' => 'Color',
+        'order' => 'Order',
     ],
     'section' => [
         'general' => 'General',

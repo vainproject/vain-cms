@@ -17,12 +17,12 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <td>@lang('user::permission.id')</td>
-                            <td>@lang('user::permission.alias')</td>
-                            <td>@lang('user::permission.name')</td>
-                            <td>@lang('user::permission.description')</td>
-                            <td>@lang('user::permission.created_at')</td>
-                            <td>@lang('user::permission.updated_at')</td>
+                            <td>@lang('user::permission.field.id')</td>
+                            <td>@lang('user::permission.field.alias')</td>
+                            <td>@lang('user::permission.field.name')</td>
+                            <td>@lang('user::permission.field.description')</td>
+                            <td>@lang('user::permission.field.created_at')</td>
+                            <td>@lang('user::permission.field.updated_at')</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,8 +32,8 @@
                                 <td>{{ $permission->name }}</td>
                                 <td>{{ $permission->display_name }}</td>
                                 <td>{{ $permission->description }}</td>
-                                <td>{{ $permission->created_at }}</td>
-                                <td>{{ $permission->updated_at }}</td>
+                                <td>{{ $permission->created_at->diffForHumans() }}</td>
+                                <td>{{ $permission->updated_at->diffForHumans() }}</td>
                             </tr>
                         @endforeach
                     </tbody>

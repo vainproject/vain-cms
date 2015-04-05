@@ -11,7 +11,7 @@
     <meta name="description" content="@yield('description', trans('meta.description.app'))">
     <meta name="robots" content="index,follow">
 
-    <link rel="stylesheet" href="/static/css/app.css">
+    <link rel="stylesheet" href="{{ asset('static/css/app.css') }}">
 </head>
 <body>
 <div class="wrapper" data-pjax>
@@ -19,6 +19,6 @@
 
     @yield('content')
 </div>
-<script type="text/javascript" src="/static/js/app.js"></script>
+<script type="text/javascript" src="{{ asset('static/js/app.js') }}"></script>
 </body>
 </html>

@@ -37,7 +37,7 @@ class PasswordController extends Controller {
 
     public function getEmail()
     {
-        return view('user::password');
+        return view('user::auth.password');
     }
 
     public function getReset( $token = null )
@@ -47,6 +47,6 @@ class PasswordController extends Controller {
             throw new NotFoundHttpException;
         }
 
-        return view('user::reset')->with('token', $token);
+        return view('user::auth.reset')->with('token', $token);
     }
 }

@@ -6,7 +6,7 @@ return [
         'logout' => 'Abmelden',
         'register' => 'Registrieren',
         'reset' => 'Passwort zurücksetzen',
-        'password' => 'Passwort wiederherstellen'
+        'password' => 'Passwort wiederherstellen',
     ],
     'action' => [
         'login' => 'Anmelden',

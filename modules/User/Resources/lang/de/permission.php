@@ -1,12 +1,6 @@
 <?php
 
 return [
-    'id' => '#',
-    'alias' => 'Alias',
-    'name' => 'Name',
-    'description' => 'Beschreibung',
-    'created_at' => 'Erstellt am',
-    'updated_at' => 'Geändert am',
     'title' => [
         'index' => 'Berechtigungen',
         'edit' => 'Berechtigung erstellen',
@@ -16,6 +10,14 @@ return [
         'save' => 'Speichern',
         'abort' => 'Abbrechen',
         'confirm' => 'Bestätigen',
+    ],
+    'field' => [
+        'id' => '#',
+        'alias' => 'Alias',
+        'name' => 'Name',
+        'description' => 'Beschreibung',
+        'created_at' => 'Erstellt',
+        'updated_at' => 'Geändert',
     ],
     'delete' => [
         'message' => 'Willst du diese Berechtigung wirklich löschen?',

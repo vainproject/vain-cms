@@ -22,12 +22,12 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <td>@lang('user::user.id')</td>
+                        <td>@lang('user::user.field.id')</td>
                         <td>@lang('user::profile.field.name')</td>
                         <td>@lang('user::profile.field.email')</td>
                         <td>@lang('user::profile.field.gender')</td>
                         <td>@lang('user::profile.field.locale')</td>
-                        <td>@lang('user::user.created_at')</td>
+                        <td>@lang('user::user.field.created_at')</td>
                         <td></td>
                     </tr>
                     </thead>
@@ -39,7 +39,7 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->gender }}</td>
                             <td>{{ config(sprintf('app.locales.%s', $user->locale)) }}</td>
-                            <td>{{ $user->created_at }}</td>
+                            <td>{{ $user->created_at->diffForHumans() }}</td>
                             <td class="text-right">
                                 {!! Form::open([
                                     'class' => 'form-inline',

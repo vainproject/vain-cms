@@ -1,12 +1,6 @@
 <?php
 
 return [
-    'id' => '#',
-    'alias' => 'Alias',
-    'name' => 'Name',
-    'description' => 'Description',
-    'created_at' => 'Created at',
-    'updated_at' => 'Updated at',
     'title' => [
         'index' => 'Permissions',
         'edit' => 'Create permission',
@@ -16,6 +10,14 @@ return [
         'save' => 'Save',
         'abort' => 'Abort',
         'confirm' => 'Confirm',
+    ],
+    'field' => [
+        'id' => '#',
+        'alias' => 'Alias',
+        'name' => 'Name',
+        'description' => 'Description',
+        'created_at' => 'Created',
+        'updated_at' => 'Updated',
     ],
     'delete' => [
         'message' => 'Do you really want to delete the selected permission?',

@@ -34,19 +34,19 @@
             </div>
             <div class="box-body">
                 <div class="form-group">
-                    {!! Form::label('name', trans('user::role.alias'), ['class' => 'col-sm-3 control-label']) !!}
+                    {!! Form::label('name', trans('user::role.field.alias'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('display_name', trans('user::role.name'), ['class' => 'col-sm-3 control-label']) !!}
+                    {!! Form::label('display_name', trans('user::role.field.name'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
                         {!! Form::text('display_name', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('color', trans('user::role.color'), ['class' => 'col-sm-3 control-label']) !!}
+                    {!! Form::label('color', trans('user::role.field.color'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
                         <select name="color" class="form-control" data-select>
                             @foreach($colors as $value)
@@ -56,13 +56,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('order', trans('user::role.order'), ['class' => 'col-sm-3 control-label']) !!}
+                    {!! Form::label('order', trans('user::role.field.order'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
                         {!! Form::text('order', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('description', trans('user::role.description'), ['class' => 'col-sm-3 control-label']) !!}
+                    {!! Form::label('description', trans('user::role.field.description'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
                         {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
                     </div>

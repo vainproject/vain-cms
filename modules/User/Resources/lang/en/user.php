@@ -1,9 +1,6 @@
 <?php
 
 return [
-    'id' => '#',
-    'created_at' => 'Member since',
-    'updated_at' => 'Updated at',
     'title' => [
         'menu' => 'Users & Roles',
         'index' => 'Users',
@@ -15,6 +12,11 @@ return [
         'save' => 'Save',
         'abort' => 'Abort',
         'confirm' => 'Confirm',
+    ],
+    'field' => [
+        'id' => '#',
+        'created_at' => 'Member since',
+        'updated_at' => 'Updated',
     ],
     'section' => [
         'role' => 'Roles',

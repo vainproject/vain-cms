@@ -6,8 +6,8 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <link rel="stylesheet" href="/static/css/app.css">
-    <link rel="stylesheet" href="/static/css/admin.css">
+    <link rel="stylesheet" href="{{ asset('static/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('static/css/admin.css') }}">
     @yield('styles')
 </head>
 <body class="skin-blue">
@@ -37,8 +37,8 @@
     </footer>
 </div><!-- ./wrapper -->
 
-<script type="text/javascript" src="/static/js/app.js"></script>
-<script type="text/javascript" src="/static/js/admin.js"></script>
+<script type="text/javascript" src="{{ asset('static/js/app.js') }}"></script>
+<script type="text/javascript" src="{{ asset('static/js/admin.js') }}"></script>
 @yield('scripts')
 </body>
 </html>

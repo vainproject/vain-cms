@@ -22,12 +22,12 @@
                 <table class="table table-striped" data-target>
                     <thead>
                     <tr>
-                        <td>@lang('user::role.id')</td>
-                        <td>@lang('user::role.alias')</td>
-                        <td>@lang('user::role.name')</td>
-                        <td>@lang('user::role.description')</td>
-                        <td>@lang('user::role.created_at')</td>
-                        <td>@lang('user::role.updated_at')</td>
+                        <td>@lang('user::role.field.id')</td>
+                        <td>@lang('user::role.field.alias')</td>
+                        <td>@lang('user::role.field.name')</td>
+                        <td>@lang('user::role.field.description')</td>
+                        <td>@lang('user::role.field.created_at')</td>
+                        <td>@lang('user::role.field.updated_at')</td>
                         <td></td>
                     </tr>
                     </thead>
@@ -38,8 +38,8 @@
                             <td>{{ $role->name }}</td>
                             <td><span class="label label-role role-{{ $role->color }}">{{ $role->display_name }}</span></td>
                             <td>{{ $role->description }}</td>
-                            <td>{{ $role->created_at }}</td>
-                            <td>{{ $role->updated_at }}</td>
+                            <td>{{ $role->created_at->diffForHumans() }}</td>
+                            <td>{{ $role->updated_at->diffForHumans() }}</td>
                             <td class="text-right">
                                 {!! Form::open([
                                      'class' => 'form-inline',

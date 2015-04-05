@@ -29,7 +29,7 @@ class SiteController extends Controller {
     public function create()
     {
         $roles = array_merge(
-            [ null => trans('site::admin.role.none') ],
+            [ null => trans('site::page.role.none') ],
             Role::all()->lists('display_name', 'name') );
 
         $locales = config('app.locales');
@@ -62,7 +62,7 @@ class SiteController extends Controller {
         $page = Page::find($id);
 
         $roles = array_merge(
-            [ null => trans('site::admin.role.none') ],
+            [ null => trans('site::page.role.none') ],
             Role::all()->lists('display_name', 'name') );
 
         $locales = config('app.locales');
