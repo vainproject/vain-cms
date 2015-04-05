@@ -4,6 +4,7 @@ var watch_paths = [
     'modules/Blog/Resources/assets/**',
     'modules/Site/Resources/assets/**',
     'modules/User/Resources/assets/**',
+    'modules/Message/Resources/assets/**'
 ];
 
 var scripts_include = [
