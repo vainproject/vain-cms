@@ -6,13 +6,6 @@
         var method = form.find('input[name="_method"]').val() || 'POST';
         var url = form.attr('action');
 
-        // todo check if still necessary
-        //CKEDITOR && function()
-        //{
-        //    for (var instance in CKEDITOR.instances)
-        //        CKEDITOR.instances[instance].updateElement();
-        //}();
-
         $.ajax({
             url: url,
             type: method,
@@ -78,50 +71,6 @@
         });
 
         e.preventDefault();
-    });
-
-    /**
-     * proof of concept, child items are not displayed by now
-     *
-     * todo: clean it up a little?
-     */
-    $(document).on('keyup', 'input[data-menu-search]', function(e) {
-
-        var element = $(this);
-        var container = element.closest(element.data('menu-search'));
-        var q = element.val();
-
-        container.find('ul > .treeview').each(function() {
-
-            var item = $(this);
-            item.removeClass('active')
-                .hide();
-
-            item.find('.active')
-                .removeClass('active');
-
-            var filter = item.find('span:containsIn(\''+ q +'\')')
-
-            filter.closest('.treeview')
-                .show();
-
-            if (q.length)
-            {
-                // handle active state of matched elements
-                filter.closest('.treeview-menu')
-                    .addClass('menu-open');
-
-                filter.closest('.treeview')
-                    .addClass('active');
-
-                filter.closest('li')
-                    .addClass('active');
-
-                // click element on enter keystroke
-                if (e.which == 13)
-                    filter.click();
-            }
-        });
     });
 
     /**
