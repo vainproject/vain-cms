@@ -117,20 +117,18 @@ class Thread extends MessengerThread
     }
 
     /**
-     * Generates a string of participant information
-     * @param null $userId
-     * @param array $columns
+     * Generates a string with participant names (limited to 40 chars)
      * @return string
      */
-    public function participantsString($userId = null, $columns = ['name'], $maxLength = false)
+    public function getParticipantStringAttribute()
     {
         $participantNames = [];
         $length = 0;
         foreach ($this->participants as $participant) {
-            if ($participant->user_id == $userId)
+            if ($participant->user_id == Auth::id())
                 continue;
 
-            if ($maxLength && (strlen($participant->name + $length)) > ($maxLength - 5)) {
+            if ((strlen($participant->name + $length)) > (40 - 5)) {
                 $participantNames[] = "...";
                 break;
             }

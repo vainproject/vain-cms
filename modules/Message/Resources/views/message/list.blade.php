@@ -5,9 +5,6 @@
 @stop
 
 @section('styles')
-    <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/0.9.5/emojify.min.css" />
 @stop
 
@@ -38,6 +35,7 @@
                 </div>
             </div>
 
+            {{--Old settings button--}}
             {{--<div class="col-lg-offset-1 col-lg-7">--}}
                 {{--<div class="btn-panel btn-panel-msg">--}}
 
@@ -57,9 +55,7 @@
                                 <img class="media-object" alt="{{ $thread->lastmessage->user->name }}" style="width: 50px; height: 50px;" src="{!! $thread->avatar !!}">
                             </div>
                             <div class="media-body">
-                                <h5 class="media-heading">
-                                    <strong>{!! $thread->participantsString(Auth::id(), ['name'], 30) !!}</strong>
-                                </h5>
+                                <h5 class="media-heading"><strong>{!! $thread->participant_string !!}</strong></h5>
                                 <small>{{ $thread->shortbody }}</small>
                             </div>
                         </div>
@@ -73,8 +69,6 @@
                 @endif
 
             </div>
-
-
 
             <div class="message-wrap col-lg-8">
                 <div class="msg-wrap" id="msg-wrap">
