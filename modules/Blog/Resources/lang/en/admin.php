@@ -68,7 +68,9 @@ return [
             'save' => 'Save'
         ],
         'delete' => [
-            'message' => 'Do you really want to delete this category?'
+            'message' => 'Do you really want to delete this category?',
+            'success' => 'The category has successfully been deleted.',
+            'error' => 'Error when trying to delete the category.'
         ],
         'save' => [
             'success' => 'The category has successfully been saved.',

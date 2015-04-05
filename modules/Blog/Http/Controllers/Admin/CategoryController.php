@@ -3,9 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Blog\Entities\Category;
+use Modules\Blog\Entities\CategoryContent;
 use Modules\Blog\Http\Requests\CategoryFormRequest;
-use Modules\Blog\Http\Requests\PostFormRequest;
-use Modules\User\Entities\User;
 
 class CategoryController extends Controller
 {
@@ -37,8 +36,7 @@ class CategoryController extends Controller
     public function store(CategoryFormRequest $request)
     {
         /** @var Category $category */
-        $category = Category($request->all());
-        $category->save();
+        $category = Category::create($request->all());
 
         foreach (config('app.locales') as $locale => $name)
         {

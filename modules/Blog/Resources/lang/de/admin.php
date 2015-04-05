@@ -68,7 +68,9 @@ return [
             'save' => 'Speichern'
         ],
         'delete' => [
-            'message' => 'Willst du diese Kategorie wirklich löschen?'
+            'message' => 'Willst du diese Kategorie wirklich löschen?',
+            'success' => 'Die Kategorie wurde erfolgreich gelöscht.',
+            'error' => 'Fehler beim Löschen der Kategorie aufgetreten.'
         ],
         'save' => [
             'success' => 'Die Kategorie wurde erfolgreich gespeichert.',

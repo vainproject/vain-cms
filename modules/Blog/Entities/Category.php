@@ -1,12 +1,13 @@
 <?php namespace Modules\Blog\Entities;
    
 use Illuminate\Database\Eloquent\Model;
+use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
 use Vain\Packages\Translator\Translatable;
 use Vain\Packages\Translator\TranslatableTrait;
 
 class Category extends Model implements Translatable {
 
-    use TranslatableTrait;
+    use TranslatableTrait, LocalizedEloquentTrait;
 
     /**
      * The database table used by the model.
