@@ -6,7 +6,6 @@ use Modules\Blog\Entities\Category;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\PostContent;
 use Modules\Blog\Http\Requests\PostFormRequest;
-use Modules\User\Entities\User;
 
 class PostController extends Controller
 {
@@ -29,16 +28,14 @@ class PostController extends Controller
 
     public function create()
     {
-        $users = User::all()->lists('name', 'id');
         $locales = config('app.locales');
         $categories = Category::all()->lists('content.name', 'id');
 
-        return view('blog::admin.posts.create', ['users' => $users, 'locales' => $locales, 'categories' => $categories]);
+        return view('blog::admin.posts.create', ['locales' => $locales, 'categories' => $categories]);
     }
 
     public function store(PostFormRequest $request)
     {
-        /** @var Post $post */
         $post = new Post($request->all());
 
         $post->user()->associate($request->user());
@@ -62,9 +59,8 @@ class PostController extends Controller
         $post = Post::find($id);
         $locales = config('app.locales');
         $categories = Category::all()->lists('content.name', 'id');
-        $users = User::all()->lists('name', 'id');
 
-        return view('blog::admin.posts.edit', ['post' => $post, 'locales' => $locales, 'users' => $users, 'categories' => $categories]);
+        return view('blog::admin.posts.edit', ['post' => $post, 'locales' => $locales, 'categories' => $categories]);
     }
 
     public function update(PostFormRequest $request, $id)

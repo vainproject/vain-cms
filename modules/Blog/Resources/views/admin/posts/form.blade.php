@@ -43,7 +43,7 @@
                 <div class="form-group">
                     {!! Form::label('slug', trans('blog::admin.posts.field.author'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
-                        {!! Form::select('user_id', $users, null, ['class' => 'form-control', 'data-select']) !!}
+                        {!! Form::text('user_id', isset($post) ? $post->user->name : Auth::user()->name, ['class' => 'form-control', 'disabled']) !!}
                     </div>
                 </div>
 

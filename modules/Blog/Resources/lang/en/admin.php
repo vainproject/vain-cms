@@ -42,7 +42,40 @@ return [
             'dates' => 'Timing information'
         ],
         'title' => [
-            'create' => 'Create a new post'
+            'create' => 'Create a new post',
+            'edit' => 'Edit an existing post'
+        ]
+    ],
+    'categories' => [
+        'title' => [
+            'index' => 'Categories',
+            'edit' => 'Edit an existing category',
+            'create' => 'Create a new category'
+        ],
+        'field' => [
+            'id' => '#',
+            'slug' => 'Slug',
+            'created_at' => 'Created',
+            'post_count' => 'Posts in this Category',
+            'name' => 'Name'
+        ],
+        'action' => [
+            'create' => 'Create',
+            'edit' => 'Edit',
+            'destroy' => 'Delete',
+            'confirm' => 'Confirm',
+            'abort' => 'Cancel',
+            'save' => 'Save'
+        ],
+        'delete' => [
+            'message' => 'Do you really want to delete this category?'
+        ],
+        'save' => [
+            'success' => 'The category has successfully been saved.',
+            'error' => 'Error when trying to save the category.'
+        ],
+        'section' => [
+            'general' => 'General information'
         ]
     ]
 ];

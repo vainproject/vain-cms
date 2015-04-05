@@ -1,14 +1,14 @@
 @extends('blog::admin.index')
 
 @section('title')
-    @lang('blog::admin.title.posts')
+    @lang('blog::admin.posts.title.edit')
 @stop
 
 @section('content')
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>@lang('blog::admin.title.posts')</h1>
+        <h1>@lang('blog::admin.posts.title.edit')</h1>
     </section>
 
     <!-- Main content -->

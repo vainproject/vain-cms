@@ -21,7 +21,7 @@ class PostController extends Controller {
 
 	public function index()
 	{
-        $posts = Post::with('user', 'category')->published()->paginate(config('blog.posts_per_page'));
+        $posts = Post::with('user', 'category', 'comments')->published()->paginate(config('blog.posts_per_page'));
 
 		return view('blog::index')->with('posts', $posts);
 	}

@@ -17,6 +17,7 @@ class MandatoryDatabaseSeeder extends Seeder {
 
         $this->call('Modules\Blog\Database\Seeders\PostPermissionTableSeeder');
         $this->call('Modules\Blog\Database\Seeders\CommentPermissionTableSeeder');
+        $this->call('Modules\Blog\Database\Seeders\CategoryPermissionTableSeeder');
     }
 
 }
@@ -87,6 +88,38 @@ class CommentPermissionTableSeeder extends Seeder {
             'name' => 'blog.comment.bluepost',
             'display_name' => 'Posts comments as bluepost',
             'description' => 'All comments from this user are blueposts'
+        ]);
+    }
+}
+
+class CategoryPermissionTableSeeder extends Seeder {
+
+    public function run()
+    {
+        Permission::where('name', 'LIKE', 'blog.category.%')->delete();
+
+        Permission::create([
+            'name' => 'blog.category.show',
+            'display_name' => 'Show blog category',
+            'description' => 'Permission to show a list of or a single category.'
+        ]);
+
+        Permission::create([
+            'name' => 'blog.category.create',
+            'display_name' => 'Create blog category',
+            'description' => 'Permission to create a new category.'
+        ]);
+
+        Permission::create([
+            'name' => 'blog.category.edit',
+            'display_name' => 'Edit blog category',
+            'description' => 'Permission to modify an existing category.'
+        ]);
+
+        Permission::create([
+            'name' => 'blog.category.destroy',
+            'display_name' => 'Delete blog category',
+            'description' => 'Permission to delete an existing category.'
         ]);
     }
 }

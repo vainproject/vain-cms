@@ -16,13 +16,13 @@
 
     <div class="container">
         <h1>
+            <span class="label label-default pull-right">{{ $post->category->content->name }}</span>
             {{ $post->content->title }}
         </h1>
-        <span class="label label-default">{{ $post->category->content->name }}</span>
 
-        <p>
-            {{ $post->content->text }}
-        </p>
+        <div class="well">
+            {!! $post->content->text !!}
+        </div>
 
         <hr>
 

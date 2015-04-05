@@ -42,7 +42,40 @@ return [
             'dates' => 'Zeitangaben'
         ],
         'title' => [
-            'create' => 'Erstelle einen neuen Post'
+            'create' => 'Erstelle einen neuen Post',
+            'edit' => 'Bearbeite einen bestehenden Post'
+        ]
+    ],
+    'categories' => [
+        'title' => [
+            'index' => 'Kategorien',
+            'edit' => 'Bearbeite eine bestehende Kategorie',
+            'create' => 'Erstelle eine neue Kategorie'
+        ],
+        'field' => [
+            'id' => '#',
+            'slug' => 'Slug',
+            'created_at' => 'Erstellt',
+            'post_count' => 'Posts in dieser Kategorie',
+            'name' => 'Name'
+        ],
+        'action' => [
+            'create' => 'Erstellen',
+            'edit' => 'Bearbeiten',
+            'destroy' => 'Löschen',
+            'confirm' => 'Bestätigen',
+            'abort' => 'Abbrechen',
+            'save' => 'Speichern'
+        ],
+        'delete' => [
+            'message' => 'Willst du diese Kategorie wirklich löschen?'
+        ],
+        'save' => [
+            'success' => 'Die Kategorie wurde erfolgreich gespeichert.',
+            'error' => 'Fehler beim Speichern der Kategorie.'
+        ],
+        'section' => [
+            'general' => 'Allgemeine Informationen'
         ]
     ]
 ];

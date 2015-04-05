@@ -67,10 +67,18 @@ class Post extends Model implements Translatable {
      */
     public function scopePublished($query)
     {
-        return $query->where('published_at', '<=', Carbon::now())
-            ->orWhere('published_at', null)
-            ->where('concealed_at', '>=', Carbon::now())
-            ->orWhere('concealed_at', null);
+        return $query->where(function($query) {
+
+            $query->where(function($query) {
+                $query->where('published_at', '<=', Carbon::now())
+                    ->orWhere('published_at', null);
+            });
+
+            $query->where(function($query) {
+                $query->where('concealed_at', '>=', Carbon::now())
+                    ->orWhere('concealed_at', null);
+            });
+        });
     }
 
 

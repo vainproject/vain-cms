@@ -4,7 +4,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Validator;
 
-class PostFormRequest extends FormRequest
+class CategoryFormRequest extends FormRequest
 {
     /**
      * validation that has to pass
@@ -14,16 +14,14 @@ class PostFormRequest extends FormRequest
     public function rules()
     {
         $attributes = [
-            'title' => 'required',
-            'text' => 'required'
+            'name' => 'required'
         ];
 
         $rules = $this->buildLocalizedRules($attributes);
 
         return array_merge($rules, [
-            'id' => 'exists:posts,id',
-            'slug' => 'required|alpha_dash|unique:posts,slug,'.$this->route('posts'),
-            'category_id' => 'required|exists:post_categories,id'
+            'id' => 'exists:post_categories,id',
+            'slug' => 'required|alpha_dash|unique:post_categories,slug,'.$this->route('categories')
         ]);
     }
 
