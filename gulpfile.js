@@ -37,7 +37,7 @@ var scripts_include = [
     //'./modules/Forum/Resources/assets/js/*.js',
     //'./modules/Site/Resources/assets/js/*.js',
     //'./modules/User/Resources/assets/js/*.js',
-    //'./modules/Message/Resources/assets/js/*.js',
+    './modules/Message/Resources/assets/js/*.js',
 ];
 
 var scripts_admin_include = [

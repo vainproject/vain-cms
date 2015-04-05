@@ -110,7 +110,7 @@ class Thread extends MessengerThread
         $body = $this->lastmessage->body;
         if ($this->participants->count() > 2) {
             $name = $this->lastmessage->user->name;
-            return str_limit($name . ': ' . $body, (40 - strlen($name) - 2));
+            return str_limit($name . ': ' . $body, (45 - strlen($name) - 2));
         }
 
         return str_limit($body, 40);
