@@ -145,7 +145,7 @@ class RoleTableSeeder extends Seeder {
             'name' => 'teammember',
             'display_name' => 'Teammember',
             'description' => 'User is a member of the staff.',
-            'color' => 'teammember',
+            'color' => 'registered',
             'order' => 60
         ]);
 
