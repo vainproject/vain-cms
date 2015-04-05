@@ -83,7 +83,7 @@
     /**
      * proof of concept, child items are not displayed by now
      *
-     * todo: see in code
+     * todo: clean it up a little?
      */
     $(document).on('keyup', 'input[data-menu-search]', function(e) {
 
@@ -92,6 +92,7 @@
         var q = element.val();
 
         container.find('ul > .treeview').each(function() {
+
             var item = $(this);
             item.removeClass('active')
                 .hide();
@@ -99,21 +100,26 @@
             item.find('.active')
                 .removeClass('active');
 
-            // close treeview menu
-
             var filter = item.find('span:containsIn(\''+ q +'\')')
-
-            // open treeview submenu
-
-            // mark "root" as active too
 
             filter.closest('.treeview')
                 .show();
 
             if (q.length)
             {
+                // handle active state of matched elements
+                filter.closest('.treeview-menu')
+                    .addClass('menu-open');
+
+                filter.closest('.treeview')
+                    .addClass('active');
+
                 filter.closest('li')
                     .addClass('active');
+
+                // click element on enter keystroke
+                if (e.which == 13)
+                    filter.click();
             }
         });
     });

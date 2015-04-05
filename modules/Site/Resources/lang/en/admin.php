@@ -21,6 +21,7 @@ return [
         'create' => 'Create site',
     ],
     'action' => [
+        'create' => 'Create',
         'save' => 'Save',
         'abort' => 'Abort',
         'confirm' => 'Confirm',

@@ -39,13 +39,13 @@
                 <div class="form-group">
                     {!! Form::label('user_id', trans('site::admin.creator'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
-                        {!! Form::select('user_id', $users, null, [ 'class' => 'form-control' ]) !!}
+                        {!! Form::select('user_id', $users, null, [ 'class' => 'form-control', 'data-select' ]) !!}
                     </div>
                 </div>
                 <div class="form-group">
                     {!! Form::label('role', trans('site::admin.role'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
-                        {!! Form::select('role', $roles, null, [ 'class' => 'form-control' ]) !!}
+                        {!! Form::select('role', $roles, null, [ 'class' => 'form-control', 'data-select' ]) !!}
                     </div>
                 </div>
             </div>

@@ -16,6 +16,11 @@
         @include('site::admin.statistic')
 
         <div class="box">
+            <div class="box-header with-border">
+                <a class="btn btn btn-primary" href="{{ route('site.admin.sites.create') }}">
+                    <i class="fa fa-plus-circle"></i> @lang('site::admin.action.create')
+                </a>
+            </div>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-striped">
                     <thead>

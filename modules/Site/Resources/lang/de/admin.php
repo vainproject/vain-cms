@@ -21,6 +21,7 @@ return [
         'create' => 'Seite erstellen',
     ],
     'action' => [
+        'create' => 'Erstellen',
         'save' => 'Speichern',
         'abort' => 'Abbrechen',
         'confirm' => 'Bestätigen',

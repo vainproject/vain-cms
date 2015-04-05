@@ -13,7 +13,7 @@
 <div class="form-group">
     <div class="col-md-12">
         {!! Form::label('description_'. $locale, trans('site::admin.description')) !!}
-        {!! Form::textarea('description_'. $locale, isset($page) && ($content = $page->content($locale, false)) ? $content->description : '', ['class' => 'form-control']) !!}
+        {!! Form::textarea('description_'. $locale, isset($page) && ($content = $page->content($locale, false)) ? $content->description : '', ['class' => 'form-control', 'data-expand', 'data-expand-rows-max' => '6', 'rows' => '2']) !!}
     </div>
 </div>
 
