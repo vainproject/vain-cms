@@ -11,6 +11,8 @@ return [
         'create' => 'Create user',
     ],
     'action' => [
+        'create' => 'Create',
+        'save' => 'Save',
         'abort' => 'Abort',
         'confirm' => 'Confirm',
     ],

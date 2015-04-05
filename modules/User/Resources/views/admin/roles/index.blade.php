@@ -12,9 +12,13 @@
     </section>
 
     <section class="content">
-
         <div class="box">
-            <div class="box-body table-responsive no-padding" data-pjax>
+            <div class="box-header with-border">
+                <a class="btn btn btn-primary" href="{{ route('user.admin.roles.create') }}">
+                    <i class="fa fa-plus-circle"></i> @lang('user::role.action.create')
+                </a>
+            </div>
+            <div class="box-body table-responsive no-padding">
                 <table class="table table-striped" data-target>
                     <thead>
                     <tr>
@@ -36,7 +40,7 @@
                             <td>{{ $role->description }}</td>
                             <td>{{ $role->created_at }}</td>
                             <td>{{ $role->updated_at }}</td>
-                            <td>
+                            <td class="text-right">
                                 {!! Form::open([
                                      'class' => 'form-inline',
                                      'data-remote',
@@ -53,11 +57,7 @@
                     </tbody>
                 </table>
             </div>
-            @if ($roles->hasPages())
-                <div class="box-footer">
-                    {!! $roles->render(new Vain\Presenters\Pagination\AdminLtePresenter($roles)) !!}
-                </div>
-            @endif
+            @include('user::admin.partials.pagination', [ 'items' => $roles ])
         </div>
     </section>
     @include('user::admin.roles.modal')

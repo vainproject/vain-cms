@@ -39,15 +39,7 @@
                     </tbody>
                 </table>
             </div>
-            @if ($permissions->hasPages())
-                <div class="box-footer">
-                    <div class="pull-right">
-                        {!! $permissions->render(new Vain\Presenters\Pagination\AdminLtePresenter($permissions)) !!}
-                    </div>
-
-                    <div class="clearfix"></div>
-                </div>
-            @endif
+            @include('user::admin.partials.pagination', [ 'items' => $permissions ])
         </div>
     </section>
 @endsection

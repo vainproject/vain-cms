@@ -13,6 +13,11 @@
 
     <section class="content">
         <div class="box">
+            <div class="box-header with-border">
+                <a class="btn btn btn-primary" href="{{ route('user.admin.users.create') }}">
+                    <i class="fa fa-plus-circle"></i> @lang('user::user.action.create')
+                </a>
+            </div>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-striped">
                     <thead>
@@ -35,7 +40,7 @@
                             <td>{{ $user->gender }}</td>
                             <td>{{ config(sprintf('app.locales.%s', $user->locale)) }}</td>
                             <td>{{ $user->created_at }}</td>
-                            <td>
+                            <td class="text-right">
                                 {!! Form::open([
                                     'class' => 'form-inline',
                                     'data-remote',
@@ -52,11 +57,7 @@
                     </tbody>
                 </table>
             </div>
-            @if ($users->hasPages())
-                <div class="box-footer">
-                    {!! $users->render(new Vain\Presenters\Pagination\AdminLtePresenter($users)) !!}
-                </div>
-            @endif
+            @include('user::admin.partials.pagination', [ 'items' => $users ])
         </div>
     </section>
     @include('user::admin.users.modal')

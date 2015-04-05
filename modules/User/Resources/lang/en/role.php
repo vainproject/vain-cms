@@ -15,6 +15,7 @@ return [
         'create' => 'Create role',
     ],
     'action' => [
+        'create' => 'Create',
         'save' => 'Save',
         'abort' => 'Abort',
         'confirm' => 'Confirm',

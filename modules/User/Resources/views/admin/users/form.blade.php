@@ -4,11 +4,11 @@
             <div class="box-body">
                 <button class="btn btn-success" type="submit">
                     <i class="fa fa-floppy-o fa-lg"></i>&nbsp;
-                    @lang('user::profile.action.save')
+                    @lang('user::user.action.save')
                 </button>
                 <a class="btn btn-default" href="{{ route('user.admin.users.index') }}">
                     <i class="fa fa-ban fa-lg"></i>&nbsp;
-                    @lang('user::profile.action.abort')
+                    @lang('user::user.action.abort')
                 </a>
             </div>
         </div>

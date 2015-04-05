@@ -11,6 +11,8 @@ return [
         'create' => 'Benutzer erstellen',
     ],
     'action' => [
+        'create' => 'Erstellen',
+        'save' => 'Speichern',
         'abort' => 'Abbrechen',
         'confirm' => 'Bestätigen',
     ],

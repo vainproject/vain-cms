@@ -2,6 +2,7 @@ var elixir = require('laravel-elixir');
 
 var watch_paths = [
     'modules/Blog/Resources/assets/**',
+    'modules/Site/Resources/assets/**',
     'modules/User/Resources/assets/**',
 ];
 

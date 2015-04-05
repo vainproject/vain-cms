@@ -18,7 +18,7 @@ class RoleController extends Controller {
 
     public function index()
     {
-        $roles = Role::paginate();
+        $roles = Role::orderBy('order', 'ASC')->paginate();
 
         return view('user::admin.roles.index')
             ->with('roles', $roles);
@@ -28,8 +28,10 @@ class RoleController extends Controller {
     {
         $permissions = Permission::all()->lists('display_name', 'id');
 
+        $colors = config('roles.colors');
+
         return view('user::admin.roles.create')
-            ->with('permissions', $permissions);
+            ->with(['permissions' => $permissions, 'colors' => $colors]);
     }
 
     public function store(RoleFormRequest $request)
@@ -46,11 +48,13 @@ class RoleController extends Controller {
     {
         /** @var User $user */
         $role = Role::find($id);
-//        dd($role->perms()->lists('id'));
+
         $permissions = Permission::all()->lists('display_name', 'id');
 
+        $colors = config('roles.colors');
+
         return view('user::admin.roles.edit')
-            ->with(['role' => $role, 'permissions' => $permissions]);
+            ->with(['role' => $role, 'permissions' => $permissions, 'colors' => $colors]);
     }
 
     public function update(RoleFormRequest $request, $id)
