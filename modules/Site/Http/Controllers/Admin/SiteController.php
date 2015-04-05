@@ -28,8 +28,6 @@ class SiteController extends Controller {
 
     public function create()
     {
-        $users = User::all()->lists('name', 'id');
-
         $roles = array_merge(
             [ null => trans('site::admin.role.none') ],
             Role::all()->lists('display_name', 'name') );
@@ -37,15 +35,14 @@ class SiteController extends Controller {
         $locales = config('app.locales');
 
         return view('site::admin.pages.create')
-            ->with(['users' => $users, 'roles' => $roles, 'locales' => $locales]);
+            ->with(['roles' => $roles, 'locales' => $locales]);
     }
 
     public function store(PageFormRequest $request)
     {
         $page = new Page($request->all());
 
-        $creator = $request->user();
-        $page->user()->associate($creator);
+        $page->user()->associate($request->user());
         $page->save();
 
         foreach (config('app.locales') as $locale => $name)
@@ -64,8 +61,6 @@ class SiteController extends Controller {
     {
         $page = Page::find($id);
 
-        $users = User::all()->lists('name', 'id');
-
         $roles = array_merge(
             [ null => trans('site::admin.role.none') ],
             Role::all()->lists('display_name', 'name') );
@@ -73,11 +68,12 @@ class SiteController extends Controller {
         $locales = config('app.locales');
 
         return view('site::admin.pages.edit')
-            ->with(['page' => $page, 'users' => $users, 'roles' => $roles, 'locales' => $locales]);
+            ->with(['page' => $page, 'roles' => $roles, 'locales' => $locales]);
     }
 
     public function update(PageFormRequest $request, $id)
     {
+        /** @var Page $page */
         $page = Page::find($id);
         $page->fill($request->all());
         $page->save();

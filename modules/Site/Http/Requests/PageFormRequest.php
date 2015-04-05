@@ -23,7 +23,6 @@ class PageFormRequest extends FormRequest
         return array_merge($rules, [
             'id' => 'exists:pages,id',
             'slug' => 'required',
-            'user_id' => 'exists:users,id',
             'role' => 'exists:roles,name',
             'published_at' => 'date',
             'concealed_at' => 'date',

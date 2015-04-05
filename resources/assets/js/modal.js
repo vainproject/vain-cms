@@ -17,11 +17,6 @@
      * treats the modal
      */
     Confirm.prototype.init = function() {
-
-        this.$element.modal({
-            backdrop: 'static'
-        });
-
         this.$element.modal('show');
         var self = this;
 
@@ -45,6 +40,7 @@
     Confirm.prototype.destroy = function() {
         this.$dismiss.off('click');
         this.$confirm.off('click');
+        this.$element.off('hidden.bs.modal');
     }
 
     $(function() {

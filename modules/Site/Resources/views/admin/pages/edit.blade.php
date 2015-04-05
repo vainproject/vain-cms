@@ -1,14 +1,14 @@
-@extends('site::admin.index')
+@extends('admin')
 
 @section('title')
-    @lang('site::admin.title.edit')
+    @lang('site::page.title.edit')
 @stop
 
 @section('content')
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>@lang('site::admin.title.edit')</h1>
+        <h1>@lang('site::page.title.edit')</h1>
     </section>
 
     <!-- Main content -->
@@ -16,8 +16,8 @@
         {!! Form::model($page, [
             'class' => 'form-horizontal',
             'data-remote',
-            'data-remote-success-message' => trans('site::admin.save.success'),
-            'data-remote-error-message' => trans('site::admin.save.error'),
+            'data-remote-success-message' => trans('site::page.save.success'),
+            'data-remote-error-message' => trans('site::page.save.error'),
             'method' => 'PUT',
             'route' => ['site.admin.sites.update', $page->id]]) !!}
 

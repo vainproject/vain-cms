@@ -39,13 +39,9 @@
         var input = $(this);
         var form = input.closest('form');
 
-        input.attr('disabled', 'disabled');
-
         $.vain.confirm(input.data('confirm'), function (result) {
             if (result)
                 form.submit();
-
-            input.removeAttr('disabled');
         });
 
         e.preventDefault();

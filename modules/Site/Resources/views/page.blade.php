@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('title')
-    @lang('site::page.title', ['title' => $page->content->title])
+    @lang('site::page.title.show', ['title' => $page->content->title])
 @stop
 
 @section('keywords')
