@@ -17,6 +17,7 @@ var scripts_include = [
     './bower_components/bootstrap/dist/js/bootstrap.js',
     './bower_components/toastr/toastr.js',
     './bower_components/bootstrap-select/dist/js/bootstrap-select.js',
+    './bower_components/emojify.js/dist/js/emojify.js',
 
     /*
      |--------------------------------------------------------------------------
@@ -37,7 +38,7 @@ var scripts_include = [
     //'./modules/Forum/Resources/assets/js/*.js',
     //'./modules/Site/Resources/assets/js/*.js',
     //'./modules/User/Resources/assets/js/*.js',
-    './modules/Message/Resources/assets/js/*.js',
+    './modules/Message/Resources/assets/js/*.js'
 ];
 
 var scripts_admin_include = [
@@ -86,6 +87,9 @@ elixir(function(mix) {
     // copy fonts
     mix.copy('./bower_components/bootstrap/dist/fonts', 'public/static/fonts');
     mix.copy('./bower_components/font-awesome/fonts', 'public/static/fonts');
+
+    // copy images
+    mix.copy('./bower_components/emojify.js/dist/images/basic', 'public/static/images/emojify');
 
     // copy admin statics
     //mix.copy('./bower_components/admin-lte/plugins', 'public/static/plugins');

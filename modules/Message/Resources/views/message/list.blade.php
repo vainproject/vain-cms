@@ -20,7 +20,6 @@
         {{--</div>--}}
     {{--</div>--}}
     {{--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">--}}
-
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -53,7 +52,7 @@
                             </div>
                             <div class="media-body">
                                 <h5 class="media-heading"><strong>{!! $thread->participant_string !!}</strong></h5>
-                                <small>{{ $thread->shortbody }}</small>
+                                <small class="emojimessage">{{ $thread->shortbody }}</small>
                             </div>
                         </div>
                     @endforeach
@@ -94,7 +93,7 @@
                                         {!! link_to_route('user.profile', $message->user->name, $message->user->id) !!}
                                     </h5>
 
-                                    <small class="col-lg-10">{{ $message->body }}</small>
+                                    <small class="emojimessage">{{ $message->body }}</small>
                                 </div>
                             </div>
                         @endforeach
@@ -123,19 +122,26 @@
 
 @section('scripts')
     <script type="text/javascript">
+
+        // ToDo: move js to external file
         $(document).ready(function() {
+            // set conversation scroll bar to bottom
             var d = $('#msg-wrap');
-            d.scrollTop(d.prop("scrollHeight"));
+            if (d)
+                d.scrollTop(d.prop("scrollHeight"));
 
             emojify.setConfig({
+                img_dir: 'static/images/emojify',
                 emoticons_enabled: true,
                 people_enabled: true,
                 nature_enabled: true,
                 objects_enabled: true,
                 places_enabled: true,
                 symbols_enabled: true
+                //mode: 'sprite'
             });
-            emojify.run();
+            $('.emojimessage').each(function() { emojify.run($(this)[0]); });
         });
+
     </script>
 @stop

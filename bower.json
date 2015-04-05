@@ -6,6 +6,7 @@
     "admin-lte": "*",
     "toastr": "*",
     "bootstrap-select": "*",
-    "font-awesome": "*"
+    "font-awesome": "*",
+    "emojify.js": "~1.0.1"
   }
 }
