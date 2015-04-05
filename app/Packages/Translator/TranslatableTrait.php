@@ -75,7 +75,7 @@ trait TranslatableTrait {
     }
 
     /**
-     * exists in internal runtme cache
+     * exists in internal runtime cache
      *
      * @param $locale
      * @return bool

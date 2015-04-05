@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    @lang('user::auth.title.reset')
+@stop
+
 @section('content')
 <div class="container-fluid">
     <div class="row">

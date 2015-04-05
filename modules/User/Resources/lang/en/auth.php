@@ -1,6 +1,12 @@
 <?php
 
 return [
+    'title' => [
+        'login' => 'Sign In',
+        'logout' => 'Sign Out',
+        'register' => 'Register',
+        'reset' => 'Reset Password',
+    ],
     'action' => [
         'login' => 'Sign In',
         'logout' => 'Sign Out',
@@ -8,7 +14,7 @@ return [
         'reset' => 'Reset Password',
     ],
     'remember_me' => 'Remember me',
-    'send_reset' => ' Send Password Reset Link ',
+    'send_reset' => 'Send',
     'forgot_password' => 'Forgot Your Password?',
     'member_since' => 'Member since :date',
 ];

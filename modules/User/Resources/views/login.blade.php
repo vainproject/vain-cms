@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    @lang('user::auth.title.login')
+@stop
+
 @section('content')
     <div class="container-fluid">
         <div class="row">
