@@ -23,9 +23,6 @@
 
     <div class="container">
         <div class="row">
-            @foreach ($errors->all() as $error)
-                {!! var_dump($error); !!}
-            @endforeach
             <div class="col-lg-3">
                 <div class="btn-panel btn-panel-conversation">
                     {{--<a href="" class="btn  col-lg-6 send-message-btn " role="button"><i class="fa fa-search"></i> Search</a>--}}
