@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7cc30ee00df58916171584e6e371bef8",
+    "hash": "2bd6c614056214f60c380198b36db733",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1627,6 +1627,52 @@
             "time": "2015-04-03 14:33:59"
         },
         {
+            "name": "ottowayne/laravel-langcheck",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ottowayne/laravel-langcheck.git",
+                "reference": "4d1fe414bfea5990563640008cb0e691c112c0e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ottowayne/laravel-langcheck/zipball/4d1fe414bfea5990563640008cb0e691c112c0e8",
+                "reference": "4d1fe414bfea5990563640008cb0e691c112c0e8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "5.0.x",
+                "illuminate/filesystem": "5.0.x",
+                "illuminate/support": "5.0.x",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ottowayne\\LangCheck\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ottowayne",
+                    "email": "mr.ottowayne@gmail.com"
+                }
+            ],
+            "description": "Laravel package to find missing translation entries",
+            "keywords": [
+                "lang",
+                "language",
+                "laravel",
+                "trans",
+                "translation"
+            ],
+            "time": "2015-03-29 16:33:26"
+        },
+        {
             "name": "phpdocumentor/reflection-docblock",
             "version": "2.0.4",
             "source": {
@@ -2800,16 +2846,16 @@
         },
         {
             "name": "zizaco/entrust",
-            "version": "dev-laravel-5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Zizaco/entrust.git",
-                "reference": "305916c40ed35dd6ebb81379db51ec582df19623"
+                "reference": "ecd50b6f766fa35b898d3ca7860aba7b1e9d8d54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/305916c40ed35dd6ebb81379db51ec582df19623",
-                "reference": "305916c40ed35dd6ebb81379db51ec582df19623",
+                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/ecd50b6f766fa35b898d3ca7860aba7b1e9d8d54",
+                "reference": "ecd50b6f766fa35b898d3ca7860aba7b1e9d8d54",
                 "shasum": ""
             },
             "require": {
@@ -2863,7 +2909,7 @@
                 "permission",
                 "roles"
             ],
-            "time": "2015-03-20 15:05:21"
+            "time": "2015-03-24 15:08:42"
         }
     ],
     "packages-dev": [
@@ -2971,52 +3017,6 @@
                 "instantiate"
             ],
             "time": "2014-10-13 12:58:55"
-        },
-        {
-            "name": "ottowayne/laravel-langcheck",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ottowayne/laravel-langcheck.git",
-                "reference": "4d1fe414bfea5990563640008cb0e691c112c0e8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ottowayne/laravel-langcheck/zipball/4d1fe414bfea5990563640008cb0e691c112c0e8",
-                "reference": "4d1fe414bfea5990563640008cb0e691c112c0e8",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "5.0.x",
-                "illuminate/filesystem": "5.0.x",
-                "illuminate/support": "5.0.x",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Ottowayne\\LangCheck\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ottowayne",
-                    "email": "mr.ottowayne@gmail.com"
-                }
-            ],
-            "description": "Laravel package to find missing translation entries",
-            "keywords": [
-                "lang",
-                "language",
-                "laravel",
-                "trans",
-                "translation"
-            ],
-            "time": "2015-03-29 16:33:26"
         },
         {
             "name": "phpspec/php-diff",
