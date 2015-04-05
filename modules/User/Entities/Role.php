@@ -1,9 +1,12 @@
 <?php namespace Modules\User\Entities;
 
+use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
 use Zizaco\Entrust\EntrustRole;
 
 class Role extends EntrustRole
 {
+    use LocalizedEloquentTrait;
+
     /**
      * The attributes that are mass assignable.
      *

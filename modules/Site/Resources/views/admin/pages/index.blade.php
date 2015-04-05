@@ -43,10 +43,10 @@
                             <td>@userbadge($page->user)</td>
                             <td>{{ $page->slug }} <a href="{{ route('site.show', ['slug' => $page->slug]) }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
                             <td>{{ $page->role }}</td>
-                            <td>{{ $page->published_at }}</td>
-                            <td>{{ $page->concealed_at }}</td>
-                            <td>{{ $page->created_at }}</td>
-                            <td>{{ $page->updated_at }}</td>
+                            <td>{{ isset($page->published_at) ? $page->published_at->diffForHumans() : '' }}</td>
+                            <td>{{ isset($page->concealed_at) ? $page->concealed_at->diffForHumans() : '' }}</td>
+                            <td>{{ $page->created_at->diffForHumans() }}</td>
+                            <td>{{ $page->updated_at->diffForHumans() }}</td>
                             <td>
                                 {!! Form::open([
                                      'class' => 'form-inline',

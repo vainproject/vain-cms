@@ -3,12 +3,13 @@
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
 use Vain\Packages\Translator\Translatable as TranslatableContract;
 use Vain\Packages\Translator\TranslatableTrait;
 
 class Page extends Model implements TranslatableContract {
 
-    use SoftDeletes, TranslatableTrait;
+    use SoftDeletes, TranslatableTrait, LocalizedEloquentTrait;
 
     /**
      * The database table used by the model.

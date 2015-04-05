@@ -37,7 +37,8 @@ class UserTableSeeder extends Seeder {
             'name' => 'Admin',
             'email' => 'admin@vain.app',
             'password' => bcrypt('123456'),
-            'locale' => 'en'
+            'locale' => 'en',
+            'birthday_at' => '2000-01-01',
         ]);
 
         // add user to admin roles
