@@ -60,7 +60,7 @@
                                 <h5 class="media-heading">
                                     <strong>{!! $thread->participantsString(Auth::id(), ['name'], 30) !!}</strong>
                                 </h5>
-                                <small>{{ str_limit($thread->lastmessage->body, 30) }}</small>
+                                <small>{{ $thread->shortbody }}</small>
                             </div>
                         </div>
                     @endforeach

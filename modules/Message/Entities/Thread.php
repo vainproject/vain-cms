@@ -102,6 +102,21 @@ class Thread extends MessengerThread
     }
 
     /**
+     * Returns shortened string of last message (incl. user name if participant size > 2)
+     * @return string
+     */
+    public function getShortbodyAttribute()
+    {
+        $body = $this->lastmessage->body;
+        if ($this->participants->count() > 2) {
+            $name = $this->lastmessage->user->name;
+            return str_limit($name . ': ' . $body, (40 - strlen($name) - 2));
+        }
+
+        return str_limit($body, 40);
+    }
+
+    /**
      * Generates a string of participant information
      * @param null $userId
      * @param array $columns
