@@ -18,11 +18,11 @@ class PageFormRequest extends FormRequest
             'text' => 'required'
         ];
 
-        $rules = $this->buildRules($attributes);
+        $rules = $this->buildLocalizedRules($attributes);
 
         return array_merge($rules, [
             'id' => 'exists:pages,id',
-            'slug' => 'required',
+            'slug' => 'required|alpha_dash|unique:pages,slug,'. $this->route('pages'),
             'role' => 'exists:roles,name',
             'published_at' => 'date',
             'concealed_at' => 'date',
@@ -43,7 +43,7 @@ class PageFormRequest extends FormRequest
      * @param $attributes
      * @return array
      */
-    protected function buildRules($attributes)
+    protected function buildLocalizedRules($attributes)
     {
         $rules = [];
         $locales = config('app.locales');
