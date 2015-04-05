@@ -4,6 +4,14 @@
     @lang('blog::blog.title.post', ['name' => $post->content->title])
 @stop
 
+@section('keywords')
+    {{ $post->content->keywords }}
+@stop
+
+@section('description')
+    {{ $post->content->description }}
+@stop
+
 @section('content')
 
     <div class="container">

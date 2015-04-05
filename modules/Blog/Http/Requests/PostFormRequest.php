@@ -1,10 +1,10 @@
-<?php namespace Modules\Site\Http\Requests;
+<?php namespace Modules\Blog\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Validator;
 
-class PageFormRequest extends FormRequest
+class PostFormRequest extends FormRequest
 {
     /**
      * validation that has to pass
@@ -18,33 +18,17 @@ class PageFormRequest extends FormRequest
             'text' => 'required'
         ];
 
-        $rules = $this->buildRules($attributes);
+        $rules = $this->buildLocalizedRules($attributes);
 
         return array_merge($rules, [
-            'id' => 'exists:pages,id',
-            'slug' => 'required',
-            'user_id' => 'exists:users,id',
-            'role' => 'exists:roles,name',
-            'published_at' => 'date',
-            'concealed_at' => 'date',
+            'id' => 'exists:posts,id',
+            'slug' => 'required|unique:posts,slug,'.$this->route('posts'),
+            'user_id' => 'required|exists:users,id',
+            'category_id' => 'required|exists:post_categories,id'
         ]);
     }
 
-    /**
-     * @return bool
-     */
-    public function authorize()
-    {
-        return Auth::check();
-    }
-
-    /**
-     * builds localized suffixed rules for validation
-     *
-     * @param $attributes
-     * @return array
-     */
-    protected function buildRules($attributes)
+    private function buildLocalizedRules($attributes)
     {
         $rules = [];
         $locales = config('app.locales');
@@ -60,10 +44,17 @@ class PageFormRequest extends FormRequest
         return $rules;
     }
 
+    /***
+     * @return bool
+     */
+    public function authorize()
+    {
+        return Auth::check();
+    }
+
     protected function failedValidation(Validator $validator)
     {
-        if ($this->ajax())
-        {
+        if ($this->ajax()) {
             $this->session()->flash('errors', $validator->getMessageBag());
         }
 

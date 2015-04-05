@@ -22,7 +22,7 @@ class Post extends Model implements Translatable {
     /**
      * @var array
      */
-    protected $fillable = ['slug', 'role', 'published_at', 'concealed_at'];
+    protected $fillable = ['slug', 'role', 'published_at', 'concealed_at', 'category_id'];
 
     /**
      * @var array
@@ -38,7 +38,7 @@ class Post extends Model implements Translatable {
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {

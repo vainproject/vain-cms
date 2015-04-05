@@ -15,7 +15,9 @@
     <section class="content">
         <div class="box">
             <div class="box-header with-border">
-                <a class="btn btn btn-success" href=""><i class="fa fa-plus-circle"></i> New</a>
+                <a class="btn btn btn-primary" href="{{ route('blog.admin.posts.create') }}">
+                    <i class="fa fa-plus-circle"></i> @lang('blog::admin.posts.action.create')
+                </a>
             </div>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-striped">
@@ -57,15 +59,7 @@
                     </tbody>
                 </table>
             </div>
-            @if ($posts->hasPages())
-                <div class="box-footer">
-                    <div class="pull-right">
-                        {!! $posts->render(new Vain\Presenters\Pagination\AdminLtePresenter($posts)) !!}
-                    </div>
-
-                    <div class="clearfix"></div>
-                </div>
-            @endif
+            @include('blog::admin.partials.pagination', [ 'items' => $posts ])
         </div>
     </section>
     @include('blog::admin.posts.modal')

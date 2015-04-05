@@ -12,10 +12,6 @@
     {{ $page->content->description }}
 @stop
 
-@section('keywords')
-    {{ $page->content->title }}
-@stop
-
 @section('content')
     <div class="container">
         @if (Entrust::can('site.pages.edit'))

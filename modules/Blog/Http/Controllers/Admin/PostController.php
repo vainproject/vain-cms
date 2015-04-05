@@ -2,8 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Blog\Entities\Category;
 use Modules\Blog\Entities\Post;
-use Modules\Site\Http\Requests\PageFormRequest;
+use Modules\Blog\Entities\PostContent;
+use Modules\Blog\Http\Requests\PostFormRequest;
+use Modules\User\Entities\User;
 
 class PostController extends Controller
 {
@@ -24,12 +27,64 @@ class PostController extends Controller
         return view('blog::admin.posts.index', ['posts' => $posts]);
     }
 
+    public function create()
+    {
+        $users = User::all()->lists('name', 'id');
+        $locales = config('app.locales');
+        $categories = Category::all()->lists('content.name', 'id');
+
+        return view('blog::admin.posts.create', ['users' => $users, 'locales' => $locales, 'categories' => $categories]);
+    }
+
+    public function store(PostFormRequest $request)
+    {
+        /** @var Post $post */
+        $post = new Post($request->all());
+
+        $post->user()->associate($request->user());
+        $post->save();
+
+        foreach (config('app.locales') as $locale => $name)
+        {
+            $content = (new PostContent())
+                ->fillTranslated($locale, $request->all());
+
+            $content->post()->associate($post);
+            $content->save();
+        }
+
+        return $this->createDefaultResponse($request);
+    }
+
     public function edit($id)
     {
         /** @var Post $post */
         $post = Post::find($id);
+        $locales = config('app.locales');
+        $categories = Category::all()->lists('content.name', 'id');
+        $users = User::all()->lists('name', 'id');
 
-        return view('blog::admin.posts.edit', ['post' => $post]);
+        return view('blog::admin.posts.edit', ['post' => $post, 'locales' => $locales, 'users' => $users, 'categories' => $categories]);
+    }
+
+    public function update(PostFormRequest $request, $id)
+    {
+        /** @var Post $post */
+        $post = Post::find($id);
+        $post->fill($request->all());
+        $post->save();
+
+        foreach (config('app.locales') as $locale => $name)
+        {
+            $content = $post->contents()
+                ->localeOrNew($locale)
+                ->fillTranslated($locale, $request->all());
+
+            $content->post()->associate($post);
+            $content->save();
+        }
+
+        return $this->createDefaultResponse($request);
     }
 
     public function destroy(Request $request, $id)

@@ -41,6 +41,28 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    {!! Form::label('slug', trans('blog::admin.posts.field.author'), ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::select('user_id', $users, null, ['class' => 'form-control', 'data-select']) !!}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('slug', trans('blog::admin.posts.field.category_id'), ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'data-select']) !!}
+                    </div>
+                </div>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+    <div class="col-md-6 col-sm-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">@lang('blog::admin.posts.section.dates')</h3>
+            </div>
+            <div class="box-body">
+                <div class="form-group">
                     {!! Form::label('published_at', trans('blog::admin.posts.field.published_at'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
                         {!! Form::date('published_at', null, ['class' => 'form-control']) !!}
@@ -52,9 +74,29 @@
                         {!! Form::date('concealed_at', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
-            </div><!-- /.box-body -->
-        </div><!-- /.box -->
+            </div>
+        </div>
     </div>
 
 </div><!-- /.row -->
 
+<div role="tabpanel" class="nav-tabs-custom">
+    <ul class="nav nav-tabs" role="tablist" data-auto-active>
+        @foreach($locales as $locale => $name)
+            <li role="presentation">
+                <a href="#{{ $locale }}" aria-controls="{{ $locale }}" role="tab" data-toggle="tab">{{ $name }}</a>
+            </li>
+        @endforeach
+    </ul>
+    <div class="tab-content" data-auto-active>
+        @foreach($locales as $locale => $name)
+            <div role="tabpanel" class="tab-pane" id="{{ $locale }}">
+                @include('blog::admin.posts.content', ['locale' => $locale])
+            </div>
+        @endforeach
+    </div>
+</div>
+
+@section('scripts')
+    <script src="/vendor/ckeditor/ckeditor.js"></script>
+@stop
