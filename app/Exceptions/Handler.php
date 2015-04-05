@@ -44,7 +44,12 @@ class Handler extends ExceptionHandler {
 //            return $this->renderXmlHttpException($e);
 
         if (config('app.debug'))
+        {
+            if ($request->isXmlHttpRequest())
+                return $this->renderDebugXmlHttpException($e);
+
             return $this->renderExceptionWithWhoops($e);
+        }
 
         return parent::render($request, $e);
     }
@@ -77,7 +82,30 @@ class Handler extends ExceptionHandler {
     {
         // handle our ajax errors
         $data = [
-            'message' => $e->getMessage()
+            'message' => $e->getMessage(),
+        ];
+
+        if ($e instanceof HttpException)
+        {
+            return new JsonResponse($data, $e->getStatusCode());
+        }
+
+        return new JsonResponse($data, 500);
+    }
+
+    /**
+     * Renders an exception from ajax requests
+     * Only use this in debug mode
+     *
+     * @param \Exception $e
+     * @return JsonResponse
+     */
+    protected function renderDebugXmlHttpException($e)
+    {
+        // handle our ajax errors
+        $data = [
+            'message' => $e->getMessage(),
+            'trace' => $e->getTrace(),
         ];
 
         if ($e instanceof HttpException)

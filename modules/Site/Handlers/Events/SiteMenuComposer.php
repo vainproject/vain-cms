@@ -11,7 +11,7 @@ class SiteMenuComposer {
      */
     public function composeBackendMenu(BackendMenuCreated $event)
     {
-        $event->handler->addChild('site::admin.title.index')
+        $event->handler->addChild('site::page.title.index')
             ->setUri(route('site.admin.sites.index'))
             ->setExtra('icon', 'file-o');
     }
@@ -21,12 +21,12 @@ class SiteMenuComposer {
      */
     public function composeFrontendMenu(FrontendMenuCreated $event)
     {
-        $event->handler->addChild('site::page.index')
+        $event->handler->addChild('site::page.title.index')
             ->setUri('#');
 
         foreach (Page::published()->get() as $page)
         {
-            $event->handler['site::page.index']->addChild($page->slug)
+            $event->handler['site::page.title.index']->addChild($page->slug)
                 ->setLabel($page->content->title)
                 ->setUri(route('site.show', [ 'slug' => $page->slug ]))
                 ->setExtra('raw', true);

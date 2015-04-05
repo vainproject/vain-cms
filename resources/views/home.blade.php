@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    Home
+@stop
+
 @section('content')
 <div class="container">
     <div class="row">
