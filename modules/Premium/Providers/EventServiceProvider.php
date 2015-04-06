@@ -15,7 +15,9 @@ class EventServiceProvider extends ServiceProvider {
     /**
      * @var array
      */
-    protected $subscribe = [];
+    protected $subscribe = [
+        'Modules\Premium\Handlers\Events\PremiumMenuComposer',
+    ];
 
     /**
      * Register any other events for your application.

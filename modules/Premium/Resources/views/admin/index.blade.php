@@ -1,4 +1,8 @@
-@extends('app')
+@extends('admin')
+
+@section('title')
+    @lang('premium::premium.title.index')
+@stop
 
 @section('content')
 

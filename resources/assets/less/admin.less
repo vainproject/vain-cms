@@ -4,9 +4,14 @@
 
 .sidebar-form {
   input[type="text"] {
+
     &:focus, &:focus + .input-group-btn .btn {
       color: #fff !important;
       background-color: lighten(@sidebar-dark-bg, 10%) !important;
+    }
+
+    &:focus + .input-group-btn .btn {
+      border-left-color: lighten(@sidebar-dark-bg, 10%) !important;
     }
   }
 }

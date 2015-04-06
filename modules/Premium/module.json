@@ -4,7 +4,7 @@
     "description": "",
     "keywords": [],
     "active": 1,
-    "order": 0,
+    "order": 5,
     "providers": [
         "Modules\\Premium\\Providers\\EventServiceProvider",
         "Modules\\Premium\\Providers\\ConfigServiceProvider",
@@ -12,7 +12,5 @@
         "Modules\\Premium\\Providers\\PremiumServiceProvider"
     ],
     "aliases":{},
-    "files": [
-        "start.php"
-    ]
+    "files": []
 }
