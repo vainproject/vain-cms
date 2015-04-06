@@ -48,8 +48,8 @@
                                     'data-remote-error-message' => trans('user::user.delete.error'),
                                     'route' => ['user.admin.users.destroy', $user->id],
                                     'method' => 'DELETE']) !!}
-                                    <a class="btn btn-default" href="{{ route('user.admin.users.edit', ['id' => $user->id]) }}"><i class="fa fa-edit"></i></a>
-                                    <button class="btn btn-danger" type="submit" data-confirm="#modal"><i class="fa fa-trash"></i></button>
+                                    <a class="btn btn-default" href="{{ route('user.admin.users.edit', ['id' => $user->id]) }}"><i class="fa fa-edit"></i> @lang('user::user.action.edit')</a>
+                                    <button class="btn btn-danger" type="submit" data-confirm="#modal"><i class="fa fa-trash"></i> @lang('user::user.action.delete')</button>
                                 {!! Form::close() !!}
                             </td>
                         </tr>

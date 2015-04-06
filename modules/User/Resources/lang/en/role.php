@@ -9,6 +9,8 @@ return [
     'action' => [
         'create' => 'Create',
         'save' => 'Save',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
         'abort' => 'Abort',
         'confirm' => 'Confirm',
     ],

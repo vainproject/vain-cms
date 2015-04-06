@@ -47,7 +47,7 @@
                             <td>{{ isset($page->concealed_at) ? $page->concealed_at->diffForHumans() : '' }}</td>
                             <td>{{ $page->created_at->diffForHumans() }}</td>
                             <td>{{ $page->updated_at->diffForHumans() }}</td>
-                            <td>
+                            <td class="text-right">
                                 {!! Form::open([
                                      'class' => 'form-inline',
                                      'data-remote',
@@ -55,8 +55,8 @@
                                      'data-remote-error-message' => trans('site::page.delete.error'),
                                      'route' => ['site.admin.sites.destroy', $page->id],
                                      'method' => 'DELETE']) !!}
-                                <a class="btn btn-default" href="{{ route('site.admin.sites.edit', ['id' => $page->id]) }}"><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger" type="submit" data-confirm="#modal"><i class="fa fa-trash"></i></button>
+                                <a class="btn btn-sm btn-default" href="{{ route('site.admin.sites.edit', ['id' => $page->id]) }}"><i class="fa fa-edit"></i> @lang('site::page.action.edit')</a>
+                                <button class="btn btn-sm btn-danger" type="submit" data-confirm="#modal"><i class="fa fa-trash"></i> @lang('site::page.action.delete')</button>
                                 {!! Form::close() !!}
                             </td>
                         </tr>

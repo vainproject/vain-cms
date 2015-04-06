@@ -10,6 +10,8 @@ return [
     'action' => [
         'create' => 'Erstellen',
         'save' => 'Speichern',
+        'edit' => 'Bearbeiten',
+        'delete' => 'Löschen',
         'abort' => 'Abbrechen',
         'confirm' => 'Bestätigen',
     ],
