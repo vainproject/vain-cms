@@ -23,7 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <a href="{!! URL::route('message.message.create') !!}" class="btn  col-lg-6  send-message-btn" role="button">
+                <a data-target="#modal-send-message" class="send-message-btn" role="button" data-toggle="modal">
                     <i class="fa fa-plus"></i> @lang('message::message.new_message')
                 </a>
             </div>
@@ -40,9 +40,9 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-large scrollable-menu">
                                     <li>
-                                        <a href="#">
-                                        &nbsp;<span class="fa fa-plus"></span>
-                                        Teilnehmer hinzufügen
+                                        <a data-target="#modal-add-participant" class="add-participant-btn" role="button" data-toggle="modal">
+                                            &nbsp;<span class="fa fa-plus"></span>
+                                            @lang('message::message.add_participant')
                                         </a>
                                     </li>
                                     <li role="presentation" class="divider"></li>
@@ -71,6 +71,7 @@
                                 <h5 class="media-heading"><strong>{!! $thread->participantString(40) !!}</strong></h5>
                                 <small class="emojimessage">{{ $thread->shortbody }}</small>
                             </div>
+{{--                            <small class="pull-right time" title="{{ $thread->lastmessage->created_at }}"><i class="fa fa-clock-o"></i> {{ $thread->lastmessage->created_at->diffForHumans() }}</small>--}}
                         </div>
                     @endforeach
                 @else
@@ -120,17 +121,94 @@
                 @if($curThread)
                     {!! Form::open(['method' => 'PUT', 'route' => ['message.message.update', $curThread->id]]) !!}
                         <div class="send-wrap ">
-                            <textarea name="message" class="form-control send-message" rows="2" placeholder="@lang('message::message.write_a_reply')"></textarea>
+                            <div class="row">
+                                <div class="col-lg-11">
+                                    <textarea name="message" class="form-control send-message" rows="2" placeholder="@lang('message::message.write_a_reply')"></textarea>
+                                </div>
+                                <div class="col-lg-1">
+                                    <button class="btn btn-block btn-default text-center">
+                                        <i class="fa fa-smile-o"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div class="btn-panel">
-                            <a href="" class=" col-lg-3 btn   send-message-btn " role="button"><i class="fa fa-plus"></i> @lang('message::message.add_participant')</a>
+                            {{--<a href="" class=" col-lg-3 btn   send-message-btn " role="button"><i class="fa fa-plus"></i> @lang('message::message.add_participant')</a>--}}
                             {{--<a class=" col-lg-4 text-right btn   send-message-btn pull-right" role="button"></a>--}}
-                            <button type="submit" class="col-lg-4 text-right btn send-message-btn pull-right" role="button">
+                            <button type="submit" class="col-lg-4 text-right btn pull-right" role="button">
                                 <i class="fa fa-envelope"></i> @lang('message::message.send_message')
                             </button>
                         </div>
                     {!! Form::close() !!}
                 @endif
+            </div>
+        </div>
+    </div>
+
+    {{-- New message modal --}}
+    <div class="modal fade" id="modal-send-message" tabindex="-1" role="dialog" aria-labelledby="sendMessageLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {!! Form::open(['route' => 'message.message.store']) !!}
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="sendMessageLabel">@lang('message::message.send_message')</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8">
+                            {!! Form::label('subject', trans('message::message.subject')) !!}
+                            {!! Form::text('subject', null, ['class' => 'form-control']) !!}
+                            <br/>
+
+                            {!! Form::label('participants', trans('message::message.participants')) !!}
+                            {!! Form::text('participants', null, ['class' => 'form-control']) !!}
+                            <br/>
+
+                            {!! Form::label('message', trans('message::message.message')) !!}
+                            {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    {!! Form::submit('Absenden', ['class' => 'btn btn-success']) !!}
+                </div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+
+    {{-- Add participant modal --}}
+    <div class="modal fade" id="modal-add-participant" tabindex="-1" role="dialog" aria-labelledby="addParticipantLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {!! Form::open(['route' => 'message.message.store']) !!}
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="addParticipantLabel">@lang('message::message.send_message')</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8">
+                            {!! Form::label('subject', trans('message::message.subject')) !!}
+                            {!! Form::text('subject', null, ['class' => 'form-control']) !!}
+                            <br/>
+
+                            {!! Form::label('participants', trans('message::message.participants')) !!}
+                            {!! Form::text('participants', null, ['class' => 'form-control']) !!}
+                            <br/>
+
+                            {!! Form::label('message', trans('message::message.message')) !!}
+                            {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    {!! Form::submit('Absenden', ['class' => 'btn btn-success']) !!}
+                </div>
+                {!! Form::close() !!}
             </div>
         </div>
     </div>
