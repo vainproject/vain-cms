@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2bd6c614056214f60c380198b36db733",
+    "hash": "3d8e9bedcd4c6c9062c0d17ba723272f",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -432,44 +432,6 @@
             ],
             "description": "Laravel package to create navigation menus, based on KnpLabs/KnpMenu.",
             "time": "2015-03-13 18:04:40"
-        },
-        {
-            "name": "emojione/emojione",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Ranks/emojione.git",
-                "reference": "804aa5d24aee42980bceb29fceaf5769b17fde2f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Ranks/emojione/zipball/804aa5d24aee42980bceb29fceaf5769b17fde2f",
-                "reference": "804aa5d24aee42980bceb29fceaf5769b17fde2f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Emojione\\": "lib/php/src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "Emoji One is a complete set of emojis designed for the web. It includes libraries to easily convert unicode characters to shortnames (:smile:) and shortnames to our custom emoji images. PNG and SVG formats provided for the emoji images.",
-            "homepage": "http://www.emojione.com",
-            "keywords": [
-                "Emoji One",
-                "emoji",
-                "emojione",
-                "emojis",
-                "emoticons",
-                "smileys",
-                "smilies",
-                "unicode"
-            ],
-            "time": "2015-03-12 23:29:06"
         },
         {
             "name": "filp/whoops",
@@ -4085,7 +4047,6 @@
         "pingpong/modules": 20,
         "zizaco/entrust": 20,
         "dowilcox/knp-menu-laravel": 20,
-        "emojione/emojione": 20,
         "ottowayne/laravel-langcheck": 20
     },
     "prefer-stable": false,

@@ -29,7 +29,7 @@ class MessageController extends Controller
         if ($curThread)
             $curThread->markAsRead(Auth::id());
 
-        return view('message::message.list', compact('threads', 'curThread'));
+        return view('message::message.index', compact('threads', 'curThread'));
     }
 
     /**
@@ -98,7 +98,7 @@ class MessageController extends Controller
 
         $curThread->markAsRead(Auth::id());
 
-        return view('message::message.list', compact('threads', 'curThread'));
+        return view('message::message.index', compact('threads', 'curThread'));
     }
 
     /**

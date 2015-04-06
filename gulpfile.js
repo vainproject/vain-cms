@@ -18,6 +18,7 @@ var scripts_include = [
     './bower_components/toastr/toastr.js',
     './bower_components/bootstrap-select/dist/js/bootstrap-select.js',
     './bower_components/emojify.js/dist/js/emojify.js',
+    './bower_components/jquery-textcomplete/dist/jquery.textcomplete.js',
 
     /*
      |--------------------------------------------------------------------------
@@ -38,7 +39,7 @@ var scripts_include = [
     //'./modules/Forum/Resources/assets/js/*.js',
     //'./modules/Site/Resources/assets/js/*.js',
     //'./modules/User/Resources/assets/js/*.js',
-    './modules/Message/Resources/assets/js/*.js'
+    './modules/Message/Resources/assets/js/message.js'
 ];
 
 var scripts_admin_include = [

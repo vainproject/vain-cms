@@ -22,6 +22,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $table = 'users';
 
     /**
+     * @var array
+     */
+    protected $dates = ['last_active_at'];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
