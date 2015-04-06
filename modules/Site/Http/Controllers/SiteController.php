@@ -20,13 +20,13 @@ class SiteController extends Controller {
 
         if ($page === null)
         {
-            throw new NotFoundHttpException('page with slug \''. $slug .'\' not found');
+            app()->abort(404, 'page with slug \''. $slug .'\' not found');
         }
 
-        if (!empty($page->role) && !$request->user()->hasRole($page->role))
-        {
-            throw new NotFoundHttpException('no permission to view page with slug \''. $slug .'\'');
-        }
+//        if (!empty($page->role) && !$request->user()->hasRole($page->role))
+//        {
+//            app()->abort(403, 'no permission to view page with slug \''. $slug .'\'');
+//        }
 
         return view('site::page')->with('page', $page);
     }

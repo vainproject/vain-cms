@@ -63,6 +63,7 @@ class PageFormRequest extends FormRequest
     {
         if ($this->ajax())
         {
+            $this->session()->flashInput($this->all());
             $this->session()->flash('errors', $validator->getMessageBag());
         }
 

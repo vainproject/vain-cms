@@ -52,6 +52,7 @@ class CategoryFormRequest extends FormRequest
     protected function failedValidation(Validator $validator)
     {
         if ($this->ajax()) {
+            $this->session()->flashInput($this->all());
             $this->session()->flash('errors', $validator->getMessageBag());
         }
 
