@@ -146,8 +146,9 @@
             if (d)
                 d.scrollTop(d.prop("scrollHeight"));
 
+            // Emojify
             emojify.setConfig({
-                img_dir: 'static/images/emojify',
+                img_dir: '/static/images/emojify',
                 emoticons_enabled: true,
                 people_enabled: true,
                 nature_enabled: true,
