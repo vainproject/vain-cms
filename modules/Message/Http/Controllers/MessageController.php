@@ -82,14 +82,20 @@ class MessageController extends Controller
      * @param Thread $thread
      * @return \Illuminate\View\View
      */
-    public function show(Thread $curThread)
+    public function show(Thread $thread)
     {
         /** @var Thread[] $threads */
         $threads = Thread::withComponents()
             ->forUser(Auth::id())
             ->get();
 
-        $curThread->load(['messages', 'messages.user']);
+        // this is the most query-saving solution
+        // we already have our desired thread with relations in the collection
+        // by doing this we don't have to load them again
+        $curThread = $threads->filter(function($item) use($thread) {
+            return $item->id == $thread->id;
+        })->first();
+
         $curThread->markAsRead(Auth::id());
 
         return view('message::message.list', compact('threads', 'curThread'));

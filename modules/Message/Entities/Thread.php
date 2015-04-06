@@ -132,7 +132,7 @@ class Thread extends MessengerThread
             if ($participant->user_id == Auth::id())
                 continue;
 
-            if ((strlen($participant->name) + $length) > ($maxLength - 5)) {
+            if ((strlen($participant->user->name) + $length) > ($maxLength - 5)) {
                 $participantNames[] = "...";
                 break;
             }
