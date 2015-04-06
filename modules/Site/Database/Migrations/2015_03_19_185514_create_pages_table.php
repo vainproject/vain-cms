@@ -17,7 +17,6 @@ class CreatePagesTable extends Migration {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('slug')->unique();
-            $table->string('role');
             $table->boolean('active');
             $table->dateTime('published_at')->nullable();
             $table->dateTime('concealed_at')->nullable();

@@ -23,7 +23,6 @@ class PageFormRequest extends FormRequest
         return array_merge($rules, [
             'id' => 'exists:pages,id',
             'slug' => 'required|alpha_dash|unique:pages,slug,'. $this->route('sites'),
-            'role' => 'exists:roles,name',
             'published_at' => 'date',
             'concealed_at' => 'date',
         ]);

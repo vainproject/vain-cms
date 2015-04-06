@@ -45,12 +45,6 @@
                         {!! Form::text('user_id', isset($post) ? $post->user->name : Auth::user()->name, [ 'class' => 'form-control', 'disabled' ]) !!}
                     </div>
                 </div>
-                <div class="form-group">
-                    {!! Form::label('role', trans('site::page.field.role'), ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-9">
-                        {!! Form::select('role', $roles, null, [ 'class' => 'form-control', 'data-select' ]) !!}
-                    </div>
-                </div>
             </div>
         </div>
     </div>

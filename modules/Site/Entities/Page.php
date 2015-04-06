@@ -23,7 +23,7 @@ class Page extends Model implements TranslatableContract {
      *
      * @var array
      */
-    protected $fillable = [ 'slug', 'role', 'published_at', 'concealed_at' ];
+    protected $fillable = [ 'slug', 'published_at', 'concealed_at' ];
 
     /**
      * used for soft deletion

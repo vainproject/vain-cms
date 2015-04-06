@@ -36,14 +36,12 @@ class PagesTableSeeder extends Seeder {
         Page::create([
             'id' => 1,
             'user_id' => 1,
-            'role' => '',
             'slug' => 'setup-the-development-environment',
         ]);
 
         Page::create([
             'id' => 2,
             'user_id' => 1,
-            'role' => '',
             'slug' => 'project-setup-and-maintenance',
         ]);
     }

@@ -16,7 +16,6 @@ return [
     'field' => [
         'id' => '#',
         'slug' => 'Slug',
-        'role' => 'Rolle',
         'name' => 'Titel',
         'text' => 'Inhalt',
         'creator' => 'Erstellt von',

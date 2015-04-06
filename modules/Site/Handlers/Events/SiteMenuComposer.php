@@ -12,6 +12,7 @@ class SiteMenuComposer {
     public function composeBackendMenu(BackendMenuCreated $event)
     {
         $event->handler->addChild('site::page.title.index')
+            ->setExtra('patterns', ['/site\.admin\.sites\.(.+)/'])
             ->setUri(route('site.admin.sites.index'))
             ->setExtra('icon', 'file-o');
     }

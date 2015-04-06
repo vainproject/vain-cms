@@ -65,7 +65,6 @@ class PostsTableSeeder extends Seeder {
             'id' => 1,
             'user_id' => 1,
             'slug' => 'new-gamemaster',
-            'role' => 'registered_user',
             'category_id' => 1
         ]);
 
@@ -73,7 +72,6 @@ class PostsTableSeeder extends Seeder {
             'id' => 2,
             'user_id' => 1,
             'slug' => 'zulaman-released',
-            'role' => '',
             'category_id' => 2
         ]);
     }

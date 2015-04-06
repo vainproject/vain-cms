@@ -22,7 +22,7 @@ class Post extends Model implements Translatable {
     /**
      * @var array
      */
-    protected $fillable = ['slug', 'role', 'published_at', 'concealed_at', 'category_id'];
+    protected $fillable = ['slug', 'published_at', 'concealed_at', 'category_id'];
 
     /**
      * @var array

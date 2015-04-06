@@ -20,8 +20,6 @@ class CreatePostsTable extends Migration {
             $table->string('slug');
             $table->integer('category_id')->unsigned()->nullable();     // mainly nullable for the set-null constraint
 
-            $table->string('role');
-
             $table->dateTime('published_at')->nullable();
             $table->dateTime('concealed_at')->nullable();
 
