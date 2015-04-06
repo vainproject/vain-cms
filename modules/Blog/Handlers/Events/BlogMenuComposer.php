@@ -12,6 +12,7 @@ class BlogMenuComposer
     public function composeFrontendMenu(FrontendMenuCreated $event)
     {
         $event->handler->addChild('blog::blog.index')
+            ->setExtra('routes', ['blog.post.show', 'blog.category.show'])
             ->setUri(route('blog.post.index'));
     }
 
@@ -27,10 +28,12 @@ class BlogMenuComposer
             ->setUri(route('blog.post.index'));
 
         $event->handler['blog.admin']->addChild('blog::admin.title.posts')
+            ->setExtra('patterns', ['/blog\.admin\.posts\.(.+)/'])
             ->setUri(route('blog.admin.posts.index'))
             ->setExtra('icon', 'circle-o');
 
         $event->handler['blog.admin']->addChild('blog::admin.title.categories')
+            ->setExtra('patterns', ['/blog\.admin\.categories\.(.+)/'])
             ->setUri(route('blog.admin.categories.index'))
             ->setExtra('icon', 'circle-o');
     }

@@ -15,14 +15,17 @@ class UserMenuComposer {
             ->setExtra('icon', 'users');
 
         $event->handler['user.admin']->addChild('user::user.title.index')
+            ->setExtra('patterns', ['/user\.admin\.users\.(.+)/'])
             ->setUri(route('user.admin.users.index'))
             ->setExtra('icon', 'circle-o');
 
         $event->handler['user.admin']->addChild('user::role.title.index')
+            ->setExtra('patterns', ['/user\.admin\.roles\.(.+)/'])
             ->setUri(route('user.admin.roles.index'))
             ->setExtra('icon', 'circle-o');
 
         $event->handler['user.admin']->addChild('user::permission.title.index')
+            ->setExtra('patterns', ['/user\.admin\.permissions\.(.+)/'])
             ->setUri(route('user.admin.permissions.index'))
             ->setExtra('icon', 'circle-o');
     }

@@ -1,19 +1,23 @@
 <?php namespace Vain\Presenters\Menu;
 
-use Dowilcox\KnpMenu\Facades\Menu;
 use Illuminate\Support\Facades\Config;
 use Knp\Menu\ItemInterface;
+use Knp\Menu\Matcher\Matcher;
+use Knp\Menu\Matcher\Voter\UriVoter;
 use Knp\Menu\Renderer\ListRenderer;
+use Vain\Packages\Menu\Matcher\RouteVoter;
 
 class VainPresenter extends ListRenderer
 {
     /**
-     * set the default matcher so wo dont need an
-     * parent ctor argument
+     * inject our config and custom matcher
      */
     function __construct()
     {
-        $matcher = Menu::getMatcher();
+        $matcher = new Matcher();
+        $matcher->addVoter(new UriVoter(app('url')->current()));
+        $matcher->addVoter(new RouteVoter(app('request')));
+
         $options = Config::get('menu.render');
 
         parent::__construct($matcher, $options);
