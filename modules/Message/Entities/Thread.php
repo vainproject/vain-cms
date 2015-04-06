@@ -120,7 +120,7 @@ class Thread extends MessengerThread
      * Generates a string with participant names (limited to 40 chars)
      * @return string
      */
-    public function getParticipantStringAttribute()
+    public function participantString($maxLength = 40)
     {
         $participantNames = [];
         $length = 0;
@@ -128,12 +128,13 @@ class Thread extends MessengerThread
             if ($participant->user_id == Auth::id())
                 continue;
 
-            if ((strlen($participant->name + $length)) > (40 - 5)) {
+            if ((strlen($participant->name) + $length) > ($maxLength - 5)) {
                 $participantNames[] = "...";
                 break;
             }
 
             $participantNames[] = $participant->user->name;
+            $length += strlen($participant->user->name);
         }
 
         return implode(', ', $participantNames);

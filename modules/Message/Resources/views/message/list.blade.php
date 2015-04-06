@@ -23,21 +23,38 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <div class="btn-panel btn-panel-conversation">
-                    {{--<a href="" class="btn  col-lg-6 send-message-btn " role="button"><i class="fa fa-search"></i> Search</a>--}}
-                    <a href="{!! URL::route('message.message.create') !!}" class="btn  col-lg-6  send-message-btn pull-right" role="button">
-                        <i class="fa fa-plus"></i> @lang('message::message.new_message')
-                    </a>
-                </div>
+                <a href="{!! URL::route('message.message.create') !!}" class="btn  col-lg-6  send-message-btn" role="button">
+                    <i class="fa fa-plus"></i> @lang('message::message.new_message')
+                </a>
             </div>
-
-            {{--Old settings button--}}
-            {{--<div class="col-lg-offset-1 col-lg-7">--}}
-                {{--<div class="btn-panel btn-panel-msg">--}}
-
-                    {{--<a href="" class="btn  col-lg-3  send-message-btn pull-right" role="button"><i class="fa fa-gears"></i> Settings</a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
+            <div class="col-lg-8">
+                @if($curThread)
+                    <div class="btn-group pull-right">
+                        <ul class="nav">
+                            <li class="dropdown active" id="userlist">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#userlist">
+                                    {{ $curThread->participantString(80) }}
+                                    <i class="fa fa-user"></i>
+                                    {{ $curThread->participants->count() }}
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-large scrollable-menu">
+                                    <li>
+                                        <a href="#">
+                                        &nbsp;<span class="fa fa-plus"></span>
+                                        Teilnehmer hinzufügen
+                                        </a>
+                                    </li>
+                                    <li role="presentation" class="divider"></li>
+                                    @foreach ($curThread->participants as $participant)
+                                        <li>{!! link_to_route('user.profile', $participant->user->name, $participant->user_id) !!}</li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                @endif
+            </div>
         </div>
         <div class="row">
 
@@ -51,7 +68,7 @@
                                 <img class="media-object" alt="{{ $thread->lastmessage->user->name }}" style="width: 50px; height: 50px;" src="{!! $thread->avatar !!}">
                             </div>
                             <div class="media-body">
-                                <h5 class="media-heading"><strong>{!! $thread->participant_string !!}</strong></h5>
+                                <h5 class="media-heading"><strong>{!! $thread->participantString(40) !!}</strong></h5>
                                 <small class="emojimessage">{{ $thread->shortbody }}</small>
                             </div>
                         </div>
@@ -68,7 +85,6 @@
 
             <div class="message-wrap col-lg-8">
                 <div class="msg-wrap" id="msg-wrap">
-
                     @if ($curThread)
                         @foreach ($curThread->messages as $message)
                             {{-- Not happy with this :x --}}
