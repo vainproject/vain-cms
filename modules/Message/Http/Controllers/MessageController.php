@@ -65,9 +65,10 @@ class MessageController extends Controller
         ]);
 
         Participant::create([
-            'thread_id' => $thread->id,
-            'user_id'   => Auth::id(),
-            'last_read' => new Carbon,
+            'thread_id'    => $thread->id,
+            'user_id'      => Auth::id(),
+            'last_read'    => Carbon::now(),
+            'last_message' => Carbon::now(),
         ]);
 
         $thread->addParticipants([$user->id]);
@@ -119,7 +120,8 @@ class MessageController extends Controller
             return redirect()->route('message.message.index')
                 ->withErrors(trans('message::message.not_found'));
 
-        $participant->last_read = new Carbon;
+        $participant->last_read = Carbon::now();
+        $participant->last_message = Carbon::now();
         $participant->save();
 
         return redirect()->route('message.message.index')

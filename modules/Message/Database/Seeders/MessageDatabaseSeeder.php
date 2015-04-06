@@ -46,7 +46,7 @@ class MessageTableSeeder extends Seeder
         /*
          * Thread 1
          */
-        $thread1 = Thread::create(['subject' => 'Random subject right here']);
+        $thread1 = Thread::create(['subject' => 'Random subject right here',]);
         Message::create([
             'thread_id'  => $thread1->id,
             'user_id'    => $user1->id,
@@ -54,9 +54,10 @@ class MessageTableSeeder extends Seeder
             'created_at' => new Carbon("last week"),
         ]);
         Participant::create([
-            'thread_id' => $thread1->id,
-            'user_id'   => $user1->id,
-            'last_read' => new Carbon
+            'thread_id'    => $thread1->id,
+            'user_id'      => $user1->id,
+            'last_read'    => Carbon::now(),
+            'last_message' => new Carbon("last week"),
         ]);
 
         Message::create([
@@ -66,9 +67,10 @@ class MessageTableSeeder extends Seeder
             'created_at' => new Carbon("yesterday"),
         ]);
         Participant::create([
-            'thread_id' => $thread1->id,
-            'user_id'   => $user2->id,
-            'last_read' => new Carbon
+            'thread_id'    => $thread1->id,
+            'user_id'      => $user2->id,
+            'last_read'    => Carbon::now(),
+            'last_message' => new Carbon("yesterday"),
         ]);
 
         Message::create([
@@ -78,15 +80,16 @@ class MessageTableSeeder extends Seeder
             'created_at' => Carbon::now(),
         ]);
         Participant::create([
-            'thread_id' => $thread1->id,
-            'user_id'   => $user3->id,
-            'last_read' => new Carbon
+            'thread_id'    => $thread1->id,
+            'user_id'      => $user3->id,
+            'last_read'    => Carbon::now(),
+            'last_message' => Carbon::now(),
         ]);
 
         /**
          * Thread 2
          */
-        $thread2 = Thread::create(['subject' => 'I can haz cheezburger']);
+        $thread2 = Thread::create(['subject' => 'I can haz cheezburger',]);
         Message::create([
             'thread_id'  => $thread2->id,
             'user_id'    => $user1->id,
@@ -94,9 +97,10 @@ class MessageTableSeeder extends Seeder
             'created_at' => new Carbon("last monday"),
         ]);
         Participant::create([
-            'thread_id' => $thread2->id,
-            'user_id'   => $user1->id,
-            'last_read' => new Carbon,
+            'thread_id'    => $thread2->id,
+            'user_id'      => $user1->id,
+            'last_read'    => Carbon::now(),
+            'last_message' => new Carbon("last monday"),
         ]);
 
         Message::create([
@@ -106,9 +110,10 @@ class MessageTableSeeder extends Seeder
             'created_at' => new Carbon("yesterday"),
         ]);
         Participant::create([
-            'thread_id' => $thread2->id,
-            'user_id'   => $user2->id,
-            'last_read' => new Carbon,
+            'thread_id'    => $thread2->id,
+            'user_id'      => $user2->id,
+            'last_read'    => Carbon::now(),
+            'last_message' => new Carbon("yesterday"),
         ]);
     }
 }

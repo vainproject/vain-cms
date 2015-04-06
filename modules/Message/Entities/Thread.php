@@ -81,13 +81,13 @@ class Thread extends MessengerThread
     {
         return $query->with([
             'participants' => function ($query) {
-                $query->orderBy('last_read', 'desc');
+                $query->orderBy('last_message', 'desc');
             },
             'participants.user',
             'messages',
             'messages.user',
             'lastmessage',
-            'lastmessage.user'
+            'lastmessage.user',
         ]);
     }
 
@@ -98,6 +98,10 @@ class Thread extends MessengerThread
     public function getAvatarAttribute()
     {
         // ToDo: if possible show multiple avatars
+        foreach ($this->participants as $participant)
+            if ($participant->user_id != Auth::id())
+                return $participant->user->avatar;
+
         return $this->lastmessage->user->avatar;
     }
 
