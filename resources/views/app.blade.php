@@ -31,6 +31,7 @@
     @yield('content')
 </div>
 <script type="text/javascript" src="{{ asset('static/js/app.js') }}"></script>
+<script type="text/javascript" src="{{ asset('static/js/bundle.js') }}"></script>
 @yield('scripts')
 </body>
 </html>

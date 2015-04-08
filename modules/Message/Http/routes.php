@@ -9,13 +9,22 @@ Route::bind('messages', function ($value) {
 
 Route::group(['namespace' => 'Modules\Message\Http\Controllers', 'middleware' => 'auth'], function ()
 {
+    Route::get('messages', [ 'as' => 'message.message.index', 'uses' => 'MessageController@index' ]);
+//    Route::resource('messages', 'MessageController', ['except' => ['edit'], 'names' => [
+//        'index' => 'message.message.index',
+//        'create' => 'message.message.create',
+//        'store' => 'message.message.store',
+//        'show' => 'message.message.show',
+//        'update' => 'message.message.update',
+//        'destroy' => 'message.message.destroy',
+//    ]]);
 
-    Route::resource('messages', 'MessageController', ['except' => ['edit'], 'names' => [
-        'index' => 'message.message.index',
-        'create' => 'message.message.create',
-        'store' => 'message.message.store',
-        'show' => 'message.message.show',
-        'update' => 'message.message.update',
-        'destroy' => 'message.message.destroy',
+    Route::resource('threads', 'ThreadController', ['except' => ['edit'], 'names' => [
+        'index' => 'message.thread.index',
+        'create' => 'message.thread.create',
+        'store' => 'message.thread.store',
+        'show' => 'message.thread.show',
+        'update' => 'message.thread.update',
+        'destroy' => 'message.thread.destroy',
     ]]);
 });

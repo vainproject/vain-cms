@@ -39,7 +39,7 @@ var scripts_include = [
     //'./modules/Forum/Resources/assets/js/*.js',
     //'./modules/Site/Resources/assets/js/*.js',
     //'./modules/User/Resources/assets/js/*.js',
-    './modules/Message/Resources/assets/js/message.js'
+    //'./modules/Message/Resources/assets/js/message.js'
 ];
 
 var scripts_admin_include = [
@@ -57,6 +57,10 @@ var scripts_admin_include = [
      |--------------------------------------------------------------------------
      */
     //'./modules/User/Resources/assets/js/admin/*.js',
+];
+
+var scripts_modules = [
+    './modules/Message/Resources/assets/js/app.js'
 ];
 
 /**
@@ -80,20 +84,19 @@ elixir(function(mix) {
     // compile less
     mix.less(['app.less', 'admin.less'], 'public/static/css');
 
-    // concat scripts
-    mix.scripts(scripts_include, 'public/static/js/app.js', './');
+    // module scripts
+    mix.browserify(scripts_modules, 'public/static/js', './'/*, { debug: true }*/);
 
-    mix.scripts(scripts_admin_include, 'public/static/js/admin.js', './');
+    // concat scripts
+    mix.scripts(scripts_include, 'public/static/js/app.js', './')
+        .scripts(scripts_admin_include, 'public/static/js/admin.js', './');
 
     // copy fonts
-    mix.copy('./bower_components/bootstrap/dist/fonts', 'public/static/fonts');
-    mix.copy('./bower_components/font-awesome/fonts', 'public/static/fonts');
+    mix.copy('./bower_components/bootstrap/dist/fonts', 'public/static/fonts')
+        .copy('./bower_components/font-awesome/fonts', 'public/static/fonts');
 
     // copy images
     mix.copy('./bower_components/emojify.js/dist/images/basic', 'public/static/images/emojify');
-
-    // copy admin statics
-    //mix.copy('./bower_components/admin-lte/plugins', 'public/static/plugins');
 
     // versioning files
     //mix.version([

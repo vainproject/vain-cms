@@ -165,19 +165,13 @@ class Thread extends MessengerThread
     }
 
     /**
-     * Returns active/unread class states
-     * @param Thread $curThread
+     * Returns if unread for current user
+     *
      * @return string
      */
-    public function classStates($curThread)
+    public function unreadForUser()
     {
-        if ($this->id == $curThread->id)
-            return 'media-message-active';
-
-        if (Auth::check() && $this->isUnread(Auth::id()))
-            return 'media-message-unread';
-
-        return '';
+        return Auth::check() && $this->isUnread(Auth::id());
     }
 
 }
