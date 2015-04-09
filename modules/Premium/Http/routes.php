@@ -3,9 +3,19 @@
 /**
  * Frontend
  */
-Route::group(['prefix' => 'premium'], function()
+Route::group(['prefix' => 'premium', 'middleware' => 'auth'], function()
 {
+    // payment
+    Route::group(['prefix' => 'payment', 'namespace' => 'Payment'], function()
+    {
+        Route::get('giropay', [ 'as' => 'premium.payment.giropay.index', 'uses' => 'GiropayController@index' ]);
+        Route::get('bitcoin', [ 'as' => 'premium.payment.bitcoin.index', 'uses' => 'BitcoinController@index' ]);
+        Route::get('paysafe', [ 'as' => 'premium.payment.paysafe.index', 'uses' => 'PaysafeController@index' ]);
+    });
+
     Route::get('/', [ 'as' => 'premium.premium.index', 'uses' => 'PremiumController@index' ]);
+
+
 });
 
 /**
