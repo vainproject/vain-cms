@@ -8,6 +8,8 @@ Route::group(['prefix' => 'premium', 'middleware' => 'auth'], function()
     // payment
     Route::group(['prefix' => 'payment', 'namespace' => 'Payment'], function()
     {
+        Route::get('/', [ 'as' => 'premium.payment.index', 'uses' => 'IndexController@index' ]);
+
         // trivial
         Route::get('giropay', [ 'as' => 'premium.payment.giropay.index', 'uses' => 'GiropayController@index' ]);
         Route::get('bitcoin', [ 'as' => 'premium.payment.bitcoin.index', 'uses' => 'BitcoinController@index' ]);
@@ -27,6 +29,14 @@ Route::group(['prefix' => 'premium', 'middleware' => 'auth'], function()
             Route::get('success', [ 'as' => 'premium.payment.paypal.success', 'uses' => 'PaypalController@success' ]);
             Route::get('error', [ 'as' => 'premium.payment.paypal.error', 'uses' => 'PaypalController@error' ]);
             Route::any('callback', [ 'as' => 'premium.payment.paypal.callback', 'uses' => 'PaypalController@callback' ]);
+        });
+
+        Route::group(['prefix' => 'micropay'], function()
+        {
+            Route::get('/', [ 'as' => 'premium.payment.micropay.index', 'uses' => 'MicropayController@index' ]);
+            Route::get('success', [ 'as' => 'premium.payment.micropay.success', 'uses' => 'MicropayController@success' ]);
+            Route::get('error', [ 'as' => 'premium.payment.micropay.error', 'uses' => 'MicropayController@error' ]);
+            Route::any('callback', [ 'as' => 'premium.payment.micropay.callback', 'uses' => 'MicropayController@callback' ]);
         });
     });
 

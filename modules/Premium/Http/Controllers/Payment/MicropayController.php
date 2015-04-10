@@ -3,20 +3,21 @@
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Premium\Services\Payment\PaymentProvider as ProviderContract;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class MicropayController extends Controller implements ProviderContract {
 
     function __construct()
     {
         $this->beforeFilter(function() {
-            if ( ! config('payment.providers.micropay.enabled'))
+            if ( ! config('payment.providers.micropayment.enabled'))
                 throw new HttpException(503);
         });
     }
 
     public function index()
     {
-        return view('premium::index');
+        return view('premium::payment.micropay.index');
     }
 
     /**
@@ -26,7 +27,7 @@ class MicropayController extends Controller implements ProviderContract {
      */
     public function success()
     {
-        // TODO: Implement success() method.
+        return view('premium::payment.micropay.success');
     }
 
     /**
@@ -36,7 +37,7 @@ class MicropayController extends Controller implements ProviderContract {
      */
     public function error()
     {
-        // TODO: Implement error() method.
+        return view('premium::payment.micropay.error');
     }
 
     /**
@@ -46,6 +47,6 @@ class MicropayController extends Controller implements ProviderContract {
      */
     public function callback()
     {
-        // TODO: Implement callback() method.
+        return response();
     }
 }

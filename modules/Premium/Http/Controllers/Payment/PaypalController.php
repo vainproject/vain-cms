@@ -12,6 +12,7 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class PaypalController extends Controller implements ProviderContract {
 
@@ -30,14 +31,7 @@ class PaypalController extends Controller implements ProviderContract {
         $credentials = new OAuthTokenCredential(config('payment.providers.paypal.client_id'), config('payment.providers.paypal.client_secret'));
         $apiContext = new ApiContext($credentials);
 
-        $apiContext->setConfig(
-            array(
-                'mode' => 'sandbox',
-                'log.LogEnabled' => true,
-                'log.FileName' => storage_path('logs/paypal-'. date('Y-m-d') .'.log'),
-                'log.LogLevel' => 'FINE'
-            )
-        );
+        $apiContext->setConfig(config('payment.providers.paypal.settings'));
 
         $payer = new Payer();
         $payer->setPaymentMethod("paypal");
@@ -61,13 +55,9 @@ class PaypalController extends Controller implements ProviderContract {
             ->setRedirectUrls($redirectUrls)
             ->setTransactions([ $transaction ]);
 
-        try {
-            $payment->create($apiContext);
-        } catch (Exception $ex) {
-           // could error
-        }
-
+        $payment->create($apiContext);
         $approvalUrl = $payment->getApprovalLink();
+
         return redirect()->intended($approvalUrl);
 
 //        return view('premium::payment.paypal.index', compact('payment'));

@@ -31,7 +31,7 @@ return [
         ],
     ],
     'micropay' => [
-
+        'title' => 'Payment via Micropayment',
     ],
     'paypal' => [
         'title' => 'Payment via PayPal',

@@ -22,6 +22,16 @@ return [
             'client_id' => 'AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS',
             'client_secret' => 'EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL',
 
+            // native paypal config options
+            'settings' => [
+                'mode' => 'sandbox',
+
+                'log' => [
+                    'LogEnabled' => true,
+                    'FileName' => storage_path('logs/paypal-'. date('Y-m-d') .'.log'),
+                    'LogLevel' => 'FINE'
+                ],
+            ],
         ],
 
         /**
