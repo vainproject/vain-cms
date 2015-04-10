@@ -34,7 +34,7 @@ return [
 
     ],
     'paypal' => [
-
+        'title' => 'Payment via PayPal',
     ],
     'paysafe' => [
         'title' => 'Payment via PaySafe Card',

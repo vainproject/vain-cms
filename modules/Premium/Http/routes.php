@@ -8,14 +8,29 @@ Route::group(['prefix' => 'premium', 'middleware' => 'auth'], function()
     // payment
     Route::group(['prefix' => 'payment', 'namespace' => 'Payment'], function()
     {
+        // trivial
         Route::get('giropay', [ 'as' => 'premium.payment.giropay.index', 'uses' => 'GiropayController@index' ]);
         Route::get('bitcoin', [ 'as' => 'premium.payment.bitcoin.index', 'uses' => 'BitcoinController@index' ]);
-        Route::get('paysafe', [ 'as' => 'premium.payment.paysafe.index', 'uses' => 'PaysafeController@index' ]);
+
+        // payment providers
+        Route::group(['prefix' => 'paysafe'], function()
+        {
+            Route::get('/', [ 'as' => 'premium.payment.paysafe.index', 'uses' => 'PaysafeController@index' ]);
+            Route::get('success', [ 'as' => 'premium.payment.paysafe.success', 'uses' => 'PaysafeController@success' ]);
+            Route::get('error', [ 'as' => 'premium.payment.paysafe.error', 'uses' => 'PaysafeController@error' ]);
+            Route::any('callback', [ 'as' => 'premium.payment.paysafe.callback', 'uses' => 'PaysafeController@callback' ]);
+        });
+
+        Route::group(['prefix' => 'paypal'], function()
+        {
+            Route::get('/', [ 'as' => 'premium.payment.paypal.index', 'uses' => 'PaypalController@index' ]);
+            Route::get('success', [ 'as' => 'premium.payment.paypal.success', 'uses' => 'PaypalController@success' ]);
+            Route::get('error', [ 'as' => 'premium.payment.paypal.error', 'uses' => 'PaypalController@error' ]);
+            Route::any('callback', [ 'as' => 'premium.payment.paypal.callback', 'uses' => 'PaypalController@callback' ]);
+        });
     });
 
     Route::get('/', [ 'as' => 'premium.premium.index', 'uses' => 'PremiumController@index' ]);
-
-
 });
 
 /**

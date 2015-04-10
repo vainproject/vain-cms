@@ -8,6 +8,6 @@
     <div class="container">
         <h3>@lang('premium::payment.paypal.title')</h3>
 
-        <h1>Index</h1>
+        <h1>Error</h1>
     </div>
 @stop

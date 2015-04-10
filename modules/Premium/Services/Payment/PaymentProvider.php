@@ -1,20 +1,28 @@
 <?php namespace Modules\Premium\Services\Payment;
 
+use Illuminate\Http\Response;
+
 interface PaymentProvider {
 
     /**
-     * @return mixed
+     * indicates that the payment finished with success
+     *
+     * @return Response
      */
-    function checkout();
+    public function success();
 
     /**
-     * @return mixed
+     * indicates that the payment failed
+     *
+     * @return Response
      */
-    function confirm();
+    public function error();
 
     /**
-     * @return mixed
+     * callback used by the provider to verify the payment
+     *
+     * @return Response
      */
-    function charge();
+    public function callback();
 
 }

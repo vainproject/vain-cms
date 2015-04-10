@@ -6,4 +6,7 @@ return [
         'index' => 'Premium',
         'dashboard' => 'Dashboard',
     ],
+    'action' => [
+        'pay' => 'Pay'
+    ],
 ];
