@@ -6,12 +6,6 @@ use Illuminate\Validation\Validator;
 
 class PaymentFormRequest extends FormRequest
 {
-    public function all()
-    {
-        // attach user object to Request::all()
-        return array_replace_recursive(parent::all(), [ 'user' => $this->user() ]);
-    }
-
     /**
      * validation that has to pass
      *
@@ -22,11 +16,13 @@ class PaymentFormRequest extends FormRequest
         return [
             'amount' => 'required|numeric',
             'currency' => 'alpha|size:3',
-            'transaction' => 'regex:/^[a-f0-9]{32}$/i', // simple md5 check
+            'identifier' => 'regex:/^[a-f0-9]{32}$/i', // simple md5 check
         ];
     }
 
     /***
+     * only if we have an authorized user
+     *
      * @return bool
      */
     public function authorize()
@@ -34,13 +30,12 @@ class PaymentFormRequest extends FormRequest
         return Auth::check();
     }
 
-    protected function failedValidation(Validator $validator)
+    /**
+     * @return PaymentModel
+     */
+    public function getPaymentModel()
     {
-        if ($this->ajax()) {
-            $this->session()->flashInput($this->all());
-            $this->session()->flash('errors', $validator->getMessageBag());
-        }
-
-        parent::failedValidation($validator);
+        return (new PaymentModel($this->all()))
+            ->withUser($this->user());
     }
 }

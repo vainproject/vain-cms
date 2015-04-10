@@ -19,8 +19,8 @@ return [
         'paypal' => [
             'enabled' => true,
 
-            'client_id' => 'AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS',
-            'client_secret' => 'EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL',
+            'client_id' => 'AQCxoxAXMrMMOmmyp1VXUdLsGUGihivaU-XlPwmr6yJ7QtNrayLsFPo9wfkG',
+            'client_secret' => 'EAyNxxAFP7aIrP1S_GskVhc7z03DI65IAo-Q_SGmURzfuZZIHNojVkOZeR3i',
 
             // native paypal config options
             'settings' => [

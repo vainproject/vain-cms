@@ -26,8 +26,12 @@ Route::group(['prefix' => 'premium', 'middleware' => 'auth'], function()
         Route::group(['prefix' => 'paypal'], function()
         {
             Route::get('/', [ 'as' => 'premium.payment.paypal.index', 'uses' => 'PaypalController@index' ]);
+            Route::any('checkout', [ 'as' => 'premium.payment.paypal.checkout', 'uses' => 'PaypalController@checkout' ]);
+            Route::any('approve', [ 'as' => 'premium.payment.paypal.approve', 'uses' => 'PaypalController@approve' ]);
+
             Route::get('success', [ 'as' => 'premium.payment.paypal.success', 'uses' => 'PaypalController@success' ]);
             Route::get('error', [ 'as' => 'premium.payment.paypal.error', 'uses' => 'PaypalController@error' ]);
+
             Route::any('callback', [ 'as' => 'premium.payment.paypal.callback', 'uses' => 'PaypalController@callback' ]);
         });
 

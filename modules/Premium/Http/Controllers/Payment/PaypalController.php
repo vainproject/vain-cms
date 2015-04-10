@@ -2,17 +2,15 @@
 
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Premium\Services\Payment\PaymentFormRequest;
-use Modules\Premium\Services\Payment\PaymentModel;
+use Illuminate\Session\Store;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use PayPal\Api\PaymentExecution;
 use Modules\Premium\Services\Payment\PaymentProvider as ProviderContract;
-use PayPal\Api\Amount;
-use PayPal\Api\Payer;
+use Modules\Premium\Services\Payment\Paypal\ApprovalFormRequest;
+use Modules\Premium\Services\Payment\Paypal\CheckoutFormRequest;
 use PayPal\Api\Payment;
 use PayPal\Api\RedirectUrls;
-use PayPal\Api\Transaction;
-use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class PaypalController extends Controller implements ProviderContract {
 
@@ -24,43 +22,36 @@ class PaypalController extends Controller implements ProviderContract {
         });
     }
 
-    public function index(PaymentFormRequest $request)
+    public function index(CheckoutFormRequest $request)
     {
-        $payment = new PaymentModel($request->all());
+        $payment = $request->getPaymentModel();
 
-        $credentials = new OAuthTokenCredential(config('payment.providers.paypal.client_id'), config('payment.providers.paypal.client_secret'));
-        $apiContext = new ApiContext($credentials);
+        return view('premium::payment.paypal.index', compact('payment'));
+    }
 
-        $apiContext->setConfig(config('payment.providers.paypal.settings'));
-
-        $payer = new Payer();
-        $payer->setPaymentMethod("paypal");
-
-        $amount = new Amount();
-        $amount->setCurrency($payment->currency)
-            ->setTotal($payment->amount);
-
-        $transaction = new Transaction();
-        $transaction->setAmount($amount)
-            ->setDescription("Payment description")
-            ->setInvoiceNumber($payment->transaction);
+    public function checkout(CheckoutFormRequest $request, ApiContext $apiContext)
+    {
+        $paypal = $request->getPaymentModel();
 
         $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl(route('premium.payment.paysafe.success'))
-            ->setCancelUrl(route('premium.payment.paysafe.error'));
+        $redirectUrls->setReturnUrl(route('premium.payment.paypal.approve'))
+            ->setCancelUrl(route('premium.payment.paypal.error'));
 
-        $payment = new Payment();
-        $payment->setIntent("sale")
-            ->setPayer($payer)
-            ->setRedirectUrls($redirectUrls)
-            ->setTransactions([ $transaction ]);
-
-        $payment->create($apiContext);
+        $payment = $paypal->payment($redirectUrls)->create($apiContext);
         $approvalUrl = $payment->getApprovalLink();
 
         return redirect()->intended($approvalUrl);
+    }
 
-//        return view('premium::payment.paypal.index', compact('payment'));
+    public function approve(ApprovalFormRequest $request, ApiContext $apiContext, Store $session)
+    {
+        $payment = $request->getPayment($apiContext);
+        $execution = $request->getExecution();
+
+        $result = $payment->execute($execution, $apiContext); // if an exception is thrown, the payment is already executed
+        $session->set('payment', $result);
+
+        return redirect()->route('premium.payment.paypal.success');
     }
 
     /**
@@ -70,6 +61,7 @@ class PaypalController extends Controller implements ProviderContract {
      */
     public function success()
     {
+        dd(\Session::get('payment'));
         return view('premium::payment.paypal.success');
     }
 
