@@ -1,6 +1,7 @@
 <?php namespace Modules\User\Entities;
 
 use Carbon\Carbon;
+use Cmgmyr\Messenger\Traits\Messagable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
@@ -11,7 +12,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
-    use Authenticatable, CanResetPassword, EntrustUserTrait, LocalizedEloquentTrait;
+    use Authenticatable, CanResetPassword, EntrustUserTrait, LocalizedEloquentTrait, Messagable;
 
     /**
      * The database table used by the model.

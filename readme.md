@@ -1,3 +1,4 @@
+[![Build Status](https://magnum.travis-ci.com/fgreinus/vain.svg?token=NzeaMJdyF4VTovkWzfyp&branch=master)](https://magnum.travis-ci.com/fgreinus/vain)
 # Vain
 
 Vain is a community platform for World of Warcraft private servers. It is based upon the famous Larvel 5 framework and **will kick FusionCMS in its ass.**

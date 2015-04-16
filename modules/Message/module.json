@@ -1,0 +1,15 @@
+{
+    "name": "Message",
+    "alias": "message",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 2,
+    "providers": [
+        "Modules\\Message\\Providers\\MessageServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}

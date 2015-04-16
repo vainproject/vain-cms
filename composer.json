@@ -16,6 +16,7 @@
         "barryvdh/laravel-debugbar": "~2.0",
         "ottowayne/laravel-langcheck": "dev-master",
         "filp/whoops": "~1.0",
+		"cmgmyr/messenger": "~2.0",
         "paypal/rest-api-sdk-php": "*",
         "guzzlehttp/guzzle": "*"
     },
