@@ -20,6 +20,7 @@ services:
 before_install:
   - npm install -g bower
   - npm install -g gulp
+  - composer self-update
 
 install:
   - composer install --no-interaction --prefer-source
