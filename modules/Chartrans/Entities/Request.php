@@ -17,6 +17,9 @@ class Request extends Model {
     const STATE_ACCEPTED        = 102;
     const STATE_COMPLETE        = 103;
 
+    const SOURCE_SERVER_TYPE_PRIVATE    = 0;
+    const SOURCE_SERVER_TYPE_OFFICIAL   = 1;
+
     protected $fillable = [
         'state',
 
@@ -24,7 +27,7 @@ class Request extends Model {
         'destination_character_equipment', 'destination_character_profession',
 
         'source_server_website', 'source_server_realm', 'source_server_expansion', 'source_server_account',
-        'source_server_character', 'source_server_account_characters'
+        'source_server_character', 'source_server_account_characters', 'source_server_type'
     ];
 
     protected $dates = ['deleted_at', 'created_at', 'updated_at'];

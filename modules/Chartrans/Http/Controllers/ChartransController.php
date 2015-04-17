@@ -22,15 +22,15 @@ class ChartransController extends Controller {
 
             switch ($chartrans->state) {
                 case ChartransRequest::STATE_STEP_ONE:
-                    return redirect(route('chartrans.step.one'));
+                    return redirect(route('chartrans.step.one.show'));
                 case ChartransRequest::STATE_STEP_TWO:
-                    return redirect(route('chartrans.step.two'));
+                    return redirect(route('chartrans.step.two.show'));
                 case ChartransRequest::STATE_STEP_THREE:
-                    return redirect(route('chartrans.step.three'));
+                    return redirect(route('chartrans.step.three.show'));
                 case ChartransRequest::STATE_STEP_FOUR:
-                    return redirect(route('chartrans.step.four'));
+                    return redirect(route('chartrans.step.four.show'));
                 case ChartransRequest::STATE_STEP_FIVE:
-                    return redirect(route('chartrans.step.five'));
+                    return redirect(route('chartrans.step.five.show'));
                 default:
                     return redirect(route('chartrans.chartrans.status'));
             }

@@ -11,6 +11,7 @@
         @include('chartrans::steps.stepbar')
 
         {!! Form::open(['route' => 'chartrans.step.two.store']) !!}
+        {!! Form::hidden('source_server_type', $chartrans->source_server_type, ['id' => 'source_server_type']) !!}
         <div class="chartrans-content-body">
 
             <h3 class="col-sm-12">@lang('chartrans::chartrans.step.two.caption')</h3>
@@ -20,10 +21,14 @@
 
             <div class="col-sm-12 text-center">
                 <div class="btn-group">
-                    <button class="btn btn-lg btn-default" type="button" data-server-type="private">
+                    <button class="btn btn-lg btn-default
+                    @if($chartrans->source_server_type === false) active @endif
+                    " type="button" data-server-type="private">
                         <i class="fa fa-code-fork"></i> @lang('chartrans::chartrans.step.two.type.private')
                     </button>
-                    <button class="btn btn-lg btn-default" type="button" data-server-type="official">
+                    <button class="btn btn-lg btn-default
+                    @if($chartrans->source_server_type === true) active @endif
+                    " type="button" data-server-type="official">
                         @lang('chartrans::chartrans.step.two.type.official') <i class="fa fa-money"></i>
                     </button>
                 </div>
@@ -37,8 +42,9 @@
                 <div class="col-sm-6">
                     <div class="panel panel-default" data-server-type="private">
 
-                        <div class="chartrans-disable-overlay"></div>
-
+                        @if($chartrans->source_server_type !== false)
+                            <div class="chartrans-disable-overlay"></div>
+                        @endif
 
                         <div class="panel-heading">
                             Private server information
@@ -63,7 +69,7 @@
                             </div>
                             <div class="form-group tagsinput-chartrans">
                                 <label for="source_server_account_characters">All characters on that account (max. 10):</label>
-                                <select name="source_server_account_characters[]" multiple data-tags data-tags-max="10"></select>
+                                <select name="source_server_account_characters[]" multiple data-tags data-tags-max="10" data-tags-class="label label-warning"></select>
                             </div>
                         </div>
                     </div>
@@ -73,7 +79,10 @@
 
                 <div class="col-sm-6">
                     <div class="panel panel-default" data-server-type="official">
-                        <div class="chartrans-disable-overlay"></div>
+
+                        @if($chartrans->source_server_type !== true)
+                            <div class="chartrans-disable-overlay"></div>
+                        @endif
 
                         <div class="panel-heading">
                             Retail server information
