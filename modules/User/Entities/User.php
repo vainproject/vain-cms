@@ -69,6 +69,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('Modules\Blog\Entities\Post');
     }
 
+    public function payments()
+    {
+        return $this->hasMany('Modules\Premium\Entities\Payment');
+    }
+
     public function comments()
     {
         return $this->hasMany('Modules\Blog\Entities\Comment');
