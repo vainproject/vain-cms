@@ -4,15 +4,12 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Session\Store;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use PayPal\Api\PaymentExecution;
-use Modules\Premium\Services\Payment\PaymentProvider as ProviderContract;
 use Modules\Premium\Services\Payment\Paypal\ApprovalFormRequest;
 use Modules\Premium\Services\Payment\Paypal\CheckoutFormRequest;
-use PayPal\Api\Payment;
 use PayPal\Api\RedirectUrls;
 use PayPal\Rest\ApiContext;
 
-class PaypalController extends Controller implements ProviderContract {
+class PaypalController extends Controller {
 
     function __construct()
     {

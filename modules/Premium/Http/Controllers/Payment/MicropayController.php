@@ -2,10 +2,9 @@
 
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Premium\Services\Payment\PaymentProvider as ProviderContract;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class MicropayController extends Controller implements ProviderContract {
+class MicropayController extends Controller {
 
     function __construct()
     {

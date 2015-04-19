@@ -3,11 +3,10 @@
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Premium\Services\Payment\PaymentModel;
-use Modules\Premium\Services\Payment\PaymentProvider as ProviderContract;
 use Modules\Premium\Services\Payment\Paypal\CheckoutFormRequest;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class PaysafeController extends Controller implements ProviderContract {
+class PaysafeController extends Controller {
 
     function __construct()
     {
