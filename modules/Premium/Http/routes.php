@@ -5,11 +5,11 @@
  */
 Route::group(['prefix' => 'premium', 'middleware' => 'auth'], function()
 {
+    Route::get('order', [ 'as' => 'premium.payment.index', 'uses' => 'OrderController@index' ]);
+
     // payment
     Route::group(['prefix' => 'payment', 'namespace' => 'Payment'], function()
     {
-        Route::get('/', [ 'as' => 'premium.payment.index', 'uses' => 'IndexController@index' ]);
-
         // trivial
         Route::get('giropay', [ 'as' => 'premium.payment.giropay.index', 'uses' => 'GiropayController@index' ]);
         Route::get('bitcoin', [ 'as' => 'premium.payment.bitcoin.index', 'uses' => 'BitcoinController@index' ]);
