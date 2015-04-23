@@ -14,7 +14,7 @@
         {!! Form::hidden('source_server_type', $chartrans->source_server_type, ['id' => 'source_server_type']) !!}
         <div class="chartrans-content-body">
 
-            <h3 class="col-sm-12">@lang('chartrans::chartrans.step.two.caption')</h3>
+            <h3 class="col-sm-12">@lang('chartrans::chartrans.step.two.caption.top')</h3>
 
             <br><br>
             <br><br>
@@ -47,28 +47,28 @@
                         @endif
 
                         <div class="panel-heading">
-                            Private server information
+                            @lang('chartrans::chartrans.step.two.caption.private')
                         </div>
 
                         <div class="panel-body">
                             <div class="form-group">
-                                <label for="source_server_website">URL of the server's website:</label>
+                                <label for="source_server_website">@lang('chartrans::chartrans.step.two.field.source_server_website')</label>
                                 <input type="text" class="form-control" name="source_server_website" id="source_server_website" value="{{ $chartrans->source_server_website }}">
                             </div>
                             <div class="form-group">
-                                <label for="source_server_realm">Name of the source realm:</label>
+                                <label for="source_server_realm">@lang('chartrans::chartrans.step.two.field.source_server_realm')</label>
                                 <input type="text" class="form-control" name="source_server_realm" id="source_server_realm" value="{{ $chartrans->source_server_realm }}">
                             </div>
                             <div class="form-group">
-                                <label for="source_character_name">Name of the account you want to transfer from:</label>
-                                <input type="text" class="form-control" name="source_character_name" id="source_character_name" value="{{ $chartrans->source_character_name }}">
+                                <label for="source_account_name">@lang('chartrans::chartrans.step.two.field.source_account_name')</label>
+                                <input type="text" class="form-control" name="source_account_name" id="source_account_name" value="{{ $chartrans->source_account_name }}">
                             </div>
                             <div class="form-group">
-                                <label for="source_character_name">Name of the character you want to transfer:</label>
+                                <label for="source_character_name">@lang('chartrans::chartrans.step.two.field.source_character_name')</label>
                                 <input type="text" class="form-control" name="source_character_name" id="source_character_name" value="{{ $chartrans->source_character_name }}">
                             </div>
                             <div class="form-group tagsinput-chartrans">
-                                <label for="source_server_account_characters">All characters on that account (max. 10):</label>
+                                <label for="source_server_account_characters">@lang('chartrans::chartrans.step.two.field.source_server_account_characters')</label>
                                 <select name="source_server_account_characters[]" multiple data-tags data-tags-max="10" data-tags-class="label label-warning"></select>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                         @endif
 
                         <div class="panel-heading">
-                            Retail server information
+                            @lang('chartrans::chartrans.step.two.caption.official')
                         </div>
 
                         <div class="panel-body">

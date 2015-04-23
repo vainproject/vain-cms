@@ -27,14 +27,23 @@ return [
             ]
         ],
         'two' => [
-            'caption' => 'Name some details of your prior server',
+            'caption' => [
+                'top' => 'Name some details of your prior server',
+                'private' => 'Private server information',
+                'official' => 'Retail server information'
+            ],
             'field' => [
-                'source_server_website' => 'Website of the server'
+                'source_server_website' => 'Website of the server:',
+                'source_server_realm' => 'Name of the source realm:',
+                'source_account_name' => 'Name of the account you want to transfer from:',
+                'source_character_name' => 'Name of the character you want to transfer:',
+                'source_server_account_characters' => 'All characters on that account (max. 10, divided by whitespace):',
+                ''
             ],
             'type' => [
                 'private' => 'Private server',
                 'official' => 'Official servers'
-            ]
+            ],
         ],
         'button' => [
             'forward' => 'Next step',
