@@ -36,7 +36,7 @@ class ChartransController extends Controller {
             }
         }
         else {
-            return redirect(route('chartrans.step.one'));
+            return redirect(route('chartrans.step.one.show'));
         }
     }
 }

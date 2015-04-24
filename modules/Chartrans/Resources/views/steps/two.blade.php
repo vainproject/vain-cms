@@ -52,6 +52,15 @@
 
                         <div class="panel-body">
                             <div class="form-group">
+                                <label for="source_server_expansion">@lang('chartrans::chartrans.step.two.field.source_server_expansion')</label>
+                                <select class="form-control" name="source_server_expansion" id="source_server_expansion" data-select>
+                                    <option value="-1">@lang('chartrans::chartrans.expansion.please_choose')</option>
+                                    @foreach($expansions as $id => $key)
+                                        <option value="{{ $id }}">@lang('chartrans::chartrans.expansion.'.$key)</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="source_server_website">@lang('chartrans::chartrans.step.two.field.source_server_website')</label>
                                 <input type="text" class="form-control" name="source_server_website" id="source_server_website" value="{{ $chartrans->source_server_website }}">
                             </div>

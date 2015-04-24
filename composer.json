@@ -4,6 +4,8 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "laravel/framework": "5.0.*",
         "laravel/socialite": "~2.0",

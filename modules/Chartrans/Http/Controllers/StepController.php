@@ -3,6 +3,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Chartrans\Entities\Request as ChartransRequest;
 use Modules\Chartrans\Http\Requests\StepOneFormRequest;
+use Modules\Chartrans\Http\Requests\StepTwoFormRequest;
 use Vain\Packages\RealmAPI\EmulatorFactory;
 
 class StepController extends Controller {
@@ -68,22 +69,28 @@ class StepController extends Controller {
 
         return view('chartrans::steps.two', [
             'chartrans' => $chartrans,
-            'step' => 'two'
+            'step' => 'two',
+            'expansions' => config('chartrans.expansions')
         ]);
     }
 
-    public function stepThree()
+    public function storeStepTwo(StepTwoFormRequest $request)
     {
+        /** @var ChartransRequest $chartrans */
+        $chartrans = $request->user()->chartrans;
 
+        $chartrans->fill($request->all());
+
+        return redirect(route('chartrans.step.three.show'));
     }
 
-    public function stepFour()
+    public function showStepThree(Request $request)
     {
+        $chartrans = $request->user()->chartrans;
 
-    }
-
-    public function stepFive()
-    {
-
+        return view('chartrans::steps.three', [
+            'chartrans' => $chartrans,
+            'step' => 'three'
+        ]);
     }
 }

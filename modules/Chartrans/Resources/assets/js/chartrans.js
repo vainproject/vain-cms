@@ -10,9 +10,10 @@
 
         $(this).addClass('active').siblings().removeClass('active');
 
-        $('.chartrans-disable-overlay').show();
-        $('[data-server-type="' + type + '"]').find('.chartrans-disable-overlay').hide();
+        $('.chartrans-disable-overlay').show().parent().find('input, select').attr('disabled', 'disabled');
 
+        $('[data-server-type="' + type + '"]').find('.chartrans-disable-overlay').hide();
+        $('[data-server-type="' + type + '"]').find('input, select').removeAttr('disabled');
 
         $('input#source_server_type').val(type == 'official');
         e.preventDefault();
