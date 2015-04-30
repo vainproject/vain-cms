@@ -1,0 +1,17 @@
+{
+    "name": "Premium",
+    "alias": "premium",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 5,
+    "providers": [
+        "Modules\\Premium\\Providers\\EventServiceProvider",
+        "Modules\\Premium\\Providers\\ConfigServiceProvider",
+        "Modules\\Premium\\Providers\\RouteServiceProvider",
+        "Modules\\Premium\\Providers\\PremiumServiceProvider",
+        "Modules\\Premium\\Providers\\PaymentServiceProvider"
+    ],
+    "aliases":{},
+    "files": []
+}

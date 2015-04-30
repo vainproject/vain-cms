@@ -26,8 +26,6 @@ class Page extends Model implements TranslatableContract {
     protected $fillable = [ 'slug', 'published_at', 'concealed_at' ];
 
     /**
-     * used for soft deletion
-     *
      * @var array
      */
     protected $dates = [ 'published_at', 'concealed_at', 'deleted_at' ];

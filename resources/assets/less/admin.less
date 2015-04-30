@@ -1,12 +1,17 @@
 // vendor import
-@import "/bower_components/admin-lte/build/less/AdminLTE";
-@import "/bower_components/admin-lte/build/less/skins/skin-blue";
+@import "bower_components/admin-lte/build/less/AdminLTE";
+@import "bower_components/admin-lte/build/less/skins/skin-blue";
 
 .sidebar-form {
   input[type="text"] {
+
     &:focus, &:focus + .input-group-btn .btn {
       color: #fff !important;
       background-color: lighten(@sidebar-dark-bg, 10%) !important;
+    }
+
+    &:focus + .input-group-btn .btn {
+      border-left-color: lighten(@sidebar-dark-bg, 10%) !important;
     }
   }
 }

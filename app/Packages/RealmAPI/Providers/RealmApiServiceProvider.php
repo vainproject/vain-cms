@@ -5,6 +5,11 @@ use Illuminate\Support\ServiceProvider;
 class RealmApiServiceProvider extends ServiceProvider {
 
     /**
+     * @var bool
+     */
+    protected $defer = true;
+
+    /**
      * Bootstrap any application services.
      *
      * @return void
