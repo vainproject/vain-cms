@@ -1,4 +1,4 @@
-<?php namespace Modules\Premium\Services\Payment;
+<?php namespace Modules\Premium\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +16,7 @@ class PaymentFormRequest extends FormRequest
         return [
             'amount' => 'required|numeric',
             'currency' => 'alpha|size:3',
-            'identifier' => 'regex:/^[a-f0-9]{32}$/i', // simple md5 check
+            'transaction' => 'regex:/^[a-f0-9]{32}$/i', // simple md5 check
         ];
     }
 
@@ -28,14 +28,5 @@ class PaymentFormRequest extends FormRequest
     public function authorize()
     {
         return Auth::check();
-    }
-
-    /**
-     * @return PaymentModel
-     */
-    public function getPaymentModel()
-    {
-        return (new PaymentModel($this->all()))
-            ->withUser($this->user());
     }
 }

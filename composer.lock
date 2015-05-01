@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "94c16a7247726b06367dd77125009f93",
+    "hash": "c8db6fb7d746d739474d37126a0763dc",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1872,54 +1872,6 @@
                 "debug"
             ],
             "time": "2015-02-05 07:51:20"
-        },
-        {
-            "name": "moltin/currency",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/moltin/currency.git",
-                "reference": "58f6d5a343d71b35045ad792be5fbce20148eaf8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/moltin/currency/zipball/58f6d5a343d71b35045ad792be5fbce20148eaf8",
-                "reference": "58f6d5a343d71b35045ad792be5fbce20148eaf8",
-                "shasum": ""
-            },
-            "require": {
-                "guzzle/guzzle": "~3.8",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.7.*",
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Moltin": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Moltin Ltd",
-                    "email": "support@molt.in",
-                    "homepage": "http://molt.in",
-                    "role": "Vendor"
-                }
-            ],
-            "description": "Currency conversion and formatting",
-            "time": "2014-10-10 14:18:14"
         },
         {
             "name": "monolog/monolog",
@@ -4545,8 +4497,7 @@
         "pingpong/modules": 20,
         "zizaco/entrust": 20,
         "dowilcox/knp-menu-laravel": 20,
-        "ottowayne/laravel-langcheck": 20,
-        "moltin/currency": 20
+        "ottowayne/laravel-langcheck": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

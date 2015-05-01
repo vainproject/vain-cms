@@ -22,6 +22,12 @@ return [
             'client_id' => 'AQCxoxAXMrMMOmmyp1VXUdLsGUGihivaU-XlPwmr6yJ7QtNrayLsFPo9wfkG',
             'client_secret' => 'EAyNxxAFP7aIrP1S_GskVhc7z03DI65IAo-Q_SGmURzfuZZIHNojVkOZeR3i',
 
+            // ipn response url
+            'ipn' => [
+                'sandbox' => 'https://www.sandbox.paypal.com/cgi-bin/webscr',
+                'live' => 'https://www.paypal.com/cgi-bin/webscr'
+            ],
+
             // native paypal config options
             'settings' => [
                 'mode' => 'sandbox',

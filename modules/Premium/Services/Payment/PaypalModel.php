@@ -1,11 +1,9 @@
-<?php namespace Modules\Premium\Services\Payment\Paypal;
+<?php namespace Modules\Premium\Services\Payment;
 
-use Modules\Premium\Services\Payment\PaymentModel;
 use Modules\User\Entities\User;
 use PayPal\Api\Amount;
 use PayPal\Api\Payer;
 use PayPal\Api\Payment;
-use PayPal\Api\PaymentExecution;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
 
@@ -102,6 +100,6 @@ class PaypalModel extends PaymentModel {
         $this->transaction->setAmount($amount)
             ->setCustom($this->user->id)
             ->setDescription($this->description)
-            ->setInvoiceNumber($this->identifier);
+            ->setInvoiceNumber($this->transaction);
     }
 }

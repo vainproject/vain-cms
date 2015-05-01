@@ -23,7 +23,7 @@
 
         {!! Form::open(['url' => config('payment.providers.paysafe.endpoint')]) !!}
             {!! Form::hidden('amount', $payment->amount) !!}
-            {!! Form::hidden('mtid', $payment->identifier) !!}
+            {!! Form::hidden('mtid', $payment->transaction) !!}
             {!! Form::hidden('currency', $payment->currency) !!}
             {!! Form::hidden('language', $payment->user->locale) !!}
             {!! Form::hidden('success_link', route('premium.payment.paysafe.success')) !!}

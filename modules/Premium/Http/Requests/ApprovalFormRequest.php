@@ -1,4 +1,4 @@
-<?php namespace Modules\Premium\Services\Payment\Paypal;
+<?php namespace Modules\Premium\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -6,6 +6,12 @@ use Illuminate\Validation\Validator;
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentExecution;
 
+/**
+ * Used for Paypal approval backlinks
+ *
+ * Class ApprovalFormRequest
+ * @package Modules\Premium\Http\Requests
+ */
 class ApprovalFormRequest extends FormRequest
 {
     /**

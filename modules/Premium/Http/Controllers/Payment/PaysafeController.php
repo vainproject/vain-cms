@@ -1,5 +1,6 @@
 <?php namespace Modules\Premium\Http\Controllers\Payment;
 
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Premium\Services\Payment\PaymentModel;
@@ -16,7 +17,7 @@ class PaysafeController extends Controller {
         });
     }
 
-    public function index(CheckoutFormRequest $request)
+    public function index(PaymentFormRequest $request)
     {
         $payment = (new PaymentModel($request->all()))
             ->withUser($request->user());

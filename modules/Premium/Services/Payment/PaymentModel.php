@@ -18,7 +18,7 @@ class PaymentModel {
      *
      * @var string
      */
-    public $identifier;
+    public $transaction;
 
     /**
      * @var float
@@ -40,7 +40,7 @@ class PaymentModel {
     function __construct($attributes = [])
     {
         $this->currency = self::DEFAULT_CURRENCY;
-        $this->identifier = $this->generateIdentifier();
+        $this->transaction = $this->generateTransactionId();
 
         foreach ($attributes as $key => $value)
         {
@@ -64,7 +64,7 @@ class PaymentModel {
     /**
      * @return string
      */
-    protected function generateIdentifier()
+    protected function generateTransactionId()
     {
         return md5( uniqid( time() ) );
     }
