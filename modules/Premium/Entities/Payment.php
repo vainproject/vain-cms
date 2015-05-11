@@ -4,6 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model {
 
+    const STATUS_FAILED = 'failed';
+
+    const STATUS_COMPLETE = 'complete';
+
+    const STATUS_PENDING = 'pending';
+
     /**
      * The attributes that are mass assignable.
      *

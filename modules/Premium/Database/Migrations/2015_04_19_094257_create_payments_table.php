@@ -17,6 +17,7 @@ class CreatePaymentsTable extends Migration {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('transaction');
+            $table->string('status');
             $table->string('provider');
             $table->float('value');
             $table->string('currency');
