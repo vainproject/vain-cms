@@ -10,6 +10,7 @@ use Modules\Premium\Entities\Payment;
 use Modules\Premium\Http\Requests\ApprovalFormRequest;
 use Modules\Premium\Http\Requests\PaymentFormRequest;
 use Modules\Premium\Services\Payment\PaypalModel;
+use PayPal\Api\PaymentExecution;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use PayPal\Api\RedirectUrls;
 use PayPal\Rest\ApiContext;
@@ -49,8 +50,10 @@ class PaypalController extends Controller {
 
     public function approve(ApprovalFormRequest $request, ApiContext $apiContext, Store $session)
     {
-        $payment = $request->getPayment($apiContext);
-        $execution = $request->getExecution();
+        $payment = Payment::get($request->getPaymentId(), $apiContext);
+
+        $execution = new PaymentExecution();
+        $execution->setPayerId($request->getPayerId());
 
         $result = $payment->execute($execution, $apiContext); // if an exception is thrown, the payment is already executed
         $session->set('payment', $result);

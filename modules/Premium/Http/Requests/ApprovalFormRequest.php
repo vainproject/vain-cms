@@ -2,9 +2,6 @@
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Validator;
-use PayPal\Api\Payment;
-use PayPal\Api\PaymentExecution;
 
 /**
  * Used for Paypal approval backlinks
@@ -14,6 +11,22 @@ use PayPal\Api\PaymentExecution;
  */
 class ApprovalFormRequest extends FormRequest
 {
+    /**
+     * @return string
+     */
+    public function getPayerId()
+    {
+        return $this->input('PayerID');
+    }
+
+    /**
+     * @return string
+     */
+    public function getPaymentId()
+    {
+        return $this->input('paymentId');
+    }
+
     /**
      * validation that has to pass
      *
@@ -33,25 +46,5 @@ class ApprovalFormRequest extends FormRequest
     public function authorize()
     {
         return Auth::check();
-    }
-
-    /**
-     * @param $apiContext
-     * @return Payment
-     */
-    public function getPayment($apiContext)
-    {
-        return Payment::get($this->input('paymentId'), $apiContext);
-    }
-
-    /**
-     * @return PaymentExecution
-     */
-    public function getExecution()
-    {
-        $execution = new PaymentExecution();
-        $execution->setPayerId($this->input('PayerID'));
-
-        return $execution;
     }
 }
