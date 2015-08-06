@@ -1,4 +1,4 @@
-<?php namespace Modules\Blog\Handlers\Events;
+<?php namespace Modules\Blog\Listeners;
 
 use Modules\Blog\Entities\Category;
 use Vain\Events\BackendMenuCreated;
@@ -43,7 +43,7 @@ class BlogMenuComposer
      */
     public function subscribe($event)
     {
-        $event->listen('Vain\Events\FrontendMenuCreated', 'Modules\Blog\Handlers\Events\BlogMenuComposer@composeFrontendMenu');
-        $event->listen('Vain\Events\BackendMenuCreated', 'Modules\Blog\Handlers\Events\BlogMenuComposer@composeBackendMenu');
+        $event->listen('Vain\Events\FrontendMenuCreated', 'Modules\Blog\Listeners\BlogMenuComposer@composeFrontendMenu');
+        $event->listen('Vain\Events\BackendMenuCreated', 'Modules\Blog\Listeners\BlogMenuComposer@composeBackendMenu');
     }
 }

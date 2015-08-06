@@ -3,7 +3,6 @@
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Session\Store;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 use Modules\Premium\Services\Payment\Paypal\ApprovalFormRequest;
 use Modules\Premium\Services\Payment\Paypal\CheckoutFormRequest;
 use PayPal\Api\RedirectUrls;
@@ -13,10 +12,7 @@ class PaypalController extends Controller {
 
     function __construct()
     {
-        $this->beforeFilter(function() {
-            if ( ! config('payment.providers.paypal.enabled'))
-                throw new HttpException(503);
-        });
+        $this->middleware('payment.provider.enabled:paypal');
     }
 
     public function index(CheckoutFormRequest $request)

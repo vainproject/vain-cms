@@ -21,10 +21,10 @@ class UserController extends Controller {
     {
         $this->request = $request;
 
-        $this->beforeFilter('permission:user.user.show', ['only' => ['index', 'show']]);
-        $this->beforeFilter('permission:user.user.create', ['only' => ['create', 'store']]);
-        $this->beforeFilter('permission:user.user.edit', ['only' => ['edit', 'update']]);
-        $this->beforeFilter('permission:user.user.destroy', ['only' => 'destroy']);
+        $this->middleware('permission:user.user.show', ['only' => ['index', 'show']]);
+        $this->middleware('permission:user.user.create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:user.user.edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:user.user.destroy', ['only' => 'destroy']);
     }
 
     public function index()
@@ -37,7 +37,7 @@ class UserController extends Controller {
 
     public function create()
     {
-        $roles = Role::all()->lists('display_name', 'id');
+        $roles = Role::all()->lists('display_name', 'id')->all();
 
         $genders = [
             null => trans('user::profile.gender.none'),
@@ -79,7 +79,7 @@ class UserController extends Controller {
         /** @var User $user */
         $user = User::find($id);
 
-        $roles = Role::all()->lists('display_name', 'id');
+        $roles = Role::all()->lists('display_name', 'id')->all();
 
         $genders = [
             null => trans('user::profile.gender.none'),

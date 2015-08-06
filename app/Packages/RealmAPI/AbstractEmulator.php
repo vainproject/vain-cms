@@ -99,7 +99,7 @@ abstract class AbstractEmulator
         $name = DB::connection($this->connections['world'])
             ->table('characters')
             ->where('guid', $guid)
-            ->pluck('name');
+            ->value('name');
 
         Cache::put($key, $name, $this->cacheDuration);
 
@@ -121,7 +121,7 @@ abstract class AbstractEmulator
         $guid = DB::connection($this->connections['characters'])
             ->table('characters')
             ->where('name', $name)
-            ->pluck('guid');
+            ->value('guid');
 
         Cache::put($key, $guid, $this->cacheDuration);
 

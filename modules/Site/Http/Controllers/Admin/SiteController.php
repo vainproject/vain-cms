@@ -12,10 +12,10 @@ class SiteController extends Controller {
 
     function __construct()
     {
-        $this->beforeFilter('permission:site.page.show', ['only' => ['index', 'show']]);
-        $this->beforeFilter('permission:site.page.create', ['only' => ['create', 'store']]);
-        $this->beforeFilter('permission:site.page.edit', ['only' => ['edit', 'update']]);
-        $this->beforeFilter('permission:site.page.destroy', ['only' => 'destroy']);
+        $this->middleware('permission:site.page.show', ['only' => ['index', 'show']]);
+        $this->middleware('permission:site.page.create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:site.page.edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:site.page.destroy', ['only' => 'destroy']);
     }
 
     public function index()
@@ -30,7 +30,7 @@ class SiteController extends Controller {
     {
         $roles = array_merge(
             [ null => trans('site::page.role.none') ],
-            Role::all()->lists('display_name', 'name') );
+            Role::all()->lists('display_name', 'name') )->all();
 
         $locales = config('app.locales');
 
@@ -63,7 +63,7 @@ class SiteController extends Controller {
 
         $roles = array_merge(
             [ null => trans('site::page.role.none') ],
-            Role::all()->lists('display_name', 'name') );
+            Role::all()->lists('display_name', 'name') )->all();
 
         $locales = config('app.locales');
 

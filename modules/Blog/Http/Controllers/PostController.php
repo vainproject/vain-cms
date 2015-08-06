@@ -13,10 +13,10 @@ class PostController extends Controller {
 
     function __construct()
     {
-        $this->beforeFilter('permission:blog.post.show', ['only' => ['index', 'show']]);
-        $this->beforeFilter('permission:blog.post.create', ['only' => ['create', 'store']]);
-        $this->beforeFilter('permission:blog.post.edit', ['only' => ['edit', 'update']]);
-        $this->beforeFilter('permission:blog.post.destroy', ['only' => 'destroy']);
+        $this->middleware('permission:blog.post.show', ['only' => ['index', 'show']]);
+        $this->middleware('permission:blog.post.create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:blog.post.edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:blog.post.destroy', ['only' => 'destroy']);
     }
 
 	public function index()

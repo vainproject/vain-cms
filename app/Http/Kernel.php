@@ -30,6 +30,9 @@ class Kernel extends HttpKernel {
         'auth.basic' => 'Illuminate\User\Middleware\AuthenticateWithBasicAuth',
         'guest' => 'Modules\User\Http\Middleware\RedirectIfAuthenticated',
         'admin' => 'Vain\Http\Middleware\VerfiyBackendPermission',
+        'role' => 'Vain\Http\Middleware\EnsureRole',
+        'permission' => 'Vain\Http\Middleware\EnsurePermission',
+        'payment.provider.enabled' => 'Vain\Http\Middleware\PaymentProviderEnabled',
     ];
 
 }

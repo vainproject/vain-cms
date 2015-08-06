@@ -16,7 +16,7 @@ class BusServiceProvider extends ServiceProvider {
         $dispatcher->mapUsing(function($command)
         {
             return Dispatcher::simpleMapping(
-                $command, 'Vain\Commands', 'Vain\Handlers\Commands'
+                $command, 'Vain\Jobs', 'Vain\Handlers\Jobs'
             );
         });
     }

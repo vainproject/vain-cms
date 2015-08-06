@@ -1,4 +1,4 @@
-<?php namespace Modules\Premium\Handlers\Events;
+<?php namespace Modules\Premium\Listeners;
 
 use Modules\Site\Entities\Page;
 use Vain\Events\BackendMenuCreated;
@@ -35,8 +35,8 @@ class PremiumMenuComposer {
      */
     public function subscribe($events)
     {
-        $events->listen('Vain\Events\BackendMenuCreated', 'Modules\Premium\Handlers\Events\PremiumMenuComposer@composeBackendMenu');
+        $events->listen('Vain\Events\BackendMenuCreated', 'Modules\Premium\Listeners\PremiumMenuComposer@composeBackendMenu');
 
-        $events->listen('Vain\Events\FrontendMenuCreated', 'Modules\Premium\Handlers\Events\PremiumMenuComposer@composeFrontendMenu');
+        $events->listen('Vain\Events\FrontendMenuCreated', 'Modules\Premium\Listeners\PremiumMenuComposer@composeFrontendMenu');
     }
 }

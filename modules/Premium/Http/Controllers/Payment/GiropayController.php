@@ -2,16 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class GiropayController extends Controller {
 
     function __construct()
     {
-        $this->beforeFilter(function() {
-            if ( ! config('payment.providers.giropay.enabled'))
-                throw new HttpException(503);
-        });
+        $this->middleware('payment.provider.enabled:giropay');
     }
 
     public function index(Request $request)
