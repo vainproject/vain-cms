@@ -4,16 +4,12 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Premium\Services\Payment\PaymentModel;
 use Modules\Premium\Services\Payment\Paypal\CheckoutFormRequest;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class PaysafeController extends Controller {
 
     function __construct()
     {
-        $this->beforeFilter(function() {
-            if ( ! config('payment.providers.paysafe.enabled'))
-                throw new HttpException(503);
-        });
+        $this->middleware('payment.provider.enabled:paysafe');
     }
 
     public function index(CheckoutFormRequest $request)

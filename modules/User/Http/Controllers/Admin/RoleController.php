@@ -10,10 +10,10 @@ class RoleController extends Controller {
 
     function __construct()
     {
-        $this->beforeFilter('permission:user.role.show', ['only' => ['index', 'show']]);
-        $this->beforeFilter('permission:user.role.create', ['only' => ['create', 'store']]);
-        $this->beforeFilter('permission:user.role.edit', ['only' => ['edit', 'update']]);
-        $this->beforeFilter('permission:user.role.destroy', ['only' => 'destroy']);
+        $this->middleware('permission:user.role.show', ['only' => ['index', 'show']]);
+        $this->middleware('permission:user.role.create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:user.role.edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:user.role.destroy', ['only' => 'destroy']);
     }
 
     public function index()
@@ -26,7 +26,7 @@ class RoleController extends Controller {
 
     public function create()
     {
-        $permissions = Permission::all()->lists('display_name', 'id');
+        $permissions = Permission::all()->lists('display_name', 'id')->all();
 
         $colors = config('roles.colors');
 
@@ -49,7 +49,7 @@ class RoleController extends Controller {
         /** @var User $user */
         $role = Role::find($id);
 
-        $permissions = Permission::all()->lists('display_name', 'id');
+        $permissions = Permission::all()->lists('display_name', 'id')->all();
 
         $colors = config('roles.colors');
 

@@ -1,4 +1,4 @@
-<?php namespace Modules\User\Handlers\Events;
+<?php namespace Modules\User\Listeners;
 
 use Illuminate\View\View;
 use Knp\Menu\MenuItem;
@@ -54,8 +54,8 @@ class UserActivityHandler {
      */
     public function subscribe($events)
     {
-        $events->listen('auth.login', 'Modules\User\Handlers\Events\UserActivityHandler@onUserLogin');
+        $events->listen('auth.login', 'Modules\User\Listeners\UserActivityHandler@onUserLogin');
 
-        $events->listen('auth.logout', 'Modules\User\Handlers\Events\UserActivityHandler@onUserLogout');
+        $events->listen('auth.logout', 'Modules\User\Listeners\UserActivityHandler@onUserLogout');
     }
 }

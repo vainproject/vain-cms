@@ -1,4 +1,4 @@
-<?php namespace Vain\Commands;
+<?php namespace Vain\Jobs;
 
 abstract class Command {
 

@@ -1,4 +1,4 @@
-<?php namespace Modules\Site\Handlers\Events;
+<?php namespace Modules\Site\Listeners;
 
 use Modules\Site\Entities\Page;
 use Vain\Events\BackendMenuCreated;
@@ -42,8 +42,8 @@ class SiteMenuComposer {
      */
     public function subscribe($events)
     {
-        $events->listen('Vain\Events\BackendMenuCreated', 'Modules\Site\Handlers\Events\SiteMenuComposer@composeBackendMenu');
+        $events->listen('Vain\Events\BackendMenuCreated', 'Modules\Site\Listeners\SiteMenuComposer@composeBackendMenu');
 
-        $events->listen('Vain\Events\FrontendMenuCreated', 'Modules\Site\Handlers\Events\SiteMenuComposer@composeFrontendMenu');
+        $events->listen('Vain\Events\FrontendMenuCreated', 'Modules\Site\Listeners\SiteMenuComposer@composeFrontendMenu');
     }
 }

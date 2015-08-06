@@ -151,6 +151,7 @@ return [
         'Illuminate\Translation\TranslationServiceProvider',
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
+        'Illuminate\Broadcasting\BroadcastServiceProvider',
 
         /*
          * Application Service Providers...
@@ -166,7 +167,6 @@ return [
          * Package service provider
          */
         'Pingpong\Modules\ModulesServiceProvider',
-        'Pingpong\Modules\Providers\BootstrapServiceProvider',
         'Collective\Html\HtmlServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
@@ -174,7 +174,6 @@ return [
         'Zizaco\Entrust\EntrustServiceProvider',
         'Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider',
         'Dowilcox\KnpMenu\MenuServiceProvider',
-        'Ottowayne\LangCheck\LangCheckServiceProvider',
         'Cmgmyr\Messenger\MessengerServiceProvider',
 
         // in-app packages, may be excluded sometimes later

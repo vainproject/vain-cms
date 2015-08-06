@@ -1,4 +1,4 @@
-<?php namespace Modules\User\Handlers\Events;
+<?php namespace Modules\User\Listeners;
 
 use Vain\Events\BackendMenuCreated;
 
@@ -38,6 +38,6 @@ class UserMenuComposer {
      */
     public function subscribe($events)
     {
-        $events->listen('Vain\Events\BackendMenuCreated', 'Modules\User\Handlers\Events\UserMenuComposer@composeBackendMenu');
+        $events->listen('Vain\Events\BackendMenuCreated', 'Modules\User\Listeners\UserMenuComposer@composeBackendMenu');
     }
 }

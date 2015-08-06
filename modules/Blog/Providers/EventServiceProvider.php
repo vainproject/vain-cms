@@ -7,7 +7,7 @@ class EventServiceProvider extends ServiceProvider
 {
 
     protected $subscribe = [
-        'Modules\Blog\Handlers\Events\BlogMenuComposer'
+        'Modules\Blog\Listeners\BlogMenuComposer'
     ];
 
     /**

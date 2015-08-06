@@ -12,10 +12,10 @@ class PostController extends Controller
 
     function __construct()
     {
-        $this->beforeFilter('permission:blog.post.show', ['only' => ['index']]);
-        $this->beforeFilter('permission:blog.post.create', ['only' => ['create', 'store']]);
-        $this->beforeFilter('permission:blog.post.edit', ['only' => ['edit', 'update']]);
-        $this->beforeFilter('permission:blog.post.destroy', ['only' => 'destroy']);
+        $this->middleware('permission:blog.post.show', ['only' => ['index']]);
+        $this->middleware('permission:blog.post.create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:blog.post.edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:blog.post.destroy', ['only' => 'destroy']);
     }
 
     public function index()
@@ -29,7 +29,7 @@ class PostController extends Controller
     public function create()
     {
         $locales = config('app.locales');
-        $categories = Category::all()->lists('content.name', 'id');
+        $categories = Category::all()->lists('content.name', 'id')->all();
 
         return view('blog::admin.posts.create', ['locales' => $locales, 'categories' => $categories]);
     }
@@ -58,7 +58,7 @@ class PostController extends Controller
         /** @var Post $post */
         $post = Post::find($id);
         $locales = config('app.locales');
-        $categories = Category::all()->lists('content.name', 'id');
+        $categories = Category::all()->lists('content.name', 'id')->all();
 
         return view('blog::admin.posts.edit', ['post' => $post, 'locales' => $locales, 'categories' => $categories]);
     }

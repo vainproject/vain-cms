@@ -16,7 +16,7 @@ class EventServiceProvider extends ServiceProvider {
      * @var array
      */
     protected $subscribe = [
-        'Modules\Site\Handlers\Events\SiteMenuComposer',
+        'Modules\Site\Listeners\SiteMenuComposer',
     ];
 
     /**

@@ -11,10 +11,10 @@ class CategoryController extends Controller
 
     function __construct()
     {
-        $this->beforeFilter('permission:blog.category.show', ['only' => ['index']]);
-        $this->beforeFilter('permission:blog.category.create', ['only' => ['create', 'store']]);
-        $this->beforeFilter('permission:blog.category.edit', ['only' => ['edit', 'update']]);
-        $this->beforeFilter('permission:blog.category.destroy', ['only' => 'destroy']);
+        $this->middleware('permission:blog.category.show', ['only' => ['index']]);
+        $this->middleware('permission:blog.category.create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:blog.category.edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:blog.category.destroy', ['only' => 'destroy']);
     }
 
     public function index()
@@ -28,7 +28,7 @@ class CategoryController extends Controller
     public function create()
     {
         $locales = config('app.locales');
-        $categories = Category::all()->lists('content.name', 'id');
+        $categories = Category::all()->lists('content.name', 'id')->all();
 
         return view('blog::admin.categories.create', ['locales' => $locales, 'categories' => $categories]);
     }

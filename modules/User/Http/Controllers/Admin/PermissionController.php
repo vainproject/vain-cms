@@ -10,7 +10,7 @@ class PermissionController extends Controller {
         // we do not wan't a change in permissions since they
         // only should be modified from module migrations
 
-        $this->beforeFilter('permission:user.permission.show');
+        $this->middleware('permission:user.permission.show');
     }
 
     function index()

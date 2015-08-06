@@ -16,8 +16,8 @@ class EventServiceProvider extends ServiceProvider {
      * @var array
      */
     protected $subscribe = [
-        'Modules\User\Handlers\Events\UserActivityHandler',
-        'Modules\User\Handlers\Events\UserMenuComposer',
+        'Modules\User\Listeners\UserActivityHandler',
+        'Modules\User\Listeners\UserMenuComposer',
     ];
 
     /**

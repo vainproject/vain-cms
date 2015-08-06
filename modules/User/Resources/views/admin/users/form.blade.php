@@ -82,7 +82,7 @@
             <div class="box-body">
                 <div class="form-group">
                     <div class="col-sm-12">
-                        {!! Form::select('roles[]', $roles, empty($user) ?: $user->roles()->lists('id'), ['multiple', 'class' => 'form-control', 'size' => count($roles)]) !!}
+                        {!! Form::select('roles[]', $roles, empty($user) ?: $user->roles()->lists('id')->all(), ['multiple', 'class' => 'form-control', 'size' => count($roles)]) !!}
                     </div>
                 </div>
             </div><!-- /.box-body -->

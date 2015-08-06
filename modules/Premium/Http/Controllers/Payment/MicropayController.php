@@ -2,16 +2,12 @@
 
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class MicropayController extends Controller {
 
     function __construct()
     {
-        $this->beforeFilter(function() {
-            if ( ! config('payment.providers.micropayment.enabled'))
-                throw new HttpException(503);
-        });
+        $this->middleware('payment.provider.enabled:micropayment');
     }
 
     public function index()
