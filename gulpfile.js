@@ -68,13 +68,12 @@ elixir(function(mix) {
     // compile less
     mix.less(['app.less', 'admin.less'], 'public/static/css');
     // register custom watcher for less task
-    mix.task('less', './modules/**/*.less');
+    elixir.Task.find('less').watchers.push('./modules/**/*.less');
 
     // concat scripts
     mix.scripts(scripts_include, 'public/static/js/app.js', './');
     mix.scripts(scripts_admin_include, 'public/static/js/admin.js', './');
-    // register custom watcher for less task
-    mix.task('scripts', './modules/**/*.js');
+    // NOTE: watcher for every given script are added automatically
 
     // copy fonts
     mix.copy('./bower_components/bootstrap/dist/fonts', 'public/static/fonts');
