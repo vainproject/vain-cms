@@ -14,7 +14,6 @@
         "pingpong/modules": "2.1.*",
         "zizaco/entrust": "dev-master",
         "dowilcox/knp-menu-laravel": "dev-master",
-        "barryvdh/laravel-ide-helper": "2.0.*",
         "barryvdh/laravel-debugbar": "2.0.*",
         "filp/whoops": "1.1.*",
         "cmgmyr/messenger": "2.*",
@@ -48,7 +47,6 @@
         ],
         "post-update-cmd": [
             "php artisan clear-compiled",
-            "php artisan ide-helper:generate",
             "php artisan optimize"
         ],
         "post-create-project-cmd": [

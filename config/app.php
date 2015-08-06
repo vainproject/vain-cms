@@ -168,7 +168,6 @@ return [
          */
         'Pingpong\Modules\ModulesServiceProvider',
         'Collective\Html\HtmlServiceProvider',
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
         'Laravel\Socialite\SocialiteServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',

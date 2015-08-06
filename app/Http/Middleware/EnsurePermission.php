@@ -16,7 +16,7 @@ class EnsurePermission
      */
     public function handle($request, Closure $next, $value)
     {
-        if ( ! Entrust::can($value))
+        if ( ! \Entrust::can($value))
         {
             app()->abort(403, 'Missing permission \''. $value .'\'');
         }
