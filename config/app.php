@@ -166,7 +166,6 @@ return [
          * Package service provider
          */
         'Pingpong\Modules\ModulesServiceProvider',
-        'Pingpong\Modules\Providers\BootstrapServiceProvider',
         'Collective\Html\HtmlServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',

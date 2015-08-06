@@ -11,7 +11,7 @@
         "laravel/socialite": "~2.0",
         "laravelcollective/html": "~5.0",
         "laravelrus/localized-carbon": "dev-master",
-        "pingpong/modules": "2.0.x-dev",
+        "pingpong/modules": "~2.0",
         "zizaco/entrust": "dev-master",
         "dowilcox/knp-menu-laravel": "dev-master",
         "barryvdh/laravel-ide-helper": "~2.0",
