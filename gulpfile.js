@@ -1,11 +1,5 @@
+process.env.DISABLE_NOTIFIER = true;
 var elixir = require('laravel-elixir');
-
-var watch_paths = [
-    'modules/Blog/Resources/assets/**',
-    'modules/Site/Resources/assets/**',
-    'modules/User/Resources/assets/**',
-    'modules/Message/Resources/assets/**'
-];
 
 var scripts_include = [
     /*
@@ -58,11 +52,6 @@ var scripts_admin_include = [
     //'./modules/User/Resources/assets/js/admin/*.js',
 ];
 
-/**
- * register additional watchs paths
- */
-elixir.config.registerWatcher('default', watch_paths);
-
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -78,11 +67,14 @@ elixir(function(mix) {
 
     // compile less
     mix.less(['app.less', 'admin.less'], 'public/static/css');
+    // register custom watcher for less task
+    mix.task('less', './modules/**/*.less');
 
     // concat scripts
     mix.scripts(scripts_include, 'public/static/js/app.js', './');
-
     mix.scripts(scripts_admin_include, 'public/static/js/admin.js', './');
+    // register custom watcher for less task
+    mix.task('scripts', './modules/**/*.js');
 
     // copy fonts
     mix.copy('./bower_components/bootstrap/dist/fonts', 'public/static/fonts');
