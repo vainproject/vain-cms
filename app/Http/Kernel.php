@@ -32,7 +32,7 @@ class Kernel extends HttpKernel {
         'admin' => 'Vain\Http\Middleware\VerfiyBackendPermission',
         'role' => 'Vain\Http\Middleware\EnsureRole',
         'permission' => 'Vain\Http\Middleware\EnsurePermission',
-        'payment.provider.enabled' => 'Vain\Http\Middleware\PaymentProviderEnabled',
+        'payment.provider.enabled' => 'Modules\Premium\Http\MiddlewarePaymentProviderEnabled',
     ];
 
 }
