@@ -7,8 +7,8 @@ class BladeServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        Blade::directive('userbadge', function($user) {
-            return '<span class="label label-role role-<?php echo '.$user->roles()->ordered()->first()->color.'); ?>"><?php echo '.$user->name.'); ?></span>';
+        Blade::directive('userbadge', function($expression) {
+            return "<span class=\"label label-role role-<?php echo with{$expression}->roles()->ordered()->first()->color; ?>\"><?php echo with{$expression}->name; ?></span>";
         });
     }
 
