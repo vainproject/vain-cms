@@ -2,6 +2,7 @@
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Modules\User\Entities\Permission;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -10,9 +11,7 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
-    ];
+    protected $policies = [];
 
     /**
      * Register any application authentication / authorization services.
@@ -23,6 +22,23 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(GateContract $gate)
     {
         parent::registerPolicies($gate);
-        //
+
+//        $gate->before(function ($user, $ability) {
+//            if ($user->isSuperAdmin()) {
+//                return true;
+//            }
+//        });
+
+        foreach($this->getPermission() as $permission)
+        {
+            $gate->define($permission->name, function($user) use ($permission) {
+                $user->hasRole($permission->roles);
+            });
+        }
+    }
+
+    protected function getPermission()
+    {
+        return Permission::with('roles')->get();
     }
 }

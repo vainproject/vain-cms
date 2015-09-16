@@ -124,22 +124,6 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
     }
 
     /**
-     * Save the inputted roles.
-     *
-     * @param mixed $inputRoles
-     *
-     * @return void
-     */
-    public function saveRoles($inputRoles)
-    {
-        if (!empty($inputRoles)) {
-            $this->roles()->sync($inputRoles);
-        } else {
-            $this->roles()->detach();
-        }
-    }
-
-    /**
      * @return String
      */
     public function getAvatar()

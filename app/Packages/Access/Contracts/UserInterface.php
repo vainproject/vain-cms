@@ -23,6 +23,15 @@ interface UserInterface extends AuthorizableContract
     public function hasRole($name, $requireAll = false);
 
     /**
+     * Save the inputted roles.
+     *
+     * @param mixed $inputRoles
+     *
+     * @return void
+     */
+    public function saveRoles($inputRoles);
+
+    /**
      * Alias to eloquent many-to-many relation's attach() method.
      *
      * @param mixed $role

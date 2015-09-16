@@ -70,6 +70,22 @@ trait UserTrait
     }
 
     /**
+     * Save the inputted roles.
+     *
+     * @param mixed $inputRoles
+     *
+     * @return void
+     */
+    public function saveRoles($inputRoles)
+    {
+        if (!empty($inputRoles)) {
+            $this->roles()->sync($inputRoles);
+        } else {
+            $this->roles()->detach();
+        }
+    }
+
+    /**
      * Alias to eloquent many-to-many relation's attach() method.
      *
      * @param mixed $role

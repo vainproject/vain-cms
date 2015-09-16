@@ -1,17 +1,18 @@
 {
-    "name": "User",
-    "alias": "user",
-    "description": "",
-    "keywords": [],
-    "active": 1,
-    "order": 0,
-    "providers": [
-        "Modules\\User\\Providers\\EventServiceProvider",
-        "Modules\\User\\Providers\\ConfigServiceProvider",
-        "Modules\\User\\Providers\\RouteServiceProvider",
-        "Modules\\User\\Providers\\UserServiceProvider",
-        "Modules\\User\\Providers\\BladeServiceProvider"
-    ],
-    "aliases":{},
-    "files": []
+  "name": "User",
+  "alias": "user",
+  "description": "",
+  "keywords": [],
+  "active": 1,
+  "order": 0,
+  "providers": [
+    "Modules\\User\\Providers\\ConfigServiceProvider",
+    "Modules\\User\\Providers\\EventServiceProvider",
+    "Modules\\User\\Providers\\RouteServiceProvider",
+    "Modules\\User\\Providers\\UserServiceProvider",
+    "Modules\\User\\Providers\\AuthServiceProvider",
+    "Modules\\User\\Providers\\BladeServiceProvider"
+  ],
+  "aliases": {},
+  "files": []
 }
