@@ -12,15 +12,16 @@ interface UserInterface extends AuthorizableContract
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function roles();
+
     /**
      * Checks if the user has a role by its name.
      *
-     * @param string|array $name       Role name or array of role names.
-     * @param bool         $requireAll All roles in the array are required.
+     * @param string|array $name Role name or array of role names.
      *
      * @return bool
+     *
      */
-    public function hasRole($name, $requireAll = false);
+    public function hasRole($name);
 
     /**
      * Save the inputted roles.

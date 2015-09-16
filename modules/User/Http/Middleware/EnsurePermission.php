@@ -16,7 +16,7 @@ class EnsurePermission
      */
     public function handle($request, Closure $next, $value)
     {
-        if ( ! \Gate::denies($value))
+        if (\Gate::denies($value))
         {
             app()->abort(403, 'Missing permission \''. $value .'\'');
         }

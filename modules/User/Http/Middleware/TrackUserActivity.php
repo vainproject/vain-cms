@@ -38,9 +38,7 @@ class TrackUserActivity
             $user = $this->auth->user();
 
             $user->last_active_at = $user->freshTimestamp();
-
-            $user->timestamps = false; // don't update updated_at
-            $user->save();
+            $user->saveWithoutTimestamps(); // don't update updated_at
         }
 
         return $next($request);

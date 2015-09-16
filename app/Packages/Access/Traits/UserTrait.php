@@ -28,7 +28,7 @@ trait UserTrait
     public static function boot()
     {
         parent::boot();
-        static::deleting(function($user) {
+        static::deleting(function ($user) {
             if (!method_exists(config('auth.model'), 'bootSoftDeletes')) {
                 $user->roles()->sync([]);
             }
@@ -39,34 +39,17 @@ trait UserTrait
     /**
      * Checks if the user has a role by its name.
      *
-     * @param string|array $name       Role name or array of role names.
-     * @param bool         $requireAll All roles in the array are required.
+     * @param string|array $name Role name or array of role names.
      *
      * @return bool
      */
-    public function hasRole($name, $requireAll = false)
+    public function hasRole($name)
     {
-        if (is_array($name)) {
-            foreach ($name as $roleName) {
-                $hasRole = $this->hasRole($roleName);
-                if ($hasRole && !$requireAll) {
-                    return true;
-                } elseif (!$hasRole && $requireAll) {
-                    return false;
-                }
-            }
-// If we've made it this far and $requireAll is FALSE, then NONE of the roles were found
-// If we've made it this far and $requireAll is TRUE, then ALL of the roles were found.
-// Return the value of $requireAll;
-            return $requireAll;
-        } else {
-            foreach ($this->roles as $role) {
-                if ($role->name == $name) {
-                    return true;
-                }
-            }
+        if (is_string($name)) {
+            return $this->roles->contains('name', $name);
         }
-        return false;
+
+        return !! $name->intersect($this->roles)->count();
     }
 
     /**
@@ -92,10 +75,10 @@ trait UserTrait
      */
     public function attachRole($role)
     {
-        if(is_object($role)) {
+        if (is_object($role)) {
             $role = $role->getKey();
         }
-        if(is_array($role)) {
+        if (is_array($role)) {
             $role = $role['id'];
         }
         $this->roles()->attach($role);
@@ -134,7 +117,7 @@ trait UserTrait
      *
      * @param mixed $roles
      */
-    public function detachRoles($roles=null)
+    public function detachRoles($roles = null)
     {
         if (!$roles) $roles = $this->roles()->get();
 

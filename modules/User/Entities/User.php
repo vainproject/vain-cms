@@ -60,6 +60,13 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
     protected $hidden = ['password', 'remember_token'];
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['birthday_at', 'last_active_at'];
+
+    /**
      * created static pages
      */
     public function sites()
@@ -132,5 +139,20 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
 
         return app('Modules\User\Services\Gravatar')
             ->getGravatar($this->email);
+    }
+
+    /**
+     * Save the model to the database without updating
+     * the timestamps.
+     *
+     * @param  array  $options
+     * @return bool
+     */
+    public function saveWithoutTimestamps(array $options = [])
+    {
+        $this->timestamps = false; // don't update updated_at
+        $this->save($options);
+
+        $this->timestamps = true; // forgetting this may result in unexpected behavior
     }
 }
