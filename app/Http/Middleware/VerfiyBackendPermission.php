@@ -1,19 +1,8 @@
 <?php namespace Vain\Http\Middleware;
 
 use Closure;
-use Illuminate\Foundation\Application;
 
 class VerfiyBackendPermission {
-
-    /**
-     * @var \Zizaco\Entrust\Entrust
-     */
-    protected $entrust;
-
-    function __construct(Application $app)
-    {
-        $this->entrust = $app->make('entrust');
-    }
 
     /**
      * Handle an incoming request.
@@ -24,7 +13,7 @@ class VerfiyBackendPermission {
      */
     public function handle($request, Closure $next)
     {
-        if ( ! $this->entrust->can('app.admin.show'))
+        if (\Gate::denies('app.admin.show'))
         {
             if ($request->ajax())
             {

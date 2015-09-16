@@ -1,11 +1,13 @@
 <?php namespace Modules\User\Entities;
 
+use Illuminate\Database\Eloquent\Model;
 use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
-use Zizaco\Entrust\EntrustRole;
+use Vain\Packages\Access\Contracts\RoleInterface as RoleContract;
+use Vain\Packages\Access\Traits\RoleTrait;
 
-class Role extends EntrustRole
+class Role extends Model implements RoleContract
 {
-    use LocalizedEloquentTrait;
+    use RoleTrait, LocalizedEloquentTrait;
 
     /**
      * The attributes that are mass assignable.

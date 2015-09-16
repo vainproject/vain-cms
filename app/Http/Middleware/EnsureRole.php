@@ -16,7 +16,7 @@ class EnsureRole
      */
     public function handle($request, Closure $next, $value)
     {
-        if ( ! \Entrust::hasRole($value))
+        if ( ! \Auth::user()->hasRole($value))
         {
             app()->abort(403, 'Missing role \''. $value .'\'');
         }

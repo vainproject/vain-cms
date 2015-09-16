@@ -1,11 +1,13 @@
 <?php namespace Modules\User\Entities;
 
+use Illuminate\Database\Eloquent\Model;
 use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
-use Zizaco\Entrust\EntrustPermission;
+use Vain\Packages\Access\Contracts\PermissionInterface as PermissionContract;
+use Vain\Packages\Access\Traits\PermissionTrait;
 
-class Permission extends EntrustPermission
+class Permission extends Model implements PermissionContract
 {
-    use LocalizedEloquentTrait;
+    use PermissionTrait, LocalizedEloquentTrait;
 
     /**
      * The attributes that are mass assignable.

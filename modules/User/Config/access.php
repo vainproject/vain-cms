@@ -1,21 +1,13 @@
 <?php
 
-/**
- * This file is part of Entrust,
- * a role & permission management solution for Laravel.
- *
- * @license MIT
- * @package Zizaco\Entrust
- */
-
 return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Entrust Role Model
+    | Authorization Role Model
     |--------------------------------------------------------------------------
     |
-    | This is the Role model used by Entrust to create correct relations.  Update
+    | This is the Role model used to create correct relations.  Update
     | the role if it is in a different namespace.
     |
     */
@@ -24,10 +16,10 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Entrust Roles Table
+    | Authorization Roles Table
     |--------------------------------------------------------------------------
     |
-    | This is the roles table used by Entrust to save roles to the database.
+    | This is the roles table used to save roles to the database.
     |
     */
 
@@ -35,10 +27,10 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Entrust Permission Model
+    | Authorization Permission Model
     |--------------------------------------------------------------------------
     |
-    | This is the Permission model used by Entrust to create correct relations.
+    | This is the Permission model used to create correct relations.
     | Update the permission if it is in a different namespace.
     |
     */
@@ -47,10 +39,10 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Entrust Permissions Table
+    | Authorization Permissions Table
     |--------------------------------------------------------------------------
     |
-    | This is the permissions table used by Entrust to save permissions to the
+    | This is the permissions table used to save permissions to the
     | database.
     |
     */
@@ -59,10 +51,10 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Entrust permission_role Table
+    | Authorization permission_role Table
     |--------------------------------------------------------------------------
     |
-    | This is the permission_role table used by Entrust to save relationship
+    | This is the permission_role table used to save relationship
     | between permissions and roles to the database.
     |
     */
@@ -71,10 +63,10 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Entrust role_user Table
+    | Authorization role_user Table
     |--------------------------------------------------------------------------
     |
-    | This is the role_user table used by Entrust to save assigned roles to the
+    | This is the role_user table used to save assigned roles to the
     | database.
     |
     */

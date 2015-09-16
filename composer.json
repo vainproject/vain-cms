@@ -13,7 +13,6 @@
         "laravelcollective/html": "5.1.*",
         "laravelrus/localized-carbon": "dev-master",
         "pingpong/modules": "2.1.*",
-        "zizaco/entrust": "dev-master",
         "dowilcox/knp-menu-laravel": "dev-master",
         "barryvdh/laravel-debugbar": "2.0.*",
         "filp/whoops": "1.1.*",
