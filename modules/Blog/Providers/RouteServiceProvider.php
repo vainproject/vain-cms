@@ -1,4 +1,4 @@
-<?php namespace Modules\Site\Providers;
+<?php namespace Modules\Blog\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider {
      *
      * @var string
      */
-    protected $namespace = 'Modules\Site\Http\Controllers';
+    protected $namespace = 'Modules\Blog\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -24,7 +24,7 @@ class RouteServiceProvider extends ServiceProvider {
     {
         parent::boot($router);
 
-        require base_path('modules/Site/Http/breadcrumbs.php');
+        require base_path('modules/Blog/Http/breadcrumbs.php');
     }
 
     /**
@@ -37,7 +37,7 @@ class RouteServiceProvider extends ServiceProvider {
     {
         $router->group(['namespace' => $this->namespace], function($router)
         {
-            require base_path('modules/Site/Http/routes.php');
+            require base_path('modules/Blog/Http/routes.php');
         });
     }
 }

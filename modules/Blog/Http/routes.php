@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'blog', 'namespace' => 'Modules\Blog\Http\Controllers'], function()
+Route::group(['prefix' => 'blog'], function()
 {
 	Route::get('/', [
         'uses' => 'PostController@index',
@@ -37,7 +37,7 @@ Route::group(['prefix' => 'blog', 'namespace' => 'Modules\Blog\Http\Controllers'
 /**
  * Backend
  */
-Route::group(['prefix' => 'admin/blog', 'namespace' => 'Modules\Blog\Http\Controllers\Admin', 'middleware' => ['auth', 'admin']], function()
+Route::group(['prefix' => 'admin/blog', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function()
 {
     Route::resource('posts', 'PostController', ['names' => [
         'index' => 'blog.admin.posts.index',

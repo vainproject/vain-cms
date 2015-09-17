@@ -46,4 +46,13 @@ class BlogServiceProvider extends ServiceProvider {
 		return array();
 	}
 
+	public function boot()
+	{
+		$langPath = __DIR__.'/../Resources/lang';
+		$this->loadTranslationsFrom( $langPath, 'blog' );
+
+		$viewPath = __DIR__.'/../Resources/views';
+		$this->loadViewsFrom( $viewPath, 'blog' );
+	}
+
 }

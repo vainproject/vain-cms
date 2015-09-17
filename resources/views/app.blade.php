@@ -16,6 +16,7 @@
 <body>
 <div class="wrapper" data-pjax>
     @include('layout.app.menu')
+    {!! Breadcrumbs::renderIfExists() !!}
 
     @if ($errors->any())
         <div class="alert alert-danger">

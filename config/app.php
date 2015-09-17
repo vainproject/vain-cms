@@ -174,6 +174,7 @@ return [
         Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider::class,
         Dowilcox\KnpMenu\MenuServiceProvider::class,
         Cmgmyr\Messenger\MessengerServiceProvider::class,
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 
         // in-app packages, may be excluded sometimes later
         Vain\Packages\RealmAPI\Providers\RealmApiServiceProvider::class,
@@ -236,6 +237,7 @@ return [
         'Menu' => Dowilcox\KnpMenu\Facades\Menu::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class
     ],
 
 ];
