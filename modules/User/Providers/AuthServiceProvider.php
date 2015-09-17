@@ -1,10 +1,10 @@
 <?php namespace Modules\User\Providers;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
-use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Log;
 use Modules\User\Entities\Permission;
+use PDOException;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -47,7 +47,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         try {
             return Permission::with('roles')->get();
-        } catch (QueryException $e) {
+        } catch (PDOException $e) {
             Log::warning('Permission table could not be found when trying to load permissions in AuthServiceProvider');
 
             return [];
