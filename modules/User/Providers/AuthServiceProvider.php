@@ -1,7 +1,9 @@
 <?php namespace Modules\User\Providers;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Log;
 use Modules\User\Entities\Permission;
 
 class AuthServiceProvider extends ServiceProvider
@@ -29,16 +31,26 @@ class AuthServiceProvider extends ServiceProvider
 //            }
 //        });
 
-        foreach($this->getPermission() as $permission)
-        {
+        foreach ($this->getPermission() as $permission) {
             $gate->define($permission->name, function($user) use ($permission) {
                 return $user->hasRole($permission->roles);
             });
         }
     }
 
+    /**
+     * Returns an empty error in case of non-existend database (i.e. when working with a newly deployed system)
+     *
+     * @return array|\Illuminate\Database\Eloquent\Collection|static[]
+     */
     protected function getPermission()
     {
-        return Permission::with('roles')->get();
+        try {
+            return Permission::with('roles')->get();
+        } catch (QueryException $e) {
+            Log::warning('Permission table could not be found when trying to load permissions in AuthServiceProvider');
+
+            return [];
+        }
     }
 }
