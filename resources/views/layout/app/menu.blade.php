@@ -1,19 +1,67 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><b>Vain</b> App</a>
-        </div>
+{{--<nav class="navbar navbar-default">--}}
+    {{--<div class="container-fluid">--}}
+        {{--<div class="navbar-header">--}}
+            {{--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">--}}
+                {{--<span class="sr-only">Toggle Navigation</span>--}}
+                {{--<span class="icon-bar"></span>--}}
+                {{--<span class="icon-bar"></span>--}}
+                {{--<span class="icon-bar"></span>--}}
+            {{--</button>--}}
+            {{--<a class="navbar-brand" href="#"><b>Vain</b> App</a>--}}
+        {{--</div>--}}
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            {!! (new \Vain\Presenters\Menu\VainPresenter())->render($menu) !!}
+        {{--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">--}}
+            {{--{!! (new \Vain\Presenters\Menu\VainPresenter())->render($menu) !!}--}}
 
-            @yield('account')
-        </div>
-    </div>
-</nav>
+            {{--@yield('account')--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</nav>--}}
+
+<div id="menu" class="menu-right">
+    <ul>
+        {{-- Search form --}}
+        <form class="menu-search" >
+            <div class="form-group header">
+                <i class="icon-search searchico"></i>
+                <input type="text" placeholder="Blog Search">
+                <a href="#" class="close-menu"><i class="icon-close"></i></a>
+            </div>
+        </form>
+
+        {{-- General menu items --}}
+        <li><a href="index.html"><i class="icon-lime"></i>Home</a></li>
+        <li><a href="about.html"><i class="icon-user"></i>About</a></li>
+        <li class="submenu">
+            <a href="#"><i class="icon-books"></i>Categories<b class="caret"></b></a>
+            <ul class="submenu-list">
+                <li><a href="category.html">Blogroll <span class="badge golden">2</span></a></li>
+                <li><a href="category.html">Quotes<span class="badge">4</span></a></li>
+                <li><a href="category.html">Travel<span class="badge red">12</span></a></li>
+                <li><a href="category.html">Writing<span class="badge blue">7</span></a></li>
+            </ul>
+        </li>
+        <li class="submenu submenu-open">
+            <a href="#"><i class="icon-file"></i>Pages<b class="caret"></b></a>
+            <ul class="submenu-list">
+                <li><a href="post-image.html">Post Image</a></li>
+                <li><a href="post-audio.html">Post Audio</a></li>
+                <li><a href="post-video.html">Post Video</a></li>
+                <li><a href="post-typography.html">Typography</a></li>
+                <li><a href="author.html">Author</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="404.html">404 Error</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#"><i class="icon-calendar"></i>Archives <b class="caret"></b></a>
+            <ul class="submenu-list">
+                <li><a href="archives.html">June<span>2014</span></a></li>
+                <li><a href="archives.html">May<span>2014</span></a></li>
+                <li><a href="archives.html">January<span>2014</span></a></li>
+                <li><a href="archives.html">October<span>2013</span></a></li>
+            </ul>
+        </li>
+        <li><a href="contact.html"><i class="icon-envelope"></i>Contact</a></li>
+    </ul>
+</div>

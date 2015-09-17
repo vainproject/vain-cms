@@ -4,6 +4,11 @@
     @lang('user::auth.title.password')
 @stop
 
+@section('headline')
+    <h1>@lang('user::auth.title.password')</h1>
+    <h2>{{ Inspiring::quote() }}</h2>
+@endsection
+
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -14,17 +19,6 @@
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
-                        </div>
-                    @endif
-
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
                         </div>
                     @endif
 

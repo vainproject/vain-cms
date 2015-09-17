@@ -12,6 +12,8 @@ var scripts_include = [
     './bower_components/toastr/toastr.js',
     './bower_components/bootstrap-select/dist/js/bootstrap-select.js',
     './bower_components/emojify.js/dist/js/emojify.js',
+    './bower_components/wowjs/dist/wow.js',
+    './bower_components/placeholders/dist/placeholders.js',
 
     /*
      |--------------------------------------------------------------------------
@@ -23,6 +25,7 @@ var scripts_include = [
     './resources/assets/js/notify.js',
     './resources/assets/js/pjax.js',
     './resources/assets/js/core.js',
+    './resources/assets/js/frontend.js',
 
     /*
      |--------------------------------------------------------------------------
@@ -66,7 +69,9 @@ var scripts_admin_include = [
 elixir(function(mix) {
 
     // compile less
-    mix.less(['app.less', 'admin.less'], 'public/static/css');
+    mix.less(['app.less', 'backend.less'], 'public/static/css/backend.css');
+    mix.less(['app.less','frontend.less'], 'public/static/css/frontend.css');
+
     // register custom watcher for less task
     elixir.Task.find('less').watchers.push('./modules/**/*.less');
 
@@ -78,9 +83,11 @@ elixir(function(mix) {
     // copy fonts
     mix.copy('./bower_components/bootstrap/dist/fonts', 'public/static/fonts');
     mix.copy('./bower_components/font-awesome/fonts', 'public/static/fonts');
+    mix.copy('./resources/assets/fonts', 'public/static/fonts');
 
     // copy images
     mix.copy('./bower_components/emojify.js/dist/images/basic', 'public/static/images/emojify');
+    mix.copy('./resources/assets/img', 'public/static/images');
 
     // copy admin statics
     //mix.copy('./bower_components/admin-lte/plugins', 'public/static/plugins');
