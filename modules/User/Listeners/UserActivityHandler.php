@@ -28,7 +28,7 @@ class UserActivityHandler {
     public function onUserLogin(User $user)
     {
         $user->logged_out = false;
-        $this->saveWithoutTimestamps($user); // don't update updated_at
+        $user->saveWithoutTimestamps(); // don't update updated_at
     }
 
     /**
@@ -39,7 +39,7 @@ class UserActivityHandler {
     public function onUserLogout(User $user)
     {
         $user->logged_out = true;
-        $this->saveWithoutTimestamps($user); // don't update updated_at
+        $user->saveWithoutTimestamps(); // don't update updated_at
     }
 
     /**
