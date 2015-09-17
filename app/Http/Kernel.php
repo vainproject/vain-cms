@@ -29,10 +29,10 @@ class Kernel extends HttpKernel {
         'auth' => 'Modules\User\Http\Middleware\Authenticate',
         'auth.basic' => 'Illuminate\User\Middleware\AuthenticateWithBasicAuth',
         'guest' => 'Modules\User\Http\Middleware\RedirectIfAuthenticated',
-        'admin' => 'Vain\Http\Middleware\VerfiyBackendPermission',
-        'role' => 'Vain\Http\Middleware\EnsureRole',
-        'permission' => 'Vain\Http\Middleware\EnsurePermission',
-        'payment.provider.enabled' => 'Vain\Http\Middleware\PaymentProviderEnabled',
+        'admin' => 'Modules\User\Http\Middleware\VerfiyBackendPermission',
+        'role' => 'Modules\User\Http\Middleware\EnsureRole',
+        'permission' => 'Modules\User\Http\Middleware\EnsurePermission',
+        'payment.provider.enabled' => 'Modules\Premium\Http\MiddlewarePaymentProviderEnabled',
     ];
 
 }

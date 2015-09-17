@@ -4,15 +4,18 @@ use Carbon\Carbon;
 use Cmgmyr\Messenger\Traits\Messagable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
-use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
-use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
+use Vain\Packages\Access\Contracts\UserInterface as UserContract;
+use Vain\Packages\Access\Traits\UserTrait;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
+class User extends Model implements UserContract, AuthenticatableContract, CanResetPasswordContract {
 
-    use Authenticatable, CanResetPassword, EntrustUserTrait, LocalizedEloquentTrait, Messagable;
+    use UserTrait, Authenticatable, CanResetPassword, LocalizedEloquentTrait, Messagable;
 
     /**
      * The database table used by the model.
@@ -55,6 +58,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['birthday_at', 'last_active_at'];
 
     /**
      * created static pages
@@ -121,22 +131,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
-     * Save the inputted roles.
-     *
-     * @param mixed $inputRoles
-     *
-     * @return void
-     */
-    public function saveRoles($inputRoles)
-    {
-        if (!empty($inputRoles)) {
-            $this->roles()->sync($inputRoles);
-        } else {
-            $this->roles()->detach();
-        }
-    }
-
-    /**
      * @return String
      */
     public function getAvatar()
@@ -145,5 +139,20 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
         return app('Modules\User\Services\Gravatar')
             ->getGravatar($this->email);
+    }
+
+    /**
+     * Save the model to the database without updating
+     * the timestamps.
+     *
+     * @param  array  $options
+     * @return bool
+     */
+    public function saveWithoutTimestamps(array $options = [])
+    {
+        $this->timestamps = false; // don't update updated_at
+        $this->save($options);
+
+        $this->timestamps = true; // forgetting this may result in unexpected behavior
     }
 }

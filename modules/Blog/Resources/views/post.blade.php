@@ -26,7 +26,7 @@
 
         <hr>
 
-        @if(Entrust::can('blog.comment.show'))
+        @can('blog.comment.show')
             <h3>{{ Lang::get('blog::blog.comment.write') }}</h3>
 
             {!! Form::open([
@@ -45,9 +45,9 @@
                 </div>
                 <div class="clearfix"></div>
             {!! Form::close() !!}
-        @endif
+        @endcan
 
-        @if(Entrust::can('blog.comment.create'))
+        @can('blog.comment.create'))
             <h3>{{ Lang::choice('blog::blog.comment.count', $post->comments->count()) }}</h3>
             @foreach($post->comments as $comment)
                 <div class="panel @if($comment->bluepost) panel-info-styled-footer @else panel-default @endif">
@@ -56,7 +56,7 @@
                     </div>
                     <div class="panel-footer">
                         <div class="pull-right">
-                            @if(Entrust::can('blog.comment.destroy'))
+                            @can('blog.comment.destroy'))
                                 {!! Form::open([
                                     'class' => 'form-inline',
                                     'data-remote',
@@ -67,13 +67,13 @@
                                 !!}
                                 <button class="btn btn-xs btn-danger" type="submit"><i class="fa fa-remove"></i></button>
                                 {!! Form::close() !!}
-                            @endif
+                            @endcan
                         </div>
                         {{ trans('blog::blog.comment.credits', ['time' => $comment->created_at->diffForHumans()]) }} @userbadge($comment->user)
                     </div>
                 </div>
             @endforeach
-        @endif
+        @endcan
     </div>
 
 @stop

@@ -24,7 +24,7 @@ class ConfigServiceProvider extends ServiceProvider {
         );
 
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/entrust.php', 'entrust'
+            __DIR__.'/../Config/access.php', 'access'
         );
 
         $this->mergeConfigFrom(
