@@ -29,7 +29,7 @@ class PostController extends Controller
     public function create()
     {
         $locales = config('app.locales');
-        $categories = Category::all()->lists('content.name', 'id')->all();
+        $categories = Category::lists('content.name', 'id')->all();
 
         return view('blog::admin.posts.create', ['locales' => $locales, 'categories' => $categories]);
     }
@@ -58,7 +58,7 @@ class PostController extends Controller
         /** @var Post $post */
         $post = Post::find($id);
         $locales = config('app.locales');
-        $categories = Category::all()->lists('content.name', 'id')->all();
+        $categories = Category::lists('content.name', 'id')->all();
 
         return view('blog::admin.posts.edit', ['post' => $post, 'locales' => $locales, 'categories' => $categories]);
     }

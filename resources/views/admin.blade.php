@@ -29,6 +29,11 @@
     <!-- Right side column. Contains the navbar and content of the page -->
     <!-- Pjax container since AdminLTE does not use $.on() delegation -->
     <div class="content-wrapper" data-pjax>
+
+        <section class="content-header">
+            {!! Breadcrumbs::renderIfExists() !!}
+        </section>
+
        @yield('content')
     </div><!-- /.content-wrapper -->
 

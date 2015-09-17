@@ -10,6 +10,21 @@ Route::group(['namespace' => 'Auth'], function()
         'password' => 'PasswordController',
     ]);
 
+    Route::controller('auth', 'AuthController', [
+        'getRegister' => 'user.auth.register.get',
+        'postRegister' => 'user.auth.register.post',
+        'getLogin' => 'user.auth.login.get',
+        'postLogin' => 'user.auth.login.post',
+        'getLogout' => 'user.auth.logout',
+    ]);
+
+    Route::controller('password', 'PasswordController', [
+        'getEmail' => 'user.password.email.get',
+        'postEmail' => 'user.password.email.post',
+        'getReset' => 'user.password.reset.get',
+        'postReset' => 'user.password.reset.post',
+    ]);
+
     // socialite
     Route::group(['prefix' => 'oauth'], function()
     {

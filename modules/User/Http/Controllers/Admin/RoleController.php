@@ -26,7 +26,7 @@ class RoleController extends Controller {
 
     public function create()
     {
-        $permissions = Permission::all()->lists('display_name', 'id')->all();
+        $permissions = Permission::lists('display_name', 'id')->all();
 
         $colors = config('roles.colors');
 
@@ -49,7 +49,7 @@ class RoleController extends Controller {
         /** @var User $user */
         $role = Role::find($id);
 
-        $permissions = Permission::all()->lists('display_name', 'id')->all();
+        $permissions = Permission::lists('display_name', 'id')->all();
 
         $colors = config('roles.colors');
 

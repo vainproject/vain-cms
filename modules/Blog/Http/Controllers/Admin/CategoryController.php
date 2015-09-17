@@ -28,7 +28,7 @@ class CategoryController extends Controller
     public function create()
     {
         $locales = config('app.locales');
-        $categories = Category::all()->lists('content.name', 'id')->all();
+        $categories = Category::lists('content.name', 'id')->all();
 
         return view('blog::admin.categories.create', ['locales' => $locales, 'categories' => $categories]);
     }

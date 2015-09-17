@@ -37,7 +37,7 @@ class UserController extends Controller {
 
     public function create()
     {
-        $roles = Role::all()->lists('display_name', 'id')->all();
+        $roles = Role::lists('display_name', 'id')->all();
 
         $genders = [
             null => trans('user::profile.gender.none'),
@@ -79,7 +79,7 @@ class UserController extends Controller {
         /** @var User $user */
         $user = User::find($id);
 
-        $roles = Role::all()->lists('display_name', 'id')->all();
+        $roles = Role::lists('display_name', 'id')->all();
 
         $genders = [
             null => trans('user::profile.gender.none'),
