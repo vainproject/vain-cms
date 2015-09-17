@@ -47,7 +47,7 @@
             {!! Form::close() !!}
         @endcan
 
-        @can('blog.comment.create'))
+        @can('blog.comment.create')
             <h3>{{ Lang::choice('blog::blog.comment.count', $post->comments->count()) }}</h3>
             @foreach($post->comments as $comment)
                 <div class="panel @if($comment->bluepost) panel-info-styled-footer @else panel-default @endif">
@@ -56,7 +56,7 @@
                     </div>
                     <div class="panel-footer">
                         <div class="pull-right">
-                            @can('blog.comment.destroy'))
+                            @can('blog.comment.destroy')
                                 {!! Form::open([
                                     'class' => 'form-inline',
                                     'data-remote',
