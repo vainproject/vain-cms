@@ -20,6 +20,7 @@ services:
 before_install:
   - npm install -g bower
   - npm install -g gulp
+  - mysql -e 'create database vain;'
 
 install:
   - composer install --no-interaction --prefer-source
@@ -27,7 +28,6 @@ install:
   - bower install
 
 before_script:
-  - mysql -e 'create database vain;'
   - gulp
   - php artisan module:migrate --force
 
