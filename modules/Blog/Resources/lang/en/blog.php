@@ -3,9 +3,13 @@
 return [
     'title' => [
         'index' => 'Blog',
+        'teaser' => 'Its about time that you get up to date!',
         'post' => 'Blog: :name'
     ],
     'index' => 'Blog',
+    'post' => [
+        'more' => 'Read more...',
+    ],
     'comment' => [
         'save' => [
             'error' => 'An error occurred while trying to store your comment',
@@ -18,7 +22,7 @@ return [
         ],
         'write' => 'Write new comment',
         'placeholder' => 'Now it\'s time for your comment...',
-        'count' => ':count Comment so far|:count Comments so far',
-        'credits' => 'posted vor :time von',
+        'count' => ':count Comment|:count Comments',
+        'credits' => 'posted at :time by',
     ]
 ];
