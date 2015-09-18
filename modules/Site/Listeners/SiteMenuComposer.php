@@ -23,7 +23,8 @@ class SiteMenuComposer {
     public function composeFrontendMenu(FrontendMenuCreated $event)
     {
         $event->handler->addChild('site::page.title.index')
-            ->setUri('#');
+            ->setUri('#')
+            ->setExtra('icon', 'file-o');
 
         foreach (Page::published()->get() as $page)
         {

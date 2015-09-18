@@ -40,11 +40,11 @@ class MenuServiceProvider extends ServiceProvider
             // inject home item
             $handler->addChild('Home')
                 ->setUri(route('index.home'))
-                ->setExtra('icon', 'file-o');
+                ->setExtra('icon', 'home');
 
             $handler->addChild('Admin Panel')
                 ->setUri(route('user.admin.users.index'))
-                ->setExtra('icon', 'file-o');
+                ->setExtra('icon', 'tachometer');
 
             Event::fire(new FrontendMenuCreated($handler, $view));
         });

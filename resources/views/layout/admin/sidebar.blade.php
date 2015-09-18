@@ -10,4 +10,4 @@
     </div>
 </div>
 
-{!! (new \Vain\Presenters\Menu\AdminLtePresenter())->render($menu) !!}
+{!! (new \Vain\Presenters\Menu\BackendPresenter())->render($menu) !!}

@@ -2,7 +2,7 @@
 
 use Knp\Menu\ItemInterface;
 
-class AdminLtePresenter extends VainPresenter
+class BackendPresenter extends VainPresenter
 {
     /**
      * @param ItemInterface $item
@@ -101,20 +101,6 @@ class AdminLtePresenter extends VainPresenter
             $this->renderIcon($item, $options),
             $this->renderLabel($item, $options),
             $this->renderFolding($item, $options));
-    }
-
-    /**
-     * @param ItemInterface $item
-     * @param array $options
-     * @return string
-     */
-    protected function renderIcon(ItemInterface $item, array $options = [])
-    {
-        if ($item->getExtra('icon', null) !== null) {
-            return $this->renderIconElement( $item, $options );
-        }
-
-        return '';
     }
 
     /**

@@ -13,7 +13,8 @@ class BlogMenuComposer
     {
         $event->handler->addChild('blog::blog.index')
             ->setExtra('routes', ['blog.post.show', 'blog.category.show'])
-            ->setUri(route('blog.post.index'));
+            ->setUri(route('blog.post.index'))
+            ->setExtra('icon', 'newspaper-o');
     }
 
     /**
