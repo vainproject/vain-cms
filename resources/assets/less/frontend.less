@@ -392,7 +392,7 @@ pre {
   right: 0;
   top: 0;
   bottom: 0;
-  width: 240px;
+  width: 350px;
   height: 100%;
   background-color: #12131A;
   font-size: 13px;
@@ -404,11 +404,11 @@ pre {
   transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
 }
 .menu-open{
-  -webkit-transform: translate3d(-240px, 0, 0) scale3d(1, 1, 1);
-  -moz-transform: translate3d(-240px, 0, 0) scale3d(1, 1, 1);
-  -ms-transform: translateX(-240px);
-  -o-transform: translate(-240px, 0);
-  transform: translate3d(-240px, 0, 0) scale3d(1, 1, 1);
+  -webkit-transform: translate3d(-350px, 0, 0) scale3d(1, 1, 1);
+  -moz-transform: translate3d(-350px, 0, 0) scale3d(1, 1, 1);
+  -ms-transform: translateX(-350px);
+  -o-transform: translate(-350px, 0);
+  transform: translate3d(-350px, 0, 0) scale3d(1, 1, 1);
   overflow: none;
 }
 .menu-search {
@@ -431,6 +431,7 @@ pre {
   display: none;
 }
 #menu>ul>li{
+  overflow: hidden;
   position: relative;
   display: block;
 }
@@ -526,6 +527,9 @@ pre {
   max-height: 0;
   overflow-y: hidden;
   background-color: #1c1d24;
+}
+.submenu-list li {
+  overflow: hidden;
 }
 .submenu-list li a {
   position: relative;

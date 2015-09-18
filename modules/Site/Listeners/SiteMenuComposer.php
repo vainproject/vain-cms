@@ -1,5 +1,6 @@
 <?php namespace Modules\Site\Listeners;
 
+use Illuminate\Support\Facades\Gate;
 use Modules\Site\Entities\Page;
 use Vain\Events\BackendMenuCreated;
 use Vain\Events\FrontendMenuCreated;
@@ -22,6 +23,9 @@ class SiteMenuComposer {
      */
     public function composeFrontendMenu(FrontendMenuCreated $event)
     {
+        if (Gate::denies('site.page.show'))
+            return;
+
         $event->handler->addChild('site::page.title.index')
             ->setUri('#')
             ->setExtra('icon', 'file-o');
