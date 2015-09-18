@@ -75,7 +75,7 @@ class Post extends Model implements Translatable {
             });
 
             $query->where(function($query) {
-                $query->where('concealed_at', '>=', Carbon::now())
+                $query->where('concealed_at', '>', Carbon::now())
                     ->orWhere('concealed_at', null);
             });
         });
@@ -104,5 +104,11 @@ class Post extends Model implements Translatable {
         $this->attributes['concealed_at'] = !empty($value)
             ? $value
             : null;
+    }
+
+    public function isPublished()
+    {
+        return (is_null($this->published_at) || $this->published_at <= Carbon::now())
+            && (is_null($this->concealed_at) || $this->concealed_at > Carbon::now());
     }
 }

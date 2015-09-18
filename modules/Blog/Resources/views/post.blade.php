@@ -33,7 +33,7 @@
                 'data-remote',
                 'data-remote-success-message' => trans('blog::blog.comment.save.success'),
                 'data-remote-error-message' => trans('blog::blog.comment.save.error'),
-                'url' => route('blog.comment.create', ['postId' => $post->id])]) !!}
+                'url' => route('blog.comment.store', ['postId' => $post->id])]) !!}
 
                 <div class="form-group">
                     <textarea name="text" class="form-control" data-expand data-expand-rows-max="6" rows="2"
@@ -47,7 +47,7 @@
             {!! Form::close() !!}
         @endcan
 
-        @can('blog.comment.create')
+        @can('blog.comment.show')
             <h3>{{ Lang::choice('blog::blog.comment.count', $post->comments->count()) }}</h3>
             @foreach($post->comments as $comment)
                 <div class="panel @if($comment->bluepost) panel-info-styled-footer @else panel-default @endif">
@@ -56,7 +56,7 @@
                     </div>
                     <div class="panel-footer">
                         <div class="pull-right">
-                            @can('blog.comment.destroy')
+                            @can('destroy', $comment)
                                 {!! Form::open([
                                     'class' => 'form-inline',
                                     'data-remote',

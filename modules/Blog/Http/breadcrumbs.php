@@ -22,7 +22,8 @@ Breadcrumbs::register('blog.post.show', function ($breadcrumbs, $slug) {
  */
 
 Breadcrumbs::register('blog.admin.posts.index', function ($breadcrumbs) {
-    $breadcrumbs->push(trans('blog::admin.title.index'), route('blog.admin.posts.index'));
+    $breadcrumbs->parent('blog.post.index');
+    $breadcrumbs->push(trans('blog::admin.title.posts'), route('blog.admin.posts.index'));
 });
 
 Breadcrumbs::register('blog.admin.posts.edit', function ($breadcrumbs, $id) {
@@ -37,7 +38,8 @@ Breadcrumbs::register('blog.admin.posts.create', function ($breadcrumbs) {
 });
 
 Breadcrumbs::register('blog.admin.categories.index', function ($breadcrumbs) {
-    $breadcrumbs->push(trans('blog::admin.title.index'), route('blog.admin.categories.index'));
+    $breadcrumbs->parent('blog.post.index');
+    $breadcrumbs->push(trans('blog::admin.title.categories'), route('blog.admin.categories.index'));
 });
 
 Breadcrumbs::register('blog.admin.category.edit', function ($breadcrumbs, $id) {

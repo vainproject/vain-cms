@@ -1,26 +1,15 @@
 <?php namespace Modules\Blog\Http\Controllers;
 
-use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\View;
-use Modules\Blog\Entities\Comment;
+use Vain\Http\Controllers\Controller;
 use Modules\Blog\Entities\Post;
-use Modules\Blog\Http\Requests\CommentFormRequest;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PostController extends Controller {
 
-    function __construct()
-    {
-        $this->middleware('permission:blog.post.show', ['only' => ['index', 'show']]);
-        $this->middleware('permission:blog.post.create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:blog.post.edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:blog.post.destroy', ['only' => 'destroy']);
-    }
-
 	public function index()
 	{
+        $this->authorize('blog.post.show');
+
         $posts = Post::with('user', 'category', 'comments')->published()->paginate(config('blog.posts_per_page'));
 
 		return view('blog::index')->with('posts', $posts);
@@ -37,8 +26,9 @@ class PostController extends Controller {
             throw new NotFoundHttpException('post with slug \'' . $slug . '\' not found');
         }
 
+        $this->authorize($post);
+
         return view('blog::post')->with('post', $post);
     }
-
 
 }

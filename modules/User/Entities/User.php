@@ -155,4 +155,14 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
 
         $this->timestamps = true; // forgetting this may result in unexpected behavior
     }
+
+    /**
+     * Checks for the property user_id and compares it to the id of this user object
+     * @param object $object
+     * @return bool
+     */
+    public function owns($object)
+    {
+        return property_exists($object, 'user_id') && $object->user_id == $this->id;
+    }
 }

@@ -1,24 +1,18 @@
 <?php namespace Modules\Blog\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Modules\Blog\Entities\Category;
 use Modules\Blog\Entities\CategoryContent;
 use Modules\Blog\Http\Requests\CategoryFormRequest;
+use Vain\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
 
-    function __construct()
-    {
-        $this->middleware('permission:blog.category.show', ['only' => ['index']]);
-        $this->middleware('permission:blog.category.create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:blog.category.edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:blog.category.destroy', ['only' => 'destroy']);
-    }
-
     public function index()
     {
+        $this->authorize('index', Category::class);
+
         /** @var Category $categories */
         $categories = Category::with('posts')->paginate();
 
@@ -27,14 +21,17 @@ class CategoryController extends Controller
 
     public function create()
     {
-        $locales = config('app.locales');
-        $categories = Category::lists('content.name', 'id')->all();
+        $this->authorize('create', Category::class);
 
-        return view('blog::admin.categories.create', ['locales' => $locales, 'categories' => $categories]);
+        $locales = config('app.locales');
+
+        return view('blog::admin.categories.create', ['locales' => $locales]);
     }
 
     public function store(CategoryFormRequest $request)
     {
+        $this->authorize('create', Category::class);
+
         /** @var Category $category */
         $category = Category::create($request->all());
 
@@ -53,7 +50,9 @@ class CategoryController extends Controller
     public function edit($id)
     {
         /** @var Category $category */
-        $category = Category::find($id);
+        $category = Category::findOrFail($id);
+        $this->authorize('edit', $category);
+
         $locales = config('app.locales');
 
         return view('blog::admin.categories.edit', ['category' => $category, 'locales' => $locales]);
@@ -62,7 +61,9 @@ class CategoryController extends Controller
     public function update(CategoryFormRequest $request, $id)
     {
         /** @var Category $category */
-        $category = Category::find($id);
+        $category = Category::findOrFail($id);
+        $this->authorize('edit', $category);
+
         $category->fill($request->all());
         $category->save();
 
@@ -82,8 +83,8 @@ class CategoryController extends Controller
     public function destroy(Request $request, $id)
     {
         /** @var Category $category */
-        $category = Category::find($id);
-
+        $category = Category::findOrFail($id);
+        $this->authorize('destroy', $category);
         $category->delete();
 
         return $this->createDefaultResponse($request);

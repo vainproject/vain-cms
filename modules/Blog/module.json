@@ -9,7 +9,8 @@
         "Modules\\Blog\\Providers\\BlogServiceProvider",
         "Modules\\Blog\\Providers\\EventServiceProvider",
         "Modules\\Blog\\Providers\\ConfigServiceProvider",
-        "Modules\\Blog\\Providers\\RouteServiceProvider"
+        "Modules\\Blog\\Providers\\RouteServiceProvider",
+        "Modules\\Blog\\Providers\\AuthServiceProvider"
     ],
     "aliases":{}
 }

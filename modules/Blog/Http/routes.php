@@ -23,8 +23,8 @@ Route::group(['prefix' => 'blog'], function()
     Route::group(['prefix' => 'comment'], function() {
 
         Route::post('{postId}', [
-            'uses' => 'CommentController@create',
-            'as' => 'blog.comment.create'
+            'uses' => 'CommentController@store',
+            'as' => 'blog.comment.store'
         ]);
 
         Route::delete('{id}', [

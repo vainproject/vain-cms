@@ -1,10 +1,9 @@
 <?php namespace Modules\Blog\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
+use Vain\Http\Requests\Request;
 use Illuminate\Contracts\Validation\Validator;
 
-class PostFormRequest extends FormRequest
+class PostFormRequest extends Request
 {
     /**
      * validation that has to pass
@@ -41,14 +40,6 @@ class PostFormRequest extends FormRequest
         }
 
         return $rules;
-    }
-
-    /***
-     * @return bool
-     */
-    public function authorize()
-    {
-        return Auth::check();
     }
 
     protected function failedValidation(Validator $validator)

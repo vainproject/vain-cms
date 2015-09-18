@@ -1,10 +1,9 @@
 <?php namespace Modules\Blog\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Validation\Validator;
+use Vain\Http\Requests\Request;
 
-class CategoryFormRequest extends FormRequest
+class CategoryFormRequest extends Request
 {
     /**
      * validation that has to pass
@@ -39,14 +38,6 @@ class CategoryFormRequest extends FormRequest
         }
 
         return $rules;
-    }
-
-    /***
-     * @return bool
-     */
-    public function authorize()
-    {
-        return Auth::check();
     }
 
     protected function failedValidation(Validator $validator)

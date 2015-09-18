@@ -2,7 +2,7 @@
 
 return [
     'title' => [
-        'index' => 'Blog-Übersicht',
+        'index' => 'Blog',
         'post' => 'Blog: :name',
     ],
     'index' => 'Blog',

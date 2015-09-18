@@ -1,25 +1,19 @@
 <?php namespace Modules\Blog\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Modules\Blog\Entities\Category;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\PostContent;
 use Modules\Blog\Http\Requests\PostFormRequest;
+use Vain\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
 
-    function __construct()
-    {
-        $this->middleware('permission:blog.post.show', ['only' => ['index']]);
-        $this->middleware('permission:blog.post.create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:blog.post.edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:blog.post.destroy', ['only' => 'destroy']);
-    }
-
     public function index()
     {
+        $this->authorize('index', Post::class);
+
         /** @var Post $posts */
         $posts = Post::with('user')->paginate();
 
@@ -28,14 +22,18 @@ class PostController extends Controller
 
     public function create()
     {
+        $this->authorize('create', Post::class);
+
         $locales = config('app.locales');
-        $categories = Category::lists('content.name', 'id')->all();
+        $categories = array_pluck(Category::with('contents')->get(), 'content.name', 'id');
 
         return view('blog::admin.posts.create', ['locales' => $locales, 'categories' => $categories]);
     }
 
     public function store(PostFormRequest $request)
     {
+        $this->authorize('create', Post::class);
+
         $post = new Post($request->all());
 
         $post->user()->associate($request->user());
@@ -57,8 +55,11 @@ class PostController extends Controller
     {
         /** @var Post $post */
         $post = Post::find($id);
+
+        $this->authorize('edit', $post);
+
         $locales = config('app.locales');
-        $categories = Category::lists('content.name', 'id')->all();
+        $categories = array_pluck(Category::with('contents')->get(), 'content.name', 'id');
 
         return view('blog::admin.posts.edit', ['post' => $post, 'locales' => $locales, 'categories' => $categories]);
     }
@@ -66,7 +67,9 @@ class PostController extends Controller
     public function update(PostFormRequest $request, $id)
     {
         /** @var Post $post */
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
+        $this->authorize('update', $post);
+
         $post->fill($request->all());
         $post->save();
 
@@ -86,7 +89,8 @@ class PostController extends Controller
     public function destroy(Request $request, $id)
     {
         /** @var Post $post */
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
+        $this->authorize('destroy', $post);
 
         $post->delete();
 
