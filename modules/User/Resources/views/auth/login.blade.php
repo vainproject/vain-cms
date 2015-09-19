@@ -4,23 +4,18 @@
     @lang('user::auth.title.login')
 @stop
 
+@section('headline')
+    <h1>@lang('user::auth.title.login')</h1>
+    <h2>{{ Inspiring::quote() }}</h2>
+@endsection
+
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
+                <div class="panel panel-default v-margin-lg">
                     <div class="panel-heading">@lang('user::auth.action.login')</div>
                     <div class="panel-body">
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
 
                         <form class="form-horizontal" role="form" method="POST" action="/auth/login">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -51,21 +46,22 @@
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-default" style="margin-right: 15px;">
+                                    <button type="submit" class="btn btn-default">
                                         @lang('user::auth.action.login')
                                     </button>
 
-                                    <a href="/password/email">@lang('user::auth.forgot_password')</a>
+                                    <a class="small" href="/password/email">@lang('user::auth.forgot_password')</a>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <hr />
-                                    <a class="btn btn-danger" href="{{ route('social.redirect', ['provider' => 'google']) }}">Login G+</a>
-                                    <a class="btn btn-primary" href="{{ route('social.redirect', ['provider' => 'facebook']) }}">Login FB</a>
-                                    <a class="btn btn-info" href="{{ route('social.redirect', ['provider' => 'twitter']) }}">Login Twitter</a>
-                                </div>
+                            <div class="col-md-6 col-md-offset-4">
+                                <hr />
+                                <ul class="social-links pull-right no-spacing">
+                                    <li><a href="{{ route('social.redirect', ['provider' => 'twitter']) }}"><i class="icon-twitter"></i></a></li>
+                                    <li><a href="{{ route('social.redirect', ['provider' => 'facebook']) }}"><i class="icon-facebook"></i></a></li>
+                                    <li><a href="{{ route('social.redirect', ['provider' => 'google']) }}"><i class="icon-googleplus"></i></a></li>
+                                </ul>
+                                <span class="text-muted">Or login using:</span>
                             </div>
                         </form>
                     </div>

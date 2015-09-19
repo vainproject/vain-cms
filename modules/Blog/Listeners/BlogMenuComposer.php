@@ -1,6 +1,6 @@
 <?php namespace Modules\Blog\Listeners;
 
-use Modules\Blog\Entities\Category;
+use Illuminate\Support\Facades\Gate;
 use Vain\Events\BackendMenuCreated;
 use Vain\Events\FrontendMenuCreated;
 
@@ -11,9 +11,13 @@ class BlogMenuComposer
      */
     public function composeFrontendMenu(FrontendMenuCreated $event)
     {
-        $event->handler->addChild('blog::blog.index')
-            ->setExtra('routes', ['blog.post.show', 'blog.category.show'])
-            ->setUri(route('blog.post.index'));
+        if (Gate::allows('blog.post.show'))
+        {
+            $event->handler->addChild('blog::blog.index')
+                ->setExtra('routes', ['blog.post.show', 'blog.category.show'])
+                ->setUri(route('blog.post.index'))
+                ->setExtra('icon', 'newspaper-o');
+        }
     }
 
     /**

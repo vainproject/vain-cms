@@ -2,6 +2,7 @@
 
 use Dowilcox\KnpMenu\Facades\Menu;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Vain\Events\BackendMenuCreated;
@@ -40,11 +41,14 @@ class MenuServiceProvider extends ServiceProvider
             // inject home item
             $handler->addChild('Home')
                 ->setUri(route('index.home'))
-                ->setExtra('icon', 'file-o');
+                ->setExtra('icon', 'home');
 
-            $handler->addChild('Admin Panel')
-                ->setUri(route('user.admin.users.index'))
-                ->setExtra('icon', 'file-o');
+            if (Gate::allows('app.admin.show'))
+            {
+                $handler->addChild('Admin Panel')
+                    ->setUri(route('user.admin.users.index'))
+                    ->setExtra('icon', 'tachometer');
+            }
 
             Event::fire(new FrontendMenuCreated($handler, $view));
         });

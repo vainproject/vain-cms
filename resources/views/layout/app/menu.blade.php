@@ -1,19 +1,15 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><b>Vain</b> App</a>
-        </div>
+<div id="menu" class="menu-right">
+    <ul>
+        {{-- Search form --}}
+        <form class="menu-search" >
+            <div class="form-group header">
+                <i class="icon-search searchico"></i>
+                <input type="text" placeholder="{{ trans('app.search') }}">
+                <a href="#" class="close-menu"><i class="icon-close"></i></a>
+            </div>
+        </form>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            {!! (new \Vain\Presenters\Menu\VainPresenter())->render($menu) !!}
-
-            @yield('account')
-        </div>
-    </div>
-</nav>
+        {{-- General menu items --}}
+        {!! (new \Vain\Presenters\Menu\FrontendPresenter())->render($menu) !!}
+    </ul>
+</div>

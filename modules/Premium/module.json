@@ -3,7 +3,7 @@
     "alias": "premium",
     "description": "",
     "keywords": [],
-    "active": 1,
+    "active": 0,
     "order": 5,
     "providers": [
         "Modules\\Premium\\Providers\\EventServiceProvider",

@@ -17,4 +17,8 @@ return [
     'next'     => 'Weiter &raquo;',
     'text'     => 'Zeige :first bis :last von :total Einträgen',
 
+    'newer' => 'Neuere',
+    'older' => 'Ältere',
+    'entries' => 'Einträge'
+
 ];

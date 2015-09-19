@@ -66,7 +66,7 @@
             </div>
             @if ($pages->hasPages())
                 <div class="box-footer">
-                    {!! $pages->render(new Vain\Presenters\Pagination\AdminLtePresenter($pages)) !!}
+                    {!! $pages->render(new Vain\Presenters\Pagination\BackendPresenter($pages)) !!}
                 </div>
             @endif
         </div>
