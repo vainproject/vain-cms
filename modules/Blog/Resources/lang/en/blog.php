@@ -18,7 +18,8 @@ return [
         ],
         'delete' => [
             'error' => 'Error when trying to delete the comment',
-            'success' => 'Comment successfully deleted'
+            'success' => 'Comment successfully deleted',
+            'button' => 'Delete'
         ],
         'write' => 'Write new comment',
         'placeholder' => 'Now it\'s time for your comment...',

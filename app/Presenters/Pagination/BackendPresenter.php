@@ -2,7 +2,7 @@
 
 use Illuminate\Pagination\BootstrapThreePresenter;
 
-class AdminLtePresenter extends BootstrapThreePresenter
+class BackendPresenter extends BootstrapThreePresenter
 {
     /**
      * basicly an bootstrap presenter with small

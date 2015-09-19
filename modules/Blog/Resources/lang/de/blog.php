@@ -18,7 +18,8 @@ return [
         ],
         'delete' => [
             'error' => 'Beim Löschen des Kommentars trat ein Fehler auf',
-            'success' => 'Der Kommentar wurde erfolgreich gelöscht'
+            'success' => 'Der Kommentar wurde erfolgreich gelöscht',
+            'button' => 'Löschen'
         ],
         'write' => 'Neuen Kommentar schreiben',
         'placeholder' => 'Hier ist Platz für deinen Kommentar...',

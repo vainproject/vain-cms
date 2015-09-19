@@ -28,12 +28,9 @@
                     </p>
                 </article>
             @endforeach
-
-            <div class="paging clearfix">
-                {!! $posts->render() !!}
-            </div>
-
+            {{-- simple pagination --}}
+            {!! $posts->render(new \Vain\Presenters\Pagination\SimpleFrontendPresenter($posts)) !!}
         </div>
-    </div><!-- end row -->
+    </div>
 
 @stop

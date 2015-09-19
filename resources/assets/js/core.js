@@ -47,6 +47,13 @@
         e.preventDefault();
     });
 
+    // make sure u use delegation!
+    $(document.body).on('click', 'a[data-submit]', function(e) {
+        $(this).closest('form').submit();
+
+        e.preventDefault();
+    });
+
     // may be used to serve automatically expanding textareas
     $(document.body).on('focus', 'textarea[data-expand]', function(e) {
 
