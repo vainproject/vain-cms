@@ -12,7 +12,7 @@ class CreateSubscriptionPlansTable extends Migration {
      */
     public function up()
     {
-        Schema::create('subscription_plans', function(Blueprint $table)
+        Schema::create('premium_subscription_plans', function(Blueprint $table)
         {
             $table->increments('id');
             $table->string('name');
@@ -34,7 +34,7 @@ class CreateSubscriptionPlansTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('subscription_plans');
+        Schema::drop('premium_subscription_plans');
     }
 
 }

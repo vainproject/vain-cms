@@ -12,7 +12,7 @@ class CreateCommentsTable extends Migration {
      */
     public function up()
     {
-        Schema::create('comments', function(Blueprint $table)
+        Schema::create('blog_comments', function(Blueprint $table)
         {
             $table->increments('id');
 
@@ -25,7 +25,7 @@ class CreateCommentsTable extends Migration {
             $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->foreign('post_id')->references('id')->on('blog_posts')->onDelete('cascade');
         });
     }
 
@@ -36,7 +36,7 @@ class CreateCommentsTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('comments');
+        Schema::drop('blog_comments');
     }
 
 }

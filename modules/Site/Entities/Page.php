@@ -16,7 +16,7 @@ class Page extends Model implements TranslatableContract {
      *
      * @var string
      */
-    protected $table = 'pages';
+    protected $table = 'site_pages';
 
     /**
      * The attributes that are mass assignable.

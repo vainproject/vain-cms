@@ -12,7 +12,7 @@ class CreateCategoriesTable extends Migration {
      */
     public function up()
     {
-        Schema::create('post_categories', function(Blueprint $table)
+        Schema::create('blog_categories', function(Blueprint $table)
         {
             $table->increments('id');
 
@@ -29,7 +29,7 @@ class CreateCategoriesTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('post_categories');
+        Schema::drop('blog_categories');
     }
 
 }

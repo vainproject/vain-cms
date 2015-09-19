@@ -13,7 +13,7 @@ class Comment extends Model {
      *
      * @var string
      */
-    protected $table = 'comments';
+    protected $table = 'blog_comments';
 
     /**
      * @var array

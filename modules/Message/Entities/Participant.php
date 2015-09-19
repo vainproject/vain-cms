@@ -24,6 +24,8 @@ use Cmgmyr\Messenger\Models\Participant as MessengerParticipant;
  */
 class Participant extends MessengerParticipant {
 
+    protected $table = 'message_participants';
+
     /**
      * Thread relationship
      *

@@ -12,7 +12,7 @@ class AddSoftDeletesToPagesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('pages', function(Blueprint $table)
+		Schema::table('site_pages', function(Blueprint $table)
 		{
 			$table->dropColumn('active');
             $table->softDeletes();
@@ -26,7 +26,7 @@ class AddSoftDeletesToPagesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('pages', function(Blueprint $table)
+		Schema::table('site_pages', function(Blueprint $table)
 		{
 			$table->boolean('active');
             $table->dropSoftDeletes();

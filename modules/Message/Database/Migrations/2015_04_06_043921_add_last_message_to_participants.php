@@ -13,7 +13,7 @@ class AddLastMessageToParticipants extends Migration
      */
     public function up()
     {
-        Schema::table('participants', function (Blueprint $table) {
+        Schema::table('message_participants', function (Blueprint $table) {
 
             $table->timestamp('last_message');
         });
@@ -26,7 +26,7 @@ class AddLastMessageToParticipants extends Migration
      */
     public function down()
     {
-        Schema::table('participants', function (Blueprint $table) {
+        Schema::table('message_participants', function (Blueprint $table) {
 
             $table->dropColumn('last_message');
         });

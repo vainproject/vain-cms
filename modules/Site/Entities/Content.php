@@ -12,7 +12,7 @@ class Content extends Model {
      *
      * @var string
      */
-    protected $table = 'pages_content';
+    protected $table = 'site_pages_content';
 
     /**
      * The attributes that are mass assignable.

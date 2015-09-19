@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsContentTable extends Migration {
+class CreateArticlesContentTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,21 +12,20 @@ class CreatePostsContentTable extends Migration {
      */
     public function up()
     {
-        Schema::create('blog_posts_content', function(Blueprint $table)
+        Schema::create('support_articles_content', function(Blueprint $table)
         {
             $table->increments('id');
-
-            $table->integer('post_id')->unsigned();
+            $table->integer('article_id')->unsigned();
             $table->string('locale', 2);
-            $table->string('title', 50);
+            $table->string('name', 50);
             $table->string('keywords');
             $table->string('description');
             $table->text('text');
 
             $table->timestamps();
 
-            $table->foreign('post_id')->references('id')->on('blog_posts')->onDelete('cascade');
-            $table->unique(['post_id', 'locale']);
+            $table->foreign('article_id')->references('id')->on('support_articles')->onDelete('cascade');
+            $table->unique(['article_id', 'locale']);
         });
     }
 
@@ -37,7 +36,7 @@ class CreatePostsContentTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('blog_posts_content');
+        Schema::drop('support_articles_content');
     }
 
 }

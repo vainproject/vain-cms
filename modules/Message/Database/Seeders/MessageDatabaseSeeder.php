@@ -35,9 +35,9 @@ class MessageTableSeeder extends Seeder
 
     public function run()
     {
-        DB::table('threads')->delete();
-        DB::table('messages')->delete();
-        DB::table('participants')->delete();
+        DB::table('message_threads')->delete();
+        DB::table('message_messages')->delete();
+        DB::table('message_participants')->delete();
 
         $user1 = User::skip(1)->first();
         $user2 = User::skip(2)->first();

@@ -12,7 +12,7 @@ class PostContent extends Model {
      *
      * @var string
      */
-    protected $table = 'posts_content';
+    protected $table = 'blog_posts_content';
 
     /**
      * @var array

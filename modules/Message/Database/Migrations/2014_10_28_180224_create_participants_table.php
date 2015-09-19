@@ -12,14 +12,14 @@ class CreateParticipantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('participants', function (Blueprint $table) {
+        Schema::create('message_participants', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('thread_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamp('last_read');
             $table->timestamps();
 
-            $table->foreign('thread_id')->references('id')->on('threads');
+            $table->foreign('thread_id')->references('id')->on('message_threads');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
@@ -32,6 +32,6 @@ class CreateParticipantsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('participants');
+        Schema::drop('message_participants');
     }
 }

@@ -12,7 +12,7 @@ class CreatePagesContentTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('pages_content', function(Blueprint $table)
+		Schema::create('site_pages_content', function(Blueprint $table)
 		{
             $table->increments('id');
             $table->integer('page_id')->unsigned();
@@ -23,7 +23,7 @@ class CreatePagesContentTable extends Migration {
             $table->text('text');
             $table->timestamps();
 
-            $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
+            $table->foreign('page_id')->references('id')->on('site_pages')->onDelete('cascade');
 		});
 	}
 
@@ -34,7 +34,7 @@ class CreatePagesContentTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('pages_content');
+		Schema::drop('site_pages_content');
 	}
 
 }

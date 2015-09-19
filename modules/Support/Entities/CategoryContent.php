@@ -1,5 +1,5 @@
-<?php namespace Modules\Blog\Entities;
-   
+<?php namespace Modules\Support\Entities;
+
 use Illuminate\Database\Eloquent\Model;
 use Vain\Packages\Translator\TranslatableContentTrait;
 
@@ -7,16 +7,7 @@ class CategoryContent extends Model {
 
     use TranslatableContentTrait;
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'blog_categories_content';
-
-    /**
-     * @var array
-     */
+    protected $table = 'support_categories_content';
     protected $fillable = ['name', 'locale'];
 
     /**
@@ -24,6 +15,6 @@ class CategoryContent extends Model {
      */
     public function category()
     {
-        return $this->belongsTo('Modules\Blog\Entities\Category');
+        return $this->belongsTo('Modules\Support\Entities\Category');
     }
 }

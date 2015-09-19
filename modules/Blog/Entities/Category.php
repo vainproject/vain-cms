@@ -14,7 +14,7 @@ class Category extends Model implements Translatable {
      *
      * @var string
      */
-    protected $table = 'post_categories';
+    protected $table = 'blog_categories';
 
     /**
      * @var array

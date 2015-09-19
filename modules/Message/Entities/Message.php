@@ -27,6 +27,8 @@ class Message extends MessengerMessage {
 
     use LocalizedEloquentTrait;
 
+    protected $table = "message_messages";
+
     /**
      * Thread relationship
      *

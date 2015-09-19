@@ -12,7 +12,7 @@ class CreatePostsTable extends Migration {
      */
     public function up()
     {
-        Schema::create('posts', function(Blueprint $table)
+        Schema::create('blog_posts', function(Blueprint $table)
         {
             $table->increments('id');
 
@@ -26,7 +26,7 @@ class CreatePostsTable extends Migration {
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('category_id')->references('id')->on('post_categories')->onDelete('set null');
+            $table->foreign('category_id')->references('id')->on('blog_categories')->onDelete('set null');
             $table->unique(['slug', 'category_id']);    // eloquent boss power :o
         });
     }
@@ -38,7 +38,7 @@ class CreatePostsTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('posts');
+        Schema::drop('blog_posts');
     }
 
 }

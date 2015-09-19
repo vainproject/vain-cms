@@ -12,7 +12,7 @@ class CreateSubscriptionsTable extends Migration {
      */
     public function up()
     {
-        Schema::create('subscriptions', function(Blueprint $table)
+        Schema::create('premium_subscriptions', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
@@ -22,7 +22,7 @@ class CreateSubscriptionsTable extends Migration {
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
-            $table->foreign('subscription_plan_id')->references('id')->on('subscription_plans')->onUpdate('cascade');
+            $table->foreign('subscription_plan_id')->references('id')->on('premium_subscription_plans')->onUpdate('cascade');
         });
     }
 
@@ -33,7 +33,7 @@ class CreateSubscriptionsTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('subscriptions');
+        Schema::drop('premium_subscriptions');
     }
 
 }

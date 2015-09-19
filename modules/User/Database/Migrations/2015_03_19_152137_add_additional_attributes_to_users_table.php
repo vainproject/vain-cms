@@ -21,6 +21,7 @@ class AddAdditionalAttributesToUsersTable extends Migration {
             $table->string('city', 50);
             $table->string('profession', 50);
             $table->string('hobbies');
+            $table->text('about');
 
             $table->string('homepage', 100);
             $table->string('skype', 50);

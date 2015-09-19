@@ -29,6 +29,8 @@ use Illuminate\Support\Facades\Auth;
 class Thread extends MessengerThread
 {
 
+    protected $table = 'message_threads';
+
     /**
      * Messages relationship
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -64,10 +66,10 @@ class Thread extends MessengerThread
      */
     public function scopeForUser($query, $userId)
     {
-        return $query->join('participants', 'threads.id', '=', 'participants.thread_id')
-            ->where('participants.user_id', $userId)
-            ->where('participants.deleted_at', null)
-            ->select('threads.*')
+        return $query->join('message_participants', 'message_threads.id', '=', 'message_participants.thread_id')
+            ->where('message_participants.user_id', $userId)
+            ->where('message_participants.deleted_at', null)
+            ->select('message_threads.*')
             ->latest('updated_at');
     }
 

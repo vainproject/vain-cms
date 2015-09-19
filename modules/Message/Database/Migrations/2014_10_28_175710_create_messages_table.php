@@ -12,14 +12,14 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('message_messages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('thread_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->text('body');
             $table->timestamps();
 
-            $table->foreign('thread_id')->references('id')->on('threads');
+            $table->foreign('thread_id')->references('id')->on('message_threads');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
         });
     }
@@ -32,6 +32,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('messages');
+        Schema::drop('message_messages');
     }
 }

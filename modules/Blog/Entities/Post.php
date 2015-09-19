@@ -17,7 +17,7 @@ class Post extends Model implements Translatable {
      *
      * @var string
      */
-    protected $table = 'posts';
+    protected $table = 'blog_posts';
 
     /**
      * @var array

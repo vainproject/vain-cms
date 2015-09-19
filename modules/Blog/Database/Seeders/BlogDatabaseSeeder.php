@@ -36,7 +36,7 @@ class CategoriesTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('post_categories')->delete();
+        DB::table('blog_categories')->delete();
 
         Category::create([
             'id' => 1,
@@ -59,7 +59,7 @@ class PostsTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('posts')->delete();
+        DB::table('blog_posts')->delete();
 
         Post::create([
             'id' => 1,
@@ -81,7 +81,7 @@ class CommentsTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('comments')->delete();
+        DB::table('blog_comments')->delete();
 
         Comment::create([
             'id' => 1,
@@ -105,7 +105,7 @@ class CategoriesContentTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('post_categories_content')->delete();
+        DB::table('blog_categories_content')->delete();
 
         CategoryContent::create([
             'id' => 1,
@@ -155,7 +155,7 @@ class PostsContentTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('posts_content')->delete();
+        DB::table('blog_posts_content')->delete();
 
         PostContent::create([
             'id' => 1,

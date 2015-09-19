@@ -12,7 +12,7 @@ class CreateThreadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('threads', function (Blueprint $table) {
+        Schema::create('message_threads', function (Blueprint $table) {
             $table->increments('id');
             $table->string('subject');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateThreadsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('threads');
+        Schema::drop('message_threads');
     }
 }

@@ -31,7 +31,7 @@ class PagesTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('pages')->delete();
+        DB::table('site_pages')->delete();
 
         Page::create([
             'id' => 1,
@@ -51,7 +51,7 @@ class ContentsTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('pages_content')->delete();
+        DB::table('site_pages_content')->delete();
 
         Content::create([
             'id' => 1,

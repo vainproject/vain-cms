@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePaymentExchangeRatesTable extends Migration {
+class CreateCategoriesTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,14 +12,13 @@ class CreatePaymentExchangeRatesTable extends Migration {
      */
     public function up()
     {
-        Schema::create('premium_payment_exchange_rates', function(Blueprint $table)
+        Schema::create('support_categories', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->float('value');
-            $table->float('amount');
-            $table->timestamp('valid_from')->nullable();
-            $table->timestamp('valid_to')->nullable();
+            $table->string('slug')->unique();
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -30,7 +29,7 @@ class CreatePaymentExchangeRatesTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('premium_payment_exchange_rates');
+        Schema::drop('support_categories');
     }
 
 }

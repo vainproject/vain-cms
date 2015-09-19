@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder {
         Model::unguard();
 
         // register your mandatory module seeders here
-
         $this->call('Modules\User\Database\Seeders\MandatoryDatabaseSeeder');
         $this->call('Modules\Site\Database\Seeders\MandatoryDatabaseSeeder');
         $this->call('Modules\Blog\Database\Seeders\MandatoryDatabaseSeeder');
+        $this->call('Modules\Support\Database\Seeders\MandatoryDatabaseSeeder');
     }
 
 }
