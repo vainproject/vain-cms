@@ -1,6 +1,9 @@
 <?php
 
-Route::group(['prefix' => 'support', 'namespace' => '$MODULE_NAMESPACE$\Support\Http\Controllers'], function()
+Route::group(['prefix' => 'support'], function()
 {
-	Route::get('/', 'SupportController@index');
+	Route::get('/', [
+        'uses' => 'SupportController@index',
+        'as' => 'support.category.index'
+    ]);
 });

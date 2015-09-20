@@ -1,12 +1,19 @@
 <?php namespace Modules\Support\Http\Controllers;
 
-use Pingpong\Modules\Routing\Controller;
+use Modules\Support\Entities\Category;
+use Vain\Http\Controllers\Controller;
 
 class SupportController extends Controller {
 	
 	public function index()
 	{
-		return view('support::index');
+		$this->authorize('index', Category::class);
+
+		$categories = Category::with('contents')->simplePaginate(config('support.categories_per_page'));
+
+		return view('support::index', [
+			'categories' => $categories
+		]);
 	}
 	
 }

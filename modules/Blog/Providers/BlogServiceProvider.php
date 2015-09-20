@@ -18,22 +18,6 @@ class BlogServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{		
-		$this->registerConfig();
-	}
-
-	/**
-	 * Register config.
-	 * 
-	 * @return void
-	 */
-	protected function registerConfig()
-	{
-		$this->publishes([
-		    __DIR__.'/../Config/blog.php' => config_path('blog.php'),
-		]);
-		$this->mergeConfigFrom(
-		    __DIR__.'/../Config/blog.php', 'blog'
-		);
 	}
 
 	/**

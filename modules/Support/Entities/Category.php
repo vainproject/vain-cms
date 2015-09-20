@@ -20,7 +20,7 @@ class Category extends Model implements TranslatableContract {
         return $this->hasMany(CategoryContent::class);
     }
 
-    public function hasMany()
+    public function articles()
     {
         return $this->hasMany(Article::class);
     }
