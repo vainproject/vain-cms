@@ -15,7 +15,7 @@
 
 @section('header')
     <section id="hero" class="light-typo">
-        <div id="cover-image" class="image-bg animated fadeIn"></div>
+        <div id="cover-image" class="animated fadeIn"></div>
         <div class="container welcome-content">
             <div class="middle-text">
                 @yield('headline')

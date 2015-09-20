@@ -7,7 +7,7 @@
 @section('headline')
     <h1>Willkommen</h1>
     <h2>{{ Inspiring::quote() }}</h2>
-    <a class="btn smooth-scroll" href="/auth/login">@lang('user::auth.action.login')</a>
+    <a class="btn" href="/auth/login">@lang('user::auth.action.login')</a>
 @endsection
 
 @section('content')

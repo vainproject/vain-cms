@@ -7,7 +7,7 @@
 @section('headline')
     <h1 class="text-uppercase">Oh, hey {{ Auth::user()->name }}</h1>
     <h2>It's great to see you again!</h2>
-    <a class="btn smooth-scroll" href="{{ route( 'user.profile', [ Auth::user()->id ] ) }}">@lang('user::profile.title.mine')</a>
+    <a class="btn" href="{{ route( 'user.profile', [ Auth::user()->id ] ) }}">@lang('user::profile.title.mine')</a>
 @endsection
 
 @section('content')
