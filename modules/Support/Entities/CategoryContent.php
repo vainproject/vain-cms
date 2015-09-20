@@ -8,7 +8,7 @@ class CategoryContent extends Model {
     use TranslatableContentTrait;
 
     protected $table = 'support_categories_content';
-    protected $fillable = ['name', 'locale'];
+    protected $fillable = ['name', 'locale', 'text'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

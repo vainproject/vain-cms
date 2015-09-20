@@ -6,7 +6,11 @@
     "active": 1,
     "order": 0,
     "providers": [
-        "Modules\\Support\\Providers\\SupportServiceProvider"
+        "Modules\\Support\\Providers\\SupportServiceProvider",
+        "Modules\\Support\\Providers\\AuthServiceProvider",
+        "Modules\\Support\\Providers\\RouteServiceProvider",
+        "Modules\\Support\\Providers\\ConfigServiceProvider",
+        "Modules\\Support\\Providers\\EventServiceProvider"
     ],
     "aliases": {},
     "files": [
