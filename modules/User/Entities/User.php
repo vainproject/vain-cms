@@ -71,22 +71,22 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
      */
     public function sites()
     {
-        return $this->hasMany('Modules\Site\Entities\Page');
+        return $this->hasMany(\Modules\Site\Entities\Page::class);
     }
 
     public function posts()
     {
-        return $this->hasMany('Modules\Blog\Entities\Post');
+        return $this->hasMany(\Modules\Blog\Entities\Post::class);
     }
 
     public function payments()
     {
-        return $this->hasMany('Modules\Premium\Entities\Payment');
+        return $this->hasMany(\Modules\Premium\Entities\Payment::class);
     }
 
     public function comments()
     {
-        return $this->hasMany('Modules\Blog\Entities\Comment');
+        return $this->hasMany(\Modules\Blog\Entities\Comment::class);
     }
 
     /**

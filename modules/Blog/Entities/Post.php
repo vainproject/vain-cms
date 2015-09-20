@@ -34,7 +34,7 @@ class Post extends Model implements Translatable {
      */
     public function contents()
     {
-        return $this->hasMany('Modules\Blog\Entities\PostContent');
+        return $this->hasMany(PostContent::class);
     }
 
     /**
@@ -42,7 +42,7 @@ class Post extends Model implements Translatable {
      */
     public function user()
     {
-        return $this->belongsTo('Modules\User\Entities\User');
+        return $this->belongsTo(\Modules\User\Entities\User::class);
     }
 
     /**
@@ -50,7 +50,7 @@ class Post extends Model implements Translatable {
      */
     public function category()
     {
-        return $this->belongsTo('Modules\Blog\Entities\Category');
+        return $this->belongsTo(Category::class);
     }
 
     /**
@@ -58,7 +58,7 @@ class Post extends Model implements Translatable {
      */
     public function comments()
     {
-        return $this->hasMany('Modules\Blog\Entities\Comment');
+        return $this->hasMany(Comment::class);
     }
 
     /**

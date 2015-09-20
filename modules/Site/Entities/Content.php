@@ -23,6 +23,6 @@ class Content extends Model {
 
     public function page()
     {
-        return $this->belongsTo('Modules\Site\Entities\Page');
+        return $this->belongsTo(Page::class);
     }
 }

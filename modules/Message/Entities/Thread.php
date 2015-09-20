@@ -37,7 +37,7 @@ class Thread extends MessengerThread
      */
     public function messages()
     {
-        return $this->hasMany('Modules\Message\Entities\Message');
+        return $this->hasMany(Message::class);
     }
 
     /**
@@ -46,7 +46,7 @@ class Thread extends MessengerThread
      */
     public function participants()
     {
-        return $this->hasMany('Modules\Message\Entities\Participant');
+        return $this->hasMany(Participant::class);
     }
 
     /**
@@ -55,7 +55,7 @@ class Thread extends MessengerThread
      */
     public function lastmessage()
     {
-        return $this->hasOne('Modules\Message\Entities\Message')->latest();
+        return $this->hasOne(Message::class)->latest();
     }
 
     /**

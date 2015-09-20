@@ -36,7 +36,7 @@ class Message extends MessengerMessage {
      */
     public function thread()
     {
-        return $this->belongsTo('Modules\Message\Entities\Thread');
+        return $this->belongsTo(Thread::class);
     }
 
     /**
@@ -46,7 +46,7 @@ class Message extends MessengerMessage {
      */
     public function participants()
     {
-        return $this->hasMany('Modules\Message\Entities\Participant', 'thread_id', 'thread_id');
+        return $this->hasMany(Participant::class, 'thread_id', 'thread_id');
     }
 
 }

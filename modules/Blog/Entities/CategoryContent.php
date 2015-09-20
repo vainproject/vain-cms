@@ -24,6 +24,6 @@ class CategoryContent extends Model {
      */
     public function category()
     {
-        return $this->belongsTo('Modules\Blog\Entities\Category');
+        return $this->belongsTo(Category::class);
     }
 }

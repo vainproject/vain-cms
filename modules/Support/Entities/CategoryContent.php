@@ -15,6 +15,6 @@ class CategoryContent extends Model {
      */
     public function category()
     {
-        return $this->belongsTo('Modules\Support\Entities\Category');
+        return $this->belongsTo(Category::class);
     }
 }

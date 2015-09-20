@@ -35,7 +35,7 @@ class Page extends Model implements TranslatableContract {
      */
     public function contents()
     {
-        return $this->hasMany('Modules\Site\Entities\Content');
+        return $this->hasMany(Content::class);
     }
 
     /**

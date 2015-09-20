@@ -27,7 +27,7 @@ class Comment extends Model {
      */
     public function user()
     {
-        return $this->belongsTo('Modules\User\Entities\User');
+        return $this->belongsTo(\Modules\User\Entities\User::class);
     }
 
     /**
@@ -35,6 +35,6 @@ class Comment extends Model {
      */
     public function post()
     {
-        return $this->belongsTo('Modules\Blog\Entities\Post');
+        return $this->belongsTo(Post::class);
     }
 }

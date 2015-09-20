@@ -26,7 +26,7 @@ class Category extends Model implements Translatable {
      */
     public function contents()
     {
-        return $this->hasMany('Modules\Blog\Entities\CategoryContent');
+        return $this->hasMany(CategoryContent::class);
     }
 
     /**
@@ -34,6 +34,6 @@ class Category extends Model implements Translatable {
      */
     public function posts()
     {
-        return $this->hasMany('Modules\Blog\Entities\Post');
+        return $this->hasMany(Post::class);
     }
 }

@@ -24,6 +24,6 @@ class PostContent extends Model {
      */
     public function post()
     {
-        return $this->belongsTo('Modules\Blog\Entities\Post');
+        return $this->belongsTo(Post::class);
     }
 }

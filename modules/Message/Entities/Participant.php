@@ -33,7 +33,7 @@ class Participant extends MessengerParticipant {
      */
     public function thread()
     {
-        return $this->belongsTo('Modules\Message\Entities\Thread');
+        return $this->belongsTo(Thread::class);
     }
 
 }

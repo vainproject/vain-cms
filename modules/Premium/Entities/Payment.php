@@ -22,7 +22,7 @@ class Payment extends Model {
      */
     public function user()
     {
-        return $this->belongsTo('Modules\User\Entities\User');
+        return $this->belongsTo(\Modules\User\Entities\User::class);
     }
     
 }
