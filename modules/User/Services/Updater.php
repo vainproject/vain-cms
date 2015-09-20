@@ -49,6 +49,7 @@ class Updater {
             'gender' => $data['gender'],
             'locale' => $data['locale'],
             'city' => $data['city'],
+            'about' => $data['about'],
             'profession' => $data['profession'],
             'hobbies' => $data['hobbies'],
             'homepage' => $data['homepage'],

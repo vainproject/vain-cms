@@ -49,6 +49,13 @@
 </div>
 <hr>
 <div class="form-group">
+    {!! Form::label('about', trans('user::profile.field.about'), [ 'class' => 'col-sm-2 control-label' ]) !!}
+    <div class="col-sm-10">
+        {!! Form::textarea('about', null, [ 'class' => 'form-control', 'data-expand', 'rows' => 1, 'data-expand-rows-max' => 6 ]) !!}
+    </div>
+</div>
+<hr>
+<div class="form-group">
     {!! Form::label('profession', trans('user::profile.field.profession'), [ 'class' => 'col-sm-2 control-label' ]) !!}
     <div class="col-sm-10">
         {!! Form::text('profession', null, [ 'class' => 'form-control' ]) !!}

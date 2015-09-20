@@ -28,7 +28,13 @@
                 {!! link_to_route('user.profile', $post->user->name, ['id' => $post->user->id]) !!}
                 <span><a href="{{ route('blog.post.show', $post->slug) }}">@choice('blog::blog.comment.count', $post->comments->count())</a></span>
             </div>
-            <p>{!! $post->content->text !!}</p>
+
+            <div class="post-intro">
+                {!! $post->content->teaser !!}
+            </div>
+
+            <p>{!! $post->content->body !!}</p>
+
             @if ($post->content->keywords)
                 <div class="post-date">
                     tags | {{ $post->content->keywords }}
@@ -79,11 +85,11 @@
                     @endforeach
                 </div>
 
-                <div id="comments_pagination">
-                    <span class="page-numbers current">1</span>
-                    <a class="page-numbers" href="#">2</a>
-                    <a class="next page-numbers" href="#"><i class="icon-arrow-right2"></i></a>
-                </div>
+                {{--<div id="comments_pagination">--}}
+                    {{--<span class="page-numbers current">1</span>--}}
+                    {{--<a class="page-numbers" href="#">2</a>--}}
+                    {{--<a class="next page-numbers" href="#"><i class="icon-arrow-right2"></i></a>--}}
+                {{--</div>--}}
             @endcan
 
             @can('blog.comment.show')
