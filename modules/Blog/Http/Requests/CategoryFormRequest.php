@@ -19,8 +19,8 @@ class CategoryFormRequest extends Request
         $rules = $this->buildLocalizedRules($attributes);
 
         return array_merge($rules, [
-            'id' => 'exists:post_categories,id',
-            'slug' => 'required|alpha_dash|unique:post_categories,slug,'.$this->route('categories')
+            'id' => 'exists:blog_categories,id',
+            'slug' => 'required|alpha_dash|unique:blog_categories,slug,'.$this->route('categories')
         ]);
     }
 

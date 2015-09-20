@@ -20,9 +20,9 @@ class PostFormRequest extends Request
         $rules = $this->buildLocalizedRules($attributes);
 
         return array_merge($rules, [
-            'id' => 'exists:posts,id',
-            'slug' => 'required|alpha_dash|unique:posts,slug,'.$this->route('posts'),
-            'category_id' => 'required|exists:post_categories,id'
+            'id' => 'exists:blog_posts,id',
+            'slug' => 'required|alpha_dash|unique:blog_posts,slug,'.$this->route('posts'),
+            'category_id' => 'required|exists:blog_categories,id'
         ]);
     }
 

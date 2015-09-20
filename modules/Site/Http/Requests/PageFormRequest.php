@@ -21,8 +21,8 @@ class PageFormRequest extends FormRequest
         $rules = $this->buildLocalizedRules($attributes);
 
         return array_merge($rules, [
-            'id' => 'exists:pages,id',
-            'slug' => 'required|alpha_dash|unique:pages,slug,'. $this->route('sites'),
+            'id' => 'exists:site_pages,id',
+            'slug' => 'required|alpha_dash|unique:site_pages,slug,'. $this->route('sites'),
             'published_at' => 'date',
             'concealed_at' => 'date',
         ]);
