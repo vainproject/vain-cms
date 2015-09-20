@@ -22,6 +22,7 @@ return [
         'password' => 'Password',
         'password_confirmation' => 'Password Confirmation',
         'locale' => 'Language',
+        'about' => 'About me',
         'birthday_at' => 'Birthday',
         'gender' => 'Gender',
         'city' => 'City',

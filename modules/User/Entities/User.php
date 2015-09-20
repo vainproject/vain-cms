@@ -37,6 +37,7 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
         'locale',
         'gender',
         'city',
+        'about',
         'profession',
         'hobbies',
         'homepage',

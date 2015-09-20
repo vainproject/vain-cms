@@ -24,7 +24,7 @@
                         <a href="{{ route('blog.post.show', $post->slug) }}">{{ $post->content->title }}</a>
                     </h2>
                     <p>
-                        {!! $post->content->text !!} <a href="{{ route('blog.post.show', $post->slug) }}">@lang('blog::blog.post.more')</a>
+                        {!! $post->content->teaser !!} <a href="{{ route('blog.post.show', $post->slug) }}">@lang('blog::blog.post.more')</a>
                     </p>
                 </article>
             @endforeach

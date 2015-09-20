@@ -13,6 +13,7 @@
             <div class="col-xs-9">
                 <strong>{{ $user->name }}</strong><br>
                 {{ $user->email }}<br>
+                <p>{{ $user->about }}</p>
                 {{ $user->birthday_at }}<br>
                 {{ $user->gender }}<br>
                 {{ $user->city }}<br>
