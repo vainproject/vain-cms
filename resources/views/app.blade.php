@@ -18,7 +18,7 @@
     {{-- Includes the site's main flyout menu --}}
     @include('layout.app.menu')
 
-    <div id="wrap" data-pjax>
+    <div id="wrap">
         {{-- Includes the top navigation layer and site hero section --}}
         @include('layout.app.header')
 
@@ -35,7 +35,7 @@
         @endif
 
         {{-- Site main content --}}
-        <div class="container content">
+        <div class="container content"  data-pjax>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
