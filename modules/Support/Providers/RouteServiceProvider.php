@@ -24,7 +24,9 @@ class RouteServiceProvider extends ServiceProvider {
     {
         parent::boot($router);
 
-        require base_path('modules/Support/Http/breadcrumbs.php');
+        // TODO require this as soon as there is something to import
+        // -- otherwise artisan will error with an parse error
+        //require base_path('modules/Support/Http/breadcrumbs.php');
     }
 
     /**
