@@ -2,31 +2,54 @@
 
 use Modules\Support\Entities\Category;
 use Modules\User\Entities\User;
+use Vain\Policies\Policy;
 
-class CategoryPolicy {
+class CategoryPolicy extends Policy {
 
-    public function index(User $user)
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public function index($user)
     {
         return $user->can('support.category.show');
     }
 
-    public function show(User $user)
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public function show($user)
     {
         return $this->index($user);
     }
 
-    public function create(User $user)
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public function create($user)
     {
         return $user->can('support.category.create');
     }
 
-    public function edit(User $user, Category $category)
+    /**
+     * @param User $user
+     * @param Category $category
+     * @return bool
+     */
+    public function edit($user, $category)
     {
         return $user->owns($category)
             || $user->can('support.category.edit');
     }
 
-    public function destroy(User $user, Category $category)
+    /**
+     * @param User $user
+     * @param Category $category
+     * @return bool
+     */
+    public function destroy($user, $category)
     {
         return $user->owns($category)
             || $user->can('support.category.destroy');

@@ -1,6 +1,8 @@
 <?php namespace Modules\Blog\Listeners;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Modules\Blog\Entities\Post;
 use Vain\Events\BackendMenuCreated;
 use Vain\Events\FrontendMenuCreated;
 
@@ -11,7 +13,7 @@ class BlogMenuComposer
      */
     public function composeFrontendMenu(FrontendMenuCreated $event)
     {
-        if (Gate::allows('blog.post.show'))
+        if (policy(Post::class)->index(Auth::user()))
         {
             $event->handler->addChild('blog::blog.index')
                 ->setExtra('routes', ['blog.post.show', 'blog.category.show'])

@@ -2,33 +2,57 @@
 
 use Modules\Blog\Entities\Post;
 use Modules\User\Entities\User;
+use Vain\Policies\Policy;
 
-class PostPolicy
+class PostPolicy extends Policy
 {
 
-    public function index(User $user)
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public function index($user)
     {
         return $user->can('blog.post.show');
     }
 
-    public function show(User $user, Post $post)
+    /**
+     * @param User $user
+     * @param Post $post
+     * @return bool
+     */
+    public function show($user, $post)
     {
         return $user->owns($post)
             || $this->index($user);
     }
 
-    public function edit(User $user, Post $post)
+    /**
+     * @param User $user
+     * @param Post $post
+     * @return bool
+     */
+    public function edit($user, $post)
     {
         return $user->owns($post)
             || $user->can('blog.post.edit');
     }
 
-    public function create(User $user)
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public function create($user)
     {
         return $user->can('blog.post.create');
     }
 
-    public function destroy(User $user, Post $post)
+    /**
+     * @param User $user
+     * @param Post $post
+     * @return bool
+     */
+    public function destroy($user, $post)
     {
         return $user->owns($post)
             || $user->can('blog.post.destroy');

@@ -9,7 +9,8 @@
         "Modules\\Site\\Providers\\EventServiceProvider",
         "Modules\\Site\\Providers\\ConfigServiceProvider",
         "Modules\\Site\\Providers\\RouteServiceProvider",
-        "Modules\\Site\\Providers\\SiteServiceProvider"
+        "Modules\\Site\\Providers\\SiteServiceProvider",
+        "Modules\\Site\\Providers\\AuthServiceProvider"
     ],
     "aliases":{},
     "files": []
