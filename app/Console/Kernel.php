@@ -12,6 +12,7 @@ class Kernel extends ConsoleKernel {
      */
     protected $commands = [
         'Vain\Console\Commands\Inspire',
+        'Vain\Console\Commands\Install',
     ];
 
     /**
