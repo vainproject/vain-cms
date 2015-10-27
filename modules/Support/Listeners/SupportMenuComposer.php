@@ -12,7 +12,7 @@ class SupportMenuComposer
      */
     public function composeFrontendMenu(FrontendMenuCreated $event)
     {
-        if (policy(Category::class)->index(Auth::user()))
+        if (Auth::check() && policy(Category::class)->index(Auth::user()))
         {
             $event->handler->addChild('support::support.index')
                 ->setExtra('routes', ['support.category.show', 'support.category.index'])

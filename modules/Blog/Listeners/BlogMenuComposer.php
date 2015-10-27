@@ -13,7 +13,7 @@ class BlogMenuComposer
      */
     public function composeFrontendMenu(FrontendMenuCreated $event)
     {
-        if (policy(Post::class)->index(Auth::user()))
+        if (Auth::check() && policy(Post::class)->index(Auth::user()))
         {
             $event->handler->addChild('blog::blog.index')
                 ->setExtra('routes', ['blog.post.show', 'blog.category.show'])

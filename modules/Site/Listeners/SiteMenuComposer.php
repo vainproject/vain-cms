@@ -24,7 +24,7 @@ class SiteMenuComposer {
      */
     public function composeFrontendMenu(FrontendMenuCreated $event)
     {
-        if ( ! policy(Page::class)->index(Auth::user()))
+        if ( Auth::guest() || ! policy(Page::class)->index(Auth::user()))
             return;
 
         $event->handler->addChild('site::page.title.index')
