@@ -24,6 +24,8 @@ var scripts_include = [
     './resources/assets/js/modal.js',
     './resources/assets/js/notify.js',
     './resources/assets/js/pjax.js',
+    './resources/assets/js/hero.js',
+    './resources/assets/js/parallax.js',
     './resources/assets/js/core.js',
     './resources/assets/js/frontend.js',
 
