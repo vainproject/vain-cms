@@ -8,14 +8,9 @@
     Hero.prototype.options = {
         element: '[data-hero]',
         classes: [
-            //'image-bg', basement
-            'image-ref-bg1',
-            'image-ref-bg2',
-            'image-ref-bg3',
-            'image-ref-bg4',
-            'image-ref-bg5',
-            'image-ref-bg6',
-            'image-ref-bg7'
+            'image-bg',
+            'image-bg2',
+            'image-bg3'
         ]
     }
 
