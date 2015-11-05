@@ -45,8 +45,7 @@
      */
     Parallax.prototype._calculate = function(threshold, thwart) {
         var scroll = $(window).scrollTop(),
-            slowScroll = scroll / thwart,
-            offset = 50 - slowScroll;
+            offset = -(scroll / thwart);
 
         // we need some boundaries
         if (offset < -threshold)
@@ -64,9 +63,9 @@
      * @private
      */
     Parallax.prototype._position = function(selector, offset) {
-        offset = offset || 50; // default value
+        offset = offset || 0; // default value
 
-        $(selector).stop().css("background-position", "50% " + offset + "%");
+        $(selector).stop().css("background-position", "50% " + offset + "px");
     }
 
     $(function() {
