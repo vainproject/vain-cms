@@ -16,10 +16,9 @@
         "dowilcox/knp-menu-laravel": "dev-master",
         "barryvdh/laravel-debugbar": "2.0.*",
         "filp/whoops": "1.1.*",
+        "omnipay/paypal": "^2.4",
+        "alfaproject/omnipay-skrill": "dev-master",
         "cmgmyr/messenger": "2.*",
-        "paypal/rest-api-sdk-php": "1.5.*",
-        "guzzlehttp/guzzle": "6.*",
-        "moltin/currency": "1.0.*@dev",
         "davejamesmiller/laravel-breadcrumbs": "3.*",
         "kbsali/redmine-api": "1.*"
     },

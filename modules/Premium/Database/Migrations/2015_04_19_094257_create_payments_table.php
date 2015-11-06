@@ -21,6 +21,7 @@ class CreatePaymentsTable extends Migration {
             $table->float('value');
             $table->string('currency');
             $table->float('amount');
+            $table->integer('status');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
