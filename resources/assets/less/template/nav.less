@@ -1,5 +1,7 @@
+@import "../colors";
+
 #main-nav{
-  /* background-color: #80B959; */
+  /* background-color: @primary; */
   height: 55px;
   line-height: 55px;
   position: absolute;
@@ -10,7 +12,7 @@
 }
 
 #main-nav.nav-bg{
-  background-color: #80B959;
+  background-color: @primary;
 }
 #main-nav.fixed-top {
   position: fixed;
@@ -31,7 +33,7 @@
   float: left;
   margin-right: 10px;
   font-size: 21px;
-  color: #FFF;
+  color: @white;
   margin-top: 4px;
 }
 .nav-icon {
@@ -40,7 +42,7 @@
   height: 55px;
   margin-right: -15px;
   border: 0;
-  color: #FFF;
+  color: @white;
 }
 .nav-icon i{
   font-size: 16px;
@@ -50,7 +52,7 @@
 }
 .nav-icon:hover,
 .nav-icon:focus {
-  background-color: #679E42;
+  background-color: @secondary;
   color: #383838;
   border: 0;
 }
@@ -61,7 +63,7 @@
   font-size: 23px;
   font-style: italic;
   padding: 0;
-  color: #FFF;
+  color: @white;
   border: 0;
 }
 .nav-brand:hover,

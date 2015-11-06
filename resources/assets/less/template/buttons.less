@@ -1,3 +1,5 @@
+@import "../colors";
+
 .btn {
   font-family: "Open Sans", helvetica, arial, sans-serif;
   font-size: 13px;
@@ -12,47 +14,47 @@
   font-weight: 700;
   outline: none;
   position: relative;
-  background: #80B959;
-  color: #fff;
-  border: 1px solid #80B959;
+  background: @primary;
+  color: @white;
+  border: 1px solid @primary;
   border-radius: 4px;
 }
 .btn:hover,
 .btn:active,
 .btn:focus {
-  color: #fff;
+  color: @white;
   top: 0;
   text-decoration: none;
-  background-color: #679E42;
+  background-color: @secondary;
   box-shadow: none;
-  border: 1px solid #679E42;
+  border: 1px solid @secondary;
 }
 .btn.outline {
   background: transparent;
-  border: 2px solid #80B959;
+  border: 2px solid @primary;
   box-shadow: none;
-  color: #80B959;
+  color: @primary;
   text-decoration: none;
 }
 .btn.outline:hover,
 .btn.outline:focus {
-  background: #80B959;
-  border-color: #80B959;
-  color:#FFF;
+  background: @primary;
+  border-color: @primary;
+  color:@white;
   top:0;
   text-decoration: none;
 }
 .btn.outline-white {
   background: transparent;
-  border: 1px solid #FFF;
+  border: 1px solid @white;
   box-shadow: none;
-  color: #FFF;
+  color: @white;
   text-decoration: none;
 }
 .btn.outline-white:hover,
 .btn.outline-white:focus {
-  background: #FFF;
-  border-color: #FFF;
+  background: @white;
+  border-color: @white;
   color:#383838;
   top:0;
   text-decoration: none;

@@ -1,3 +1,5 @@
+@import "../colors";
+
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,17 +15,17 @@ html, body {
 
 a {
   font-weight: bold;
-  color: #80B959;
+  color: @primary;
   border-bottom: 1px solid rgba(198, 70, 61, 0);
   -webkit-transition: border 0.2s;
   -moz-transition: border 0.2s;
   transition: border 0.2s;
 }
 a:hover {
-  border-bottom: 1px solid #80B959;
+  border-bottom: 1px solid @primary;
   /*border-bottom: 1px solid #000;*/
   text-decoration: none;
-  color: #80B959;
+  color: @primary;
 }
 
 hr {
@@ -53,33 +55,11 @@ pre {
   margin: 1.5em 0;
 }
 
-.lime {
-  background-color: #80B959!important;
-}
-.lime-text {
-  color: #80B959!important;
-}
-.blue {
-  background-color: #43b5e9!important;
-  /*#679E42*/
-}
-.green {
-  background-color: #23A657!important;
-  /*#80B959
-  #679E42*/
-}
-.red {
-  background-color: #F05557!important;
-}
-.golden {
-  background-color: #F9C828!important;
-}
-
 .light-typo {
-  color: #fff;
+  color: @white;
 }
 .bordered {
-  border: 2px solid #fff;
+  border: 2px solid @white;
   display: inline-block;
 }
 .gmnoprint .gmnoprint .gmnoprint {

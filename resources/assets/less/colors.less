@@ -1,25 +1,5 @@
-/** todo remove this **/
-.lime {
-  background-color: #80B959!important;
-}
-.lime-text {
-  color: #80B959!important;
-}
-.blue {
-  background-color: #43b5e9!important;
-  /*#1A9EDB*/
-}
-.green {
-  background-color: #23A657!important;
-  /*#80B959
-  #679E42*/
-}
-.red {
-  background-color: #F05557!important;
-}
-.golden {
-  background-color: #F9C828!important;
-}
+@primary: #80B959;
+@secondary: #679E42;
 
 @red-50: #ffebee;
 @red-100: #ffcdd2;
@@ -347,3 +327,26 @@
 @black: #000000;
 @white: #ffffff;
 @inverse: @indigo;
+
+/** todo remove this **/
+.lime {
+  background-color: @primary!important;
+}
+.lime-text {
+  color: @primary!important;
+}
+.blue {
+  background-color: #43b5e9!important;
+  /*#1A9EDB*/
+}
+.green {
+  background-color: #23A657!important;
+  /*#80B959
+  #679E42*/
+}
+.red {
+  background-color: #F05557!important;
+}
+.golden {
+  background-color: #F9C828!important;
+}

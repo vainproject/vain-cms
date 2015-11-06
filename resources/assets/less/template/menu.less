@@ -1,10 +1,12 @@
+@import "../colors";
+
 #wrap{
   position: relative;
   backface-visibility: hidden;
   min-height: 100%;
   min-width: 100%;
   z-index: 1030;
-  background-color: #FFF;
+  background-color: @white;
   top: 0;
   bottom: 100%;
   left: 0;
@@ -72,8 +74,8 @@
 #menu>ul>li a:focus,
 #menu li.active > a {
   background-color: #1e1f27 !important;
-  color: #FFF;
-  color: #80B959;
+  color: @white;
+  color: @primary;
   text-decoration: none;
 }
 #menu .header {
@@ -86,7 +88,7 @@
 #menu .close-menu{
   font-size: 16px;
   text-shadow: none;
-  color: #FFF;
+  color: @white;
   opacity: 1;
   position: absolute;
   right: 0;
@@ -96,7 +98,7 @@
 }
 #menu .close-menu:hover,
 #menu .close-menu:focus{
-  background-color: #679E42;
+  background-color: @secondary;
   color: #383838;
 }
 #menu .close-menu i{
@@ -122,7 +124,7 @@
   left: 16px;
 }
 #menu .badge {
-  background-color: #80B959;
+  background-color: @primary;
   color: #12131A;
   position: absolute;
   right: 15px;

@@ -1,3 +1,5 @@
+@import "../colors";
+
 .myform {
   padding-top: 5px;
 }
@@ -20,7 +22,7 @@
 .input-group .form-control {
   font-family: "Open Sans", helvetica, arial, sans-serif;
   display:inline;
-  background:#fff;
+  background:@white;
   border:none;
   /* border-radius:5px; */
   outline:none;
@@ -74,7 +76,7 @@
 .myform textarea.inputError:focus,
 .input-group .form-control:focus {
   outline:none;
-  border: 2px solid #80B959;
+  border: 2px solid @primary;
 }
 
 .myform.no-placeholder .error-message {
