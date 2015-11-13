@@ -25,12 +25,15 @@ Route::group(['namespace' => 'Auth'], function()
         'postReset' => 'user.password.reset.post',
     ]);
 
-    // socialite
-    Route::group(['prefix' => 'oauth'], function()
+    if (config('services.socialite.enable', false))
     {
-        Route::any('redirect', ['as' => 'social.redirect', 'uses' => 'SocialController@redirect']);
-        Route::any('handle', ['as' => 'social.handle', 'uses' => 'SocialController@handle']);
-    });
+        // socialite
+        Route::group(['prefix' => 'oauth'], function()
+        {
+            Route::any('redirect', ['as' => 'social.redirect', 'uses' => 'SocialController@redirect']);
+            Route::any('handle', ['as' => 'social.handle', 'uses' => 'SocialController@handle']);
+        });
+    }
 });
 
 /*

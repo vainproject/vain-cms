@@ -4,6 +4,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Social Authentification
+    |--------------------------------------------------------------------------
+    |
+    | This file is to manage social authentification against third party
+    | services. You can disable them alltogether if you want to.
+    |
+    */
+    'socialite' => [
+        'enable' => true,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Third Party Services
     |--------------------------------------------------------------------------
     |

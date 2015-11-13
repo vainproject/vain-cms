@@ -54,15 +54,18 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 col-md-offset-4">
-                                <hr />
-                                <ul class="social-links pull-right no-spacing">
-                                    <li><a href="{{ route('social.redirect', ['provider' => 'twitter']) }}"><i class="icon-twitter"></i></a></li>
-                                    <li><a href="{{ route('social.redirect', ['provider' => 'facebook']) }}"><i class="icon-facebook"></i></a></li>
-                                    <li><a href="{{ route('social.redirect', ['provider' => 'google']) }}"><i class="icon-googleplus"></i></a></li>
-                                </ul>
-                                <span class="text-muted">Or login using:</span>
-                            </div>
+                            @if (config('services.socialite.enable', false))
+                                {{-- socialite --}}
+                                <div class="col-md-6 col-md-offset-4">
+                                    <hr />
+                                    <ul class="social-links pull-right no-spacing">
+                                        <li><a href="{{ route('social.redirect', ['provider' => 'twitter']) }}"><i class="icon-twitter"></i></a></li>
+                                        <li><a href="{{ route('social.redirect', ['provider' => 'facebook']) }}"><i class="icon-facebook"></i></a></li>
+                                        <li><a href="{{ route('social.redirect', ['provider' => 'google']) }}"><i class="icon-googleplus"></i></a></li>
+                                    </ul>
+                                    <span class="text-muted">Or login using:</span>
+                                </div>
+                            @endif
                         </form>
                     </div>
                 </div>
