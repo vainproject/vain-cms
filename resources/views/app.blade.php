@@ -7,8 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>@yield('title') @lang('meta.title.app')</title>
 
-    <meta name="keywords" content="@yield('keywords', trans('meta.keywords.app'))">
-    <meta name="description" content="@yield('description', trans('meta.description.app'))">
+    <meta name="keywords" content="@yield('keywords', trans('meta.keywords'))">
+    <meta name="description" content="@yield('description', trans('meta.description'))">
     <meta name="robots" content="index,follow">
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Merriweather:400,400italic,700italic" rel="stylesheet" type="text/css">
