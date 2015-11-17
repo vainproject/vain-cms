@@ -20,6 +20,7 @@ return [
         'slug' => 'Slug',
         'name' => 'Titel',
         'text' => 'Inhalt',
+        'role' => 'Rolle',
         'creator' => 'Erstellt von',
         'keywords' => 'Schlüsselwörter',
         'description' => 'Beschreibung',
