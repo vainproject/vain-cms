@@ -9,7 +9,7 @@ use Modules\Blog\Entities\Comment;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\PostContent;
 
-class BlogDatabaseSeeder extends Seeder {
+class BlogTableSeeder extends Seeder {
 
 	/**
 	 * Run the database seeds.
