@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Modules\Site\Entities\Content;
 use Modules\Site\Entities\Page;
 
-class SiteDatabaseSeeder extends Seeder {
+class SiteTableSeeder extends Seeder {
 
     /**
      * Run the database seeds.

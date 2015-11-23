@@ -7,7 +7,7 @@ use Modules\User\Entities\Permission;
 use Modules\User\Entities\Role;
 use Modules\User\Entities\User;
 
-class UserDatabaseSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
 
     /**
@@ -21,17 +21,6 @@ class UserDatabaseSeeder extends Seeder
 
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-        $this->call('Modules\User\Database\Seeders\UserTableSeeder');
-
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-    }
-}
-
-class UserTableSeeder extends Seeder
-{
-
-    public function run()
-    {
         DB::table('users')->delete();
 
         $admin = User::create([
@@ -84,5 +73,7 @@ class UserTableSeeder extends Seeder
         foreach ($adminRoles as $role) {
             $role->savePermissions($permissions);
         }
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
