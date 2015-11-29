@@ -5,6 +5,7 @@ use Cmgmyr\Messenger\Traits\Messagable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -15,7 +16,7 @@ use Vain\Packages\Access\Traits\UserTrait;
 
 class User extends Model implements UserContract, AuthenticatableContract, CanResetPasswordContract {
 
-    use UserTrait, Authenticatable, CanResetPassword, LocalizedEloquentTrait, Messagable;
+    use UserTrait, Authenticatable, CanResetPassword, SoftDeletes, LocalizedEloquentTrait, Messagable;
 
     /**
      * The database table used by the model.
@@ -65,7 +66,7 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
      *
      * @var array
      */
-    protected $dates = ['birthday_at', 'last_active_at'];
+    protected $dates = ['deleted_at', 'birthday_at', 'last_active_at'];
 
     /**
      * created static pages

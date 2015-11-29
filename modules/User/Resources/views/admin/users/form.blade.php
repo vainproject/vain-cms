@@ -70,6 +70,12 @@
                         {!! Form::text('city', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
+                <div class="form-group">
+                    {!! Form::label('about', trans('user::profile.field.about'), ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::textarea('about', null, ['class' => 'form-control', 'data-expand', 'rows' => 1, 'data-expand-rows-max' => 6]) !!}
+                    </div>
+                </div>
             </div><!-- /.box-body -->
         </div><!-- /.box -->
     </div>
