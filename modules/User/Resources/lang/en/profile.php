@@ -39,7 +39,6 @@ return [
         'favorite_spec' => 'Favorite Spec',
         'favorite_instance' => 'Favorite Instance',
         'favorite_battleground' => 'Favorite BG',
-
     ],
     'section' => [
         'general' => 'General',
