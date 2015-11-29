@@ -39,7 +39,6 @@ return [
         'favorite_spec' => 'Lieblingsskillung',
         'favorite_instance' => 'Lieblingsinstanz',
         'favorite_battleground' => 'Lieblings-BG',
-
     ],
     'section' => [
         'general' => 'Allgemein',

@@ -68,7 +68,7 @@ class PostController extends Controller
     {
         /** @var Post $post */
         $post = Post::findOrFail($id);
-        $this->authorize('update', $post);
+        $this->authorize('edit', $post);
 
         $post->fill($request->all());
         $post->save();
