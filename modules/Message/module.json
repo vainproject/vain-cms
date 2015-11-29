@@ -3,8 +3,8 @@
     "alias": "message",
     "description": "",
     "keywords": [],
-    "active": 0,
-    "order": 2,
+    "active": 1,
+    "order": 3,
     "providers": [
         "Modules\\Message\\Providers\\MessageServiceProvider"
     ],
