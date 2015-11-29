@@ -1,4 +1,8 @@
-@extends('gallery::layouts.master')
+@extends('app')
+
+@section('title')
+	@lang('gallery::index.title')
+@stop
 
 @section('content')
 	
