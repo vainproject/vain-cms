@@ -19,7 +19,7 @@ class MenuContent extends Model {
      *
      * @var array
      */
-    protected $fillable = ['locale', 'title'];
+    protected $fillable = ['locale', 'title', 'description'];
 
     public function menu()
     {

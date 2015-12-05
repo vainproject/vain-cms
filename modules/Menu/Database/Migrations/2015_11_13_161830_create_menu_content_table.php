@@ -19,6 +19,7 @@ class CreateMenuContentTable extends Migration {
             $table->integer('menu_id')->unsigned();
             $table->string('locale', 2);
             $table->string('title', 50);
+            $table->string('description');
 
             $table->timestamps();
 

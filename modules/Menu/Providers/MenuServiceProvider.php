@@ -1,6 +1,8 @@
 <?php namespace Modules\Menu\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Modules\Menu\Events\PostMenuSetup;
+use Modules\Menu\Services\MenuItemBuilder;
 
 class MenuServiceProvider extends ServiceProvider {
 
@@ -32,7 +34,15 @@ class MenuServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+        $this->app->singleton('menu.builder', MenuItemBuilder::class);
+
+        view()->composer('app', function($view) {
+            // delay event trigger to the very
+            // last step of menu creation
+            $handler = app('menu.frontend');
+            $builder = app('menu.builder');
+            event(new PostMenuSetup($handler, $builder));
+        });
 	}
 
 }

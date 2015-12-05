@@ -18,6 +18,7 @@ class CreateMenuTable extends Migration {
 
             $table->integer('type');
             $table->string('target');
+            $table->string('parameters');
             $table->boolean('visible');
 
             // nested set conf
@@ -32,7 +33,7 @@ class CreateMenuTable extends Migration {
 
             $table->timestamps();
 
-            $table->unique(['type', 'target']);
+            $table->unique(['type', 'target', 'parameters']);
         });
     }
 

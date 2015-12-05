@@ -1,4 +1,4 @@
-<?php namespace Modules\Menu\Http\Controllers;
+<?php namespace Modules\Menu\Http\Controllers\Admin;
 
 use Vain\Http\Controllers\Controller;
 

@@ -1,6 +1,7 @@
 <?php namespace Modules\Menu\Entities;
 
 use Baum\Node as Model;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Vain\Packages\Translator\TranslatableTrait;
 
@@ -12,8 +13,6 @@ class Menu extends Model
 
     const TYPE_URL = 2;
 
-    const TYPE_ACTION = 3;
-
     /**
      * The database table used by the model.
      *
@@ -24,7 +23,7 @@ class Menu extends Model
     /**
      * @var array
      */
-    protected $fillable = ['type', 'target', 'published_at', 'concealed_at'];
+    protected $fillable = ['type', 'target', 'parameters', 'published_at', 'concealed_at'];
 
     /**
      * @var array
@@ -61,6 +60,11 @@ class Menu extends Model
         });
     }
 
+    public function hasChildren()
+    {
+        return $this->children()->count() > 0;
+    }
+
     /**
      * fix optional empty dates
      *
@@ -83,5 +87,22 @@ class Menu extends Model
         $this->attributes['concealed_at'] = !empty($value)
             ? $value
             : null;
+    }
+
+    /**
+     * @param $value
+     * @return array
+     */
+    public function getParametersAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    /**
+     * @param $value
+     */
+    public function setParametersAttribute($value)
+    {
+        $this->attributes['parameters'] = json_encode($value);
     }
 }
