@@ -1,4 +1,4 @@
-[![Build Status](https://magnum.travis-ci.com/fgreinus/vain.svg?token=NzeaMJdyF4VTovkWzfyp&branch=master)](https://magnum.travis-ci.com/fgreinus/vain)
+[![Build Status](https://travis-ci.org/vainproject/vain.svg)](https://travis-ci.org/vainproject/vain)
 # Vain
 
 Vain is a composition of features ranging from content management up to community integration. It is highly extensible and heavenly clean - not least because of the Laravel Framework (currently used in version 5.1).
@@ -28,3 +28,7 @@ You confirm that you are able to grant us these rights. You represent that You a
 You represent that the Contributions are Your original works of authorship, and to Your knowledge, no other person claims, or has the right to claim, any right in any invention or patent related to the Contributions. You also represent that You are not legally obligated, whether by entering into an agreement or otherwise, in any way that conflicts with the terms of this license.
 
 The Vain development team acknowledges that, except as explicitly described in this Agreement, any Contribution which you provide is on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OR CONDITIONS OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE.
+
+## Licensing
+
+Vain is licensed under the Apache License, Version 2.0. See [LICENSE](https://github.com/vainproject/vain/blob/master/LICENSE) for the full license text.
