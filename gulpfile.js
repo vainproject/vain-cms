@@ -36,7 +36,6 @@ var scripts_include = [
     //'./modules/Forum/Resources/assets/js/*.js',
     //'./modules/Site/Resources/assets/js/*.js',
     //'./modules/User/Resources/assets/js/*.js',
-    './modules/Message/Resources/assets/js/*.js'
 ];
 
 var scripts_admin_include = [
@@ -71,7 +70,7 @@ elixir(function(mix) {
 
     // compile less
     mix.less(['app.less', 'backend.less'], 'public/static/css/backend.css');
-    mix.less(['app.less','frontend.less'], 'public/static/css/frontend.css');
+    mix.less(['app.less', 'frontend.less'], 'public/static/css/frontend.css');
 
     // register custom watcher for less task
     elixir.Task.find('less').watchers.push('./modules/**/*.less');

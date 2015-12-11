@@ -89,5 +89,5 @@
 </div>
 
 @section('scripts')
-    <script src="/vendor/ckeditor/ckeditor.js"></script>
+    <script src="{{ asset( 'vendor/ckeditor/ckeditor.js' ) }}"></script>
 @stop
