@@ -173,7 +173,6 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider::class,
         Dowilcox\KnpMenu\MenuServiceProvider::class,
-        Cmgmyr\Messenger\MessengerServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 
         // in-app packages, may be excluded sometimes later

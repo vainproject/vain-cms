@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "vainproject/vain",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": ["framework", "laravel", "vain"],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "license": "MIT",
@@ -12,15 +12,11 @@
         "laravel/socialite": "~2.0",
         "laravelcollective/html": "5.1.*",
         "laravelrus/localized-carbon": "dev-master",
+        "davejamesmiller/laravel-breadcrumbs": "3.*",
         "pingpong/modules": "2.1.*",
         "dowilcox/knp-menu-laravel": "dev-master",
         "barryvdh/laravel-debugbar": "2.0.*",
-        "filp/whoops": "1.1.*",
-        "omnipay/paypal": "^2.4",
-        "alfaproject/omnipay-skrill": "dev-master",
-        "cmgmyr/messenger": "2.*",
-        "davejamesmiller/laravel-breadcrumbs": "3.*",
-        "kbsali/redmine-api": "1.*"
+        "filp/whoops": "1.1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

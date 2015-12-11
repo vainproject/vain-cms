@@ -33,7 +33,6 @@ class Kernel extends HttpKernel {
         'admin' => 'Modules\User\Http\Middleware\VerfiyBackendPermission',
         'role' => 'Modules\User\Http\Middleware\EnsureRole',
         'permission' => 'Modules\User\Http\Middleware\EnsurePermission',
-        'payment.provider.enabled' => 'Modules\Premium\Http\MiddlewarePaymentProviderEnabled',
     ];
 
 }
