@@ -1,6 +1,8 @@
 # Vain
 
 [![Build Status](https://travis-ci.org/vainproject/vain.svg?branch=master)](https://travis-ci.org/vainproject/vain)
+[![Code Climate](https://codeclimate.com/github/vainproject/vain/badges/gpa.svg)](https://codeclimate.com/github/vainproject/vain)
+[![Test Coverage](https://codeclimate.com/github/vainproject/vain/badges/coverage.svg)](https://codeclimate.com/github/vainproject/vain/coverage)
 
 Vain is a composition of features ranging from content management up to community integration. It is highly extensible and heavenly clean - not least because of the Laravel Framework (currently used in version 5.1).
 
