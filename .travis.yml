@@ -35,3 +35,7 @@ script: vendor/bin/phpunit
 
 notifications:
   slack: parabelcon:AfqrMDyoikewLql9defXlWHW
+
+addons:
+  code_climate:
+    repo_token: cadcd37f6ed1b8e5570c6e3ed2eff62dee3aa445b9fbeb96de5f659c83176d99
