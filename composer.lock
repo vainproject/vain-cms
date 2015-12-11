@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6c1f97d2c6ec6ce6d020a3242a224289",
-    "content-hash": "0f29600934e008914ce79b27342e0b5b",
+    "hash": "3934cc30625d07ebb81cd1444e9ebfff",
+    "content-hash": "45908d4353e130c642c950ea03d3b0cb",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -3350,57 +3350,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "benconstable/phpspec-laravel",
-            "version": "v2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/BenConstable/phpspec-laravel.git",
-                "reference": "7632ea322ee3df3d46abb09846381219cf8285b0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/BenConstable/phpspec-laravel/zipball/7632ea322ee3df3d46abb09846381219cf8285b0",
-                "reference": "7632ea322ee3df3d46abb09846381219cf8285b0",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "~5.0",
-                "phpspec/phpspec": "~2.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-laravel-4": "1.x-dev",
-                    "dev-master": "2.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "PhpSpec": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ben Constable",
-                    "email": "ben@benconstable.co.uk",
-                    "homepage": "http://www.benconstable.co.uk"
-                }
-            ],
-            "description": "Test your Laravel applications with PhpSpec",
-            "homepage": "http://github.com/BenConstable/phpspec-laravel",
-            "keywords": [
-                "laravel",
-                "phpspec",
-                "test",
-                "testing"
-            ],
-            "time": "2015-03-15 16:10:03"
-        },
         {
             "name": "doctrine/instantiator",
             "version": "1.0.5",

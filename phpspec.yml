@@ -11,6 +11,3 @@ suites:
         psr4_prefix: Modules
         spec_path: spec/modules
         src_path: modules
-
-extensions:
-    - PhpSpec\Laravel\Extension\LaravelExtension
