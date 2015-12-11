@@ -1,5 +1,6 @@
-[![Build Status](https://travis-ci.org/vainproject/vain.svg)](https://travis-ci.org/vainproject/vain)
 # Vain
+
+[![Build Status](https://travis-ci.org/vainproject/vain.svg?branch=master)](https://travis-ci.org/vainproject/vain)
 
 Vain is a composition of features ranging from content management up to community integration. It is highly extensible and heavenly clean - not least because of the Laravel Framework (currently used in version 5.1).
 
