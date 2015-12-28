@@ -14,7 +14,7 @@
         "laravelrus/localized-carbon": "dev-master",
         "davejamesmiller/laravel-breadcrumbs": "3.*",
         "pingpong/modules": "2.1.*",
-        "dowilcox/knp-menu-laravel": "dev-master",
+        "dowilcox/knp-menu-laravel": "1.0.*",
         "barryvdh/laravel-debugbar": "2.0.*",
         "filp/whoops": "1.1.*"
     },
