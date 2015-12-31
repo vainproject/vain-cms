@@ -4,11 +4,11 @@
             <div class="box-body">
                 <button class="btn btn-success" type="submit">
                     <i class="fa fa-floppy-o fa-lg"></i>&nbsp;
-                    @lang('site::page.action.save')
+                    @lang('menu::menu.action.save')
                 </button>
-                <a class="btn btn-default" href="{{ route('site.admin.sites.index') }}">
+                <a class="btn btn-default" href="{{ route('menu.admin.items.index') }}">
                     <i class="fa fa-ban fa-lg"></i>&nbsp;
-                    @lang('site::page.action.abort')
+                    @lang('menu::menu.action.abort')
                 </a>
             </div>
         </div>
@@ -30,17 +30,17 @@
     <div class="col-md-6 col-sm-12">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">@lang('site::page.section.general')</h3>
+                <h3 class="box-title">@lang('menu::menu.section.general')</h3>
             </div>
             <div class="box-body">
                 <div class="form-group">
-                    {!! Form::label('slug', trans('site::page.field.slug'), ['class' => 'col-sm-3 control-label']) !!}
+                    {!! Form::label('slug', trans('menu::menu.field.slug'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
                         {!! Form::text('slug', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('user_id', trans('site::page.field.creator'), ['class' => 'col-sm-3 control-label']) !!}
+                    {!! Form::label('user_id', trans('menu::menu.field.creator'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
                         {!! Form::text('user_id', isset($post) ? $post->user->name : Auth::user()->name, [ 'class' => 'form-control', 'disabled' ]) !!}
                     </div>
@@ -51,17 +51,17 @@
     <div class="col-md-6 col-sm-12">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">@lang('site::page.section.dates')</h3>
+                <h3 class="box-title">@lang('menu::menu.section.dates')</h3>
             </div>
             <div class="box-body">
                 <div class="form-group">
-                    {!! Form::label('published_at', trans('site::page.field.published_at'), ['class' => 'col-sm-3 control-label']) !!}
+                    {!! Form::label('published_at', trans('menu::menu.field.published_at'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
                         {!! Form::date('published_at', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('concealed_at', trans('site::page.field.concealed_at'), ['class' => 'col-sm-3 control-label']) !!}
+                    {!! Form::label('concealed_at', trans('menu::menu.field.concealed_at'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
                         {!! Form::date('concealed_at', null, ['class' => 'form-control']) !!}
                     </div>
@@ -80,14 +80,6 @@
         @endforeach
     </ul>
     <div class="tab-content" data-auto-active>
-        @foreach($locales as $locale => $name)
-            <div role="tabpanel" class="tab-pane" id="{{ $locale }}">
-                @include('site::admin.pages.content', ['locale' => $locale])
-            </div>
-        @endforeach
+        asd
     </div>
 </div>
-
-@section('scripts')
-    <script src="{{ asset( 'vendor/ckeditor/ckeditor.js' ) }}"></script>
-@stop

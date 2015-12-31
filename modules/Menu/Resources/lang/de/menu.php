@@ -30,6 +30,9 @@ return [
         'created_at'   => 'Erstellt',
         'updated_at'   => 'Geändert',
     ],
+    'error' => [
+        'broken' => 'Die Verlinkung ist Fehlerhaft, bitte überprüfen.',
+    ],
     'section' => [
         'general' => 'Allgemein',
         'dates'   => 'Zeitangaben',

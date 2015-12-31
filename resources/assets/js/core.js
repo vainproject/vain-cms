@@ -101,10 +101,9 @@
         });
 
         $('[data-treegrid]').treegrid({
-            expanderExpandedClass: 'glyphicon glyphicon-minus',
-            expanderCollapsedClass: 'glyphicon glyphicon-plus',
-            initialState: 'collapsed',
-            treeColumn: 1
+            expanderExpandedClass: 'fa fa-minus-square-o',
+            expanderCollapsedClass: 'fa fa-plus-square-o',
+            initialState: 'collapsed'
         });
 
         $('[data-select]').selectpicker();

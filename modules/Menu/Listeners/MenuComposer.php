@@ -32,7 +32,7 @@ class MenuComposer
     {
         $event->handler->addChild('menu::menu.title.index')
             ->setExtra('patterns', ['/menu\.admin\.entries\.(.+)/'])
-            ->setUri(route('menu.admin.entries.index'))
+            ->setUri(route('menu.admin.items.index'))
             ->setExtra('icon', 'bars');
     }
 

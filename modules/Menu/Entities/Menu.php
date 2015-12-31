@@ -3,17 +3,13 @@
 use Baum\Node as Model;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Modules\Menu\Traits\MenuItemTrait;
+use Modules\Menu\Contracts\MenuItemInterface as MenuItemContract;
 use Vain\Packages\Translator\TranslatableTrait;
 
-class Menu extends Model
+class Menu extends Model implements MenuItemContract
 {
-    use TranslatableTrait;
-
-    const URL_EMPTY = '#';
-
-    const TYPE_ROUTE = 1;
-
-    const TYPE_URL = 2;
+    use MenuItemTrait, TranslatableTrait;
 
     /**
      * The database table used by the model.
@@ -62,11 +58,6 @@ class Menu extends Model
         });
     }
 
-    public function hasChildren()
-    {
-        return $this->children()->count() > 0;
-    }
-
     /**
      * fix optional empty dates
      *
@@ -89,64 +80,5 @@ class Menu extends Model
         $this->attributes['concealed_at'] = !empty($value)
             ? $value
             : null;
-    }
-
-    /**
-     * @param $value
-     * @return array
-     */
-    public function getParametersAttribute($value)
-    {
-        return json_decode($value, true);
-    }
-
-    /**
-     * @param $value
-     */
-    public function setParametersAttribute($value)
-    {
-        $this->attributes['parameters'] = json_encode($value);
-    }
-
-    public function getActionAttribute($value)
-    {
-        switch ($this->type)
-        {
-            case Menu::TYPE_ROUTE:
-                return trans('menu::menu.field.type.route');
-
-            case Menu::TYPE_URL:
-                return trans('menu::menu.field.type.extern');
-
-            default:
-                return trans('menu::menu.field.type.unknown');
-        }
-    }
-
-    /**
-     * builds the targeting url based upon the given
-     * type if the current item
-     *
-     * @param $value
-     * @return string
-     */
-    public function getUrlAttribute($value)
-    {
-        if ($this->hasChildren())
-        {
-            return static::URL_EMPTY;
-        }
-
-        switch ($this->type)
-        {
-            case Menu::TYPE_ROUTE:
-                return route($this->target, $this->parameters);
-
-            case Menu::TYPE_URL:
-                return $this->target;
-
-            default:
-                return null;
-        }
     }
 }
