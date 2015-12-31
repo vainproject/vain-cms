@@ -4,7 +4,7 @@ php:
 #  - 5.4
 #  - 5.5
   - 5.6
-#  - 7.0
+  - 7.0
 
 #matrix:
 #    allow_failures:
@@ -33,5 +33,12 @@ before_script:
 
 script: vendor/bin/phpunit
 
+after_script:
+  - vendor/bin/test-reporter
+
 notifications:
   slack: parabelcon:AfqrMDyoikewLql9defXlWHW
+
+addons:
+  code_climate:
+    repo_token: cadcd37f6ed1b8e5570c6e3ed2eff62dee3aa445b9fbeb96de5f659c83176d99

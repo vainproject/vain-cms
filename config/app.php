@@ -54,7 +54,7 @@ return [
 
     'locales' => [
         'de' => 'Deutsch',
-        'en' => 'English'
+        'en' => 'English',
     ],
 
     /*
@@ -173,7 +173,6 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider::class,
         Dowilcox\KnpMenu\MenuServiceProvider::class,
-        Cmgmyr\Messenger\MessengerServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 
         // in-app packages, may be excluded sometimes later
@@ -230,14 +229,14 @@ return [
         /*
          * Custom package facades
          */
-        'Debugbar'  => Barryvdh\Debugbar\Facade::class,
-        'Socialize' => Laravel\Socialite\Facades\Socialite::class,
+        'Debugbar'        => Barryvdh\Debugbar\Facade::class,
+        'Socialize'       => Laravel\Socialite\Facades\Socialite::class,
         'LocalizedCarbon' => Laravelrus\LocalizedCarbon\LocalizedCarbon::class,
-        'DiffFormatter' => Laravelrus\LocalizedCarbon\DiffFactoryFacade::class,
-        'Menu' => Dowilcox\KnpMenu\Facades\Menu::class,
-        'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
-        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class
+        'DiffFormatter'   => Laravelrus\LocalizedCarbon\DiffFactoryFacade::class,
+        'Menu'            => Dowilcox\KnpMenu\Facades\Menu::class,
+        'Form'            => Collective\Html\FormFacade::class,
+        'Html'            => Collective\Html\HtmlFacade::class,
+        'Breadcrumbs'     => DaveJamesMiller\Breadcrumbs\Facade::class,
     ],
 
 ];
