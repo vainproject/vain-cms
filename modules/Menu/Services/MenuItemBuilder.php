@@ -8,8 +8,6 @@ use Dowilcox\KnpMenu\Menu as MenuProvider;
 
 class MenuItemBuilder {
 
-    const URL_EMPTY = '#';
-
     /**
      * @var \Knp\Menu\MenuFactory
      */
@@ -36,7 +34,7 @@ class MenuItemBuilder {
         {
             $parent = $this->createItem( $item->content->title )
                 ->setExtra('patterns', $this->extractPattern($item))
-                ->setUri($this->resolveUrl($item));
+                ->setUri($item->url);
 
             $this->attachChildren($item->children, $parent);
 
@@ -58,36 +56,9 @@ class MenuItemBuilder {
             /** @var  $parent MenuItem */
             $parent = $parent->addChild( $item->content->title )
                 ->setExtra('patterns', $this->extractPattern($item))
-                ->setUri($this->resolveUrl($item));
+                ->setUri($item->url);
 
             return $this->attachChildren($item->children, $parent);
-        }
-    }
-
-    /**
-     * builds the targeting url based upon the given
-     * type if the current item
-     *
-     * @param Menu $item
-     * @return string
-     */
-    private function resolveUrl($item)
-    {
-        if ($item->hasChildren())
-        {
-            return static::URL_EMPTY;
-        }
-
-        switch ($item->type)
-        {
-            case Menu::TYPE_ROUTE:
-                return route($item->target, $item->parameters);
-
-            case Menu::TYPE_URL:
-                return $item->target;
-
-            default:
-                return null;
         }
     }
 

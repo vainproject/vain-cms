@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="@lang('site::page.action.abort')"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="modalLabel">@lang('site::page.action.confirm')</h4>
+                <h4 class="modal-title" id="modalLabel">@lang('menu::menu.action.confirm')</h4>
             </div>
             <div class="modal-body">
                 @lang('site::page.delete.message')

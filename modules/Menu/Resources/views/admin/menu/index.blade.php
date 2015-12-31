@@ -23,8 +23,8 @@
                     <thead>
                     <tr>
                         <td>@lang('menu::menu.field.id')</td>
-                        <td>@lang('menu::menu.field.slug')</td>
-                        <td>@lang('menu::menu.field.slug')</td>
+                        <td>@lang('menu::menu.field.target')</td>
+                        <td>@lang('menu::menu.field.title')</td>
                         <td>@lang('menu::menu.field.published_at')</td>
                         <td>@lang('menu::menu.field.concealed_at')</td>
                         <td>@lang('menu::menu.field.created_at')</td>
@@ -36,8 +36,17 @@
                     @foreach($menus as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
-                            <td>{{ $item->target }}</td>
-                            <td>{{ $item->content->title }} <a href="{{ $item->url }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+                            <td>
+                                <small class="text-muted">{{ $item->action }}</small><br>
+                                {{ $item->target }}
+                            </td>
+                            <td>{{ $item->content->title }}
+                                @if ( ! $item->hasChildren())
+                                    <a href="{{ $item->url }}" target="_blank"><i class="fa fa-external-link"></i></a>
+                                @endif
+                                <br>
+                                <small class="text-muted">{{ $item->content->description }}</small>
+                            </td>
                             <td>{{ isset($item->published_at) ? $item->published_at->diffForHumans() : '' }}</td>
                             <td>{{ isset($item->concealed_at) ? $item->concealed_at->diffForHumans() : '' }}</td>
                             <td>{{ $item->created_at->diffForHumans() }}</td>

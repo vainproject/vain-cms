@@ -9,6 +9,8 @@ class Menu extends Model
 {
     use TranslatableTrait;
 
+    const URL_EMPTY = '#';
+
     const TYPE_ROUTE = 1;
 
     const TYPE_URL = 2;
@@ -104,5 +106,47 @@ class Menu extends Model
     public function setParametersAttribute($value)
     {
         $this->attributes['parameters'] = json_encode($value);
+    }
+
+    public function getActionAttribute($value)
+    {
+        switch ($this->type)
+        {
+            case Menu::TYPE_ROUTE:
+                return trans('menu::menu.field.type.route');
+
+            case Menu::TYPE_URL:
+                return trans('menu::menu.field.type.extern');
+
+            default:
+                return trans('menu::menu.field.type.unknown');
+        }
+    }
+
+    /**
+     * builds the targeting url based upon the given
+     * type if the current item
+     *
+     * @param $value
+     * @return string
+     */
+    public function getUrlAttribute($value)
+    {
+        if ($this->hasChildren())
+        {
+            return static::URL_EMPTY;
+        }
+
+        switch ($this->type)
+        {
+            case Menu::TYPE_ROUTE:
+                return route($this->target, $this->parameters);
+
+            case Menu::TYPE_URL:
+                return $this->target;
+
+            default:
+                return null;
+        }
     }
 }

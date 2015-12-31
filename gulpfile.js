@@ -10,6 +10,8 @@ var scripts_include = [
     './bower_components/jquery/dist/jquery.js',
     './bower_components/bootstrap/dist/js/bootstrap.js',
     './bower_components/toastr/toastr.js',
+    './bower_components/jquery-treegrid/js/jquery.treegrid.js',
+    './bower_components/jquery-treegrid/js/jquery.treegrid.bootstrap3.js',
     './bower_components/bootstrap-select/dist/js/bootstrap-select.js',
     './bower_components/wowjs/dist/wow.js',
     './bower_components/placeholders/dist/placeholders.js',
