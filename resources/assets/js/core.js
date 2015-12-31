@@ -100,6 +100,13 @@
             element.find(':first-child').first().addClass(cls);
         });
 
+        $('[data-treegrid]').treegrid({
+            expanderExpandedClass: 'glyphicon glyphicon-minus',
+            expanderCollapsedClass: 'glyphicon glyphicon-plus',
+            initialState: 'collapsed',
+            treeColumn: 1
+        });
+
         $('[data-select]').selectpicker();
     };
 

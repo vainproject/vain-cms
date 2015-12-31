@@ -19,7 +19,7 @@
                 </a>
             </div>
             <div class="box-body table-responsive no-padding">
-                <table class="table table-striped">
+                <table class="table table-striped" data-treegrid>
                     <thead>
                     <tr>
                         <td>@lang('menu::menu.field.id')</td>
@@ -33,12 +33,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($menus as $item)
-                        <tr>
+                    @foreach($menus as $i => $item)
+                        <tr class="treegrid-{{ $item->id }} @if ($item->parent_id) treegrid-parent-{{ $item->parent_id }} @endif">
                             <td>{{ $item->id }}</td>
                             <td>
-                                <small class="text-muted">{{ $item->action }}</small><br>
-                                {{ $item->target }}
+                                <div>
+                                    <small class="text-muted">{{ $item->action }}</small><br>
+                                    {{ $item->target }}
+                                </div>
                             </td>
                             <td>{{ $item->content->title }}
                                 @if ( ! $item->hasChildren())
