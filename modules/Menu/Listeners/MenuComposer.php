@@ -1,4 +1,6 @@
-<?php namespace Modules\Menu\Listeners;
+<?php
+
+namespace Modules\Menu\Listeners;
 
 use Illuminate\Support\Facades\Cache;
 use Modules\Menu\Events\PostMenuSetup;
@@ -12,15 +14,16 @@ class MenuComposer
     public function postMenuSetup(PostMenuSetup $event)
     {
         // clear all items at top level
-        foreach ( $event->handler->getChildren() as $child )
+        foreach ($event->handler->getChildren() as $child) {
             $event->handler->removeChild($child);
+        }
 
         // inject own frontend menue
-        $menu = $this->cacheIfConfigured(function() use ($event) {
+        $menu = $this->cacheIfConfigured(function () use ($event) {
             return $event->builder->getMenuItems();
         });
 
-        foreach ( $menu as $menuItem ) {
+        foreach ($menu as $menuItem) {
             $event->handler->addChild($menuItem);
         }
     }
@@ -47,19 +50,19 @@ class MenuComposer
 
     /**
      * uses the cache if it was configured or calculates
-     * the plain output every request otherwise
+     * the plain output every request otherwise.
      *
      * @param $closure
+     *
      * @return array
      */
     private function cacheIfConfigured($closure)
     {
-        if (config('menu.cache.enable'))
-        {
+        if (config('menu.cache.enable')) {
             $key = config('menu.cache.key');
             $minutes = config('menu.cache.minutes');
 
-            return Cache::remember($key, $minutes, function() use ($closure) {
+            return Cache::remember($key, $minutes, function () use ($closure) {
                 return call_user_func($closure);
             });
         }

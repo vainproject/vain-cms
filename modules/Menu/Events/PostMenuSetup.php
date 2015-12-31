@@ -1,16 +1,18 @@
-<?php namespace Modules\Menu\Events;
+<?php
+
+namespace Modules\Menu\Events;
 
 use Illuminate\Queue\SerializesModels;
 use Knp\Menu\MenuItem;
 use Modules\Menu\Services\MenuItemBuilder;
 use Vain\Events\Event;
 
-class PostMenuSetup extends Event {
-
+class PostMenuSetup extends Event
+{
     use SerializesModels;
 
     /**
-     * the menu handler
+     * the menu handler.
      *
      * @var MenuItem
      */
@@ -24,7 +26,7 @@ class PostMenuSetup extends Event {
     /**
      * Create a new event instance.
      *
-     * @param MenuItem $handler
+     * @param MenuItem        $handler
      * @param MenuItemBuilder $builder
      */
     public function __construct(MenuItem $handler, MenuItemBuilder $builder)

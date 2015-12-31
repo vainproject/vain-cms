@@ -1,10 +1,12 @@
-<?php namespace Modules\Menu\Entities;
+<?php
+
+namespace Modules\Menu\Entities;
 
 use Baum\Node as Model;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Menu\Traits\MenuItemTrait;
 use Modules\Menu\Contracts\MenuItemInterface as MenuItemContract;
+use Modules\Menu\Traits\MenuItemTrait;
 use Vain\Packages\Translator\TranslatableTrait;
 
 class Menu extends Model implements MenuItemContract
@@ -38,20 +40,21 @@ class Menu extends Model implements MenuItemContract
 
     /**
      * @param Builder $query
+     *
      * @return mixed
      */
     public function scopeVisible($query)
     {
-        return $query->where(function($query) {
+        return $query->where(function ($query) {
 
             $query->where('visible', true);
 
-            $query->where(function($query) {
+            $query->where(function ($query) {
                 $query->where('published_at', '<=', Carbon::now())
                     ->orWhere('published_at', null);
             });
 
-            $query->where(function($query) {
+            $query->where(function ($query) {
                 $query->where('concealed_at', '>=', Carbon::now())
                     ->orWhere('concealed_at', null);
             });
@@ -59,7 +62,7 @@ class Menu extends Model implements MenuItemContract
     }
 
     /**
-     * fix optional empty dates
+     * fix optional empty dates.
      *
      * @param $value
      */
@@ -71,7 +74,7 @@ class Menu extends Model implements MenuItemContract
     }
 
     /**
-     * fix optional empty dates
+     * fix optional empty dates.
      *
      * @param $value
      */

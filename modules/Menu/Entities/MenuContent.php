@@ -1,10 +1,12 @@
-<?php namespace Modules\Menu\Entities;
+<?php
+
+namespace Modules\Menu\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Vain\Packages\Translator\TranslatableContentTrait;
 
-class MenuContent extends Model {
-
+class MenuContent extends Model
+{
     use TranslatableContentTrait;
 
     /**

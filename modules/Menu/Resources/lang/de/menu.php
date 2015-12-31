@@ -2,9 +2,9 @@
 
 return [
     'title' => [
-        'index' => 'Menü',
-        'show' => 'Menüelement :title',
-        'edit' => 'Menüelement bearbeiten',
+        'index'  => 'Menü',
+        'show'   => 'Menüelement :title',
+        'edit'   => 'Menüelement bearbeiten',
         'create' => 'Menüelement erstellen',
     ],
     'action' => [

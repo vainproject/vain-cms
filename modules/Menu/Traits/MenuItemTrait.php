@@ -5,8 +5,8 @@ namespace Modules\Menu\Traits;
 use Exception;
 use Modules\Menu\Contracts\MenuItemInterface as MenuItemContract;
 
-trait MenuItemTrait {
-
+trait MenuItemTrait
+{
     /**
      * Boolean value whenever the menu item has
      * children or not.
@@ -32,6 +32,7 @@ trait MenuItemTrait {
 
     /**
      * @param $value
+     *
      * @return array
      */
     public function getParametersAttribute($value)
@@ -52,12 +53,12 @@ trait MenuItemTrait {
      * type of the menu item.
      *
      * @param $value
+     *
      * @return string
      */
     public function getActionAttribute($value)
     {
-        switch ($this->type)
-        {
+        switch ($this->type) {
             case MenuItemContract::TYPE_ROUTE:
                 return trans('menu::menu.field.type.route');
 
@@ -74,17 +75,16 @@ trait MenuItemTrait {
      * type if the current item.
      *
      * @param $value
+     *
      * @return string
      */
     public function getUrlAttribute($value)
     {
-        if ($this->hasChildren())
-        {
+        if ($this->hasChildren()) {
             return MenuItemContract::URL_EMPTY;
         }
 
-        switch ($this->type)
-        {
+        switch ($this->type) {
             case MenuItemContract::TYPE_ROUTE:
                 return $this->routeGracefulOnError($this->target, $this->parameters);
 
@@ -92,25 +92,24 @@ trait MenuItemTrait {
                 return $this->target;
 
             default:
-                return null;
+                return;
         }
     }
 
     /**
      * @param $name
      * @param $parameters
-     * @return null|string
+     *
      * @throws Exception
+     *
+     * @return null|string
      */
     private function routeGracefulOnError($name, $parameters)
     {
-        try
-        {
+        try {
             return route($name, $parameters);
-        }
-        catch (Exception $exception)
-        {
-            return null;
+        } catch (Exception $exception) {
+            return;
         }
     }
 }

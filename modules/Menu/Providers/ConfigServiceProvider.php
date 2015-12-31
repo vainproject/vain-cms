@@ -1,9 +1,11 @@
-<?php namespace Modules\Menu\Providers;
+<?php
+
+namespace Modules\Menu\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class ConfigServiceProvider extends ServiceProvider {
-
+class ConfigServiceProvider extends ServiceProvider
+{
     /**
      * Overwrite any vendor / package configuration.
      *

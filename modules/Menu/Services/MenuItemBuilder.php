@@ -2,12 +2,12 @@
 
 namespace Modules\Menu\Services;
 
+use Dowilcox\KnpMenu\Menu as MenuProvider;
 use Knp\Menu\MenuItem;
 use Modules\Menu\Entities\Menu;
-use Dowilcox\KnpMenu\Menu as MenuProvider;
 
-class MenuItemBuilder {
-
+class MenuItemBuilder
+{
     /**
      * @var \Knp\Menu\MenuFactory
      */
@@ -15,6 +15,7 @@ class MenuItemBuilder {
 
     /**
      * MenuItemBuilder constructor.
+     *
      * @param MenuProvider $provider
      */
     public function __construct(MenuProvider $provider)
@@ -30,9 +31,8 @@ class MenuItemBuilder {
         $items = [];
 
         $roots = Menu::roots()->visible()->get();
-        foreach ($roots as $item)
-        {
-            $parent = $this->createItem( $item->content->title )
+        foreach ($roots as $item) {
+            $parent = $this->createItem($item->content->title)
                 ->setExtra('patterns', $this->extractPattern($item))
                 ->setUri($item->url);
 
@@ -47,14 +47,14 @@ class MenuItemBuilder {
     /**
      * @param $items
      * @param $parent
+     *
      * @return array
      */
     private function attachChildren($items, $parent = null)
     {
-        foreach ($items as $item)
-        {
+        foreach ($items as $item) {
             /** @var  $parent MenuItem */
-            $parent = $parent->addChild( $item->content->title )
+            $parent = $parent->addChild($item->content->title)
                 ->setExtra('patterns', $this->extractPattern($item))
                 ->setUri($item->url);
 
@@ -64,24 +64,25 @@ class MenuItemBuilder {
 
     /**
      * @param Menu $item
+     *
      * @return array
      */
     private function extractPattern($item)
     {
         $pattern = '';
 
-        if ($item->type == Menu::TYPE_ROUTE)
-        {
-            $pattern = '/' . preg_quote($item->target) . '\.(.+)/';
+        if ($item->type == Menu::TYPE_ROUTE) {
+            $pattern = '/'.preg_quote($item->target).'\.(.+)/';
         }
 
         return [$pattern];
     }
 
     /**
-     * creates a new menu item
+     * creates a new menu item.
      *
      * @param $title
+     *
      * @return MenuItem
      */
     private function createItem($title)
