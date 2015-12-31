@@ -14,8 +14,8 @@ return [
     */
 
     'cache' => [
-        'enable' => false,
-        'key' => 'menu',
+        'enable'  => false,
+        'key'     => 'menu',
         'minutes' => 60,
     ],
 ];

@@ -2,8 +2,8 @@
 
 namespace Modules\Menu\Contracts;
 
-interface MenuItemInterface {
-
+interface MenuItemInterface
+{
     const URL_EMPTY = '#';
 
     const TYPE_ROUTE = 1;
@@ -16,7 +16,7 @@ interface MenuItemInterface {
      *
      * @return bool
      */
-    function hasChildren();
+    public function hasChildren();
 
     /**
      * Boolean value whenever the menu item
@@ -25,35 +25,39 @@ interface MenuItemInterface {
      *
      * @return bool
      */
-    function isFaulty();
+    public function isFaulty();
 
     /**
      * @param $value
+     *
      * @return array
      */
-    function getParametersAttribute($value);
+    public function getParametersAttribute($value);
 
     /**
      * @param $value
+     *
      * @return void
      */
-    function setParametersAttribute($value);
+    public function setParametersAttribute($value);
 
     /**
      * Localized string which represents the
      * type of the menu item.
      *
      * @param $value
+     *
      * @return string
      */
-    function getActionAttribute($value);
+    public function getActionAttribute($value);
 
     /**
      * Builds the targeting url based upon the given
      * type if the current item.
      *
      * @param $value
+     *
      * @return string
      */
-    function getUrlAttribute($value);
+    public function getUrlAttribute($value);
 }

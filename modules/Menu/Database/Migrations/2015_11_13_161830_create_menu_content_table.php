@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateMenuContentTable extends Migration {
-
+class CreateMenuContentTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,8 +12,7 @@ class CreateMenuContentTable extends Migration {
      */
     public function up()
     {
-        Schema::create('menu_content', function(Blueprint $table)
-        {
+        Schema::create('menu_content', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('menu_id')->unsigned();
@@ -37,5 +36,4 @@ class CreateMenuContentTable extends Migration {
     {
         Schema::drop('menu_content');
     }
-
 }
