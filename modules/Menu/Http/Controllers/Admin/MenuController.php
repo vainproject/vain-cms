@@ -116,9 +116,8 @@ class MenuController extends Controller
             $target = array_keys($this->prepareRoutes($router))[$target];
             if (array_key_exists($target, $parameter = $request->input('parameters'))) {
                 // If we found a parameter map to the given route
-                // we serialize the input fields and store them
-                // inside the database.
-                $params = json_encode($parameter[$target]);
+                // we store them inside the database.
+                $params = $parameter[$target];
             }
         }
 

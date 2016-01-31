@@ -9,7 +9,7 @@
     <div class="form-group">
         {!! Form::label('target['. $type .']', trans('menu::menu.field.target'), ['class' => 'col-sm-3 control-label']) !!}
         <div class="col-sm-9">
-            {!! Form::select('target['. $type .']', array_keys( $routes ), array_search( $menu->target, array_keys( $routes ) ), ['class' => 'form-control']) !!}
+            {!! Form::select('target['. $type .']', array_keys( $routes ), isset($menu) ? array_search( $menu->target, array_keys( $routes ) ) : null, ['class' => 'form-control']) !!}
         </div>
     </div>
     @foreach($routes as $name => $route)
@@ -18,7 +18,7 @@
 
             @forelse($route as $param)
                 <div class="col-sm-9">
-                    {!! Form::text('parameters['. $name .']['. $param .']', $name == $menu->target ? $menu->parameters[$param] : null, ['class' => 'form-control', 'placeholder' => $param]) !!}
+                    {!! Form::text('parameters['. $name .']['. $param .']', isset($menu) && $name == $menu->target ? $menu->parameters[$param] : null, ['class' => 'form-control', 'placeholder' => $param]) !!}
                 </div>
             @empty
                 <div class="col-sm-9">
