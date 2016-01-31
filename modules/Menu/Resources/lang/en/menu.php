@@ -18,20 +18,24 @@ return [
     'field' => [
         'id'           => '#',
         'target'       => 'Target',
-        'type'         => [
-            'unknown'  => 'Unknown',
-            'route'    => 'Route',
-            'extern'   => 'External',
-        ],
+        'type'         => 'Typ',
         'title'        => 'Title',
+        'visible'      => 'Visible',
+        'parameters'   => 'Parameters',
         'description'  => 'Description',
         'published_at' => 'Published at',
         'concealed_at' => 'Concealed at',
         'created_at'   => 'Created at',
         'updated_at'   => 'Updated at',
     ],
+    'type'         => [
+        'unknown'  => 'Unknown',
+        'route'    => 'Route',
+        'extern'   => 'External',
+    ],
     'error' => [
-        'broken' => 'The hyperlink is faulty, please check the configuration.',
+        'parameters' => 'This route does not need any parameters.',
+        'broken'     => 'The hyperlink is faulty, please check the configuration.',
     ],
     'section' => [
         'general' => 'General',

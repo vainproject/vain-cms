@@ -62,6 +62,30 @@ class Menu extends Model implements MenuItemContract
     }
 
     /**
+     * @param $value
+     * @return bool
+     */
+    public function getVisibleAttribute($value)
+    {
+        if ($value) {
+            // if we are willing to show the item we consider time boundaries if there are any
+            if ($this->published_at instanceof Carbon) {
+                // if the publish date is in the past we can
+                // savely show the menu entry
+                $value = $this->published_at->isPast();
+            }
+
+            if ($value && $this->concealed_at instanceof Carbon) {
+                // if the visibility before is true and the conceal date
+                // is in the future we can show the menu entry
+                $value = $this->concealed_at->isFuture();
+            }
+        }
+
+        return $value;
+    }
+
+    /**
      * fix optional empty dates.
      *
      * @param $value

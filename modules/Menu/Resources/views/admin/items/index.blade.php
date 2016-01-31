@@ -23,12 +23,11 @@
                     <thead>
                     <tr>
                         <td>@lang('menu::menu.field.target')</td>
+                        <td>@lang('menu::menu.field.id')</td>
+                        <td>@lang('menu::menu.field.visible')</td>
                         <td>@lang('menu::menu.field.title')</td>
-                        <td>@lang('menu::menu.field.published_at')</td>
-                        <td>@lang('menu::menu.field.concealed_at')</td>
                         <td>@lang('menu::menu.field.created_at')</td>
                         <td>@lang('menu::menu.field.updated_at')</td>
-                        <td>@lang('menu::menu.field.id')</td>
                         <td></td>
                     </tr>
                     </thead>
@@ -40,6 +39,15 @@
                                     <small class="text-muted">{{ $item->action }}</small><br>
                                     {{ $item->target }}
                                 </div>
+                            </td>
+                            <td>{{ $item->id }}</td>
+                            <td>
+                                {{-- this is a mutator which takes publish dates in consideration --}}
+                                @if ($item->visible)
+                                    <i class="text-success fa fa-check-circle"></i>
+                                @else
+                                    <i class="text-danger fa fa-minus-circle"></i>
+                                @endif
                             </td>
                             <td>
                                 {{ $item->content->title }}
@@ -55,11 +63,8 @@
                                 <br>
                                 <small class="text-muted">{{ $item->content->description }}</small>
                             </td>
-                            <td>{{ isset($item->published_at) ? $item->published_at->diffForHumans() : '' }}</td>
-                            <td>{{ isset($item->concealed_at) ? $item->concealed_at->diffForHumans() : '' }}</td>
                             <td>{{ $item->created_at->diffForHumans() }}</td>
                             <td>{{ $item->updated_at->diffForHumans() }}</td>
-                            <td>{{ $item->id }}</td>
                             <td class="text-right">
                                 {!! Form::open([
                                      'class' => 'form-inline',

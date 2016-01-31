@@ -33,18 +33,7 @@
                 <h3 class="box-title">@lang('menu::menu.section.general')</h3>
             </div>
             <div class="box-body">
-                <div class="form-group">
-                    {!! Form::label('slug', trans('menu::menu.field.slug'), ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-9">
-                        {!! Form::text('slug', null, ['class' => 'form-control']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('user_id', trans('menu::menu.field.creator'), ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-9">
-                        {!! Form::text('user_id', isset($post) ? $post->user->name : Auth::user()->name, [ 'class' => 'form-control', 'disabled' ]) !!}
-                    </div>
-                </div>
+                @include('menu::admin.items.fields')
             </div>
         </div>
     </div>
@@ -80,6 +69,10 @@
         @endforeach
     </ul>
     <div class="tab-content" data-auto-active>
-        asd
+        @foreach($locales as $locale => $name)
+            <div role="tabpanel" class="tab-pane" id="{{ $locale }}">
+                @include('menu::admin.items.content', ['locale' => $locale])
+            </div>
+        @endforeach
     </div>
 </div>

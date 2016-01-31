@@ -60,13 +60,13 @@ trait MenuItemTrait
     {
         switch ($this->type) {
             case MenuItemContract::TYPE_ROUTE:
-                return trans('menu::menu.field.type.route');
+                return trans('menu::menu.type.route');
 
             case MenuItemContract::TYPE_URL:
-                return trans('menu::menu.field.type.extern');
+                return trans('menu::menu.type.extern');
 
             default:
-                return trans('menu::menu.field.type.unknown');
+                return trans('menu::menu.type.unknown');
         }
     }
 

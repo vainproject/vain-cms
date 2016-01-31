@@ -81,6 +81,25 @@
      */
     var onLoad = function() {
 
+        $('[data-dependent-field]').each(function () {
+            var el = $(this);
+            var field = el.data('dependent-field');
+            var monitor = el.data('dependent-value');
+
+            // define resuable visibility handler
+            var handleVisible = function(el, value, monitor) {
+                value == monitor ? el.show() : el.hide();
+            };
+
+            // initial state
+            handleVisible(el, $('[name="'+ field +'"]').val(), monitor);
+
+            // bind events for runtime state changes
+            $(document.body).on('change', '[name="'+ field +'"]', function(e) {
+                handleVisible(el, $(this).val(), monitor);
+            });
+        });
+
         $('[data-editor]').each(function() {
 
             // set language if possible

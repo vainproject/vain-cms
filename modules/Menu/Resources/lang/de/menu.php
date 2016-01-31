@@ -18,20 +18,24 @@ return [
     'field' => [
         'id'           => '#',
         'target'       => 'Ziel',
-        'type'         => [
-            'unknown'  => 'Unbkannt',
-            'route'    => 'Route',
-            'extern'   => 'Extern',
-        ],
+        'type'         => 'Type',
         'title'        => 'Titel',
+        'visible'      => 'Sichtbar',
+        'parameters'   => 'Parameter',
         'description'  => 'Beschreibung',
         'published_at' => 'Veröffentlichung',
         'concealed_at' => 'Verbergen',
         'created_at'   => 'Erstellt',
         'updated_at'   => 'Geändert',
     ],
+    'type'         => [
+        'unknown'  => 'Unbkannt',
+        'route'    => 'Route',
+        'extern'   => 'Extern',
+    ],
     'error' => [
-        'broken' => 'Die Verlinkung ist Fehlerhaft, bitte überprüfen.',
+        'parameters' => 'Diese Route benötigt keine Parameter.',
+        'broken'     => 'Die Verlinkung ist Fehlerhaft, bitte überprüfen.',
     ],
     'section' => [
         'general' => 'Allgemein',
