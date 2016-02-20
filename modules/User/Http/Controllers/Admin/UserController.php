@@ -4,6 +4,7 @@ namespace Modules\User\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Session\Store;
+use Illuminate\Support\MessageBag;
 use InvalidArgumentException;
 use Modules\User\Entities\Role;
 use Modules\User\Entities\User;
@@ -119,14 +120,26 @@ class UserController extends Controller
         return $this->createDefaultResponse();
     }
 
-    public function destroy($id)
+    public function destroy(Store $session, $id)
     {
         if ($id == $this->request->user()->id) {
             throw new InvalidArgumentException();
         }
 
         /* @var User $user */
-        User::find($id)->delete();
+        $success = User::find($id)->delete();
+
+        if ( ! $success) {
+            if ($this->request->ajax()) {
+                $session->flash('errors', new MessageBag([trans('user::user.delete.relations')]));
+
+                return response('', 500);
+            }
+
+            return redirect()
+                ->route('user.admin.users.edit')
+                ->withErrors(new MessageBag([trans('user::user.delete.relations')]));
+        }
 
         return $this->createDefaultResponse();
     }

@@ -12,6 +12,8 @@
     </section>
 
     <section class="content">
+        @include('partials.errors', [ 'message' => trans('app.errors.action') ])
+
         <div class="box">
             <div class="box-header with-border">
                 <a class="btn btn btn-primary" href="{{ route('user.admin.users.create') }}">

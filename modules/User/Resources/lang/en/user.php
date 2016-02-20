@@ -24,9 +24,10 @@ return [
         'role' => 'Roles',
     ],
     'delete' => [
-        'message' => 'Do you really want to delete the selected user?',
-        'success' => 'User has been deleted!',
-        'error'   => 'User has not been deleted!',
+        'message'   => 'Do you really want to delete the selected user?',
+        'success'   => 'User has been deleted!',
+        'relations' => 'User is related to certain content. Please remove the content or decouple the relations.',
+        'error'     => 'User has not been deleted!',
     ],
     'save' => [
         'success' => 'User has been saved!',

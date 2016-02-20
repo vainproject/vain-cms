@@ -10,6 +10,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
+use Modules\User\Observers\UserObserver;
 use Vain\Packages\Access\Contracts\UserInterface as UserContract;
 use Vain\Packages\Access\Traits\UserTrait;
 
@@ -67,6 +68,13 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
      */
     protected $dates = ['deleted_at', 'birthday_at', 'last_active_at'];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        User::observe(UserObserver::class);
+    }
+
     /**
      * created static pages.
      */
@@ -78,11 +86,6 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
     public function posts()
     {
         return $this->hasMany(\Modules\Blog\Entities\Post::class);
-    }
-
-    public function payments()
-    {
-        return $this->hasMany(\Modules\Premium\Entities\Payment::class);
     }
 
     public function comments()
