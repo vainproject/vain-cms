@@ -28,16 +28,16 @@ class MenuController extends Controller
             ->with(compact('menus'));
     }
 
-	public function create(Router $router)
-	{
+    public function create(Router $router)
+    {
         return view('menu::admin.items.create')
             ->with([
-                'items' => $this->prepareParentItems(),
-                'types' => $this->getTypes(),
-                'routes' => $this->prepareRoutes($router),
-                'locales' => config('app.locales')
+                'items'   => $this->prepareParentItems(),
+                'types'   => $this->getTypes(),
+                'routes'  => $this->prepareRoutes($router),
+                'locales' => config('app.locales'),
             ]);
-	}
+    }
 
     public function store(MenuFormRequest $request, Router $router)
     {
@@ -45,7 +45,7 @@ class MenuController extends Controller
         $menu = new Menu($this->processInput($request, $router));
         $menu->save();
 
-        if ( ! empty($parent_id = $request->input('parent_id'))) {
+        if (!empty($parent_id = $request->input('parent_id'))) {
             $parent = Menu::findOrFail($parent_id);
             $menu->makeChildOf($parent);
         } else {
@@ -61,19 +61,19 @@ class MenuController extends Controller
         }
     }
 
-	public function edit($id, Router $router)
-	{
-		$menu = Menu::find($id);
+    public function edit($id, Router $router)
+    {
+        $menu = Menu::find($id);
 
-		return view('menu::admin.items.edit')
+        return view('menu::admin.items.edit')
             ->with([
-                'menu' => $menu,
-                'items' => $this->prepareParentItems(),
-                'types' => $this->getTypes(),
-                'routes' => $this->prepareRoutes($router),
-                'locales' => config('app.locales')
+                'menu'    => $menu,
+                'items'   => $this->prepareParentItems(),
+                'types'   => $this->getTypes(),
+                'routes'  => $this->prepareRoutes($router),
+                'locales' => config('app.locales'),
             ]);
-	}
+    }
 
     public function update($id, MenuFormRequest $request, Router $router)
     {
@@ -82,7 +82,7 @@ class MenuController extends Controller
         $menu->fill($this->processInput($request, $router));
         $menu->save();
 
-        if ( ! empty($parent_id = $request->input('parent_id'))) {
+        if (!empty($parent_id = $request->input('parent_id'))) {
             $parent = Menu::findOrFail($parent_id);
             $menu->makeChildOf($parent);
         } else {
@@ -111,12 +111,13 @@ class MenuController extends Controller
     {
         return [
             Menu::TYPE_ROUTE => trans('menu::menu.type.route'),
-            Menu::TYPE_URL => trans('menu::menu.type.url')
+            Menu::TYPE_URL   => trans('menu::menu.type.url'),
         ];
     }
 
     /**
      * @param Router $router
+     *
      * @return array
      */
     protected function prepareRoutes(Router $router)
@@ -129,7 +130,7 @@ class MenuController extends Controller
             // We mecessarily need a GET Route with a Name
             // other routes are generally unsave to use with
             // the menu module
-            if ( in_array( 'GET', $route->methods() )
+            if (in_array('GET', $route->methods())
                 && $name = $route->getName()) {
                 // Store the route in our prepared array
                 $routes[$name] = $route->parameterNames();
@@ -141,15 +142,15 @@ class MenuController extends Controller
 
     /**
      * @param Request $request
-     * @param Router $router
+     * @param Router  $router
+     *
      * @return array
      */
     protected function processInput(Request $request, Router $router)
     {
         $type = $request->input('type');
-        $target = $request->input('target.'. $type);
+        $target = $request->input('target.'.$type);
         $params = null;
-
 
         if ($type == Menu::TYPE_ROUTE) {
             // If we got a route type we have to do
@@ -165,9 +166,9 @@ class MenuController extends Controller
         }
 
         return $request->only(['visible', 'published_at', 'concealed_at']) + [
-            'type' => $type,
-            'target' => $target,
-            'parameters' => $params
+            'type'       => $type,
+            'target'     => $target,
+            'parameters' => $params,
         ];
     }
 
@@ -180,6 +181,6 @@ class MenuController extends Controller
             ->lists('depth_title', 'id')
             ->toArray();
 
-        return [ null => trans('menu::menu.root') ] + $items;
+        return [null => trans('menu::menu.root')] + $items;
     }
 }
