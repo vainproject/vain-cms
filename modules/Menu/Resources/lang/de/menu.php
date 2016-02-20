@@ -31,7 +31,7 @@ return [
     'type'         => [
         'unknown'  => 'Unbkannt',
         'route'    => 'Route',
-        'extern'   => 'Extern',
+        'url'      => 'Url',
     ],
     'error' => [
         'parameters' => 'Diese Route benötigt keine Parameter.',

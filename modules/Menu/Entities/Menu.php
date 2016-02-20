@@ -23,7 +23,7 @@ class Menu extends Model implements MenuItemContract
     /**
      * @var array
      */
-    protected $fillable = ['type', 'target', 'parameters', 'published_at', 'concealed_at'];
+    protected $fillable = ['type', 'target', 'visible', 'parameters', 'published_at', 'concealed_at'];
 
     /**
      * @var array

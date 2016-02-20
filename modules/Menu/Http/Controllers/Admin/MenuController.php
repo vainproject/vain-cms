@@ -4,8 +4,8 @@ namespace Modules\Menu\Http\Controllers\Admin;
 
 use Illuminate\Routing\Route;
 use Illuminate\Routing\Router;
-use LogicException;
 use Modules\Menu\Entities\Menu;
+use Modules\Menu\Entities\MenuContent;
 use Modules\Menu\Http\Requests\MenuFormRequest;
 use Vain\Http\Controllers\Controller;
 use Vain\Http\Requests\Request;
@@ -24,7 +24,8 @@ class MenuController extends Controller
     {
         $menus = Menu::paginate();
 
-        return view('menu::admin.items.index')->with(compact('menus'));
+        return view('menu::admin.items.index')
+            ->with(compact('menus'));
     }
 
 	public function create(Router $router)
@@ -33,19 +34,30 @@ class MenuController extends Controller
 
         $types = [
             Menu::TYPE_ROUTE => trans('menu::menu.type.route'),
-            Menu::TYPE_URL => trans('menu::menu.type.extern')
+            Menu::TYPE_URL => trans('menu::menu.type.url')
         ];
 
         $routes = $this->prepareRoutes($router);
 
         $locales = config('app.locales');
 
-        return view('menu::admin.items.create')->with( compact( 'items', 'types', 'routes', 'locales' ) );
+        return view('menu::admin.items.create')
+            ->with( compact( 'items', 'types', 'routes', 'locales' ) );
 	}
 
     public function store(MenuFormRequest $request, Router $router)
     {
-        Menu::create($this->processInput($request, $router));
+        /** @var Menu $menu */
+        $menu = new Menu($this->processInput($request, $router));
+        $menu->save();
+
+        foreach (config('app.locales') as $locale => $name) {
+            $content = (new MenuContent())
+                ->fillTranslated($locale, $request->all());
+
+            $content->menu()->associate($menu);
+            $content->save();
+        }
     }
 
 	public function edit($id, Router $router)
@@ -56,27 +68,37 @@ class MenuController extends Controller
 
         $types = [
             Menu::TYPE_ROUTE => trans('menu::menu.type.route'),
-            Menu::TYPE_URL => trans('menu::menu.type.extern')
+            Menu::TYPE_URL => trans('menu::menu.type.url')
         ];
 
         $routes = $this->prepareRoutes($router);
 
         $locales = config('app.locales');
 
-		return view('menu::admin.items.edit')->with( compact( 'menu', 'items', 'types', 'routes', 'locales' ) );
+		return view('menu::admin.items.edit')
+            ->with( compact( 'menu', 'items', 'types', 'routes', 'locales' ) );
 	}
 
     public function update($id, MenuFormRequest $request, Router $router)
     {
-        Menu::find($id)->fill($this->processInput($request, $router))->save();
+        /** @var Menu $menu */
+        $menu = Menu::find($id);
+        $menu->fill($this->processInput($request, $router));
+        $menu->save();
+
+        foreach (config('app.locales') as $locale => $name) {
+            $content = $menu->contents()
+                ->localeOrNew($locale)
+                ->fillTranslated($locale, $request->all());
+
+            $content->menu()->associate($menu);
+            $content->save();
+        }
     }
 
     public function destroy($id)
     {
-        /** @var Menu $menu */
-        $menu = Menu::findOrFail($id);
-
-        $menu->delete();
+        Menu::findOrFail($id)->delete();
     }
 
     /**

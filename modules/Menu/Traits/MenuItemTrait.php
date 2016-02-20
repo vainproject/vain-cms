@@ -63,7 +63,7 @@ trait MenuItemTrait
                 return trans('menu::menu.type.route');
 
             case MenuItemContract::TYPE_URL:
-                return trans('menu::menu.type.extern');
+                return trans('menu::menu.type.url');
 
             default:
                 return trans('menu::menu.type.unknown');
