@@ -45,7 +45,7 @@ class RouteVoter implements VoterInterface
 
         $patterns = $item->getExtra('patterns', []);
         foreach ($patterns as $pattern) {
-            if (preg_match($pattern, $route->getName())) {
+            if ($pattern && preg_match($pattern, $route->getName())) {
                 return true;
             }
         }
