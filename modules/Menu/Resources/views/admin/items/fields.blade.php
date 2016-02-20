@@ -1,4 +1,10 @@
 <div class="form-group">
+    {!! Form::label('parent_id', trans('menu::menu.field.parent'), ['class' => 'col-sm-3 control-label']) !!}
+    <div class="col-sm-9">
+        {!! Form::select('parent_id', $items, null, ['class' => 'form-control']) !!}
+    </div>
+</div>
+<div class="form-group">
     {!! Form::label('visible', trans('menu::menu.field.visible'), ['class' => 'col-sm-3 control-label']) !!}
     <div class="col-sm-9">
         {{-- little checkbox bool trick: http://nielson.io/2014/02/handling-checkbox-input-in-laravel/ --}}

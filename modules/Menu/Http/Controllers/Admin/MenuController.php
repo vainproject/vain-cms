@@ -30,19 +30,13 @@ class MenuController extends Controller
 
 	public function create(Router $router)
 	{
-        $items = Menu::all();
-
-        $types = [
-            Menu::TYPE_ROUTE => trans('menu::menu.type.route'),
-            Menu::TYPE_URL => trans('menu::menu.type.url')
-        ];
-
-        $routes = $this->prepareRoutes($router);
-
-        $locales = config('app.locales');
-
         return view('menu::admin.items.create')
-            ->with( compact( 'items', 'types', 'routes', 'locales' ) );
+            ->with([
+                'items' => $this->prepareParentItems(),
+                'types' => $this->getTypes(),
+                'routes' => $this->prepareRoutes($router),
+                'locales' => config('app.locales')
+            ]);
 	}
 
     public function store(MenuFormRequest $request, Router $router)
@@ -50,6 +44,13 @@ class MenuController extends Controller
         /** @var Menu $menu */
         $menu = new Menu($this->processInput($request, $router));
         $menu->save();
+
+        if ( ! empty($parent_id = $request->input('parent_id'))) {
+            $parent = Menu::findOrFail($parent_id);
+            $menu->makeChildOf($parent);
+        } else {
+            $menu->makeRoot();
+        }
 
         foreach (config('app.locales') as $locale => $name) {
             $content = (new MenuContent())
@@ -64,19 +65,14 @@ class MenuController extends Controller
 	{
 		$menu = Menu::find($id);
 
-        $items = Menu::all();
-
-        $types = [
-            Menu::TYPE_ROUTE => trans('menu::menu.type.route'),
-            Menu::TYPE_URL => trans('menu::menu.type.url')
-        ];
-
-        $routes = $this->prepareRoutes($router);
-
-        $locales = config('app.locales');
-
 		return view('menu::admin.items.edit')
-            ->with( compact( 'menu', 'items', 'types', 'routes', 'locales' ) );
+            ->with([
+                'menu' => $menu,
+                'items' => $this->prepareParentItems(),
+                'types' => $this->getTypes(),
+                'routes' => $this->prepareRoutes($router),
+                'locales' => config('app.locales')
+            ]);
 	}
 
     public function update($id, MenuFormRequest $request, Router $router)
@@ -85,6 +81,13 @@ class MenuController extends Controller
         $menu = Menu::find($id);
         $menu->fill($this->processInput($request, $router));
         $menu->save();
+
+        if ( ! empty($parent_id = $request->input('parent_id'))) {
+            $parent = Menu::findOrFail($parent_id);
+            $menu->makeChildOf($parent);
+        } else {
+            $menu->makeRoot();
+        }
 
         foreach (config('app.locales') as $locale => $name) {
             $content = $menu->contents()
@@ -99,6 +102,17 @@ class MenuController extends Controller
     public function destroy($id)
     {
         Menu::findOrFail($id)->delete();
+    }
+
+    /**
+     * @return array
+     */
+    protected function getTypes()
+    {
+        return [
+            Menu::TYPE_ROUTE => trans('menu::menu.type.route'),
+            Menu::TYPE_URL => trans('menu::menu.type.url')
+        ];
     }
 
     /**
@@ -155,5 +169,17 @@ class MenuController extends Controller
             'target' => $target,
             'parameters' => $params
         ];
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    protected function prepareParentItems()
+    {
+        $items = Menu::with('contents')->get()
+            ->lists('depth_title', 'id')
+            ->toArray();
+
+        return [ null => trans('menu::menu.root') ] + $items;
     }
 }

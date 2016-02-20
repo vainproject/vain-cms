@@ -108,4 +108,15 @@ class Menu extends Model implements MenuItemContract
             ? $value
             : null;
     }
+
+    /**
+     * Form aggregation used to display the name of the element
+     * by also visualizing its depth
+     *
+     * @return string
+     */
+    public function getDepthTitleAttribute()
+    {
+        return str_repeat('-', $this->depth) .' '. $this->content->title;
+    }
 }

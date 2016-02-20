@@ -15,8 +15,10 @@ return [
         'abort'   => 'Abort',
         'confirm' => 'Confirm',
     ],
+    'root'  => 'no parent',
     'field' => [
         'id'           => '#',
+        'parent'       => 'Parent',
         'target'       => 'Target',
         'type'         => 'Typ',
         'title'        => 'Title',

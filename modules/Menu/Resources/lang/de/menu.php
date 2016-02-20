@@ -15,8 +15,10 @@ return [
         'abort'   => 'Abbrechen',
         'confirm' => 'Bestätigen',
     ],
+    'root'  => 'kein übergeordnetes Element',
     'field' => [
         'id'           => '#',
+        'parent'       => 'Übergeordnet',
         'target'       => 'Ziel',
         'type'         => 'Type',
         'title'        => 'Titel',
