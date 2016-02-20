@@ -12,7 +12,7 @@ return [
     |
     */
     'socialite' => [
-        'enable' => true,
+        'enable' => false,
     ],
 
     /*

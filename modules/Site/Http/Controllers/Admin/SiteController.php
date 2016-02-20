@@ -95,7 +95,7 @@ class SiteController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        Page::find($id)->delete();
+        Page::findOrFail($id)->delete();
 
         return $this->createDefaultResponse($request);
     }

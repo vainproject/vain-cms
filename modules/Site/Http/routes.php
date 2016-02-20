@@ -4,7 +4,7 @@
  * Frontend.
  */
 Route::group(['prefix' => 'sites'], function () {
-    Route::get('{slug}', ['as' => 'site.show', 'uses' => 'SiteController@getPage']);
+    Route::get('{slug}', ['as' => 'site.show', 'uses' => 'SiteController@show']);
 });
 
 /*

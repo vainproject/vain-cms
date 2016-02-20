@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call('Modules\Site\Database\Seeders\MandatoryDatabaseSeeder');
         $this->call('Modules\Blog\Database\Seeders\MandatoryDatabaseSeeder');
         $this->call('Modules\Support\Database\Seeders\MandatoryDatabaseSeeder');
+        $this->call('Modules\Menu\Database\Seeders\MandatoryDatabaseSeeder');
     }
 }

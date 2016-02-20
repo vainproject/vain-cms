@@ -9,6 +9,7 @@
     "jquery": "2.*",
     "placeholders": "~4.0.1",
     "toastr": "*",
-    "wowjs": "~1.1.2"
+    "wowjs": "~1.1.2",
+    "jquery-treegrid": "~0.3.0"
   }
 }

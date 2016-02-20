@@ -119,11 +119,11 @@ return [
     */
 
     'composer' => [
-        'vendor' => 'pingpong-modules',
+        'vendor' => 'Vain',
         'author' => [
-            'name'  => 'Pingpong Labs',
-            'email' => 'pingpong.labs@gmail.com',
-        ],
+            "name" => 'vainproject',
+            'email' => 'project@vain.rocks'
+        ]
     ],
 
     /*
@@ -136,9 +136,9 @@ return [
     */
 
     'cache' => [
-        'enabled'  => false,
-        'key'      => 'pingpong-modules',
-        'lifetime' => 60,
+        'enabled' => false,
+        'key' => 'vain-modules',
+        'lifetime' => 60
     ],
 
 ];
