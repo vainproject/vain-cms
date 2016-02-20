@@ -121,9 +121,9 @@ return [
     'composer' => [
         'vendor' => 'Vain',
         'author' => [
-            "name" => 'vainproject',
-            'email' => 'project@vain.rocks'
-        ]
+            'name'  => 'vainproject',
+            'email' => 'project@vain.rocks',
+        ],
     ],
 
     /*
@@ -136,9 +136,9 @@ return [
     */
 
     'cache' => [
-        'enabled' => false,
-        'key' => 'vain-modules',
-        'lifetime' => 60
+        'enabled'  => false,
+        'key'      => 'vain-modules',
+        'lifetime' => 60,
     ],
 
 ];
