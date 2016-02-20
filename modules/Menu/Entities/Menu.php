@@ -63,6 +63,7 @@ class Menu extends Model implements MenuItemContract
 
     /**
      * @param $value
+     *
      * @return bool
      */
     public function getVisibleAttribute($value)
@@ -111,12 +112,12 @@ class Menu extends Model implements MenuItemContract
 
     /**
      * Form aggregation used to display the name of the element
-     * by also visualizing its depth
+     * by also visualizing its depth.
      *
      * @return string
      */
     public function getDepthTitleAttribute()
     {
-        return str_repeat('-', $this->depth) .' '. $this->content->title;
+        return str_repeat('-', $this->depth).' '.$this->content->title;
     }
 }

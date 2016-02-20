@@ -61,7 +61,7 @@ class ContentsTableSeeder extends Seeder
             'title'       => 'Setup the Development Environment',
             'keywords'    => 'setup, development, environment',
             'description' => 'A simple explanation of how to setup your dev environment.',
-            'text'        => <<<EOF
+            'text'        => <<<'EOF'
 <div class="markdown-body">
     <p><em>Already got the Virtual Machine up and running? Follow the <a href="project-setup-and-maintenance">Project Setup and Maintenance</a> guide for required first-start instructions and maintenance operations.</em></p>
     <h2>
@@ -157,7 +157,7 @@ EOF
             'title'       => 'Project Setup and Maintenance',
             'keywords'    => 'project, setup, maintenance',
             'description' => 'Explanation how to configure the project.',
-            'text'        => <<<EOF
+            'text'        => <<<'EOF'
 <div class="markdown-body">
     <p><em>You already have Vain ready for development? Start contributing! Get a feeling for the platform by reading the <a href="deep-dive-development">Deep Dive Development</a> guide.</em></p>
     <h2>
