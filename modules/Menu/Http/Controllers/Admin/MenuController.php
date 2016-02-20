@@ -12,6 +12,14 @@ use Vain\Http\Requests\Request;
 
 class MenuController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:menu.item.show', ['only' => ['index', 'show']]);
+        $this->middleware('permission:menu.item.create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:menu.item.edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:menu.item.destroy', ['only' => 'destroy']);
+    }
+
     public function index()
     {
         $menus = Menu::paginate();
@@ -67,7 +75,6 @@ class MenuController extends Controller
     {
         /** @var Menu $menu */
         $menu = Menu::findOrFail($id);
-        $this->authorize('destroy', $menu);
 
         $menu->delete();
     }

@@ -2,19 +2,17 @@
 
 namespace Modules\Site\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Modules\Site\Entities\Page;
+use Vain\Http\Controllers\Controller;
 
 class SiteController extends Controller
 {
     /**
-     * @param Request $request
      * @param $slug
      *
      * @return $this
      */
-    public function getPage(Request $request, $slug)
+    public function show($slug)
     {
         $page = Page::published()
             ->where('slug', $slug)
@@ -24,10 +22,7 @@ class SiteController extends Controller
             app()->abort(404, 'page with slug \''.$slug.'\' not found');
         }
 
-//        if (!empty($page->role) && !$request->user()->hasRole($page->role))
-//        {
-//            app()->abort(403, 'no permission to view page with slug \''. $slug .'\'');
-//        }
+        $this->authorize('show', $page);
 
         return view('site::page')->with('page', $page);
     }

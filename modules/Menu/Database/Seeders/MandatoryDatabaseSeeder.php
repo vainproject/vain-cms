@@ -20,6 +20,12 @@ class MandatoryDatabaseSeeder extends Seeder
         Permission::where('name', 'LIKE', 'menu.item.%')->delete();
 
         Permission::create([
+            'name'         => 'menu.item.show',
+            'display_name' => 'Show menu',
+            'description'  => 'Permission to access the menu component.',
+        ]);
+
+        Permission::create([
             'name'         => 'menu.item.create',
             'display_name' => 'Create menu item',
             'description'  => 'Permission to create a new menu item.',

@@ -14,8 +14,10 @@ class MenuComposer
     public function postMenuSetup(PostMenuSetup $event)
     {
         // clear all items at top level
-        foreach ($event->handler->getChildren() as $child) {
-            $event->handler->removeChild($child);
+        if (config('menu.overwrite')) {
+            foreach ($event->handler->getChildren() as $child) {
+                $event->handler->removeChild($child);
+            }
         }
 
         // inject own frontend menue
