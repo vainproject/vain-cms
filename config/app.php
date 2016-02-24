@@ -174,6 +174,7 @@ return [
         Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider::class,
         Dowilcox\KnpMenu\MenuServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 
         // in-app packages, may be excluded sometimes later
         Vain\Packages\RealmAPI\Providers\RealmApiServiceProvider::class,

@@ -8,7 +8,9 @@
     "providers": [
         "Modules\\Gallery\\Providers\\GalleryServiceProvider",
         "Modules\\Gallery\\Providers\\ConfigServiceProvider",
-        "Modules\\Gallery\\Providers\\RouteServiceProvider"
+        "Modules\\Gallery\\Providers\\RouteServiceProvider",
+        "Modules\\Gallery\\Providers\\AuthServiceProvider",
+        "Modules\\Gallery\\Providers\\EventServiceProvider"
     ],
     "aliases":{},
     "files": []

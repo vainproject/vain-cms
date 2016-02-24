@@ -48,6 +48,11 @@ return [
             'root'   => storage_path().'/app',
         ],
 
+        'media' => [
+            'driver' => 'local',
+            'root'   => storage_path().'/media',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key'    => 'your-key',
