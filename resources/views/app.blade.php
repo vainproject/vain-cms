@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>@yield('title') @lang('meta.title.app')</title>
+    <title>@yield('title') @lang('vain::meta.title.app')</title>
 
-    <meta name="keywords" content="@yield('keywords', trans('meta.keywords'))">
-    <meta name="description" content="@yield('description', trans('meta.description'))">
+    <meta name="keywords" content="@yield('keywords', trans('vain::meta.keywords'))">
+    <meta name="description" content="@yield('description', trans('vain::meta.description'))">
     <meta name="robots" content="index,follow">
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Merriweather:400,400italic,700italic" rel="stylesheet" type="text/css">
@@ -16,11 +16,11 @@
 </head>
 <body>
     {{-- Includes the site's main flyout menu --}}
-    @include('layout.app.menu')
+    @include('vain::layout.app.menu')
 
     <div id="wrap">
         {{-- Includes the top navigation layer and site hero section --}}
-        @include('layout.app.header')
+        @include('vain::layout.app.header')
 
         @if(Breadcrumbs::exists())
             <section id="breadcrumb">
@@ -37,12 +37,12 @@
         {{-- Site main content --}}
         <div class="container content"  data-pjax>
 
-            @include('partials.errors', [ 'message' => trans('app.errors.input') ])
+            @include('vain::partials.errors', [ 'message' => trans('vain::app.errors.input') ])
 
             @yield('content')
         </div>
 
-        @include('layout.app.footer')
+        @include('vain::layout.app.footer')
     </div>
 
     <script type="text/javascript" src="{{ asset('static/js/app.js') }}"></script>

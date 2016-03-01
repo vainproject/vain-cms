@@ -16,5 +16,5 @@ return [
     /*
      * Default description for all pages where no description is specified otherwise
      */
-    'description' => 'The Vain project, a World of Warcraft private server community platform.',
+    'description' => 'The Vain project, a content management platform.',
 ];

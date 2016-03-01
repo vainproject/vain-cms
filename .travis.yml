@@ -17,19 +17,8 @@ env: DB_DATABASE=vain DB_USERNAME=travis DB_PASSWORD=
 services:
   - memcached
 
-before_install:
-  - npm install -g bower
-  - npm install -g gulp
-
 install:
   - composer install --no-interaction --prefer-source
-  - npm install
-  - bower install
-
-before_script:
-  - mysql -e 'create database vain;'
-  - gulp
-  - php artisan module:migrate --force
 
 script: vendor/bin/phpunit
 

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title') @lang('meta.title.admin')</title>
+    <title>@yield('title') @lang('vain::meta.title.admin')</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
@@ -13,14 +13,14 @@
 <div class="wrapper">
 
     <header class="main-header">
-        @include('layout.admin.header')
+        @include('vain::layout.admin.header')
     </header>
 
     {{-- Left side column. contains the sidebar --}}
     <aside class="main-sidebar">
         {{-- sidebar: style can be found in sidebar.less --}}
         <section class="sidebar">
-            @include('layout.admin.sidebar')
+            @include('vain::layout.admin.sidebar')
         </section>
         {{-- /.sidebar --}}
     </aside>
@@ -37,7 +37,7 @@
     </div>{{-- /.content-wrapper --}}
 
     <footer class="main-footer">
-        @include('layout.admin.footer')
+        @include('vain::layout.admin.footer')
     </footer>
 </div>{{-- ./wrapper --}}
 

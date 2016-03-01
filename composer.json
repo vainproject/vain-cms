@@ -1,11 +1,9 @@
 {
     "name": "vainproject/vain",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel", "vain"],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "license": "Apache-2.0",
+    "description": "Project to build a laravel-driven content management system that's both, heavily extensible and easy to work with.",
     "type": "project",
+    "license": "Apache-2.0",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
@@ -26,32 +24,9 @@
         "codeclimate/php-test-reporter": "dev-master"
     },
     "autoload": {
-        "classmap": [
-            "database"
-        ],
         "psr-4": {
-            "Vain\\": "app/",
-            "Modules\\": "modules/"
+            "Vain\\": "src/Vain/"
         }
-    },
-    "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "php artisan clear-compiled",
-            "php artisan optimize"
-        ],
-        "post-update-cmd": [
-            "php artisan clear-compiled",
-            "php artisan optimize"
-        ],
-        "post-create-project-cmd": [
-            "php -r \"copy('.env.example', '.env');\"",
-            "php artisan key:generate"
-        ]
     },
     "config": {
         "preferred-install": "dist"

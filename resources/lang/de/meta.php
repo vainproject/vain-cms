@@ -16,5 +16,5 @@ return [
     /*
      * Default description for all pages where no description is specified otherwise
      */
-    'description' => 'Das Vain Projekt, eine Platform für World of Warcraft Privatserver Communities.',
+    'description' => 'Das Vain Projekt, eine Platform für Content Management Systeme.',
 ];
