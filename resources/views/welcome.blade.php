@@ -1,4 +1,4 @@
-@extends('app')
+@extends('vain::app')
 
 @section('title')
     Willkommen

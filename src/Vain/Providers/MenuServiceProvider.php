@@ -36,7 +36,7 @@ class MenuServiceProvider extends ServiceProvider
             return Menu::create('frontend');
         });
 
-        View::composer('app', function ($view) {
+        View::composer('vain::app', function ($view) {
             $handler = app('menu.frontend');
             $view->with('menu', $handler);
 
@@ -65,7 +65,7 @@ class MenuServiceProvider extends ServiceProvider
             return Menu::create('backend');
         });
 
-        View::composer('admin', function ($view) {
+        View::composer('vain::admin', function ($view) {
             $handler = app('menu.backend');
             $view->with('menu', $handler);
 

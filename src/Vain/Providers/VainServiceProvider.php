@@ -14,7 +14,11 @@ class VainServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $langPath = __DIR__.'/../../../resources/lang';
+        $this->loadTranslationsFrom($langPath, 'vain');
+
+        $viewPath = __DIR__.'/../../../resources/views';
+        $this->loadViewsFrom($viewPath, 'vain');
     }
 
     /**
@@ -33,12 +37,6 @@ class VainServiceProvider extends ServiceProvider
             'Illuminate\Contracts\Debug\ExceptionHandler',
             'Vain\Exceptions\Handler'
         );
-
-        $langPath = __DIR__.'/../../../resources/lang';
-        $this->loadTranslationsFrom($langPath, 'vain');
-
-        $viewPath = __DIR__.'/../../../resources/views';
-        $this->loadViewsFrom($viewPath, 'vain');
 
         $this->registerServiceProviders();
 
@@ -79,6 +77,7 @@ class VainServiceProvider extends ServiceProvider
         /*
          * Custom package facades
          */
+        $loader->alias('Inspiring', \Illuminate\Foundation\Inspiring::class);
         $loader->alias('Debugbar', \Barryvdh\Debugbar\Facade::class);
         $loader->alias('Socialize', \Laravel\Socialite\Facades\Socialite::class);
         $loader->alias('LocalizedCarbon', \Laravelrus\LocalizedCarbon\LocalizedCarbon::class);
