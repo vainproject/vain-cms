@@ -1,6 +1,6 @@
 <?php
 
-namespace Vain\Providers;
+namespace App\Providers;
 
 use Illuminate\Bus\Dispatcher;
 use Illuminate\Support\ServiceProvider;
@@ -18,7 +18,7 @@ class BusServiceProvider extends ServiceProvider
     {
         $dispatcher->mapUsing(function ($command) {
             return Dispatcher::simpleMapping(
-                $command, 'Vain\Jobs', 'Vain\Handlers\Jobs'
+                $command, 'App\Jobs', 'App\Handlers\Jobs'
             );
         });
     }

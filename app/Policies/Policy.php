@@ -1,6 +1,6 @@
 <?php
 
-namespace Vain\Policies;
+namespace App\Policies;
 
 abstract class Policy
 {
