@@ -38,7 +38,7 @@ class MenuServiceProvider extends ServiceProvider
     {
         $this->app->singleton('menu.builder', MenuItemBuilder::class);
 
-        view()->composer('app', function ($view) {
+        view()->composer('vain::app', function ($view) {
             // delay event trigger to the very
             // last step of menu creation
             $handler = app('menu.frontend');

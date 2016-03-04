@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0e2f88954050ba1d3148460cde79f97e",
+    "hash": "7d6839a0c24547280f7a4fefc21959bd",
     "content-hash": "f9772e815dea4e306e1b12260d2c442a",
     "packages": [
         {
@@ -3365,12 +3365,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vainproject/vain.git",
-                "reference": "89c593605c0623a31958234a4b84fc14222af9f0"
+                "reference": "ef6d63aff3f3c75f30ddb17bd5ba7a3b2be27a90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vainproject/vain/zipball/89c593605c0623a31958234a4b84fc14222af9f0",
-                "reference": "89c593605c0623a31958234a4b84fc14222af9f0",
+                "url": "https://api.github.com/repos/vainproject/vain/zipball/ef6d63aff3f3c75f30ddb17bd5ba7a3b2be27a90",
+                "reference": "ef6d63aff3f3c75f30ddb17bd5ba7a3b2be27a90",
                 "shasum": ""
             },
             "require": {
@@ -3383,8 +3383,7 @@
             },
             "require-dev": {
                 "codeclimate/php-test-reporter": "dev-master",
-                "fzaninotto/faker": "~1.4",
-                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "^3.1.4",
                 "phpunit/phpunit": "~5.0"
             },
             "type": "project",
@@ -3398,7 +3397,7 @@
                 "Apache-2.0"
             ],
             "description": "Project to build a laravel-driven content management system that's both, heavily extensible and easy to work with.",
-            "time": "2016-03-02 17:52:55"
+            "time": "2016-03-02 20:33:05"
         },
         {
             "name": "vlucas/phpdotenv",
