@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7d6839a0c24547280f7a4fefc21959bd",
-    "content-hash": "f9772e815dea4e306e1b12260d2c442a",
+    "hash": "e28c84944e35dafb4b76ef043b68669f",
+    "content-hash": "a582a3bb0fce2ba095260371de1ab31c",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1668,51 +1668,6 @@
             "time": "2015-11-28 08:27:09"
         },
         {
-            "name": "laravelrus/localized-carbon",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/LaravelRUS/localized-carbon.git",
-                "reference": "fc0905b060713c4c1ecba60edf5a479931bb2def"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/LaravelRUS/localized-carbon/zipball/fc0905b060713c4c1ecba60edf5a479931bb2def",
-                "reference": "fc0905b060713c4c1ecba60edf5a479931bb2def",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": ">=4.1.0",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Laravelrus\\LocalizedCarbon\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Aleksandr Egorov",
-                    "email": "amego2006@gmail.com"
-                }
-            ],
-            "description": "A localizable version of Carbon",
-            "keywords": [
-                "carbon",
-                "date",
-                "datetime",
-                "laravel",
-                "time"
-            ],
-            "abandoned": true,
-            "time": "2015-10-27 23:45:13"
-        },
-        {
             "name": "league/flysystem",
             "version": "1.0.17",
             "source": {
@@ -3365,12 +3320,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vainproject/vain.git",
-                "reference": "ef6d63aff3f3c75f30ddb17bd5ba7a3b2be27a90"
+                "reference": "73f2cb4a29dacd9eba5a4fd5663ac0623ae49cc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vainproject/vain/zipball/ef6d63aff3f3c75f30ddb17bd5ba7a3b2be27a90",
-                "reference": "ef6d63aff3f3c75f30ddb17bd5ba7a3b2be27a90",
+                "url": "https://api.github.com/repos/vainproject/vain/zipball/73f2cb4a29dacd9eba5a4fd5663ac0623ae49cc6",
+                "reference": "73f2cb4a29dacd9eba5a4fd5663ac0623ae49cc6",
                 "shasum": ""
             },
             "require": {
@@ -3379,7 +3334,8 @@
                 "laravel/framework": "5.1.*",
                 "laravelcollective/html": "5.1.*",
                 "php": ">=5.5.9",
-                "pingpong/modules": "2.1.*"
+                "pingpong/modules": "2.1.*",
+                "vainproject/vain-user": "dev-master"
             },
             "require-dev": {
                 "codeclimate/php-test-reporter": "dev-master",
@@ -3397,7 +3353,159 @@
                 "Apache-2.0"
             ],
             "description": "Project to build a laravel-driven content management system that's both, heavily extensible and easy to work with.",
-            "time": "2016-03-02 20:33:05"
+            "time": "2016-03-04 16:24:54"
+        },
+        {
+            "name": "vainproject/vain-blog",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vainproject/vain-blog.git",
+                "reference": "abde5b34326976c8c71a66126c740208a078acee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vainproject/vain-blog/zipball/abde5b34326976c8c71a66126c740208a078acee",
+                "reference": "abde5b34326976c8c71a66126c740208a078acee",
+                "shasum": ""
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.1.4",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Modules\\Blog\\": "src/Blog/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Greinus",
+                    "email": "florian.greinus@gmail.com"
+                }
+            ],
+            "description": "This is a blog module for the vain platform. It provides a basic posting systen and also supports comments.",
+            "time": "2016-03-04 16:34:57"
+        },
+        {
+            "name": "vainproject/vain-menu",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vainproject/vain-menu.git",
+                "reference": "258bab1dbe1eed3ae8f825c35720c5b3257dba72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vainproject/vain-menu/zipball/258bab1dbe1eed3ae8f825c35720c5b3257dba72",
+                "reference": "258bab1dbe1eed3ae8f825c35720c5b3257dba72",
+                "shasum": ""
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.1.4",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Modules\\Menu\\": "src/Menu/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Felix Rudat",
+                    "email": "voydz@hotmail.com"
+                }
+            ],
+            "description": "This is a custom menu module for the vain platform. It provides a backend panel to tailer the frontend menu to your needs.",
+            "time": "2016-03-04 16:35:43"
+        },
+        {
+            "name": "vainproject/vain-site",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vainproject/vain-site.git",
+                "reference": "d12d04b04cee86f89e94a596945475269fcfae60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vainproject/vain-site/zipball/d12d04b04cee86f89e94a596945475269fcfae60",
+                "reference": "d12d04b04cee86f89e94a596945475269fcfae60",
+                "shasum": ""
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.1.4",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Modules\\Site\\": "src/Site/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Felix Rudat",
+                    "email": "voydz@hotmail.com"
+                }
+            ],
+            "description": "This is a static page management module for the vain platform.",
+            "time": "2016-03-04 16:32:33"
+        },
+        {
+            "name": "vainproject/vain-user",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vainproject/vain-user.git",
+                "reference": "fbd6eb37941ba37614eae40c7f8bda2dadd757d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vainproject/vain-user/zipball/fbd6eb37941ba37614eae40c7f8bda2dadd757d7",
+                "reference": "fbd6eb37941ba37614eae40c7f8bda2dadd757d7",
+                "shasum": ""
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.1.4",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Modules\\User\\": "src/User/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Greinus",
+                    "email": "florian.greinus@gmail.com"
+                },
+                {
+                    "name": "Felix Rudat",
+                    "email": "voydz@hotmail.com"
+                }
+            ],
+            "description": "This is an user module for the vain platform. It handles authentification and authorization. It also provides user profile pages.",
+            "time": "2016-03-04 16:30:09"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -3876,16 +3984,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "3.2.1",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "a58f95ae76fe201b571fad3e8370a50c4368678c"
+                "reference": "fe33716763b604ade4cb442c0794f5bd5ad73004"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/a58f95ae76fe201b571fad3e8370a50c4368678c",
-                "reference": "a58f95ae76fe201b571fad3e8370a50c4368678c",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/fe33716763b604ade4cb442c0794f5bd5ad73004",
+                "reference": "fe33716763b604ade4cb442c0794f5bd5ad73004",
                 "shasum": ""
             },
             "require": {
@@ -3909,7 +4017,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2.x-dev"
+                    "dev-master": "3.3.x-dev"
                 }
             },
             "autoload": {
@@ -3935,7 +4043,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-02-18 07:31:12"
+            "time": "2016-03-03 08:49:08"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -4117,16 +4225,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.2.9",
+            "version": "5.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b12b9c37e382c096b93c3f26e7395775f59a5eea"
+                "reference": "37fa29b17b87a3e9f0a4d77c42f0aac5183b84d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b12b9c37e382c096b93c3f26e7395775f59a5eea",
-                "reference": "b12b9c37e382c096b93c3f26e7395775f59a5eea",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/37fa29b17b87a3e9f0a4d77c42f0aac5183b84d1",
+                "reference": "37fa29b17b87a3e9f0a4d77c42f0aac5183b84d1",
                 "shasum": ""
             },
             "require": {
@@ -4138,7 +4246,7 @@
                 "myclabs/deep-copy": "~1.3",
                 "php": "^5.6 || ^7.0",
                 "phpspec/prophecy": "^1.3.1",
-                "phpunit/php-code-coverage": "^3.2.1",
+                "phpunit/php-code-coverage": "^3.3.0",
                 "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": ">=1.0.6",
@@ -4187,7 +4295,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-02-19 11:43:07"
+            "time": "2016-03-03 08:52:58"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -4974,7 +5082,9 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "vainproject/vain": 20,
-        "laravelrus/localized-carbon": 20,
+        "vainproject/vain-menu": 20,
+        "vainproject/vain-blog": 20,
+        "vainproject/vain-site": 20,
         "codeclimate/php-test-reporter": 20
     },
     "prefer-stable": true,

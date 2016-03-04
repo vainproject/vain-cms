@@ -168,8 +168,6 @@ return [
          */
         Vain\Providers\VainServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
-        Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider::class,
 
     ],
 
@@ -224,9 +222,6 @@ return [
          * Custom package facades
          */
         'Debugbar'        => Barryvdh\Debugbar\Facade::class,
-        'Socialize'       => Laravel\Socialite\Facades\Socialite::class,
-        'LocalizedCarbon' => Laravelrus\LocalizedCarbon\LocalizedCarbon::class,
-        'DiffFormatter'   => Laravelrus\LocalizedCarbon\DiffFactoryFacade::class,
     ],
 
 ];

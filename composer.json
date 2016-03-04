@@ -10,9 +10,9 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "vainproject/vain": "dev-master",
-        "laravel/socialite": "~2.0",
-        "laravelrus/localized-carbon": "dev-master",
-        "baum/baum": "~1.1",
+        "vainproject/vain-menu": "dev-master",
+        "vainproject/vain-blog": "dev-master",
+        "vainproject/vain-site": "dev-master",
         "barryvdh/laravel-debugbar": "2.0.*",
         "filp/whoops": "1.1.*"
     },
