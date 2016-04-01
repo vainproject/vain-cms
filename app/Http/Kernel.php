@@ -1,6 +1,6 @@
 <?php
 
-namespace Vain\Http;
+namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -13,13 +13,13 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
-        'Vain\Http\Middleware\EncryptCookies',
+        'App\Http\Middleware\EncryptCookies',
         'Illuminate\Cookie\Middleware\EncryptCookies',
         'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
         'Illuminate\Session\Middleware\StartSession',
         'Illuminate\View\Middleware\ShareErrorsFromSession',
-        'Vain\Http\Middleware\VerifyCsrfToken',
-        'Vain\Http\Middleware\LoadUserLocale',
+        'App\Http\Middleware\VerifyCsrfToken',
+        'App\Http\Middleware\LoadUserLocale',
         'Modules\User\Http\Middleware\TrackUserActivity',
     ];
 

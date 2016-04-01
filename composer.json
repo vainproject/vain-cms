@@ -1,7 +1,7 @@
 {
-    "name": "vainproject/vain",
+    "name": "vainproject/vain-cms",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel", "vain"],
+    "keywords": ["framework", "laravel", "vain", "cms", "content", "management"],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "license": "Apache-2.0",
@@ -9,13 +9,10 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-        "laravel/socialite": "~2.0",
-        "laravelcollective/html": "5.1.*",
-        "laravelrus/localized-carbon": "dev-master",
-        "davejamesmiller/laravel-breadcrumbs": "3.*",
-        "pingpong/modules": "2.1.*",
-        "dowilcox/knp-menu-laravel": "dev-master",
-        "baum/baum": "~1.1",
+        "vainproject/vain": "dev-master",
+        "vainproject/vain-menu": "dev-master",
+        "vainproject/vain-blog": "dev-master",
+        "vainproject/vain-site": "dev-master",
         "barryvdh/laravel-debugbar": "2.0.*",
         "filp/whoops": "1.1.*"
     },
@@ -30,7 +27,7 @@
             "database"
         ],
         "psr-4": {
-            "Vain\\": "app/",
+            "App\\": "app/",
             "Modules\\": "modules/"
         }
     },

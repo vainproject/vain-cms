@@ -1,6 +1,6 @@
 <?php
 
-namespace Vain\Jobs;
+namespace App\Jobs;
 
 abstract class Command
 {

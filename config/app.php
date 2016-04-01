@@ -156,27 +156,19 @@ return [
         /*
          * Application Service Providers...
          */
-        Vain\Providers\AppServiceProvider::class,
-        Vain\Providers\AuthServiceProvider::class,
-        Vain\Providers\BusServiceProvider::class,
-        Vain\Providers\ConfigServiceProvider::class,
-        Vain\Providers\EventServiceProvider::class,
-        Vain\Providers\RouteServiceProvider::class,
-        Vain\Providers\MenuServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        App\Providers\BusServiceProvider::class,
+        App\Providers\ConfigServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
         /*
          * Package service provider
          */
-        Pingpong\Modules\ModulesServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
+        Vain\Providers\VainServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
-        Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider::class,
-        Dowilcox\KnpMenu\MenuServiceProvider::class,
-        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 
-        // in-app packages, may be excluded sometimes later
-        Vain\Packages\RealmAPI\Providers\RealmApiServiceProvider::class,
     ],
 
     /*
@@ -230,13 +222,6 @@ return [
          * Custom package facades
          */
         'Debugbar'        => Barryvdh\Debugbar\Facade::class,
-        'Socialize'       => Laravel\Socialite\Facades\Socialite::class,
-        'LocalizedCarbon' => Laravelrus\LocalizedCarbon\LocalizedCarbon::class,
-        'DiffFormatter'   => Laravelrus\LocalizedCarbon\DiffFactoryFacade::class,
-        'Menu'            => Dowilcox\KnpMenu\Facades\Menu::class,
-        'Form'            => Collective\Html\FormFacade::class,
-        'Html'            => Collective\Html\HtmlFacade::class,
-        'Breadcrumbs'     => DaveJamesMiller\Breadcrumbs\Facade::class,
     ],
 
 ];
