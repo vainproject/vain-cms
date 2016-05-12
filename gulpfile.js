@@ -7,14 +7,13 @@ var scripts_include = [
      | Vendor Javascript
      |--------------------------------------------------------------------------
      */
-    './bower_components/jquery/dist/jquery.js',
-    './bower_components/bootstrap/dist/js/bootstrap.js',
-    './bower_components/toastr/toastr.js',
-    './bower_components/jquery-treegrid/js/jquery.treegrid.js',
-    './bower_components/jquery-treegrid/js/jquery.treegrid.bootstrap3.js',
-    './bower_components/bootstrap-select/dist/js/bootstrap-select.js',
-    './bower_components/wowjs/dist/wow.js',
-    './bower_components/placeholders/dist/placeholders.js',
+    './node_modules/jquery/dist/jquery.js',
+    './node_modules/bootstrap/dist/js/bootstrap.js',
+    './node_modules/toastr/toastr.js',
+    './node_modules/jquery-treegrid/js/jquery.treegrid.js',
+    './node_modules/jquery-treegrid/js/jquery.treegrid.bootstrap3.js',
+    './node_modules/bootstrap-select/dist/js/bootstrap-select.js',
+    './node_modules/wowjs/dist/wow.js',
 
     /*
      |--------------------------------------------------------------------------
@@ -46,7 +45,7 @@ var scripts_admin_include = [
      | Vendor Javascript
      |--------------------------------------------------------------------------
      */
-    './bower_components/admin-lte/dist/js/app.js',
+    './node_modules/admin-lte/dist/js/app.js',
     './resources/assets/js/search.js'
 
     /*
@@ -83,15 +82,15 @@ elixir(function(mix) {
     // NOTE: watcher for every given script are added automatically
 
     // copy fonts
-    mix.copy('./bower_components/bootstrap/dist/fonts', 'public/static/fonts');
-    mix.copy('./bower_components/font-awesome/fonts', 'public/static/fonts');
+    mix.copy('./node_modules/bootstrap/dist/fonts', 'public/static/fonts');
+    mix.copy('./node_modules/font-awesome/fonts', 'public/static/fonts');
     mix.copy('./resources/assets/fonts', 'public/static/fonts');
 
     // copy images
     mix.copy('./resources/assets/img', 'public/static/images');
 
     // copy admin statics
-    //mix.copy('./bower_components/admin-lte/plugins', 'public/static/plugins');
+    //mix.copy('./node_modules/admin-lte/plugins', 'public/static/plugins');
 
     // versioning files
     //mix.version([

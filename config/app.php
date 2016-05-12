@@ -167,7 +167,6 @@ return [
          * Package service provider
          */
         Vain\Providers\VainServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -217,11 +216,6 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-
-        /*
-         * Custom package facades
-         */
-        'Debugbar'        => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

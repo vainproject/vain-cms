@@ -13,8 +13,7 @@
         "vainproject/vain-menu": "dev-master",
         "vainproject/vain-blog": "dev-master",
         "vainproject/vain-site": "dev-master",
-        "barryvdh/laravel-debugbar": "2.0.*",
-        "filp/whoops": "1.1.*"
+        "filp/whoops": "2.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
