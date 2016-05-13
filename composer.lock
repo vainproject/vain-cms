@@ -3318,12 +3318,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vainproject/vain.git",
-                "reference": "73f2cb4a29dacd9eba5a4fd5663ac0623ae49cc6"
+                "reference": "cc5ccd5752f0c94054aba126a92400b0bfa757ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vainproject/vain/zipball/73f2cb4a29dacd9eba5a4fd5663ac0623ae49cc6",
-                "reference": "73f2cb4a29dacd9eba5a4fd5663ac0623ae49cc6",
+                "url": "https://api.github.com/repos/vainproject/vain/zipball/cc5ccd5752f0c94054aba126a92400b0bfa757ae",
+                "reference": "cc5ccd5752f0c94054aba126a92400b0bfa757ae",
                 "shasum": ""
             },
             "require": {
@@ -3351,7 +3351,7 @@
                 "Apache-2.0"
             ],
             "description": "Project to build a laravel-driven content management system that's both, heavily extensible and easy to work with.",
-            "time": "2016-03-04 16:24:54"
+            "time": "2016-05-12 21:01:36"
         },
         {
             "name": "vainproject/vain-blog",
@@ -3359,12 +3359,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vainproject/vain-blog.git",
-                "reference": "abde5b34326976c8c71a66126c740208a078acee"
+                "reference": "0a11efaec56758e23b2919010039137c736d6c86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vainproject/vain-blog/zipball/abde5b34326976c8c71a66126c740208a078acee",
-                "reference": "abde5b34326976c8c71a66126c740208a078acee",
+                "url": "https://api.github.com/repos/vainproject/vain-blog/zipball/0a11efaec56758e23b2919010039137c736d6c86",
+                "reference": "0a11efaec56758e23b2919010039137c736d6c86",
                 "shasum": ""
             },
             "require-dev": {
@@ -3388,7 +3388,7 @@
                 }
             ],
             "description": "This is a blog module for the vain platform. It provides a basic posting systen and also supports comments.",
-            "time": "2016-03-04 16:34:57"
+            "time": "2016-05-13 05:54:11"
         },
         {
             "name": "vainproject/vain-menu",
@@ -3436,12 +3436,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vainproject/vain-site.git",
-                "reference": "d12d04b04cee86f89e94a596945475269fcfae60"
+                "reference": "b2813e14fdf1f6039b6a3a5c11b967a2c2a2ac60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vainproject/vain-site/zipball/d12d04b04cee86f89e94a596945475269fcfae60",
-                "reference": "d12d04b04cee86f89e94a596945475269fcfae60",
+                "url": "https://api.github.com/repos/vainproject/vain-site/zipball/b2813e14fdf1f6039b6a3a5c11b967a2c2a2ac60",
+                "reference": "b2813e14fdf1f6039b6a3a5c11b967a2c2a2ac60",
                 "shasum": ""
             },
             "require-dev": {
@@ -3465,7 +3465,7 @@
                 }
             ],
             "description": "This is a static page management module for the vain platform.",
-            "time": "2016-03-04 16:32:33"
+            "time": "2016-05-12 19:14:56"
         },
         {
             "name": "vainproject/vain-user",
@@ -3473,12 +3473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vainproject/vain-user.git",
-                "reference": "b3fc86b2e9f3c62bd1433a2adbc2f923ed34336c"
+                "reference": "ecf273438879861379a4058a400f36c69dcea7df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vainproject/vain-user/zipball/b3fc86b2e9f3c62bd1433a2adbc2f923ed34336c",
-                "reference": "b3fc86b2e9f3c62bd1433a2adbc2f923ed34336c",
+                "url": "https://api.github.com/repos/vainproject/vain-user/zipball/ecf273438879861379a4058a400f36c69dcea7df",
+                "reference": "ecf273438879861379a4058a400f36c69dcea7df",
                 "shasum": ""
             },
             "require": {
@@ -3510,7 +3510,7 @@
                 }
             ],
             "description": "This is an user module for the vain platform. It handles authentification and authorization. It also provides user profile pages.",
-            "time": "2016-03-04 17:02:36"
+            "time": "2016-05-13 05:53:01"
         },
         {
             "name": "vlucas/phpdotenv",
