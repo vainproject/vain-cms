@@ -4,6 +4,7 @@
 
 /public/build
 /public/static
+/public/media
 
 npm-debug.log
 .phpstorm.meta.php
