@@ -5,14 +5,6 @@
   },
   "dependencies": {
     "laravel-elixir": "^4.0.0",
-    "bootstrap": "*",
-    "bootstrap-select": "*",
-    "font-awesome": "*",
-    "admin-lte": "*",
-    "animate.css": "^3.4.0",
-    "jquery": "2.*",
-    "toastr": "*",
-    "wowjs": "~1.1.2",
-    "jquery-treegrid": "~0.3.0"
+    "vain": "file:vendor/vainproject/vain"
   }
 }
